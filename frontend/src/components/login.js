@@ -15,7 +15,7 @@ const Login = props => {
       firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     callbacks: {
-      signInSuccess: () => false
+      signInSuccess: () => console.log(firebase.auth().currentUser)
     }
   };
   return (
