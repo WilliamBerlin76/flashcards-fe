@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Lambda-School-Labs/flashcards-fe/issues"
   },
-  "homepage": "https://github.com/Lambda-School-Labs/flashcards-fe#readme"
+  "homepage": "https://github.com/Lambda-School-Labs/flashcards-fe#readme",
+  "dependencies": {
+    "react-redux": "^7.1.3"
+  }
 }
