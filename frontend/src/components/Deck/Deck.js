@@ -3,12 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
-// const mockData = [
-//     {
-//         id: 0,
-//         Title: "Fake Deck"
-//     }
-// ]
+const initialDeck = {
+    name: 'Starter Deck'
+}
+
 
 const Deck = () => {
 
