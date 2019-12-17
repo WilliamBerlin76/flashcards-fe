@@ -1,20 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 
-const initialDeck = {
-    name: 'Starter Deck'
-}
+
+// const initialDeck = [
+//     {
+//         id: 0,
+//         name: 'Starter Deck'
+//     },
+//     {
+//         id: 1,
+//         name: 'Starter Deck 2'
+//     }
+// ]
 
 
-const Deck = () => {
-
+const Deck = (props) => {
 
     return(
         <div>
-            <h1>Your Decks!</h1>
-            
+            <h1>{props.deck.name}</h1>
         </div>
     )
-}
+};
+
+export default Deck;
