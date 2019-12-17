@@ -13,12 +13,19 @@ function App() {
     <div className="App">
       <h1>Flashcards</h1>
 
-      {/* //Links here */}
+      {/* Links here */}
+      <div>
+        <Link to = "/decklist">Deck List</Link>
+      </div>
 
-      <DeckList />
 
 
-      {/* //Switch Here */}
+      {/* Switch Here */}
+      <Switch>
+        <Route exact path = "/decklist" component = {DeckList} />
+
+      </Switch>
+
     </div>
   );
 }
