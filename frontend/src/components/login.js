@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
@@ -15,7 +15,17 @@ const Login = props => {
       firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     callbacks: {
-      signInSuccess: () => console.log(firebase.auth().currentUser)
+      signInSuccess: () => {
+        if (!firebase.auth().currentUser.emailVerified) {
+          firebase
+            .auth()
+            .currentUser.sendEmailVerification()
+            .then(email => {
+              console.log(email);
+            })
+            .catch(err => console.log(err));
+        }
+      }
     }
   };
   return (
