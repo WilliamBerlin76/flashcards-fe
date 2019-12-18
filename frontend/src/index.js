@@ -10,11 +10,12 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import  { BrowserRouter as Router } from 'react-router-dom';
-import reducer from './reducers'
+import reducer from './reducers/reducer'
+
 
 const store = createStore(
     //place reducers here
-    reducer,
+    reducer, 
     (applyMiddleware(thunk, logger))
 )
 

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 //components
 import DeckList from './components/DeckList/DeckList';
-
+import Cards from './components/Cards/Cards';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
 
       {/* Links here */}
       <div>
+        <Link to = "/">Home</Link>
         <Link to = "/decklist">Deck List</Link>
       </div>
 
@@ -23,7 +24,8 @@ function App() {
       {/* Switch Here */}
       <Switch>
         <Route exact path = "/decklist" component = {DeckList} />
-
+        <Route exact path = "/cards"
+        component = {Cards} />
       </Switch>
 
     </div>

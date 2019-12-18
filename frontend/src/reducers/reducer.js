@@ -11,6 +11,18 @@ const initialState = {
             name: 'Starter Deck 2'
         }
     ],
+    cardInfo: [
+        {
+            id: 0,
+            word: 'A definition',
+            back: 'The back'
+        },
+        {
+            id: 1,
+            word: 'Another definition',
+            back: 'Another back'
+        }
+    ],
     isFetching: false,
     error: ''
 };
