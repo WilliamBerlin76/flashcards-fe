@@ -7,7 +7,9 @@ const DeckList = props => {
 
 
     return(
+       
         <div>
+            <h1>Your Decks!</h1>
             {props.deckInfo.map(deck =>(
                 <Deck key = {deck.id} deck = {deck} />
             ))}
