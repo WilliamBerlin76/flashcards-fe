@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import Cards from '../Cards/Cards'
 
 const Deck = (props) => {
 
     return(
-        <Link to = {`/cards/${props.deck.id}`} >
+        <Link to = {`/deck/${props.deck.id}/cards`} >
         <TopCard>
             <h1>{props.deck.name}</h1>
+        
             
         </TopCard>
         </Link>

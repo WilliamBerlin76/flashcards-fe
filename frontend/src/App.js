@@ -24,7 +24,7 @@ function App() {
       {/* Switch Here */}
       <Switch>
         <Route exact path = "/decklist" component = {DeckList} />
-        <Route exact path = "/cards"
+        <Route exact path = "/deck/cards"
         component = {Cards} />
       </Switch>
 
