@@ -1,28 +1,7 @@
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from '../actions';
 
 const initialState = {
-    deckInfo: [
-        {
-            id: 0,
-            name: 'Starter Deck'
-        },
-        {
-            id: 1,
-            name: 'Starter Deck 2'
-        }
-    ],
-    cardInfo: [
-        {
-            id: 0,
-            word: 'A definition',
-            back: 'The back'
-        },
-        {
-            id: 1,
-            word: 'Another definition',
-            back: 'Another back'
-        }
-    ],
+    decks: [],
     isFetching: false,
     error: ''
 };
@@ -30,9 +9,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
-        case START_FETCHING:
+        case FETCH_START:
             return {
                 ...state,
+                
                 isFetching: true,
                 error: ''
             };
@@ -41,11 +21,12 @@ const reducer = (state = initialState, action) => {
                 ...state, 
                 isFetching: false,
                 error: '',
-                deckInfo: action.payload
+                decks: action.payload
             };
         case FETCH_FAILURE:
             return {
                 ...state,
+                decks: [],
                 isFetching: false,
                 error: action.payload
             }; 
