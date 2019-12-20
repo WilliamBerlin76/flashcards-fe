@@ -41,7 +41,7 @@ function App() {
         <Link to = "/">Home</Link>
         <Link to = "/decklist">Deck List</Link>
         <Link to = '/login'>Login</Link>
-        <Link to = '/cards'>Cards</Link>
+        
       </div>
 
       {/* <>
