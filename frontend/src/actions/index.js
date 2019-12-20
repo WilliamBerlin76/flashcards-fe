@@ -40,6 +40,7 @@ export const getCards = (props) => dispatch => {
     axios
     .get(`http://localhost:5000/api/demo/I2r2gejFYwCQfqafWlVy/Biology`)
     .then(response => {
+        console.log(response)
         dispatch({ type: CARDS_SUCCESS, payload: response.data.data})
     })
     .catch(error => {

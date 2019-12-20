@@ -32,7 +32,7 @@ const Cards = props => {
             <h1>Your Cards!</h1>
             {props.error && <p>{props.error}</p>}
             {props.cards.map(card => (
-                <Card key = {card.data.deckName} card = {card}
+                <Card key = {card.id} card = {card} front = {card.data.front}
                  />
             ))}
 

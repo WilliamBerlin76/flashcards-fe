@@ -9,7 +9,7 @@ const Card = (props) => {
         // <Link to = {`/decks/cards/${props.card.id}`}>
         <div>
         {/* <h1>{props.cards.deckName}</h1> */}
-        <p>{props.cards}</p>
+        <p>{props.front}</p>
         </div>
         // </Link>
     )
