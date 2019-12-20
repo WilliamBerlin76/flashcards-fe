@@ -51,8 +51,11 @@ function App() {
       {/* Switch Here */}
       <Switch>
         <Route exact path = "/decklist" component = {DeckList} />
-        <Route exact path = '/cards/:colId/cards'
-        component = {Cards} />
+        <Route 
+        path = '/cards/:deckName/cards'
+        
+        render = {(props) =>  <Cards {...props}/>}
+         />
         <Route path='/login' component={Login} />
       </Switch>
       {/* //Links here */}

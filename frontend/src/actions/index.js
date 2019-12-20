@@ -30,17 +30,17 @@ export const getDecks = () => dispatch => {
 };
 
 //GETTING CARDS FOR DECKS
-export const getCards = (props) => dispatch => {
-
+export const getCards = (deck) => dispatch => {
+    console.log(deck)
     
+  
     
-
     dispatch({ type: FETCH_CARDS});
 
     axios
-    .get(`http://localhost:5000/api/demo/I2r2gejFYwCQfqafWlVy/Biology`)
+    .get(`http://localhost:5000/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`)
     .then(response => {
-        console.log(response)
+       
         dispatch({ type: CARDS_SUCCESS, payload: response.data.data})
     })
     .catch(error => {

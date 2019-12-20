@@ -6,10 +6,12 @@ import styled from 'styled-components';
 import { getCards } from '../actions';
 
 const Cards = props => {
-
     useEffect(() => {
-        props.getCards();
+        console.log(props.cards.data)
+        props.getCards(props.match.params.deckName);
     }, []);
+
+    
 
     if (props.isFetching) {
         return(
@@ -32,7 +34,7 @@ const Cards = props => {
             <h1>Your Cards!</h1>
             {props.error && <p>{props.error}</p>}
             {props.cards.map(card => (
-                <Card key = {card.id} card = {card} front = {card.data.front}
+                <Card key = {card.id} card = {card} front = {card.data.front} deckName = {card.deckName}
                  />
             ))}
 
@@ -43,11 +45,12 @@ const Cards = props => {
     )
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
     return{
         cards: state.cards,
         isFetching: state.isFetching,
-        error: state.error
+        error: state.error,
+        
     }
 };
 
