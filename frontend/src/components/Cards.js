@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
-import Deck from './Deck';
+import Card from './Card';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import { getDecks } from '../actions';
+import { getCards } from '../actions';
 
-
-const DeckList = props => {
+const Cards = props => {
 
     useEffect(() => {
-        props.getDecks();
+        props.getCards();
     }, []);
 
     if (props.isFetching) {
@@ -19,7 +18,7 @@ const DeckList = props => {
         //     <h2>Loading Your Decks!</h2>
         // </>
         <div>
-            <h1>Your Decks!</h1>
+            <h1>Your Cards!</h1>
                 <Loading>
                 <Loader type="ThreeDots" color="orange" height={80} width={80} />
                 </Loading>
@@ -28,22 +27,25 @@ const DeckList = props => {
     }
 
     return(
-        
+
         <div>
-            <h1>Your Decks!</h1>
+            <h1>Your Cards!</h1>
             {props.error && <p>{props.error}</p>}
-            {props.decks.map(deck =>(
-                <Deck key = {deck.id} deck = {deck} />
+            {props.cards.map(card => (
+                <Card key = {card.data.deckName} card = {card}
+                 />
             ))}
+
+
+
         </div>
-       
+        
     )
 };
 
 const mapStateToProps = state => {
-    
-    return {
-        decks: state.decks,
+    return{
+        cards: state.cards,
         isFetching: state.isFetching,
         error: state.error
     }
@@ -51,8 +53,8 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getDecks }
-)(DeckList);
+    { getCards }
+)(Cards);
 
 const Loading = styled.div`
     margin-top: 10%;

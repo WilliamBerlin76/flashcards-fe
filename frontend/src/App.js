@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 //components
 import DeckList from './components/DeckList';
-import Cards from './components/Cards/Cards';
+import Cards from './components/Cards';
 import Decklist from './components/DeckList';
 
 
@@ -41,6 +41,7 @@ function App() {
         <Link to = "/">Home</Link>
         <Link to = "/decklist">Deck List</Link>
         <Link to = '/login'>Login</Link>
+        <Link to = '/cards'>Cards</Link>
       </div>
 
       {/* <>
@@ -50,7 +51,7 @@ function App() {
       {/* Switch Here */}
       <Switch>
         <Route exact path = "/decklist" component = {DeckList} />
-        <Route exact path = "/deck/cards"
+        <Route exact path = '/cards'
         component = {Cards} />
         <Route path='/login' component={Login} />
       </Switch>

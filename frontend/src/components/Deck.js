@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Cards from './Cards/Cards'
+import Cards from './Cards';
+import { getCards } from '../actions';
+import Loader from 'react-loader-spinner';
+import { database } from 'firebase';
 
 const Deck = (props) => {
 
+    // useEffect(() => {
+    //     props.getCards();
+    // }, []);
+
     return(
-        <Link to = {`/deck/${props.deck.id}/cards`} >
+        <Link to = {`/cards/${props.deck}/cards`} >
         <TopCard>
-            <h1>{props.deck.id}</h1>
-        
+            <Words>{props.deck}</Words>
+            {/* <Cards  /> */}
             
         </TopCard>
         </Link>
@@ -27,4 +34,10 @@ const TopCard = styled.div`
     border-radius: 7px;
     margin-bottom: 5%;
     margin-left: 40%;
+
+    color: black;
+`
+
+const Words = styled.h1`
+    text-decoration: none;
 `
