@@ -38,7 +38,11 @@ const Login = props => {
     }
   };
   return (
-    <div>
+    <div className='login'>
+      <div className='text'>
+        <h2>Welcome to mNeme Flashcards!</h2>
+        <p>An effective, fun, and easy to use flashcards app</p>
+      </div>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
   );
