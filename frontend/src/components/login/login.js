@@ -2,6 +2,8 @@ import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
+import './login.scss';
+
 const Login = props => {
   const uiConfig = {
     // Popup signin flow rather than redirect flow.
@@ -21,9 +23,16 @@ const Login = props => {
             .auth()
             .currentUser.sendEmailVerification()
             .then(email => {
-              console.log(email);
+              console.log(firebase.auth().currentUser.getIdToken(true));
             })
             .catch(err => console.log(err));
+        } else {
+          firebase
+            .auth()
+            .currentUser.getIdToken(true)
+            .then(token => {
+              console.log(token);
+            });
         }
       }
     }

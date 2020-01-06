@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 
-import Login from './components/login.js';
-
-import './App.css';
+import Login from './components/login/login.js';
+import Navbar from './components/navbar/navbar.js';
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
@@ -27,7 +26,7 @@ firebase.initializeApp(config);
 function App() {
   return (
     <div className='App'>
-      <h1>Flashcards</h1>
+      <Navbar />
       {/* //Links here */}
       <Route path='/login' component={Login} />
 
