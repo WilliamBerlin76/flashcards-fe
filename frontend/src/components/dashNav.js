@@ -3,7 +3,7 @@ import React from "react";
 const DashNav = props => {
 
     return(
-        <h2>navstuff</h2>
+        <i className="fas fa-search"></i>
     )
 }
 export default DashNav;
