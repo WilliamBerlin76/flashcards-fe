@@ -40,7 +40,6 @@ export const getCards = (deck) => dispatch => {
     axios
     .get(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`)
     .then(response => {
-       
         dispatch({ type: CARDS_SUCCESS, payload: response.data.data})
     })
     .catch(error => {
