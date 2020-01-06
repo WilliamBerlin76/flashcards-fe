@@ -23,6 +23,30 @@
 
     .firebaseui-idp-list {
       width: 100%;
+
+      .firebaseui-idp-button {
+        max-width: 25rem;
+      }
+
+      .firebaseui-idp-password {
+        background-color: rgb(242, 143, 63) !important;
+      }
+    }
+
+    .firebaseui-id-submit {
+      background-color: rgb(242, 143, 63);
+
+      &:hover {
+        background-color: rgb(242, 143, 63);
+      }
+    }
+
+    .mdl-textfield__input {
+      border-color: rgb(242, 143, 63) !important;
+    }
+
+    .firebaseui-link {
+      font-size: 1.2rem;
     }
   }
 }
