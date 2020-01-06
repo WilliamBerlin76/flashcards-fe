@@ -17,7 +17,7 @@ const Dashboard = props => {
             {props.decks.map(deck => {
                 console.log(deck)
                 return(
-                    <p>{deck}</p>
+                    <p key={deck}>{deck}</p>
                 )
             })}
         </>

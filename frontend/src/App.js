@@ -4,6 +4,7 @@ import Navigation from '../src/components/navigation';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 import Dashboard from './components/dashboard';
+import Settings from './components/profileSettings';
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <h1>Flashcards</h1>
 
       {/* //Links here */}
-      <Route path="/dashboard" component={Dashboard}/>
-
+      <Route exact path="/dashboard" component={Dashboard}/>
+      <Route path="/dashboard/settings" component={Settings} />
 
 
       {/* //Switch Here */}
