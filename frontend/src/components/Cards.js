@@ -32,12 +32,14 @@ const Cards = props => {
 
         <div>
             <h1>Your Cards!</h1>
+
+            <div>
             {props.error && <p>{props.error}</p>}
             {props.cards.map(card => (
-                <Card key = {card.id} card = {card} front = {card.data.front} deckName = {card.deckName}
+                <Card key = {card.id} card = {card} front = {card.data.front} deckName = {card.deckName} back = {card.data.back}
                  />
             ))}
-
+            </div>
 
 
         </div>

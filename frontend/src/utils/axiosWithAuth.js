@@ -5,7 +5,7 @@ export const axiosWithAuth = () => {
     firebase.auth().currentUser.getIdToken(true)
         .then(token => {
             return axios.create({
-                baseURL: `http://localhost:5000`,
+                baseURL: `https://flashcards-be.herokuapp.com`,
                 headers: {
                     Authorization: token,
                     'Access-Control-Allow-Origin' : '*',

@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 //components
 import DeckList from './components/DeckList';
 import Cards from './components/Cards';
-import Decklist from './components/DeckList';
+
 
 
 let firebaseApiKey;
@@ -44,9 +44,7 @@ function App() {
         
       </div>
 
-      {/* <>
-      <Decklist />
-      </> */}
+
 
       {/* Switch Here */}
       <Switch>

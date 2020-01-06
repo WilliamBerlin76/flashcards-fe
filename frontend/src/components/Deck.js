@@ -1,22 +1,17 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Cards from './Cards';
-import { getCards } from '../actions';
-import Loader from 'react-loader-spinner';
-import { database } from 'firebase';
+
 
 const Deck = (props) => {
 
-    // useEffect(() => {
-    //     props.getCards();
-    // }, []);
+
 
     return(
         <Link to = {`/cards/${props.deck}/cards`} >
         <TopCard>
             <Words>{props.deck}</Words>
-            {/* <Cards  /> */}
+     
             
         </TopCard>
         </Link>

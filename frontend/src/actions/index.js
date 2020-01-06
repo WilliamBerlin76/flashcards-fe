@@ -20,7 +20,7 @@ export const getDecks = () => dispatch => {
     dispatch({ type: FETCH_START });
 
     axios
-    .get('http://localhost:5000/api/demo/I2r2gejFYwCQfqafWlVy')
+    .get('https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy')
     .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data})
     })
@@ -38,7 +38,7 @@ export const getCards = (deck) => dispatch => {
     dispatch({ type: FETCH_CARDS});
 
     axios
-    .get(`http://localhost:5000/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`)
+    .get(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`)
     .then(response => {
        
         dispatch({ type: CARDS_SUCCESS, payload: response.data.data})
