@@ -1,5 +1,5 @@
-import React from 'react';
-import { bool } from 'prop-types';
+import React from './node_modules/react';
+import { bool } from './node_modules/prop-types';
 import { StyledMenu } from './Menu.styled';
 
 const Menu = ({ open, ...props }) => {
