@@ -7,7 +7,12 @@
         width: 100%;
         justify-content: space-around;
         font-size: .9rem;
-        font-weight: 300
+        font-weight: 300;
+        span{
+            &:hover{
+                cursor: pointer
+            }
+        }
     }
     .studied-container{
         display: flex;
@@ -29,6 +34,11 @@
 .decks-section{
     width: 90%;
     margin: 30px auto;
+    span{
+        &:hover{
+            cursor: pointer;
+        }
+    }
     .decks-selectors{
         display: flex;
         justify-content: space-between;
@@ -37,6 +47,9 @@
         border: 0.5px solid #F66E00;
         border-radius: 4px;
         margin: 20px auto;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
 
@@ -49,4 +62,7 @@
     background: #F66E00;
     border: 2px solid #F66E00;
     border-radius: 23px;
+    &:hover{
+        cursor: pointer;
+    }
 }
