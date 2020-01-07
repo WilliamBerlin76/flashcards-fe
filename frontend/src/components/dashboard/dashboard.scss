@@ -1,0 +1,31 @@
+.study-data{
+    height: 28vh;
+    .timeline-selectors{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .studied-container{
+        display: flex;
+        justify-content: space-evenly;
+        .numcard{
+            margin-top: 28px;
+            p{
+                line-height: 5px;
+            }
+            .bignum{
+                font-size: 2.5rem
+            }
+        }
+       
+    }
+}
+
+.decks-section{
+    width: 90%;
+    margin: 0 auto;
+    .decks-selectors{
+        display: flex;
+        justify-content: space-between;
+    }
+}

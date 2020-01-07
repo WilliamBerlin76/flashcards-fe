@@ -1,15 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import DashNav from '../dashNav/dashNav';
-import { getDecks } from '../../actions';
+import { getDecks, getCards } from '../../actions';
 import { connect } from 'react-redux';
+import './dashboard.scss';
 
 const Dashboard = props => {
-    
-    useEffect(() => {
-       props.getDecks()  
-    }, [])
-    
+    const deckArr = ['Chemistry', 'Biology'];
+    // useEffect(() => {
+    //     props.getDecks();
+    // }, []);
+
+    // props.decks.map(item => {
+    //     console.log('in map', item)
+    //     props.getCards(item)
+    // });
+
+    // props.decks.map(item => {
+    //     console.log('map', item)
+    //     deckArr.push(item)
+    // })
+
+    // deckArr.map(item => {
+    //     props.getCards(item)
+    // })
+
+    // props.cards.map(item => {
+    //     console.log('HEREHERE', item)
+    // })
+    console.log('DECKARR', deckArr)
     return(
         <>
             <DashNav/>
@@ -20,17 +39,33 @@ const Dashboard = props => {
                     <span>Lifetime</span>
                 </div>
                 <div className='studied-container'>
-                    <div className='numcard'></div>
-                    <h3 className='bignum'>123</h3>
+                    <div className='numcard'>
+                        <p className='bignum'>123</p>
+                        <p>Studied</p>
+                    </div>
+                    <div className='numcard'>
+                        <p className='bignum'>123</p>
+                        <p>Mastered</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className='decks-section'>
+                <div className='decks-selectors'>
+                    <span>Recent Decks</span>
+                    <span>All Decks</span>
                 </div>
             </section>
             
-            {props.decks.map(deck => {
-                console.log(deck)
+            {deckArr.map(item => { 
                 return(
-                    <p key={deck}>{deck}</p>
+                    <div className='deck-card'>
+                        <h3 key={item}>{item}</h3>
+                        <p>5 cards</p>
+                    </div>
                 )
             })}
+            <button>Create</button>
         </>
     )
 };
@@ -38,6 +73,7 @@ const Dashboard = props => {
 const mapStateToProps = state => {
 
     return {
+        cards: state.cards,
         decks: state.decks,
         isFetching: state.isFetching,
         error: state.error
@@ -46,5 +82,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getDecks }
+    { getDecks, getCards }
 )(Dashboard);
