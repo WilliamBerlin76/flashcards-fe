@@ -6,6 +6,9 @@ import { Menu } from './components/Menu';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import FocusLock from 'react-focus-lock';
 
+import Dashboard from './components/dashboard/dashboard';
+import Settings from './components/profileSettings/profileSettings';
+
 function App() {
   const [open, setOpen] = useState(false);
   const node = useRef();
@@ -22,8 +25,8 @@ function App() {
       <h1>Flashcards</h1>
 
       {/* //Links here */}
-
-
+      <Route exact path="/dashboard" component={Dashboard}/>
+      <Route path="/dashboard/settings" component={Settings} />
 
 
       {/* //Switch Here */}
