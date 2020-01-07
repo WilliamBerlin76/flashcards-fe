@@ -1,5 +1,7 @@
 .study-data{
-    height: 28vh;
+    height: 25vh;
+    background: #F66E00;
+    color: #FAFAFA;
     .timeline-selectors{
         display: flex;
         width: 100%;
@@ -9,12 +11,13 @@
         display: flex;
         justify-content: space-evenly;
         .numcard{
-            margin-top: 28px;
+            margin-top: 23px;
             p{
                 line-height: 5px;
             }
             .bignum{
-                font-size: 2.5rem
+                font-family: 'Roboto Condensed';
+                font-size: 2.7rem
             }
         }
        
@@ -23,9 +26,25 @@
 
 .decks-section{
     width: 90%;
-    margin: 0 auto;
+    margin: 30px auto;
     .decks-selectors{
         display: flex;
         justify-content: space-between;
     }
+    .deck-card{
+        border: 0.5px solid #F66E00;
+        border-radius: 4px;
+        margin: 20px auto;
+    }
+}
+
+.bottom-button{
+    font-weight: bold;
+    font-size: 1.2rem;
+    height: 38px;
+    width: 90%;
+    color: #FCFCFC;
+    background: #F66E00;
+    border: 2px solid #F66E00;
+    border-radius: 23px;
 }

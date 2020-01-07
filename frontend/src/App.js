@@ -9,7 +9,6 @@ import Settings from './components/profileSettings/profileSettings';
 function App() {
   return (
     <div className="App">
-      <h1>Flashcards</h1>
 
       {/* //Links here */}
       <Route exact path="/dashboard" component={Dashboard}/>

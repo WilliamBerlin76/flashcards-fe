@@ -1,4 +1,5 @@
 import React from "react";
+import './dashNav.scss'
 
 const DashNav = props => {
 

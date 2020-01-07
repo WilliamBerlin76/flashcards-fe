@@ -55,17 +55,17 @@ const Dashboard = props => {
                     <span>Recent Decks</span>
                     <span>All Decks</span>
                 </div>
-            </section>
             
-            {deckArr.map(item => { 
-                return(
-                    <div className='deck-card'>
-                        <h3 key={item}>{item}</h3>
-                        <p>5 cards</p>
-                    </div>
-                )
-            })}
-            <button>Create</button>
+                {deckArr.map(item => { 
+                    return(
+                        <div className='deck-card'>
+                            <h3 key={item}>{item}</h3>
+                            <p>5 cards</p>
+                        </div>
+                    )
+                })}
+            </section>
+            <button className='bottom-button'>Create</button>
         </>
     )
 };
