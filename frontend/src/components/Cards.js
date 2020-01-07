@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
 import { getCards } from '../actions';
+import { Link } from 'react-router-dom';
+
 
 const Cards = props => {
     useEffect(() => {
@@ -11,6 +13,9 @@ const Cards = props => {
         props.getCards(props.match.params.deckName);
     }, []);
 
+    // let cardShown = props.cards.filter(card => {
+    //     return card.id === card[currentCard].id
+    // })
     
 
     if (props.isFetching) {
@@ -33,6 +38,7 @@ const Cards = props => {
         <div>
             <h1>Your Cards!</h1>
 
+
             <div>
             {props.error && <p>{props.error}</p>}
             {props.cards.map(card => (
@@ -40,6 +46,7 @@ const Cards = props => {
                  />
             ))}
             </div>
+
 
 
         </div>

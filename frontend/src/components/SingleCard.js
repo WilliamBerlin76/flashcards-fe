@@ -1,16 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import './Card.css'
+import Card from './Card';
 import ReactCardFlip from 'react-card-flip';
 
 
 
-class Card extends React.Component {
+class SingleCard extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             isFlipped: false,
+
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -22,13 +22,42 @@ class Card extends React.Component {
         }))
     };
 
+    // goRight = () => {
+    //     let { currentCard, cards } = this.state;
+    //     let index = currentCard;
+    //     if (currentCard >= cards.length -1) {
+    //         index = 0;
+    //     } else {
+    //         index++;
+    //     }
+    //     this.setState({
+    //         currentCard: index
+    //     })
+    // };
+
+    // goLeft = () => {
+    //     let { currentCard, cards } = this.state;
+    //     let index = currentCard;
+    //     if (currentCard <= 0) {
+    //         index = cards.length - 1;
+    //     } else {
+    //         index--;
+    //     }
+    //     this.setState({
+    //         currentCard: index
+    //     })
+    // };
+
     render() {
 
         return (
             
          
            <>
-
+         
+         
+             
+           
             <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
         
                     <div className = "card__face card__face--front">
@@ -41,38 +70,16 @@ class Card extends React.Component {
         
             </ReactCardFlip>
           
+            {/* <SingleCard
+                cards = {cards}
+                currentCard = {currentCard}
+                previous = {this.goLeft}
+                next = {this.goRight}
+            /> */}
 
           </>
         )
     }
 }
 
-// const Card = (props) => {
-
-
-//     return(
-      
-//         <div id = "card">
-        
-//             <div className = "card__face card__face--front">
-//             {props.front}
-//             </div>
-
-//             <div className = 'card__face card__face--back'>
-//                 <p>{props.back}</p>
-//             </div>
-
-//         </div>
-  
-//     )
-// };
-
-
-export default Card;
-
-// const Cardcolor = styled.div`
-//     background-color: grey;
-//     box-sizing: border-box;
-//     margin-left: 10%;
-//     margin-right: 16%; 
-// `
+export default SingleCard;
