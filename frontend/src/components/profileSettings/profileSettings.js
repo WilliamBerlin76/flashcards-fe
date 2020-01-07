@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DashNav from './dashNav';
+import DashNav from '../dashNav/dashNav';
 
 const Settings = props => {
     const [preferences, setPreferences] = useState({});

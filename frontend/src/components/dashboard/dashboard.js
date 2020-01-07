@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import DashNav from './dashNav';
-import { getDecks } from '../actions';
+import DashNav from '../dashNav/dashNav';
+import { getDecks } from '../../actions';
 import { connect } from 'react-redux';
 
 const Dashboard = props => {
@@ -13,7 +13,18 @@ const Dashboard = props => {
     return(
         <>
             <DashNav/>
-            <h2>Dashboard</h2>
+            <section className='study-data'>
+                <div className='timeline-selectors'> 
+                    <span>Today</span>
+                    <span>This Week</span>
+                    <span>Lifetime</span>
+                </div>
+                <div className='studied-container'>
+                    <div className='numcard'></div>
+                    <h3 className='bignum'>123</h3>
+                </div>
+            </section>
+            
             {props.decks.map(deck => {
                 console.log(deck)
                 return(
