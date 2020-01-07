@@ -3,6 +3,28 @@ import DashNav from './dashNav';
 
 const Settings = props => {
     const [preferences, setPreferences] = useState({});
+
+    const nonCheckChange = e => {
+        setPreferences({
+            ...preferences,
+            [e.target.name]: e.target.value
+        });
+        console.log(preferences)
+    };
+
+    const radioChange = e => {
+        setPreferences({
+            ...preferences,
+            [e.target.name]: e.target.value
+        })
+        console.log(preferences)
+    };
+
+    const submitForm = e => {
+        e.preventDefault();
+        console.log(preferences)
+    }
+
     return(
         <>
         <div className="settings-header-container">
@@ -13,55 +35,94 @@ const Settings = props => {
         <form className='profile-form'>
             <p>Which subjects do you use flashcards for most often?</p>
                 <input 
-                    type='text'    
+                    type='text'
+                    name='favSubjects'
+                    value={preferences.subjects}
+                    onChange={nonCheckChange}    
                 />
 
             <p>Do you prefer studying on a mobile or desktop device?</p>    
                 <input
                     type='radio'
+                    name='MobileOrDesktop'
+                    value='Mobile'
+                    onChange={radioChange}
                 />
                     <span>Mobile</span>
                 <input
                     type='radio'
+                    name='MobileOrDesktop'
+                    value='Desktop'
+                    onChange={radioChange}
                 />
                     <span>Desktop</span>
 
             <p>Do you prefer to study by</p>
-                <select name='technique' placeholder='Please select one'>
-                    <option>hi</option>
-                    <option>hi</option>
-                    <option>hi</option>
-                    <option>hi</option>
+                <select name='technique'
+                        onChange={nonCheckChange}
+                >
+                <option hidden="">Please select one</option>
+                    <option
+                        value='hi'
+                    >hi</option>
+                    <option
+                        value='hello'
+                    >hello</option>
+                    <option
+                        value='hey' 
+                    >hey</option>
                 </select>
 
             <p>How frequently do you want to study?</p>    
-                <select name='frequency' placeholder='Please select one'>
-                    <option>hi</option>
-                    <option>hi</option>
-                    <option>hi</option>
-                    <option>hi</option>
+                <select name='study-frequency'
+                        onChange={nonCheckChange}
+                >
+                    <option hidden="">Please select one</option>
+                    <option
+                        value='hi'
+                    >hi</option>
+                    <option
+                        value='hello'
+                    >hello</option>
+                    <option
+                        value='hey' 
+                    >hey</option>
                 </select>
 
             <p>How often would you like to recieve notifications?</p>
-                <select name='notification-frequency' placeholder='Please select one'>
-                    <option>hi</option>
-                    <option>hi</option>
-                    <option>hi</option>
-                    <option>hi</option>
+                <select name='notification-frequency'
+                        onChange={nonCheckChange}
+                >
+                    <option hidden="">Please select one</option>
+                    <option
+                        value='hi'
+                    >hi</option>
+                    <option
+                        value='hello'
+                    >hello</option>
+                    <option
+                        value='hey' 
+                    >hey</option>
                 </select>
             
             <p>Do you prefer to study from decks that are</p>
                 <input 
-                    type='radio'    
+                    type='radio'
+                    name='customOrPremade'
+                    value='pre-made'
+                    onChange={radioChange}    
                 />
                     <span>Pre-made</span>
                 <input
                     type='radio'
+                    name='customOrPremade'
+                    value='custom'  
+                    onChange={radioChange}
                 />
                     <span>Custom</span>
         </form>
 
-        <button>Save</button>
+        <button onClick={submitForm}>Save</button>
         </>
     )
 }
