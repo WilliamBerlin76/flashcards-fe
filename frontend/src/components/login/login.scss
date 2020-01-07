@@ -42,7 +42,7 @@
     }
 
     .mdl-textfield__input {
-      border-color: rgb(242, 143, 63) !important;
+      outline-color: rgb(242, 143, 63) !important;
     }
 
     .firebaseui-link {
@@ -53,6 +53,10 @@
       strong {
         font-size: 1.6rem !important;
       }
+    }
+
+    .mdl-textfield__label:after {
+      background-color: rgb(242, 143, 63) !important;
     }
   }
 }
