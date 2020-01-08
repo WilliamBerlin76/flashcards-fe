@@ -1,17 +1,19 @@
 import axios from 'axios';
-
+import firebase from 'firebase';
 
 const axiosWithAuth = () => {
-
-    const token = localStorage.getItem('token');
-
-    return axios.create({
+  firebase
+    .auth()
+    .currentUser.getIdToken(true)
+    .then(token => {
+      return axios.create({
+        baseURL: `change to deployed be`,
         headers: {
-            'Content-Type': 'application.json',
-            'Authorization': `${token}`,
-        },
-    });
+          Authorization: token,
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+        }
+      });
+    })
+    .catch(err => console.log(err));
 };
-
-export default axiosWithAuth;
-

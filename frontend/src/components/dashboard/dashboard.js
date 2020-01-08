@@ -1,34 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import DashNav from '../dashNav/dashNav';
+import DeckCards from './deckcards/deckcards.js';
 import { getDecks, getCards } from '../../actions';
 import { connect } from 'react-redux';
 import './dashboard.scss';
 
 const Dashboard = props => {
-    const deckArr = ['Chemistry', 'Biology'];
-    // useEffect(() => {
-    //     props.getDecks();
-    // }, []);
+    const [deckArr, setDeckArr] = useState([]);
+    useEffect(() => {
+        props.getDecks();
+    }, []);
 
-    // props.decks.map(item => {
-    //     console.log('in map', item)
-    //     props.getCards(item)
-    // });
+    useEffect(() => {
+        setDeckArr(props.decks)
+    }, [props.decks])
 
-    // props.decks.map(item => {
-    //     console.log('map', item)
-    //     deckArr.push(item)
-    // })
-
-    // deckArr.map(item => {
-    //     props.getCards(item)
-    // })
-
-    // props.cards.map(item => {
-    //     console.log('HEREHERE', item)
-    // })
-    console.log('DECKARR', deckArr)
     return(
         <>
             <DashNav/>
@@ -55,17 +42,14 @@ const Dashboard = props => {
                     <span>Recent Decks</span>
                     <span>All Decks</span>
                 </div>
-            </section>
             
-            {deckArr.map(item => { 
-                return(
-                    <div className='deck-card'>
-                        <h3 key={item}>{item}</h3>
-                        <p>5 cards</p>
-                    </div>
-                )
-            })}
-            <button>Create</button>
+                {deckArr.map(item => { 
+                    return(
+                        <DeckCards key={item} deckName={item} />
+                    )
+                })}
+            </section>
+            <button className='bottom-button'>Create</button>
         </>
     )
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DashNav from '../dashNav/dashNav';
-
+import './profileSettings.scss'
 const Settings = props => {
     const [preferences, setPreferences] = useState({});
 
@@ -30,11 +30,12 @@ const Settings = props => {
         <div className="settings-header-container">
             <DashNav />
             <h2>name here</h2>
-            <img url="picture" />
+            <img url="picture" alt="profile pic"/>
         </div>
         <form className='profile-form'>
             <p>Which subjects do you use flashcards for most often?</p>
                 <input 
+                    className='subject-input'
                     type='text'
                     name='favSubjects'
                     value={preferences.subjects}
@@ -63,14 +64,20 @@ const Settings = props => {
                 >
                 <option hidden="">Please select one</option>
                     <option
-                        value='hi'
-                    >hi</option>
+                        value='Listening'
+                    >Listening</option>
                     <option
-                        value='hello'
-                    >hello</option>
+                        value='Doing'
+                    >Doing</option>
                     <option
-                        value='hey' 
-                    >hey</option>
+                        value='Reading' 
+                    >Reading</option>
+                    <option
+                        value='Writing' 
+                    >Writing</option>
+                    <option
+                        value='Other' 
+                    >Other</option>
                 </select>
 
             <p>How frequently do you want to study?</p>    
@@ -79,14 +86,26 @@ const Settings = props => {
                 >
                     <option hidden="">Please select one</option>
                     <option
-                        value='hi'
-                    >hi</option>
+                        value='Once a day'
+                    >Once a day</option>
                     <option
-                        value='hello'
-                    >hello</option>
+                        value='Twice a Day'
+                    >Twice a day</option>
                     <option
-                        value='hey' 
-                    >hey</option>
+                        value='Once a week' 
+                    >Once a week</option>
+                    <option
+                        value='Twice a week' 
+                    >Twice a week</option>
+                    <option
+                        value='Three times a week' 
+                    >Three times a week</option>
+                    <option
+                        value='Everyday' 
+                    >Everyday</option>
+                    <option
+                        value='Other' 
+                    >Other</option>
                 </select>
 
             <p>How often would you like to recieve notifications?</p>
@@ -95,14 +114,17 @@ const Settings = props => {
                 >
                     <option hidden="">Please select one</option>
                     <option
-                        value='hi'
-                    >hi</option>
+                        value="When I haven't met my goal in a day"
+                    >When I haven't met my goal in a day</option>
                     <option
-                        value='hello'
-                    >hello</option>
+                        value="When I haven't met my goal in a week"
+                    >When I haven't met my goal in a week</option>
                     <option
-                        value='hey' 
-                    >hey</option>
+                        value='Everyday' 
+                    >Everyday</option>
+                    <option
+                        value="Don't send me notifications"
+                    >Don't send me notifications</option>
                 </select>
             
             <p>Do you prefer to study from decks that are</p>
