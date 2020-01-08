@@ -1,4 +1,4 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, CARDS_FAILURE } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, CARDS_FAILURE, NEXT_CARD } from '../actions';
 
 const initialState = {
     decks: [],
@@ -47,10 +47,16 @@ const reducer = (state = initialState, action) => {
         case CARDS_FAILURE: 
             return {
                 ...state, 
-                cards: [],
+                cards: [], 
                 isFetching: false,
                 error: action.payload
-            }
+            };
+        // case NEXT_CARD: 
+        //     return {
+        //         ...state,
+        //         cards: state.cards.map
+
+        //     }
         
         default: return state;
     }

@@ -1,29 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
 import { getCards } from '../actions';
-import { Link } from 'react-router-dom';
 
 
 const Cards = props => {
+    const [currentCard, setCurrentCard] = useState(0)
+
     useEffect(() => {
         console.log(props.cards.data)
         props.getCards(props.match.params.deckName);
     }, []);
 
-    // let cardShown = props.cards.filter(card => {
-    //     return card.id === card[currentCard].id
-    // })
-    
 
-    if (props.isFetching) {
+
+ 
+    
+    const goNext = () => {
+    let index = currentCard;
+        if(currentCard >= props.cards.length -1) {
+            setCurrentCard(0);
+        } else {
+            setCurrentCard(index+1)
+            console.log(currentCard)
+        }
+    };
+
+    const goPrev = () => {
+        let index = currentCard;
+            if(currentCard <= 0) {
+                setCurrentCard( props.cards.length - 1)
+            } else {
+                setCurrentCard(index-1)
+            }
+    };
+
+    if (!props.cards) {
         return(
-        // <>
-        //     <h1>Your Decks!</h1>
-        //     <h2>Loading Your Decks!</h2>
-        // </>
+
         <div>
             <h1>Your Cards!</h1>
                 <Loading>
@@ -31,7 +47,7 @@ const Cards = props => {
                 </Loading>
         </div>
         ) 
-    }
+    } else {
 
     return(
 
@@ -41,17 +57,18 @@ const Cards = props => {
 
             <div>
             {props.error && <p>{props.error}</p>}
-            {props.cards.map(card => (
-                <Card key = {card.id} card = {card} front = {card.data.front} deckName = {card.deckName} back = {card.data.back}
+
+                 <Card key = {props.cards.id} card = {props.cards[currentCard]} goNext = {goNext} goPrev = {goPrev}
                  />
-            ))}
+
             </div>
 
-
+          
 
         </div>
         
     )
+}
 };
 
 const mapStateToProps = (state, props) => {

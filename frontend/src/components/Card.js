@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import './Card.css'
 import ReactCardFlip from 'react-card-flip';
-
-
+import Loader from 'react-loader-spinner';
+import styled from 'styled-components';
 
 class Card extends React.Component {
     constructor(props) {
@@ -11,9 +11,13 @@ class Card extends React.Component {
 
         this.state = {
             isFlipped: false,
+
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleGoNext = this.handleGoNext.bind(this);
+        this.handleGoPrev = this.handleGoPrev.bind(this);
     }
+
 
     handleClick(e) {
         e.preventDefault();
@@ -22,7 +26,31 @@ class Card extends React.Component {
         }))
     };
 
+    handleGoNext = (e) => {
+        console.log(e)
+        e.preventDefault();
+        this.props.goNext();
+        this.setState(prevState => ({
+            isFlipped: false
+        }))
+    };
+
+    handleGoPrev = (e) => {
+        console.log(e)
+        e.preventDefault();
+        this.props.goPrev();
+        this.setState(prevState => ({
+            isFlipped: false
+        }))
+    };
     render() {
+        if (!this.props.card) {
+            return                 <Loading>
+            <Loader type="ThreeDots" color="orange" height={80} width={80} />
+            </Loading>
+        } else {
+
+        
 
         return (
             
@@ -32,47 +60,29 @@ class Card extends React.Component {
             <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
         
                     <div className = "card__face card__face--front">
-                        <button className = "cardstyle" onClick = {this.handleClick}>{this.props.front}</button>
+                        <button className = "cardstyle" onClick = {this.handleClick}>{this.props.card.data.front}</button>
                     </div>
         
                     <div className = 'card__face card__face--back'>
-                        <button className = "cardstyle" onClick = {this.handleClick}>{this.props.back}</button>
+                        <button className = "cardstyle" onClick = {this.handleClick}>{this.props.card.data.back}</button>
                     </div>
         
+                   
             </ReactCardFlip>
-          
+
+            <button onClick = {this.handleGoPrev}>PREVIOUS</button>
+            <button onClick = {this.handleGoNext}>NEXT</button>
 
           </>
         )
     }
 }
-
-// const Card = (props) => {
-
-
-//     return(
-      
-//         <div id = "card">
-        
-//             <div className = "card__face card__face--front">
-//             {props.front}
-//             </div>
-
-//             <div className = 'card__face card__face--back'>
-//                 <p>{props.back}</p>
-//             </div>
-
-//         </div>
-  
-//     )
-// };
+};
 
 
 export default Card;
 
-// const Cardcolor = styled.div`
-//     background-color: grey;
-//     box-sizing: border-box;
-//     margin-left: 10%;
-//     margin-right: 16%; 
-// `
+const Loading = styled.div`
+    margin-top: 10%;
+`
+

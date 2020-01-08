@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 //components
 import DeckList from './components/DeckList';
 import Cards from './components/Cards';
-import SingleCard from './components/SingleCard';
+
 
 
 let firebaseApiKey;
@@ -57,9 +57,7 @@ function App() {
 
         <Route path='/login' component={Login} />
 
-        <Route path = '/:deckName/card' 
-        render = {(props) => <SingleCard {...props} />} 
-        />
+
 
       </Switch>
       {/* //Links here */}
