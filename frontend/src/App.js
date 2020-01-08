@@ -28,7 +28,7 @@ function App() {
     <div className='App'>
       <Navbar />
       {/* //Links here */}
-      <Route path='/login' component={Login} />
+      <Route path='/login' render={props => <Login {...props} />} />
 
       {/* //Switch Here */}
     </div>

@@ -9,7 +9,7 @@ const Login = props => {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    // signInSuccessUrl: '/signedIn',
+    // signInSuccessUrl: '/dashboard',
     // We will display Google and Facebook as auth providers.
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -24,6 +24,7 @@ const Login = props => {
             .currentUser.sendEmailVerification()
             .then(email => {
               console.log(firebase.auth().currentUser.getIdToken(true));
+              props.history.push('/dashboard');
             })
             .catch(err => console.log(err));
         } else {
