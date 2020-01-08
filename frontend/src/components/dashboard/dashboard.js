@@ -16,24 +16,6 @@ const Dashboard = props => {
         setDeckArr(props.decks)
     }, [props.decks])
 
-    // props.decks.map(item => {
-    //     console.log('in map', item)
-    //     deckArr.push(item)
-    // });
-
-    // props.decks.map(item => {
-    //     console.log('map', item)
-    //     deckArr.push(item)
-    // })
-
-    // deckArr.map(item => {
-    //     props.getCards(item)
-    // })
-
-    // props.cards.map(item => {
-    //     console.log('HEREHERE', item)
-    // })
-    // console.log('DECKARR', deckArr)
     return(
         <>
             <DashNav/>

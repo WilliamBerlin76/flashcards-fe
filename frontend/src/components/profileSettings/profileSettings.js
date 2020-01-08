@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DashNav from '../dashNav/dashNav';
-
+import './profileSettings.scss'
 const Settings = props => {
     const [preferences, setPreferences] = useState({});
 
@@ -30,11 +30,12 @@ const Settings = props => {
         <div className="settings-header-container">
             <DashNav />
             <h2>name here</h2>
-            <img url="picture" />
+            <img url="picture" alt="profile pic"/>
         </div>
         <form className='profile-form'>
             <p>Which subjects do you use flashcards for most often?</p>
                 <input 
+                    className='subject-input'
                     type='text'
                     name='favSubjects'
                     value={preferences.subjects}
