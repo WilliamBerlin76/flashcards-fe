@@ -53,10 +53,3 @@ export const getCards = (deck) => dispatch => {
     })
 };
 
-export const beginStudy = (deck) => ({
-    type: BEGIN_STUDY
-});
-
-export const nextCard = () => ({
-    type: NEXT_CARD
-});

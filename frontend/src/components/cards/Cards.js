@@ -3,7 +3,7 @@ import Card from './Card';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import { getCards } from '../actions';
+import { getCards } from '../../actions';
 
 
 const Cards = props => {

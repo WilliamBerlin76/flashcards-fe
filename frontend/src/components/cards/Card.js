@@ -11,7 +11,8 @@ class Card extends React.Component {
 
         this.state = {
             isFlipped: false,
-
+            flipSpeedBackToFront: 0.001,
+            flipSpeedFrontToBack: 0.001
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleGoNext = this.handleGoNext.bind(this);

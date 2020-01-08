@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 //components
 import DeckList from './components/DeckList';
-import Cards from './components/Cards';
+import Cards from './components/cards/Cards';
 
 
 
