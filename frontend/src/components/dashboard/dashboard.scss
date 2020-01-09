@@ -14,40 +14,30 @@
       }
     }
   }
-  .studied-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 2rem;
-    padding-top: 3.5rem;
-    .numcard {
-      margin-top: 23px;
-      p {
-        line-height: 5px;
-      }
-      .bignum {
-        font-family: 'Roboto Condensed';
-        font-size: 2.7rem;
-      }
+
+  .studied {
+    margin: 1rem 2rem;
+
+    .numbers {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Roboto Condensed';
+      height: 155px;
 
       .studied-number {
-        margin-bottom: 3.5rem;
-        text-align: left;
-        transform: translateY(2.5rem) translateX(-0.2rem);
         font-size: 1.5rem;
+        padding-top: 8rem;
       }
 
       .mastered-number {
-        margin-bottom: 2rem;
-        margin-top: 3.4rem;
-        padding-right: 0.2rem;
         font-size: 10rem;
-        transform: translateY(-2rem);
-        color: rgb(245, 141, 57);
+        opacity: 40%;
       }
+    }
 
-      .mastered-text {
-        text-align: right;
-      }
+    .text {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
