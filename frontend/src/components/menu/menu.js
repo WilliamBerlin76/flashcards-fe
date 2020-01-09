@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import { bool } from './node_modules/prop-types';
+import React from 'react';
+import { bool } from 'prop-types';
 import { StyledMenu } from './Menu.styled';
 
 const Menu = ({ open, ...props }) => {
@@ -11,15 +11,15 @@ const Menu = ({ open, ...props }) => {
         <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
             <a href="/" tabIndex={tabIndex}>
                 <span aria-hidden="true">💁🏻‍♂️</span>
-                About us
+                placeholder
       </a>
             <a href="/" tabIndex={tabIndex}>
                 <span aria-hidden="true">💸</span>
-                Pricing
+                placeholder
         </a>
             <a href="/" tabIndex={tabIndex}>
                 <span aria-hidden="true">📩</span>
-                Contact
+                placeholder
         </a>
         </StyledMenu>
     )
