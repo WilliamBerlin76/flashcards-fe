@@ -23,7 +23,6 @@ const Settings = props => {
       ...preferences,
       [e.target.name]: e.target.value
     });
-    console.log(preferences);
   };
 
   const radioChange = e => {
@@ -31,14 +30,13 @@ const Settings = props => {
       ...preferences,
       [e.target.name]: e.target.value
     });
-    console.log(preferences);
   };
 
   const submitForm = e => {
     e.preventDefault();
     axios.put(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`, {changes: preferences})
       .then(res => {
-        console.log('put res', res)
+        props.history.push('/dashboard')
       })
       .catch(err => {
         console.log('put err', err)
