@@ -3,6 +3,7 @@
 # the publish directory is the folder where the production build lives.
 # build command for netlify is npm run build or yarn build.
 [build]
+  command = "npm run build"
   base = "frontend/"
   publish = "frontend/build/"
 
