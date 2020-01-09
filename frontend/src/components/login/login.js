@@ -23,7 +23,7 @@ const Login = props => {
             .auth()
             .currentUser.sendEmailVerification()
             .then(email => {
-              props.history.push('/dashboard');
+              props.history.push('/dashboard/settings');
             })
             .catch(err => console.log(err));
         } else {

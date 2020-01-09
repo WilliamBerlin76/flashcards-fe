@@ -5,7 +5,7 @@ import Login from './components/login/login.js';
 import Navbar from './components/navbar/navbar.js';
 import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/profileSettings/profileSettings';
-import DashNav from './components/dashNav/dashNav'
+import DashNav from './components/dashNav/dashNav';
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
@@ -29,9 +29,8 @@ firebase.initializeApp(config);
 function App() {
   return (
     <div className='App'>
-      
       {/* //Links here */}
-      <DashNav/>
+      <DashNav />
       <Route path='/login' render={props => <Login {...props} />} />
       <Route exact path='/dashboard' component={Dashboard} />
       <Route path='/dashboard/settings' component={Settings} />
