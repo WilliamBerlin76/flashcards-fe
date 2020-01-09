@@ -4,18 +4,21 @@ import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
 import { getCards } from '../../actions';
-
+import poly from './poly.png';
+import smiley from './smiley.png';
+import { useHistory } from 'react-router-dom';
+import './Cards.scss';
 
 const Cards = props => {
     const [currentCard, setCurrentCard] = useState(0)
 
     useEffect(() => {
-        console.log(props.cards.data)
+        console.log(props.match.params.deckName)
         props.getCards(props.match.params.deckName);
     }, []);
 
 
-
+    let history = useHistory();
  
     
     const goNext = () => {
@@ -37,23 +40,37 @@ const Cards = props => {
             }
     };
 
+
     if (!props.cards) {
         return(
-
-        <div>
-            <h1>Your Cards!</h1>
+            <div className = "loading-background">
+            <h1 className = "deckName">{props.match.params.deckName}</h1>
+        <div className = "smile">
+          
                 <Loading>
-                <Loader type="ThreeDots" color="orange" height={80} width={80} />
+                <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
                 </Loading>
+        </div>
         </div>
         ) 
     } else {
 
+        
     return(
 
-        <div>
-            <h1>Your Cards!</h1>
+        <div className = "page">
+           <div className = "loading-background">
+           <img className = "back"src = {poly} onClick ={() => history.goBack()}/>
+            <h1 className = "deckName">Demo</h1>
 
+            <h4 className = "listCards">{props.cards.length}</h4>
+            <h4 className = "cardsHeader">Cards</h4> 
+
+            {/* <div className = "rightside"> */}
+            <img className = "smile" src = {smiley} alt = {'a smiling emoji'}/>
+            <h4 className = "mastered">Mastered</h4>
+            {/* </div> */}
+            </div>
 
             <div>
             {props.error && <p>{props.error}</p>}
@@ -65,8 +82,8 @@ const Cards = props => {
 
           
 
-        </div>
         
+        </div>
     )
 }
 };

@@ -5,6 +5,8 @@ import ReactCardFlip from 'react-card-flip';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
 
+import './Cards.scss';
+
 class Card extends React.Component {
     constructor(props) {
         super(props);
@@ -47,7 +49,7 @@ class Card extends React.Component {
     render() {
         if (!this.props.card) {
             return                 <Loading>
-            <Loader type="ThreeDots" color="orange" height={80} width={80} />
+            <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
             </Loading>
         } else {
 
@@ -56,7 +58,7 @@ class Card extends React.Component {
         return (
             
          
-           <>
+           <div className = "container">
 
             <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
         
@@ -65,16 +67,21 @@ class Card extends React.Component {
                     </div>
         
                     <div className = 'card__face card__face--back'>
-                        <button className = "cardstyle" onClick = {this.handleClick}>{this.props.card.data.back}</button>
+                        <button className = "cardstyle-back" onClick = {this.handleClick}>{this.props.card.data.back}</button>
                     </div>
         
                    
             </ReactCardFlip>
 
-            <button onClick = {this.handleGoPrev}>PREVIOUS</button>
-            <button onClick = {this.handleGoNext}>NEXT</button>
 
-          </>
+            <p>Tap card to flip</p>
+
+            <div className = "button-holder">
+            <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
+            <button className = "next" onClick = {this.handleGoNext}>Next</button>
+            </div>
+            
+          </div>
         )
     }
 }
