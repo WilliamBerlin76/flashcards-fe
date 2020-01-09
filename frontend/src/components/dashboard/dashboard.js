@@ -18,21 +18,20 @@ const Dashboard = props => {
 
   return (
     <>
-      <DashNav />
       <section className='study-data'>
         <div className='timeline-selectors'>
           <span>Today</span>
           <span>This Week</span>
           <span>Lifetime</span>
         </div>
-        <div className='studied-container'>
-          <div className='numcard'>
-            <p className='bignum studied-number'>123</p>
-            <p>Studied</p>
+        <div className='studied'>
+          <div className='numbers'>
+            <span className='studied-number'>55</span>
+            <span className='mastered-number'>15</span>
           </div>
-          <div className='numcard'>
-            <p className='bignum mastered-number'>123</p>
-            <p className='mastered-text'>Mastered</p>
+          <div className='text'>
+            <span className='studied-text'>Studied</span>
+            <span className='mastered-text'>Mastered</span>
           </div>
         </div>
       </section>
