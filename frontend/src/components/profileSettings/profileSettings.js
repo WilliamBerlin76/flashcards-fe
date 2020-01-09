@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import DashNav from '../dashNav/dashNav';
+import axios from 'axios'
 
 import './profileSettings.scss';
 const Settings = props => {
@@ -8,7 +9,14 @@ const Settings = props => {
 
   useEffect(() => {
     console.log(firebase.auth().currentUser.photoURL);
-  });
+    axios.get(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log('get user err', err)
+      })
+  }, []);
 
   const nonCheckChange = e => {
     setPreferences({
@@ -28,15 +36,22 @@ const Settings = props => {
 
   const submitForm = e => {
     e.preventDefault();
-    console.log(preferences);
+    axios.put(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`, {changes: preferences})
+      .then(res => {
+        console.log('put res', res)
+      })
+      .catch(err => {
+        console.log('put err', err)
+      })
   };
 
   return (
     <>
       <div className='settings-header-container'>
-        <DashNav />
-        <h2>{firebase.auth().currentUser.displayName}</h2>
-        <img src={firebase.auth().currentUser.photoURL} alt='profile pic' />
+        <div className='name-pic-container'>
+          <h2>{firebase.auth().currentUser.displayName}</h2>
+          <img src={firebase.auth().currentUser.photoURL} alt='profile pic' className='profile-pic' />
+        </div>
       </div>
       <form className='profile-form'>
         <p>Which subjects do you use flashcards for most often?</p>
@@ -49,23 +64,31 @@ const Settings = props => {
         />
 
         <p>Do you prefer studying on a mobile or desktop device?</p>
-        <input
-          type='radio'
-          name='MobileOrDesktop'
-          value='Mobile'
-          onChange={radioChange}
-        />
-        <span>Mobile</span>
-        <input
-          type='radio'
-          name='MobileOrDesktop'
-          value='Desktop'
-          onChange={radioChange}
-        />
-        <span>Desktop</span>
+        <div className='radio-container'>
+          <div>
+            <input
+              className='radio-button'
+              type='radio'
+              name='MobileOrDesktop'
+              value='Mobile'
+              onChange={radioChange}
+            />
+            <span>Mobile</span>
+          </div>
+          <div>
+            <input
+              className='radio-button'
+              type='radio'
+              name='MobileOrDesktop'
+              value='Desktop'
+              onChange={radioChange}
+            />
+            <span>Desktop</span>
+          </div>
+        </div>
 
         <p>Do you prefer to study by</p>
-        <select name='technique' onChange={nonCheckChange}>
+        <select name='technique' onChange={nonCheckChange} className='subject-input'>
           <option hidden=''>Please select one</option>
           <option value='Listening'>Listening</option>
           <option value='Doing'>Doing</option>
@@ -75,7 +98,7 @@ const Settings = props => {
         </select>
 
         <p>How frequently do you want to study?</p>
-        <select name='study-frequency' onChange={nonCheckChange}>
+        <select name='study-frequency' onChange={nonCheckChange} className='subject-input'>
           <option hidden=''>Please select one</option>
           <option value='Once a day'>Once a day</option>
           <option value='Twice a Day'>Twice a day</option>
@@ -87,7 +110,7 @@ const Settings = props => {
         </select>
 
         <p>How often would you like to recieve notifications?</p>
-        <select name='notification-frequency' onChange={nonCheckChange}>
+        <select name='notification-frequency' onChange={nonCheckChange} className='subject-input'>
           <option hidden=''>Please select one</option>
           <option value="When I haven't met my goal in a day">
             When I haven't met my goal in a day
@@ -102,23 +125,32 @@ const Settings = props => {
         </select>
 
         <p>Do you prefer to study from decks that are</p>
-        <input
-          type='radio'
-          name='customOrPremade'
-          value='pre-made'
-          onChange={radioChange}
-        />
-        <span>Pre-made</span>
-        <input
-          type='radio'
-          name='customOrPremade'
-          value='custom'
-          onChange={radioChange}
-        />
-        <span>Custom</span>
+        <div className='radio-container'>
+          <div>
+            <input
+            type='radio'
+            name='customOrPremade'
+            value='pre-made'
+            onChange={radioChange}
+            />
+            <span>Pre-made</span>
+          </div>
+        
+          <div>
+            <input
+              type='radio'
+              name='customOrPremade'
+              value='custom'
+              onChange={radioChange}
+            />
+            <span>Custom</span>
+          </div>
+        
+        </div>
+        <div className='button-container'>
+          <button onClick={submitForm} className='bottom-button'>Save</button>
+        </div>
       </form>
-
-      <button onClick={submitForm}>Save</button>
     </>
   );
 };
