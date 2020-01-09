@@ -28,7 +28,6 @@ firebase.initializeApp(config);
 function App() {
   return (
     <div className='App'>
-      <Navbar />
       {/* //Links here */}
       <Route path='/login' render={props => <Login {...props} />} />
       <Route exact path='/dashboard' component={Dashboard} />
