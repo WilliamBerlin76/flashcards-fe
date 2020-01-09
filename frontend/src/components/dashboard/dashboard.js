@@ -18,7 +18,6 @@ const Dashboard = props => {
 
   return (
     <>
-      <DashNav />
       <section className='study-data'>
         <div className='timeline-selectors'>
           <span>Today</span>
