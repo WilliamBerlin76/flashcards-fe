@@ -3,7 +3,7 @@ import React from 'react';
 import './Card.css'
 import ReactCardFlip from 'react-card-flip';
 import Loader from 'react-loader-spinner';
-import styled from 'styled-components';
+
 
 import './Cards.scss';
 
@@ -20,7 +20,6 @@ class Card extends React.Component {
         this.handleGoNext = this.handleGoNext.bind(this);
         this.handleGoPrev = this.handleGoPrev.bind(this);
     }
-
 
     handleClick(e) {
         e.preventDefault();
@@ -48,9 +47,13 @@ class Card extends React.Component {
     };
     render() {
         if (!this.props.card) {
-            return                 <Loading>
+            return    (       
+            <div className = "loader">
+
             <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
-            </Loading>
+
+            </div>
+            )
         } else {
 
         
@@ -73,8 +76,7 @@ class Card extends React.Component {
                    
             </ReactCardFlip>
 
-
-            <p>Tap card to flip</p>
+            <p className = "instruct">Tap card to flip</p>
 
             <div className = "button-holder">
             <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
@@ -87,10 +89,6 @@ class Card extends React.Component {
 }
 };
 
-
 export default Card;
 
-const Loading = styled.div`
-    margin-top: 10%;
-`
 

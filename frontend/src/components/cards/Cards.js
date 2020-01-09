@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
-import styled from 'styled-components';
+
 import { getCards } from '../../actions';
 import poly from './poly.png';
 import smiley from './smiley.png';
@@ -16,7 +16,6 @@ const Cards = props => {
         console.log(props.match.params.deckName)
         props.getCards(props.match.params.deckName);
     }, []);
-
 
     let history = useHistory();
  
@@ -40,16 +39,15 @@ const Cards = props => {
             }
     };
 
-
     if (!props.cards) {
         return(
             <div className = "loading-background">
             <h1 className = "deckName">{props.match.params.deckName}</h1>
-        <div className = "smile">
+        <div className = "loader">
           
-                <Loading>
+                
                 <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
-                </Loading>
+              
         </div>
         </div>
         ) 
@@ -61,7 +59,7 @@ const Cards = props => {
         <div className = "page">
            <div className = "loading-background">
            <img className = "back"src = {poly} onClick ={() => history.goBack()}/>
-            <h1 className = "deckName">Demo</h1>
+            <h1 className = "deckName">{props.match.params.deckName}</h1>
 
             <h4 className = "listCards">{props.cards.length}</h4>
             <h4 className = "cardsHeader">Cards</h4> 
@@ -101,7 +99,3 @@ export default connect(
     mapStateToProps,
     { getCards }
 )(Cards);
-
-const Loading = styled.div`
-    margin-top: 10%;
-`
