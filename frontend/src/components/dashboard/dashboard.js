@@ -24,16 +24,6 @@ const Dashboard = props => {
           <span>This Week</span>
           <span>Lifetime</span>
         </div>
-        {/* <div className='studied-container'>
-          <div className='numcard'>
-            <p className='bignum studied-number'>123</p>
-            <p>Studied</p>
-          </div>
-          <div className='numcard'>
-            <p className='bignum mastered-number'>123</p>
-            <p className='mastered-text'>Mastered</p>
-          </div>
-        </div> */}
         <div className='studied'>
           <div className='numbers'>
             <span className='studied-number'>55</span>

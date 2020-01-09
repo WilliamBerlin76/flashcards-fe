@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useOnClickOutside } from './hooks/hooks';
 import firebase from 'firebase';
-
+//import dashNav from './components/dashNav';
+import Burger from './components/Burger';
+import Menu from './components/Menu';
+import { theme } from './components/theme';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import FocusLock from 'react-focus-lock';
+import { ThemeProvider } from 'styled-components';
 import Login from './components/login/login.js';
-import Navbar from './components/navbar/navbar.js';
 import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/profileSettings/profileSettings';
 import DashNav from './components/dashNav/dashNav';
-
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -27,17 +31,34 @@ const config = {
 firebase.initializeApp(config);
 
 function App() {
-  return (
-    <div className='App'>
-      {/* //Links here */}
-      <DashNav />
-      <Route path='/login' render={props => <Login {...props} />} />
-      <Route exact path='/dashboard' component={Dashboard} />
-      <Route path='/dashboard/settings' component={Settings} />
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  const menuId = 'main-menu';
 
-      {/* //Switch Here */}
-    </div>
+  useOnClickOutside(node, () => setOpen(false));
+
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <div ref={node}>
+          <FocusLock disabled={!open}>
+            <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
+            <Menu open={open} setOpen={setOpen} id={menuId} />
+          </FocusLock>
+          <div>
+            <h1>Flashcards</h1>
+          </div>
+
+          {/* //Links here */}
+          <DashNav />
+          <Route path='/login' render={props => <Login {...props} />} />
+          <Route exact path='/dashboard' component={Dashboard} />
+          <Route path='/dashboard/settings' component={Settings} />
+
+          {/* //Switch Here */}
+        </div>
+      </>
+    </ThemeProvider>
   );
 }
-
 export default App;
