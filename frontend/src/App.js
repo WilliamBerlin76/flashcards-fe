@@ -49,14 +49,7 @@ function App() {
               <Menu open={open} setOpen={setOpen} id={menuId} />
             </FocusLock>
           <div><h1>Flashcards</h1></div>
-
-      <Navbar />
-      {/* //Links here */}
-      <Route path="/login" render={props => <Login {...props} />} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route path="/dashboard/settings" component={Settings} />
    
-      
       {/* //Links here */}
       <DashNav/>
       <Route path='/login' render={props => <Login {...props} />} />

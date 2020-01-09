@@ -11,15 +11,15 @@ const Menu = ({ open, ...props }) => {
         <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
             <a href="/" tabIndex={tabIndex}>
                 <span aria-hidden="true">💁🏻‍♂️</span>
-                placeholder
+                DECKS
       </a>
             <a href="/" tabIndex={tabIndex}>
                 <span aria-hidden="true">💸</span>
-                placeholder
+                FRIENDS
         </a>
             <a href="/" tabIndex={tabIndex}>
                 <span aria-hidden="true">📩</span>
-                placeholder
+                SETTINGS
         </a>
         </StyledMenu>
     )
