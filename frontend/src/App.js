@@ -3,6 +3,9 @@ import firebase from 'firebase';
 
 import Login from './components/login/login.js';
 import Navbar from './components/navbar/navbar.js';
+import Dashboard from './components/dashboard/dashboard';
+import Settings from './components/profileSettings/profileSettings';
+import DashNav from './components/dashNav/dashNav'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
@@ -33,8 +36,8 @@ firebase.initializeApp(config);
 function App() {
   return (
     <div className='App'>
-       <Navbar />
-
+     
+       <DashNav/>
       {/* Links here */}
       <div>
         <Link to = "/">Home</Link>
@@ -48,17 +51,20 @@ function App() {
       {/* Switch Here */}
       <Switch>
         <Route exact path = "/decklist" component = {DeckList} />
-
         <Route 
         path = '/cards/:deckName/cards'
         render = {(props) =>  <Cards {...props}/>}
          /> 
         <Route path='/login' render={props => <Login {...props} />} />
-       
-
+        <Route exact path='/dashboard' component={Dashboard} />
+        <Route path='/dashboard/settings' component={Settings} />
 
 
       </Switch>
+      
+      {/* //Links here */}
+      
+
 
     </div>
   );

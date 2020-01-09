@@ -23,7 +23,6 @@ const Login = props => {
             .auth()
             .currentUser.sendEmailVerification()
             .then(email => {
-              console.log(firebase.auth().currentUser.getIdToken(true));
               props.history.push('/dashboard');
             })
             .catch(err => console.log(err));
@@ -32,7 +31,8 @@ const Login = props => {
             .auth()
             .currentUser.getIdToken(true)
             .then(token => {
-              console.log(token);
+              console.log(firebase.auth().currentUser.uid);
+              props.history.push('/dashboard/settings');
             });
         }
       }

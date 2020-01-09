@@ -12,9 +12,7 @@ export const FETCH_CARDS = "FETCH_CARDS"
 export const CARDS_SUCCESS = "CARDS_SUCCESS"
 export const CARDS_FAILURE = "CARDS_FAILURE"
 
-//ACTION FOR STUDYING
-export const BEGIN_STUDY = "BEGIN_STUDY"
-export const NEXT_CARD = "NEXT_CARD"
+
 
 
 
@@ -39,7 +37,6 @@ export const getDecks = () => dispatch => {
 export const getCards = (deck) => dispatch => {
     console.log(deck)
     
-
     dispatch({ type: FETCH_CARDS});
 
     axios
