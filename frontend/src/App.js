@@ -12,7 +12,7 @@ import Login from './components/login/login.js';
 import Navbar from './components/navbar/navbar.js';
 import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/profileSettings/profileSettings';
-import DashNav from './components/dashNav/dashNav'
+import DashNav from './components/dashNav/dashNav';
 
 
 let firebaseApiKey;
@@ -51,7 +51,7 @@ function App() {
           <div><h1>Flashcards</h1></div>
    
       {/* //Links here */}
-      <DashNav/>
+      <DashNav />
       <Route path='/login' render={props => <Login {...props} />} />
       <Route exact path='/dashboard' component={Dashboard} />
       <Route path='/dashboard/settings' component={Settings} />

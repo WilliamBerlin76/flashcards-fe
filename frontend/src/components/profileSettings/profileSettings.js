@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import DashNav from '../dashNav/dashNav';
+import axios from 'axios'
 
 import './profileSettings.scss';
 const Settings = props => {
@@ -8,14 +9,20 @@ const Settings = props => {
 
   useEffect(() => {
     console.log(firebase.auth().currentUser.photoURL);
-  });
+    axios.get(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log('get user err', err)
+      })
+  }, []);
 
   const nonCheckChange = e => {
     setPreferences({
       ...preferences,
       [e.target.name]: e.target.value
     });
-    console.log(preferences);
   };
 
   const radioChange = e => {
@@ -23,12 +30,17 @@ const Settings = props => {
       ...preferences,
       [e.target.name]: e.target.value
     });
-    console.log(preferences);
   };
 
   const submitForm = e => {
     e.preventDefault();
-    console.log(preferences);
+    axios.put(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`, {changes: preferences})
+      .then(res => {
+        props.history.push('/dashboard')
+      })
+      .catch(err => {
+        console.log('put err', err)
+      })
   };
 
   return (

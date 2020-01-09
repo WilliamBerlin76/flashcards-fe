@@ -1,67 +1,83 @@
-.study-data{
-    height: 25vh;
-    background: #F66E00;
-    color: #FAFAFA;
-    .timeline-selectors{
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        font-size: .9rem;
-        font-weight: 300;
-        span{
-            &:hover{
-                cursor: pointer
-            }
-        }
-    }
-    .studied-container{
-        display: flex;
-        justify-content: space-evenly;
-        .numcard{
-            margin-top: 23px;
-            p{
-                line-height: 5px;
-            }
-            .bignum{
-                font-family: 'Roboto Condensed';
-                font-size: 2.7rem
-            }
-        }
-    }
-}
-
-.decks-section{
-    width: 90%;
-    margin: 30px auto;
-    span{
-        &:hover{
-            cursor: pointer;
-        }
-    }
-    .decks-selectors{
-        display: flex;
-        justify-content: space-between;
-    }
-    .deck-card{
-        border: 0.5px solid #F66E00;
-        border-radius: 4px;
-        margin: 20px auto;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-}
-
-.bottom-button{
-    font-weight: bold;
-    font-size: 1.2rem;
-    height: 38px;
-    width: 90%;
-    color: #FCFCFC;
-    background: #F66E00;
-    border: 2px solid #F66E00;
-    border-radius: 23px;
-    &:hover{
+.study-data {
+  height: 25vh;
+  background: #f66e00;
+  color: #fafafa;
+  .timeline-selectors {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 0.9rem;
+    font-weight: 300;
+    span {
+      &:hover {
         cursor: pointer;
+      }
     }
+  }
+  .studied-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem;
+    padding-top: 3.5rem;
+    .numcard {
+      margin-top: 23px;
+      p {
+        line-height: 5px;
+      }
+      .bignum {
+        font-family: 'Roboto Condensed';
+        font-size: 2.7rem;
+      }
+
+      .studied-number {
+        margin-bottom: 3.5rem;
+        text-align: left;
+        transform: translateY(2.5rem) translateX(-0.2rem);
+        font-size: 1.5rem;
+      }
+
+      .mastered-number {
+        margin-bottom: 2rem;
+        margin-top: 3.4rem;
+        padding-right: 0.2rem;
+        font-size: 10rem;
+        transform: translateY(-2rem);
+        color: rgb(245, 141, 57);
+      }
+
+      .mastered-text {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.decks-section {
+  width: 90%;
+  margin: 30px auto;
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .decks-selectors {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.bottom-button {
+  display: block;
+  margin: auto;
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 90%;
+  color: #fcfcfc;
+  background: #f66e00;
+  border: 2px solid #f66e00;
+  border-radius: 23px;
+  &:hover {
+    cursor: pointer;
+  }
 }
