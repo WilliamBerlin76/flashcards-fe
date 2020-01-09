@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
-import DashNav from '../dashNav/dashNav';
-import axios from 'axios'
+import axios from 'axios';
+import { withStyles } from '@material-ui/core/styles';
+import { orange } from '@material-ui/core/colors';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 import './profileSettings.scss';
+
+const OrangeRadio = withStyles({
+  root: {
+    color: orange[600],
+    '&$checked': {
+      color: orange[600]
+    }
+  },
+  checked: {},
+})(props => <Radio color="default" label="MobileOrDesktop" {...props} />);
+
+
 const Settings = props => {
+  
   const [preferences, setPreferences] = useState({});
 
   useEffect(() => {
@@ -29,7 +45,7 @@ const Settings = props => {
     setPreferences({
       ...preferences,
       [e.target.name]: e.target.value
-    });
+    });;
   };
 
   const submitForm = e => {
@@ -62,29 +78,30 @@ const Settings = props => {
         />
 
         <p>Do you prefer studying on a mobile or desktop device?</p>
-        <div className='radio-container'>
+        <RadioGroup className='radio-container' name='MobileOrDesktop'>
           <div>
-            <input
-              className='radio-button'
+            <OrangeRadio
+              id='mobileId'
               type='radio'
+              label='Mobile'
               name='MobileOrDesktop'
               value='Mobile'
               onChange={radioChange}
-            />
-            <span>Mobile</span>
+            /><label for='mobileId'>Mobile</label>
+            
           </div>
           <div>
-            <input
-              className='radio-button'
+            <OrangeRadio
+              id='deskId'
               type='radio'
               name='MobileOrDesktop'
               value='Desktop'
               onChange={radioChange}
             />
-            <span>Desktop</span>
+            <label for='deskId'>Desktop</label>
           </div>
-        </div>
-
+        </RadioGroup>
+       
         <p>Do you prefer to study by</p>
         <select name='technique' onChange={nonCheckChange} className='subject-input'>
           <option hidden=''>Please select one</option>
@@ -123,28 +140,30 @@ const Settings = props => {
         </select>
 
         <p>Do you prefer to study from decks that are</p>
-        <div className='radio-container'>
+        <RadioGroup className='radio-container' name='customOrPremade'>
           <div>
-            <input
+            <OrangeRadio
+            id='preId'
             type='radio'
             name='customOrPremade'
             value='pre-made'
             onChange={radioChange}
             />
-            <span>Pre-made</span>
+            <label for='preId'>Pre-made</label>
           </div>
         
           <div>
-            <input
+            <OrangeRadio
+              id='customId'
               type='radio'
               name='customOrPremade'
               value='custom'
               onChange={radioChange}
             />
-            <span>Custom</span>
+            <label for='customId'>Custom</label >
           </div>
         
-        </div>
+        </RadioGroup>
         <div className='button-container'>
           <button onClick={submitForm} className='bottom-button'>Save</button>
         </div>
