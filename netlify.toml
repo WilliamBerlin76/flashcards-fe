@@ -5,7 +5,7 @@
 [build]
   command = "npm run build"
   base = "frontend/"
-  publish = "frontend/build/"
+  publish = "build/"
 
   # A basic redirect rule
   # For use with react router. Keeps user from leaving index.html when
