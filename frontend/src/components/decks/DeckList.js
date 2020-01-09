@@ -3,7 +3,7 @@ import Deck from './Deck';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import { getDecks } from '../actions';
+import { getDecks } from '../../actions';
 
 
 const DeckList = props => {

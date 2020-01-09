@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 
 //components
-import DeckList from './components/DeckList';
+import DeckList from './components/decks/DeckList';
 import Cards from './components/cards/Cards';
 
 
