@@ -31,16 +31,20 @@ This app is connected to a node backend API, which uses cloud firstore as a data
 ### Dependencies
 
 ```javascript
+   "@material-ui/core": "^4.8.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.0",
+    "contentful": "^7.13.0",
     "firebase": "^7.6.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
+    "rc-progress": "^2.5.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-firebaseui": "^4.0.0",
+    "react-focus-lock": "^2.0.5",
     "react-loader-spinner": "^3.1.5",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
@@ -48,6 +52,7 @@ This app is connected to a node backend API, which uses cloud firstore as a data
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.2",
     "thunk": "0.0.1"
 ```
 
