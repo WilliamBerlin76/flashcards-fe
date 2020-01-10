@@ -23,11 +23,11 @@ const Dashboard = props => {
   return (
     <>
       <section className='study-data'>
-        <div className='timeline-selectors'>
+        {/* <div className='timeline-selectors'>
           <span>Today</span>
           <span>This Week</span>
           <span>Lifetime</span>
-        </div>
+        </div> */}
         <div className='studied'>
           <div className='numbers'>
             <span className='studied-number'>55</span>
@@ -41,16 +41,16 @@ const Dashboard = props => {
       </section>
 
       <section className='decks-section'>
-        <div className='decks-selectors'>
+        {/* <div className='decks-selectors'>
           <span>Recent Decks</span>
           <span>All Decks</span>
-        </div>
+        </div> */}
 
         {deckArr.map(item => {
           return <DeckCards key={item} deckName={item} openDeck={openDeck} />;
         })}
       </section>
-      <button className='bottom-button'>Create</button>
+      {/* <button className='bottom-button'>Create</button> */}
     </>
   );
 };
