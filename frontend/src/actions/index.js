@@ -13,6 +13,10 @@ export const CARDS_SUCCESS = "CARDS_SUCCESS"
 export const CARDS_FAILURE = "CARDS_FAILURE"
 
 
+
+
+
+
 //GETTING DECKS
 
 export const getDecks = () => dispatch => {
@@ -33,16 +37,16 @@ export const getDecks = () => dispatch => {
 export const getCards = (deck) => dispatch => {
     console.log(deck)
     
-  
-    
     dispatch({ type: FETCH_CARDS});
 
     axios
     .get(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`)
     .then(response => {
+       console.log(response.data.data)
         dispatch({ type: CARDS_SUCCESS, payload: response.data.data})
     })
     .catch(error => {
         dispatch({ type: CARDS_FAILURE, payload: error})
     })
 };
+

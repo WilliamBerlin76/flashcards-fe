@@ -13,6 +13,10 @@ import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/profileSettings/profileSettings';
 import DashNav from './components/dashNav/dashNav';
 
+//components
+import DeckList from './components/decks/DeckList';
+import Cards from './components/cards/Cards';
+
 let firebaseApiKey;
 let firebaseAuthDomain;
 
@@ -21,11 +25,11 @@ if (process.env.NODE_ENV !== 'production') {
   firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
 } else {
   firebaseApiKey = process.env.FIREBASE_API_KEY;
-  firebaseAuthDomain = process.env.FIREBASE.AUTH.DOMAIN;
+  firebaseAuthDomain = process.env.FIREBASE_AUTH_DOMAIN;
 }
 
 const config = {
-  apiKey: firebaseApiKey,
+  apiKey: 'AIzaSyCvJ2Wye96WBuqm41GO4D8UiF5OGw1VR_Y',
   authDomain: firebaseAuthDomain
 };
 firebase.initializeApp(config);
@@ -45,14 +49,19 @@ function App() {
             <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
             <Menu open={open} setOpen={setOpen} id={menuId} />
           </FocusLock>
-          <div>
-            <h1>Flashcards</h1>
-          </div>
-
           {/* //Links here */}
           <DashNav />
+          <Route exact path='/decklist' component={DeckList} />
+          <Route
+            path='/cards/:deckName/cards'
+            render={props => <Cards {...props} />}
+          />
           <Route path='/login' render={props => <Login {...props} />} />
-          <Route exact path='/dashboard' component={Dashboard} />
+          <Route
+            exact
+            path='/dashboard'
+            render={props => <Dashboard {...props} />}
+          />
           <Route path='/dashboard/settings' component={Settings} />
 
           {/* //Switch Here */}

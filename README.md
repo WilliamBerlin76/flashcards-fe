@@ -1,6 +1,6 @@
 # mNeme Front End
 
-- The deployed frontend is on (enter here when deployed)
+- The deployed frontend url is https://mneme-staging.netlify.com
 
 This app is designed to help people learn with flashcards. In this release canvas, users have the ability to create a profile, edit their profile preferences, view the public demo decks, and study the public demo decks.
 
@@ -26,12 +26,12 @@ This app was built using:
 
 This app is connected to a node backend API, which uses cloud firstore as a database: https://flashcards-be.herokuapp.com
 
--Documentation for the API can be found [here](https://flashcards-be.herokuapp.com/api-docs/).
+- Documentation for the API can be found [here](https://flashcards-be.herokuapp.com/api-docs/).
  
 ### Dependencies
 
 ```javascript
-   "@material-ui/core": "^4.8.3",
+    "@material-ui/core": "^4.8.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",

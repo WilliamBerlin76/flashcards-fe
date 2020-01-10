@@ -24,7 +24,6 @@ const Settings = props => {
   const [preferences, setPreferences] = useState({});
 
   useEffect(() => {
-    console.log(firebase.auth().currentUser.photoURL);
     axios.get(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`)
       .then(res => {
         console.log(res)
@@ -45,7 +44,7 @@ const Settings = props => {
     setPreferences({
       ...preferences,
       [e.target.name]: e.target.value
-    });;
+    });
   };
 
   const submitForm = e => {

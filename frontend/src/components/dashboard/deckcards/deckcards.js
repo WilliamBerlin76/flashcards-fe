@@ -15,7 +15,7 @@ const DeckCards = props => {
         `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${props.deckName}`
       )
       .then(res => {
-        console.log(res);
+        console.log(props);
         setExampleCard(res.data.data[0]);
         setDeckLength(res.data.data.length);
       });
@@ -29,7 +29,7 @@ const DeckCards = props => {
     );
   } else {
     return (
-      <div className='deck'>
+      <div className='deck' onClick={() => props.openDeck(props.deckName)}>
         <div className='deck-card'>
           <div className='deck-info'>
             <h3 className='deck-name'>{props.deckName}</h3>
