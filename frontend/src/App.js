@@ -45,13 +45,10 @@ function App() {
             <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
             <Menu open={open} setOpen={setOpen} id={menuId} />
           </FocusLock>
-          <div>
-            <h1>Flashcards</h1>
-          </div>
 
           {/* //Links here */}
           <DashNav />
-          <Route path='/login' render={props => <Login {...props} />} />
+          <Route exact path='/login' render={props => <Login {...props} />} />
           <Route exact path='/dashboard' component={Dashboard} />
           <Route path='/dashboard/settings' component={Settings} />
 
