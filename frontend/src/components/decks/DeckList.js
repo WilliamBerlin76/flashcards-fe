@@ -51,7 +51,6 @@ const DeckList = props => {
             <div className = "deckLink" >
                 <p className = "recentDeck">Recent Deck</p> 
                 <p className = "allDeck">All Decks</p>
-
             </div>  
             <div className = "deckList">
             {props.error && <p>{props.error}</p>}

@@ -3,7 +3,14 @@ import React from 'react';
 import './Card.css'
 import ReactCardFlip from 'react-card-flip';
 import Loader from 'react-loader-spinner';
-import styled from 'styled-components';
+import point from '../../assets/point.png';
+import shineone from '../../assets/shineone.png';
+import shinetwo from '../../assets/shinetwo.png';
+import shinethree from '../../assets/shinethree.png';
+import shinefour from '../../assets/shinefour.png';
+import shinefive from '../../assets/shinefive.png';
+
+import './Cards.scss';
 
 class Card extends React.Component {
     constructor(props) {
@@ -18,7 +25,6 @@ class Card extends React.Component {
         this.handleGoNext = this.handleGoNext.bind(this);
         this.handleGoPrev = this.handleGoPrev.bind(this);
     }
-
 
     handleClick(e) {
         e.preventDefault();
@@ -46,9 +52,13 @@ class Card extends React.Component {
     };
     render() {
         if (!this.props.card) {
-            return                 <Loading>
-            <Loader type="ThreeDots" color="orange" height={80} width={80} />
-            </Loading>
+            return    (       
+            <div className = "loader">
+
+            <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
+
+            </div>
+            )
         } else {
 
         
@@ -56,7 +66,7 @@ class Card extends React.Component {
         return (
             
          
-           <>
+           <div className = "container">
 
             <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
         
@@ -65,31 +75,32 @@ class Card extends React.Component {
                     </div>
         
                     <div className = 'card__face card__face--back'>
-                        <button className = "cardstyle" onClick = {this.handleClick}>{this.props.card.data.back}</button>
+                        <button className = "cardstyle-back" onClick = {this.handleClick}>{this.props.card.data.back}</button>
                     </div>
         
                    
             </ReactCardFlip>
 
-          <p>Tap card to flip</p>
-
+            <p className = "instruct">Tap card to flip</p>
+            <div className = "shineholder">
+            <img className = "shineone" src = {shineone} alt = {'shine'} />
+            <img className = "shinetwo" src = {shinetwo} alt = {'shine'} />
+            <img className = "shinethree" src = {shinethree} alt = {'shine'} />
+            <img className = "shinefour" src = {shinefour} alt = {'shine'} />
+            <img className = "shinefive" src = {shinefive} alt = {'shine'} />
+            </div>
+            <img className = "point" src = {point} alt = {'finger pointing'} />
             <div className = "button-holder">
             <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
             <button className = "next" onClick = {this.handleGoNext}>Next</button>
+            </div>
             
-
           </div>
-
-          </>
         )
     }
 }
 };
 
-
 export default Card;
 
-const Loading = styled.div`
-    margin-top: 10%;
-`
 

@@ -39,12 +39,12 @@ function App() {
      
        <DashNav/>
       {/* Links here */}
-      <div>
+      {/* <div>
         <Link to = "/">Home</Link>
         <Link to = "/decklist">Deck List</Link>
         <Link to = '/login'>Login</Link>
         
-      </div>
+      </div> */}
 
 
 
