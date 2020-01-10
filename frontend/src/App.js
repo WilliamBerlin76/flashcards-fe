@@ -63,13 +63,23 @@ function App() {
       });
   };
 
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <div ref={node}>
           <FocusLock disabled={!open}>
             <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
-            <Menu open={open} setOpen={setOpen} id={menuId} logout={logout} />
+            <Menu
+              open={open}
+              setOpen={setOpen}
+              id={menuId}
+              logout={logout}
+              closeMenu={closeMenu}
+            />
           </FocusLock>
           {/* //Links here */}
           <DashNav />

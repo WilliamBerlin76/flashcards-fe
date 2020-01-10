@@ -10,14 +10,14 @@ const Menu = ({ open, ...props }) => {
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      <Link to='/DeckList' tabIndex={tabIndex}>
+      <Link to='/DeckList' onClick={props.closeMenu} tabIndex={tabIndex}>
         Decks
       </Link>
-      <Link to='/dashboard' tabIndex={tabIndex}>
+      <Link to='/dashboard' onClick={props.closeMenu} tabIndex={tabIndex}>
         Dashboard
       </Link>
 
-      <Link to='/Preferences' tabIndex={tabIndex}>
+      <Link to='/Preferences' onClick={props.closeMenu} tabIndex={tabIndex}>
         Preferences
       </Link>
 

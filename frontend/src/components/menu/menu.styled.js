@@ -16,13 +16,8 @@ export const StyledMenu = styled.nav`
   z-index: 100;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-<<<<<<< HEAD
     width: 100%;
   }
-=======
-      width: 30%;
-    }
->>>>>>> 1f4684ffb163dfbd372abb0f3bce78c6f460bc5e
 
   a {
     font-size: 1rem;
@@ -33,6 +28,7 @@ export const StyledMenu = styled.nav`
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
+    outline: none;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
       font-size: 1.5rem;
