@@ -19,7 +19,7 @@ const Menu = ({ open, ...props }) => {
         </a> */}
         <a href="/" tabIndex={tabIndex}>
           <span aria-hidden="true">💁🏻‍♂️</span>
-          Prefrences
+          Preferences
         </a>
       </StyledMenu>
     );
