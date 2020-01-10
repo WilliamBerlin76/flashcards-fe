@@ -10,26 +10,12 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import  { BrowserRouter as Router } from 'react-router-dom';
-import reducer from './reducers/reducer';
-// import React, {useState, useEffect} from "react";
+import reducer from './reducers/reducer'
 
-// const App = () => {
-//     const [userProgress, setUserProgress] =useState([]);
-    
-//     useEffect(() => {
-//         axios
-//             .get(
 
-//             )
-//             .then()
-//             .catch()
-        
-//     }
-//     )
-// }
 const store = createStore(
     //place reducers here
-    reducer,
+    reducer, 
     (applyMiddleware(thunk, logger))
 )
 
