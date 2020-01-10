@@ -16,6 +16,10 @@ const Dashboard = props => {
     setDeckArr(props.decks);
   }, [props.decks]);
 
+  const openDeck = deck => {
+    props.history.push(`/cards/${deck}/cards`);
+  };
+
   return (
     <>
       <section className='study-data'>
@@ -43,7 +47,7 @@ const Dashboard = props => {
         </div>
 
         {deckArr.map(item => {
-          return <DeckCards key={item} deckName={item} />;
+          return <DeckCards key={item} deckName={item} openDeck={openDeck} />;
         })}
       </section>
       <button className='bottom-button'>Create</button>
