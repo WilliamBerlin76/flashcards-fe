@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledBurger = styled.button`
-    position: fixed;
-  top: 6.6rem;
+  position: absolute;
+  top: 0.8rem;
   right: 2rem;
   display: flex;
   flex-direction: column;
@@ -13,29 +13,30 @@ export const StyledBurger = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 1000;
+  outline: none;
 
   span {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ theme, open }) => open ? theme.primaryDark : theme.primaryLight};
+    background: ${({ theme, open }) =>
+      open ? theme.primaryDark : theme.primaryLight};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }) => open ? '0' : '1'};
-      transform: ${({ open }) => open ? 'translateX(50px)' : 'translateX(0)'};
+      opacity: ${({ open }) => (open ? '0' : '1')};
+      transform: ${({ open }) => (open ? 'translateX(50px)' : 'translateX(0)')};
     }
 
     :nth-child(3) {
-      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
-
 `;

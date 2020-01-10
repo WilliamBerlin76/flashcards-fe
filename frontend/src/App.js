@@ -19,20 +19,33 @@ import Cards from './components/cards/Cards';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
+let firebaseMeasurementId;
+let firebaseProjectId;
+let firebaseAppId;
 
 if (process.env.NODE_ENV !== 'production') {
   firebaseApiKey = process.env.REACT_APP_FIREBASE_API_KEY;
   firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
+  firebaseMeasurementId = process.env.REACT_APP_MEASUREMENT_ID;
+  firebaseProjectId = process.env.REACT_APP_PROJECT_ID;
+  firebaseAppId = process.env.REACT_APP_APP_ID;
 } else {
   firebaseApiKey = process.env.FIREBASE_API_KEY;
   firebaseAuthDomain = process.env.FIREBASE_AUTH_DOMAIN;
+  firebaseMeasurementId = process.env.FIREBASE_MEASUREMENT_ID;
+  firebaseProjectId = process.env.FIREBASE_PROJECT_ID;
+  firebaseAppId = process.env.FIREBASE_APP_ID;
 }
 
 const config = {
-  apiKey: 'AIzaSyCvJ2Wye96WBuqm41GO4D8UiF5OGw1VR_Y',
-  authDomain: firebaseAuthDomain
+  apiKey: firebaseApiKey,
+  authDomain: firebaseAuthDomain,
+  measurementId: firebaseMeasurementId,
+  projectId: firebaseProjectId,
+  appId: firebaseAppId
 };
 firebase.initializeApp(config);
+firebase.analytics();
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -41,13 +54,22 @@ function App() {
 
   useOnClickOutside(node, () => setOpen(false));
 
+  const logout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(res => {
+        setOpen(false);
+      });
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <div ref={node}>
           <FocusLock disabled={!open}>
             <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
-            <Menu open={open} setOpen={setOpen} id={menuId} />
+            <Menu open={open} setOpen={setOpen} id={menuId} logout={logout} />
           </FocusLock>
           {/* //Links here */}
           <DashNav />
@@ -62,7 +84,7 @@ function App() {
             path='/dashboard'
             render={props => <Dashboard {...props} />}
           />
-          <Route path='/dashboard/settings' component={Settings} />
+          <Route path='/preferences' component={Settings} />
 
           {/* //Switch Here */}
         </div>
