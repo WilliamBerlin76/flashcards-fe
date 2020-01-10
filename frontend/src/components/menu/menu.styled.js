@@ -11,16 +11,21 @@ export const StyledMenu = styled.nav`
   padding: 2rem;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   transition: transform 0.3s ease-in-out;
   z-index: 100;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
+<<<<<<< HEAD
     width: 100%;
   }
+=======
+      width: 30%;
+    }
+>>>>>>> 1f4684ffb163dfbd372abb0f3bce78c6f460bc5e
 
   a {
-    font-size: 2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     padding: 2rem 0;
     font-weight: bold;
