@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledBurger = styled.button`
-    position: absolute;
-  top: 10%;
-  right: 5rem;
+    position: fixed;
+  top: 6.6rem;
+  right: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background: transparent;
   border: none;
   cursor: pointer;
