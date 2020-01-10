@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 import firebase from 'firebase';
 
-const axiosWithAuth = () => {
+export const axiosWithAuth = () => {
     firebase.auth().currentUser.getIdToken(true)
         .then(token => {
             return axios.create({
-                baseURL: `change to deployed be`,
+                baseURL: `https://flashcards-be.herokuapp.com`,
                 headers: {
                     Authorization: token,
                     'Access-Control-Allow-Origin' : '*',
