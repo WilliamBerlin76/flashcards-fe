@@ -17,7 +17,7 @@ const Menu = ({ open, ...props }) => {
                 <span aria-hidden="true">💸</span>
                 FRIENDS
         </a> */}
-        <a href="/" tabIndex={tabIndex}>
+        <a href="/settings" tabIndex={tabIndex}>
           <span aria-hidden="true">💁🏻‍♂️</span>
           Preferences
         </a>
