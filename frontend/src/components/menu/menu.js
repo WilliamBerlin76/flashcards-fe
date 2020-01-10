@@ -21,9 +21,11 @@ const Menu = ({ open, ...props }) => {
         Preferences
       </Link>
 
-      <Link to='/login' onClick={props.logout}>
-        Log Out
-      </Link>
+      {firebase.auth().currentUser ? (
+        <Link to='/login' onClick={props.logout}>
+          Log Out
+        </Link>
+      ) : null}
     </StyledMenu>
   );
 };
