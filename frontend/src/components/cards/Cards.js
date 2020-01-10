@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 
 import { getCards } from '../../actions';
-import poly from './poly.png';
-import smiley from './smiley.png';
+import poly from '../../assets/poly.png';
+import smiley from '../../assets/smiley.png';
 import { useHistory } from 'react-router-dom';
 import './Cards.scss';
 

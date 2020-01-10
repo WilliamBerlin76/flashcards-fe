@@ -3,7 +3,12 @@ import React from 'react';
 import './Card.css'
 import ReactCardFlip from 'react-card-flip';
 import Loader from 'react-loader-spinner';
-
+import point from '../../assets/point.png';
+import shineone from '../../assets/shineone.png';
+import shinetwo from '../../assets/shinetwo.png';
+import shinethree from '../../assets/shinethree.png';
+import shinefour from '../../assets/shinefour.png';
+import shinefive from '../../assets/shinefive.png';
 
 import './Cards.scss';
 
@@ -77,7 +82,14 @@ class Card extends React.Component {
             </ReactCardFlip>
 
             <p className = "instruct">Tap card to flip</p>
-
+            <div className = "shineholder">
+            <img className = "shineone" src = {shineone} alt = {'shine'} />
+            <img className = "shinetwo" src = {shinetwo} alt = {'shine'} />
+            <img className = "shinethree" src = {shinethree} alt = {'shine'} />
+            <img className = "shinefour" src = {shinefour} alt = {'shine'} />
+            <img className = "shinefive" src = {shinefive} alt = {'shine'} />
+            </div>
+            <img className = "point" src = {point} alt = {'finger pointing'} />
             <div className = "button-holder">
             <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
             <button className = "next" onClick = {this.handleGoNext}>Next</button>
