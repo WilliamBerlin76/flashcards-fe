@@ -8,21 +8,21 @@ const Menu = ({ open, ...props }) => {
     const tabIndex = isHidden ? 0 : -1;
 
     return (
-        <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-            <a href="/" tabIndex={tabIndex}>
-                <span aria-hidden="true">💁🏻‍♂️</span>
+      <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+        {/* <a href="/" tabIndex={tabIndex}>
+                <span aria-hidden="true">📩</span>
                 DECKS
       </a>
             <a href="/" tabIndex={tabIndex}>
                 <span aria-hidden="true">💸</span>
                 FRIENDS
+        </a> */}
+        <a href="/" tabIndex={tabIndex}>
+          <span aria-hidden="true">💁🏻‍♂️</span>
+          Preferences
         </a>
-            <a href="/" tabIndex={tabIndex}>
-                <span aria-hidden="true">📩</span>
-                SETTINGS
-        </a>
-        </StyledMenu>
-    )
+      </StyledMenu>
+    );
 }
 
 Menu.propTypes = {
