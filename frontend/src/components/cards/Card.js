@@ -71,8 +71,14 @@ class Card extends React.Component {
                    
             </ReactCardFlip>
 
-            <button onClick = {this.handleGoPrev}>PREVIOUS</button>
-            <button onClick = {this.handleGoNext}>NEXT</button>
+          <p>Tap card to flip</p>
+
+            <div className = "button-holder">
+            <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
+            <button className = "next" onClick = {this.handleGoNext}>Next</button>
+            
+
+          </div>
 
           </>
         )
