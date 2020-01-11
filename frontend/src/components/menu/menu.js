@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 // import { bool } from './node_modules/prop-types';
-import { StyledMenu } from './menu.styled';
+import { StyledMenu } from './Menu.styled';
 import { Link } from 'react-router-dom';
 
 const Menu = ({ open, ...props }) => {
