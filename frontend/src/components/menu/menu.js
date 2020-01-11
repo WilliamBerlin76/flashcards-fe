@@ -22,7 +22,7 @@ const Menu = ({ open, ...props }) => {
       </Link>
 
       {firebase.auth().currentUser ? (
-        <Link to='/login' onClick={props.logout}>
+        <Link to='/' onClick={props.logout}>
           Log Out
         </Link>
       ) : null}
