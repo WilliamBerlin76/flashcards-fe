@@ -1,0 +1,182 @@
+
+@media only screen and (min-width: 400px){
+
+.dash {
+    max-width: 100vw;  
+    background: #F66E00;
+    // max-width: 100vw; 
+    // margin-top: -4% 10%;
+    // padding-bottom: 2%;
+    // margin-bottom: 10%;
+    color: #FAFAFA;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between; 
+
+    .deck{
+        font-size: 18px;
+        font-weight: normal;
+
+    }
+    .deckNav{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        background: #F66E00;
+        padding: 0px 25px 25px;
+        margin-top: -5%;
+        overflow: hidden;
+        
+        .subtitle1{
+            // padding-left: 6.67%;
+            padding-right: 44.39%;
+            margin-top: 7%;
+            // padding-bottom: 29.37%;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 21px;
+
+        }
+        .subtitle2{
+            font-weight: bold;
+            font-size: 21px;
+            line-height: 25px;
+            margin: 0;
+        }
+    }
+
+        .smile {
+            margin-top: -40%;
+            width: 60%;
+            margin-bottom: -15%;
+             opacity: 0.23;   
+            margin-left: 60%;
+            // margin-right: -22.78%;
+            // margin-top: 40.56%;
+            // margin-bottom: 0%;
+            // // background: url(smileyface.png);
+                
+        }
+      
+}
+
+.deckLink {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px 25px;
+
+//     font-family: Roboto Condensed;
+// font-style: normal;
+// font-weight: bold;
+// font-size: 16px;
+// line-height: 19px;
+// margin-left: 75%;
+margin-top: 7%;
+color: #6A5C55;
+
+    .recentDeck{
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .allDeck{
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+}
+
+.deckList{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center; 
+    align-items: center;
+    text-align: center;
+    // height: 60%;
+
+
+    .deckin{
+        text-align: center;
+        width: 100%;
+        // height: 60%;
+        // background-color: #E5E5E5;
+        border: 0.5px solid #F66E00;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding: 2rem 0.7rem;
+        margin-bottom: 15%;
+
+        color: #6A5C55;
+        
+
+        .words{
+            text-decoration: none;
+
+        }
+
+        .p{
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: right;
+        }
+        .topSection{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .cardplaceholder{
+                border: 2px;
+            }
+
+            .deckText{
+                padding-right: 2%;
+            }
+
+        }
+        .masteryBar{
+            .p{
+
+            }
+        }
+    }
+}
+
+
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 7% 0;
+    .btn1 {
+        border: 2px solid #F66E00;
+        box-sizing: border-box;
+        border-radius: 24px;
+        background-color: #F66E00;
+        color: #FFFFFF;
+        padding: 1% 20%;
+        margin-bottom: 3%;
+        font-weight: bold;
+        font-size: 1.4rem;
+        line-height: 1.9rem;
+    }
+    .btn2 {
+        border: 2px solid #F66E00;
+        box-sizing: border-box;
+        border-radius: 24px;
+        background-color: #FFFFFF;
+        color: #F66E00;
+        display: flex;
+        padding: 1% 15%;
+        font-weight: normal;
+        font-size: 1.1rem;
+        line-height: 1.9rem;
+    }
+}
+
+
+};

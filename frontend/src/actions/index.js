@@ -27,10 +27,12 @@ export const getDecks = () => dispatch => {
     .get('https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy')
     .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data})
+        console.log(response.data)
     })
     .catch(error => {
         dispatch({ type: FETCH_FAILURE, payload: error})
     })
+
 };
 
 //GETTING CARDS FOR DECKS
