@@ -29,12 +29,13 @@
     }
     .radio-container{
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         margin-right: 10px;
-        .radio-button{
-            text-decoration: none;
-            background: #F66E00;
-            border: 1px solid #F66E00;
+        label{
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
     .button-container{

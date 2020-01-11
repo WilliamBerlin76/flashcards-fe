@@ -9,7 +9,7 @@ const DashNav = props => {
                 <span className='m'>m</span>
                 <span className='neme'>Neme</span>
             </div>
-            <i className="fas fa-search"></i>
+            {/* <i className="fas fa-search"></i> */}
         </div>
     )
 }
