@@ -1,0 +1,67 @@
+.study-data{
+    height: 25vh;
+    background: #F66E00;
+    color: #FAFAFA;
+    .timeline-selectors{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        font-size: .9rem;
+        font-weight: 300;
+        span{
+            &:hover{
+                cursor: pointer
+            }
+        }
+    }
+    .studied-container{
+        display: flex;
+        justify-content: space-evenly;
+        .numcard{
+            margin-top: 23px;
+            p{
+                line-height: 5px;
+            }
+            .bignum{
+                font-family: 'Roboto Condensed';
+                font-size: 2.7rem
+            }
+        }
+    }
+}
+
+.decks-section{
+    width: 90%;
+    margin: 30px auto;
+    span{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .decks-selectors{
+        display: flex;
+        justify-content: space-between;
+    }
+    .deck-card{
+        border: 0.5px solid #F66E00;
+        border-radius: 4px;
+        margin: 20px auto;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.bottom-button{
+    font-weight: bold;
+    font-size: 1.2rem;
+    height: 38px;
+    width: 90%;
+    color: #FCFCFC;
+    background: #F66E00;
+    border: 2px solid #F66E00;
+    border-radius: 23px;
+    &:hover{
+        cursor: pointer;
+    }
+}
