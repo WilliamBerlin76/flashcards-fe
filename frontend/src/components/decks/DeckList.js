@@ -12,8 +12,9 @@ import './DeckList.scss';
 const DeckList = props => {
 
     useEffect(() => {
-        console.log(props.match.params)
-        props.getDecks();
+        props.getDecks();        
+        // console.log(props.deck)
+
     }, []);
 
     if (props.isFetching) {
