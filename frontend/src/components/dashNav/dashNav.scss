@@ -1,17 +1,16 @@
-.dashNav{
-    color: #FAFAFA;
-    background: #F66E00;
-    padding: 15px 25px 35px;
-    display: flex;
-    justify-content: space-between;
-    .mNeme{
-        
-        .m{
-            font-size: .8rem;
-        }
-        .neme{
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+.dashNav {
+  color: #fafafa;
+  background: #f66e00;
+  padding: 15px 25px 35px;
+  display: flex;
+  justify-content: space-between;
+  .mNeme {
+    .m {
+      font-size: 0.8rem;
     }
+    .neme {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
 }
