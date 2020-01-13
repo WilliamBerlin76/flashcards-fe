@@ -29,7 +29,11 @@ const Menu = ({ open, ...props }) => {
         <Link to='/' onClick={props.logout}>
           Log Out
         </Link>
-      ) : null}
+      ) : (
+        <Link to='/login' onClick={props.closeMenu}>
+          Login
+        </Link>
+      )}
     </StyledMenu>
   );
 };
