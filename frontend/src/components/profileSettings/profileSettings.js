@@ -26,8 +26,6 @@ const Settings = props => {
     axios.get(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`)
       .then(res => {
           setPreferences(res.data.data)
-          console.log(preferences)
-          console.log(res.data.data)
       })
       .catch(err => {
         console.log('get user err', err)
@@ -75,7 +73,7 @@ const Settings = props => {
           name='favSubjects'
           value={preferences.favSubjects}
           onChange={nonCheckChange}
-        >{preferences.subjects}</input>
+        />
 
         <p>Do you prefer studying on a mobile or desktop device?</p>
         <RadioGroup className='radio-container' name='MobileOrDesktop'>
