@@ -21,6 +21,10 @@ const Menu = ({ open, ...props }) => {
         Preferences
       </Link>
 
+      <Link to='/privacy' onClick={props.closeMenu} tabIndex={tabIndex}>
+        Privacy
+      </Link>
+
       {firebase.auth().currentUser ? (
         <Link to='/' onClick={props.logout}>
           Log Out
