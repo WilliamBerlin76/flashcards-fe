@@ -23,19 +23,19 @@ let firebaseMeasurementId;
 let firebaseProjectId;
 let firebaseAppId;
 
-if (process.env.NODE_ENV !== 'production') {
-  firebaseApiKey = process.env.REACT_APP_FIREBASE_API_KEY;
-  firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
-  firebaseMeasurementId = process.env.REACT_APP_MEASUREMENT_ID;
-  firebaseProjectId = process.env.REACT_APP_PROJECT_ID;
-  firebaseAppId = process.env.REACT_APP_APP_ID;
-} else {
-  firebaseApiKey = process.env.FIREBASE_API_KEY;
-  firebaseAuthDomain = process.env.FIREBASE_AUTH_DOMAIN;
-  firebaseMeasurementId = process.env.FIREBASE_MEASUREMENT_ID;
-  firebaseProjectId = process.env.FIREBASE_PROJECT_ID;
-  firebaseAppId = process.env.FIREBASE_APP_ID;
-}
+// if (process.env.NODE_ENV !== 'production') {
+firebaseApiKey = process.env.REACT_APP_FIREBASE_API_KEY;
+firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
+firebaseMeasurementId = process.env.REACT_APP_MEASUREMENT_ID;
+firebaseProjectId = process.env.REACT_APP_PROJECT_ID;
+firebaseAppId = process.env.REACT_APP_APP_ID;
+// } else {
+//   firebaseApiKey = process.env.FIREBASE_API_KEY;
+//   firebaseAuthDomain = process.env.FIREBASE_AUTH_DOMAIN;
+//   firebaseMeasurementId = process.env.FIREBASE_MEASUREMENT_ID;
+//   firebaseProjectId = process.env.FIREBASE_PROJECT_ID;
+//   firebaseAppId = process.env.FIREBASE_APP_ID;
+// }
 
 const config = {
   apiKey: firebaseApiKey,
