@@ -16,6 +16,7 @@ import DashNav from './components/dashNav/dashNav';
 //components
 import DeckList from './components/decks/DeckList';
 import Cards from './components/cards/Cards';
+import Marketing from './components/marketing/Marketing';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -83,6 +84,7 @@ function App() {
           </FocusLock>
           {/* //Links here */}
           <DashNav />
+          <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
             path='/cards/:deckName/cards'
