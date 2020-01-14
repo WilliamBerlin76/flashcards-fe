@@ -4,8 +4,12 @@
         margin-left: 20%;
         margin-top: 14%;
         margin-bottom: 14%;
+
+        .welcome{
+            margin-bottom: 8%;
+        }
         .title {
-            margin-left: 4%;
+            margin-left: 6%;
             font-family: Roboto;
             font-weight: bolder;
             font-size: 4rem;
@@ -14,13 +18,13 @@
         };
 
         .pro {
-            margin-left: 58%;
+            margin-left: 56%;
             font-size: .88rem;
         };
     };
 
     .topwordsholder {
-        margin-left: 20%;
+        margin-left: 21%;
         margin-bottom: 20%;
         .topwords {
             display: flex;
@@ -92,6 +96,9 @@
             font-size: 1.1rem;
         };
     };
+    .study{
+        margin-left: 5%;
+    }
 
     .pictwo {
         width: 84%;
@@ -115,7 +122,7 @@
     };
 
     .join{
-        margin-left: 32%;
+        margin-left: 31%;
         margin-bottom: 10%;
     };
 
@@ -131,5 +138,158 @@
         padding-right: 26%;
         margin-bottom: 15%;
         margin-left: 16%;
+        cursor: pointer;
     };
+};
+
+@media screen and (min-width: 400px){
+    
+    .top-holder{
+        margin-left: 20%;
+        margin-top: 14%;
+        margin-bottom: 14%;
+
+        .welcome{
+            margin-bottom: 8%;
+        }
+        .title {
+            margin-left: 6%;
+            font-family: Roboto;
+            font-weight: bolder;
+            font-size: 5rem;
+            line-height: 1px;
+            color: #F66E00;
+        };
+
+        .pro {
+            margin-left: 56%;
+            font-size: .88rem;
+        };
+    };
+
+    .topwordsholder {
+        margin-left: 21%;
+        margin-bottom: 20%;
+        .topwords {
+            display: flex;
+            flex-flow: wrap;
+            width: 80%;
+            font-size: 1.1rem;  
+        };
+    };
+
+    .buttons {
+        margin-left: 22%;
+        // width: 100%;
+        .signup {
+            // width: 100%;
+            background: #F66E00;
+            border-radius: 24px;
+            color: #FFFFFF; 
+            line-height: 19px;
+            font-size: 1.3rem;
+            padding-top: 5%; 
+            padding-bottom: 5%;  
+            padding-left: 26%;
+            padding-right: 26%;
+            margin-bottom: 6%;
+        };
+
+        // .flexsign {
+        //     display: flex;
+            
+        // }
+        .signin {
+            border: 2px solid #F66E00;
+            box-sizing: border-box;
+            cursor: pointer;
+            border-radius: 24px;
+            color: #F66E00; 
+            line-height: 19px;
+            font-size: 1.3rem;
+            padding-top: 5%; 
+            padding-bottom: 4%;  
+            padding-left: 27%;
+            padding-right: 27%;
+            background: #FFFFFF; 
+            margin-bottom: 17%;
+        };
+         
+    };
+
+    .piconeholder {
+        // width: 10%;
+        // margin-left: 10%;
+        .picone{
+            margin-left: 13%;
+            width: 73%;
+        };
+    };
+
+    .orange {
+        background: #F66E00;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        margin-top: -8.7%;
+        margin-bottom: 10%;
+        // margin-right: -4%;
+        .orangewords {
+            color: #FFFFFF;
+            margin-left: 28%;
+            width: 50%;
+            font-size: 1.1rem;
+        };
+    };
+    .study{
+        margin-left: 5%;
+    }
+
+    .pictwo {
+        width: 84%;
+        margin-left: 8%;
+        margin-bottom: 5%;
+    };
+
+    .study{
+        // width: 100%;
+        .studywords{
+            width: 68%;
+            font-size: 1.1rem;
+            margin-left: 17%;
+        };
+    };
+
+    .picthree {
+        width: 70%;
+        margin-left: 16%;
+        margin-bottom: 5%;
+    };
+
+    .join{
+        margin-left: 34%;
+        margin-bottom: 10%;
+    };
+
+    .signuptwo {
+        background: #F66E00;
+        border-radius: 24px;
+        color: #FFFFFF; 
+        line-height: 19px;
+        font-size: 1.3rem;
+        padding-top: 5%; 
+        padding-bottom: 4%;  
+        padding-left: 26%;
+        padding-right: 26%;
+        margin-bottom: 15%;
+        margin-left: 16%;
+        cursor: pointer;
+    };
+};
+
+.signup{
+    cursor: pointer;
+};
+
+.signuptwo {
+    cursor: pointer;
 };
