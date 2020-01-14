@@ -20,13 +20,12 @@ const OrangeRadio = withStyles({
 
 
 const Settings = props => {
-  
   const [preferences, setPreferences] = useState({});
 
   useEffect(() => {
     axios.get(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`)
       .then(res => {
-        console.log(res)
+          setPreferences(res.data.data)
       })
       .catch(err => {
         console.log('get user err', err)
@@ -72,7 +71,7 @@ const Settings = props => {
           className='subject-input'
           type='text'
           name='favSubjects'
-          value={preferences.subjects}
+          value={preferences.favSubjects}
           onChange={nonCheckChange}
         />
 
@@ -86,6 +85,7 @@ const Settings = props => {
               name='MobileOrDesktop'
               value='Mobile'
               onChange={radioChange}
+              checked={preferences.MobileOrDesktop === 'Mobile' ? true : false}
             /><label for='mobileId'>Mobile</label>
             
           </div>
@@ -96,6 +96,7 @@ const Settings = props => {
               name='MobileOrDesktop'
               value='Desktop'
               onChange={radioChange}
+              checked={preferences.MobileOrDesktop === 'Desktop' ? true : false}
             />
             <label for='deskId'>Desktop</label>
           </div>
@@ -103,7 +104,7 @@ const Settings = props => {
        
         <p>Do you prefer to study by</p>
         <select name='technique' onChange={nonCheckChange} className='subject-input'>
-          <option hidden=''>Please select one</option>
+          <option hidden='' value={preferences.technique}>{!preferences.technique ? 'Please select one' : preferences.technique}</option>
           <option value='Listening'>Listening</option>
           <option value='Doing'>Doing</option>
           <option value='Reading'>Reading</option>
@@ -112,8 +113,8 @@ const Settings = props => {
         </select>
 
         <p>How frequently do you want to study?</p>
-        <select name='study-frequency' onChange={nonCheckChange} className='subject-input'>
-          <option hidden=''>Please select one</option>
+        <select name='studyFrequency' onChange={nonCheckChange} className='subject-input'>
+          <option hidden='' value={preferences.studyFrequency}>{!preferences.studyFrequency ? 'Please select one' : preferences.studyFrequency}</option>
           <option value='Once a day'>Once a day</option>
           <option value='Twice a Day'>Twice a day</option>
           <option value='Once a week'>Once a week</option>
@@ -124,8 +125,8 @@ const Settings = props => {
         </select>
 
         <p>How often would you like to recieve notifications?</p>
-        <select name='notification-frequency' onChange={nonCheckChange} className='subject-input'>
-          <option hidden=''>Please select one</option>
+        <select name='notificationFrequency' onChange={nonCheckChange} className='subject-input'>
+          <option hidden='' value={preferences.notificationFrequency}>{!preferences.notificationFrequency ? 'Please select one' : preferences.notificationFrequency}</option>
           <option value="When I haven't met my goal in a day">
             When I haven't met my goal in a day
           </option>
@@ -147,6 +148,7 @@ const Settings = props => {
             name='customOrPremade'
             value='pre-made'
             onChange={radioChange}
+            checked={preferences.customOrPremade === "pre-made" ? true : false}
             />
             <label for='preId'>Pre-made</label>
           </div>
@@ -158,6 +160,7 @@ const Settings = props => {
               name='customOrPremade'
               value='custom'
               onChange={radioChange}
+              checked={preferences.customOrPremade === 'custom' ? true : false}
             />
             <label for='customId'>Custom</label >
           </div>
