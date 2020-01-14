@@ -1,8 +1,9 @@
 import React from 'react';
+import './privacy.scss'
 
 export default function Privacy() {
   return (
-    <div>
+    <div className='privacy'>
       <h2>mNeme Privacy Policy</h2>
       <p>Last updated January 13, 2020</p>
 
