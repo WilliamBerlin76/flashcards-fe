@@ -36,11 +36,11 @@ const DeckList = props => {
         
         <div className='container'>
         <div className='dash'>
-                <div className='dashNav deck'> 
+                {/* <div className='dashNav deck'> 
                     <p>Today</p>
                     <p>This Week</p>
                     <p>Lifetime</p>
-                    </div>
+                    </div> */}
                 <div className='deckNav'> 
                     <p className = "subtitle1">Explore our Demo deck, create your own or search new decks</p>
                     <p className = "subtitle2">Start mastering with mNeme!</p>       
