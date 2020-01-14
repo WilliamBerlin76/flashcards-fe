@@ -63,16 +63,14 @@
 .deckLink {
     display: flex;
     justify-content: space-between;
-    padding: 0px 25px 25px;
-
-//     font-family: Roboto Condensed;
+    padding: 25px 25px 25px;
+    color: #6A5C55;
 // font-style: normal;
 // font-weight: bold;
 // font-size: 16px;
 // line-height: 19px;
 // margin-left: 75%;
-margin-top: 7%;
-color: #6A5C55;
+// margin-top: ;
 
     .recentDeck{
         font-weight: bold;
@@ -105,7 +103,7 @@ color: #6A5C55;
         border: 0.5px solid #F66E00;
         box-sizing: border-box;
         border-radius: 4px;
-        padding: 2rem 0.7rem;
+        padding: 3.2rem 1.4rem;
         margin-bottom: 15%;
 
         color: #6A5C55;
@@ -132,14 +130,35 @@ color: #6A5C55;
             }
 
             .deckText{
-                padding-right: 2%;
+                padding-right: 5rem;
+                p{
+                    text-align: left;  
+                }
             }
 
         }
         .masteryBar{
-            .p{
-
+            display: flex;
+            flex-direction: column;
+            align-items: left;  
+            margin-top: 5%;
+            h4{
+                text-align: left; 
+                font-style: normal;
+                // font-weight: bold;
+                font-size: 1.2rem;
+                // line-height: 10px;
             }
+            p{
+                text-align: left;  
+                font-style: normal;
+                font-weight: lighter;
+                font-size: 1rem;
+                line-height: 14px;
+                margin-top: 3%;
+                color: #6A5C55;
+            }   
+
         }
     }
 }
@@ -151,7 +170,7 @@ color: #6A5C55;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 7% 0;
+    padding-bottom:  7%;
     .btn1 {
         border: 2px solid #F66E00;
         box-sizing: border-box;

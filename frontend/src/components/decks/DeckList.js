@@ -59,10 +59,10 @@ const DeckList = props => {
                 <Deck key = {deck.id} deck = {deck} />
             ))}
             </div>
-            <div className = "button">
-            <button className = "btn1">Create</button>
-            <button className = "btn2" >Update Settings</button>
-            </div>
+                {/* <div className = "button">
+                <button className = "btn1">Create</button>
+                <button className = "btn2" >Update Settings</button>
+                </div> */}
         </div>
        
     )
