@@ -6,14 +6,25 @@ import { getCards, getDecks } from '../../actions';
 import 'semantic-ui-css/semantic.min.css'
 import cardPlaceholder from './cardPlaceholder.png';
 import './DeckList.scss';
-
+import axios from 'axios';
 
 const Deck = (props) => {
-
+    const [exampleCard, setExampleCard] = useState(null);
+    const [deckLength, setDeckLength] = useState(0);
 
   useEffect(() => {
-    // props.getCards(); 
-    // console.log(props.deck.data)
+    // props.getDecks(); 
+    // console.log(props.deck);
+    axios
+      .get(
+        `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${props.deck}`
+      )
+      .then(res => {
+        console.log(res.data.data[0].data.front);
+        setExampleCard(res.data.data[0].data.front);
+        setDeckLength(res.data.data.length);
+
+      });
     
       
   }, []);
@@ -26,14 +37,14 @@ const Deck = (props) => {
                         <Link to = {`/cards/${props.deck}/cards`} >
                         <TopCard>
                             <Words>{props.deck}  </Words>
-                            <p className = "cardNum">10 cards</p>
+                            <p className = "cardNum">{deckLength} cards</p>
                             
                         </TopCard>
                         </Link>
                         {/* <p className = "cardNum">{props.cards.length} cards</p> */}
                         
                     </div>
-                    <img className = "cardplaceholder" src = {cardPlaceholder} alt = {'picture of flashcard from deck'}/>
+                    <div className = "cardplaceholder"> {exampleCard} </div>
                 </div>
                 <div className='masteryBar'>
                     <h4>Mastery</h4>

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Deck from './Deck';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import { getDecks } from '../../actions';
+import { getDecks, getCards } from '../../actions';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import smileyface from './smileyface.png';
 import './DeckList.scss';
@@ -11,9 +11,12 @@ import './DeckList.scss';
 
 const DeckList = props => {
 
+    const [topCard, setTopCard] = useState(null)
+    const [deckLength, setDeckLength] = useState(0);
+
     useEffect(() => {
         props.getDecks();        
-        // console.log(props.deck)
+        // console.log(props.cards)
 
     }, []);
 
