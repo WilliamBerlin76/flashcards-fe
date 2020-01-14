@@ -10,7 +10,6 @@ import './DeckList.scss';
 
 const Deck = (props) => {
 
-//   const [deckLength, setDeckLength] = useState(0);
 
   useEffect(() => {
     // props.getCards(); 
@@ -27,7 +26,7 @@ const Deck = (props) => {
                         <Link to = {`/cards/${props.deck}/cards`} >
                         <TopCard>
                             <Words>{props.deck}  </Words>
-                            <p className = "cardNum">2 cards</p>
+                            <p className = "cardNum">10 cards</p>
                             
                         </TopCard>
                         </Link>
@@ -39,7 +38,7 @@ const Deck = (props) => {
                 <div className='masteryBar'>
                     <h4>Mastery</h4>
                     <Progress percent={5} size='tiny' color='orange' text-align='left'>
-                        <p>Cards</p>
+                        <p>3 Cards</p>
                     </Progress>
                 </div>
             </div>
@@ -56,7 +55,7 @@ const TopCard = styled.div`
     border-radius: 4px;
     text-align: center;
     margin-bottom: 35%;
-    color: #6A5C55;
+    color: black;
 `
 
 const Words = styled.h3`
