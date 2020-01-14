@@ -36,11 +36,11 @@ const DeckList = props => {
         
         <div className='container'>
         <div className='dash'>
-                <div className='dashNav deck'> 
+                {/* <div className='dashNav deck'> 
                     <p>Today</p>
                     <p>This Week</p>
                     <p>Lifetime</p>
-                    </div>
+                    </div> */}
                 <div className='deckNav'> 
                     <p className = "subtitle1">Explore our Demo deck, create your own or search new decks</p>
                     <p className = "subtitle2">Start mastering with mNeme!</p>       
@@ -59,10 +59,10 @@ const DeckList = props => {
                 <Deck key = {deck.id} deck = {deck} />
             ))}
             </div>
-            <div className = "button">
-            <button className = "btn1">Create</button>
-            <button className = "btn2" >Update Settings</button>
-            </div>
+                {/* <div className = "button">
+                <button className = "btn1">Create</button>
+                <button className = "btn2" >Update Settings</button>
+                </div> */}
         </div>
        
     )
