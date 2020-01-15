@@ -47,7 +47,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
-        font-size: 35px;
+        font-size: 33px;
         line-height: 42px;
         color: #FFFFFF;
         margin-left: 13%;
@@ -58,7 +58,7 @@
     }
     
     .listCards{
-        margin-left: 8%;
+        margin-left: 6.5%;
         font-family: Roboto Condensed;
         font-style: normal;
         font-weight: bold;
@@ -84,52 +84,57 @@
     
     
     .container {
-       max-width: 100vw; 
+        //    max-height: 20vw; 
+            width: 100%;
     
-       .cardstyle {
-        width: 80%;
-        padding: 10%;
-        padding-bottom: 20%;
-        padding-top: 20%;
-        background: #F3ECE3;
-        border-radius: 4px;
-        margin-left: 10.5%;
-        margin-right: 10%;
-        margin-bottom: 10%;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 3rem;
-        line-height: 56px;
-        // display: flex;
-        align-items: center;
-        text-align: center;
+           .cardstyle {
+                // max-width: 100vh;
+            width: 80%;
+            height: 350px;
+            padding: 4%;
+            // padding-bottom: 25%;
+            // padding-top: 20%;
+            background: #F3ECE3;
+            border-radius: 4px;
+            margin-left: 10.5%;
+            margin-right: 10%;
+            margin-bottom: 10%;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 20px;
+            // display: flex;
+            // align-items: center;
+            // text-align: center;
+            // flex-flow: wrap;
+        
+            color: #453C38;
+        }
+        
+        .cardstyle-back {
+            // max-width: 150vw;
+            // width: 100%;
+            height: 350px;
+            padding: 4%;
+            // padding-bottom: 17%;
+            // padding-top: 20%;
+            background: #FFD164;
+            border-radius: 4px;
+            margin-left: 10.5%;
+            margin-right: 10%;
+            margin-bottom: 10%;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 40px;
+            // display: flex;
     
-        color: #453C38;
-    }
-    
-    .cardstyle-back {
-        width: 80%;
-        padding: 10%;
-        padding-bottom: 20%;
-        padding-top: 20%;
-        background: #FFD164;
-        border-radius: 4px;
-        margin-left: 10.5%;
-        margin-right: 10%;
-        margin-bottom: 10%;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 3rem;
-        line-height: 56px;
-        // display: flex;
-        align-items: center;
-        text-align: center;
-    
-        color: #453C38;
-    };
-    
+        
+            color: #453C38;
+        };
+        
     .page {
         max-width: 100vw;  
     };
@@ -442,7 +447,7 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
-        font-size: 36px;
+        font-size: 33px;
         line-height: 42px;
         color: #FFFFFF;
         margin-left: 13%;
@@ -453,7 +458,7 @@
     }
     
     .listCards{
-        margin-left: 7%;
+        margin-left: 5.5%;
         font-family: Roboto Condensed;
         font-style: normal;
         font-weight: bold;
@@ -479,13 +484,16 @@
     
     
     .container {
-       max-width: 100vw; 
-    
+    //    max-height: 20vw; 
+        width: 100%;
+
        .cardstyle {
-        width: 80%;
-        padding: 10%;
-        padding-bottom: 20%;
-        padding-top: 20%;
+            // max-width: 100vh;
+        // width: 80%;
+        height: 350px;
+        padding: 4%;
+        // padding-bottom: 25%;
+        // padding-top: 20%;
         background: #F3ECE3;
         border-radius: 4px;
         margin-left: 10.5%;
@@ -494,20 +502,23 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
-        font-size: 3rem;
-        line-height: 56px;
+        font-size: 2rem;
+        line-height: 20px;
         // display: flex;
-        align-items: center;
-        text-align: center;
+        // align-items: center;
+        // text-align: center;
+        // flex-flow: wrap;
     
         color: #453C38;
     }
     
     .cardstyle-back {
-        width: 80%;
-        padding: 10%;
-        padding-bottom: 20%;
-        padding-top: 20%;
+        // max-width: 150vw;
+        // width: 100%;
+        height: 350px;
+        padding: 4%;
+        // padding-bottom: 17%;
+        // padding-top: 20%;
         background: #FFD164;
         border-radius: 4px;
         margin-left: 10.5%;
@@ -516,11 +527,10 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
-        font-size: 3rem;
-        line-height: 56px;
+        font-size: 2rem;
+        line-height: 40px;
         // display: flex;
-        align-items: center;
-        text-align: center;
+
     
         color: #453C38;
     };
