@@ -17,6 +17,7 @@ import DashNav from './components/dashNav/dashNav';
 import DeckList from './components/decks/DeckList';
 import Cards from './components/cards/Cards';
 import Marketing from './components/marketing/Marketing';
+import DeckForm from './components/decks/DeckForm';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -97,7 +98,7 @@ function App() {
             render={props => <Dashboard {...props} />}
           />
           <Route path='/preferences' component={Settings} />
-
+          <Route path = '/create-deck' component = {DeckForm} />
           {/* //Switch Here */}
         </div>
       </>
