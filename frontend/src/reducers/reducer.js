@@ -1,10 +1,24 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, CARDS_FAILURE } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, CARDS_FAILURE, POST_DECK, POST_SUCCESS, POST_FAILURE } from '../actions';
 
 const initialState = {
     decks: [],
     cards: [],
     isFetching: false,
-    error: ''
+    error: '',
+    isPosting: false,
+    colId: "The deck" [
+        
+        {
+            front: 'Hopethis',
+            back: 'works',
+            id: 54841215
+        },
+        {
+            front: 'Another',
+            back: 'hope',
+            id: 88215554
+        }
+    ] 
 };
 
 
@@ -51,7 +65,36 @@ const reducer = (state = initialState, action) => {
                 isFetching: false,
                 error: action.payload
             };
-        
+        case POST_DECK:
+            return {
+                ...state,
+                colId: [],
+                isFetching: false,
+                isPosting: true,
+                error: ''
+            };
+        case POST_SUCCESS:
+            return {
+                ...state,
+                colId: action.payload [
+                    {
+                        front: action.payload,
+                        back: action.payload,
+                        id: Date.now()
+                    }
+                ],
+                isFetching: false,
+                isPosting: false,
+                error: ''
+            };
+        case POST_FAILURE: 
+            return {
+                ...state,
+                colId: [],
+                isFetching: true,
+                isPosting: false,
+                error: action.payload
+            };
         default: return state;
     }
 };

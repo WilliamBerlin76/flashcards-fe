@@ -6,6 +6,9 @@ export const FETCH_START = "FETCH_START"
 export const FETCH_SUCCESS = "FETCH_SUCCESS"
 export const FETCH_FAILURE = "FETCH_FAILURE"
 
+export const POST_DECK = "POST_DECK"
+export const POST_SUCCESS = "POST_SUCCESS"
+export const POST_FAILURE = "POST_FAILURE"
 
 //ACTION FOR CARDS
 export const FETCH_CARDS = "FETCH_CARDS"
@@ -35,6 +38,7 @@ export const getDecks = () => dispatch => {
 
 };
 
+
 //GETTING CARDS FOR DECKS
 export const getCards = (deck) => dispatch => {
     console.log(deck)
@@ -49,6 +53,27 @@ export const getCards = (deck) => dispatch => {
     })
     .catch(error => {
         dispatch({ type: CARDS_FAILURE, payload: error})
+    })
+};
+
+//POSTING A DECK
+export const postDecks = (deck, id, colId) => dispatch => {
+
+    dispatch({ type: POST_DECK})
+
+    // const id = req.match.params.id
+    axios
+    .post(`https://localhost:5000/api/deck/${id}/${colId}`, deck)
+    .then(res => {
+        console.log(res)
+        dispatch({
+            type: POST_SUCCESS,
+            payload: res.data
+        })
+    })
+    .catch(error => {
+        console.log(error);
+        dispatch({ type: POST_FAILURE, payload: error})
     })
 };
 

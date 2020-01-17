@@ -1,10 +1,11 @@
 import React, { useState, Fragment } from 'react';
-
+import { connect } from 'react-redux';
+import { postDecks } from '../../actions';
 
 
 const DeckForm = (props) => {
 
-    const [newName, setNewName] = useState();
+    const [newName, setNewName] = useState({ deckName: ''});
     const [newDecks, setNewDecks] = useState([
         {    front: '', back: ''}
     ]);
@@ -45,17 +46,18 @@ const DeckForm = (props) => {
     //     e.preventDefault();
     // };
 
-    // const handleSubmit = e => {
-    //         e.preventDefault()
-    //     props.postDecks(newDecks)
-    // };
+    const handleSubmit = e => {
+        console.log(newDecks, newName)
+        e.preventDefault()
+        props.postDecks(newDecks)
+    };
     
     return(
         <div>
         <h1>Create Your New Deck</h1>
 
             <div>
-                <form>
+                <form onSubmit = {handleSubmit}>
                     <input
                         type = "text"
                         onChange = {handleName}
@@ -107,12 +109,12 @@ const DeckForm = (props) => {
                             </button>
                    
                    {/* Uncomment when saving deck is possible */}
-                    {/* <button
-                        type = "submit"
+                    <button
+                        
                         onSubmit = {handleSubmit}
                     >
                     Save Deck
-                    </button> */}
+                    </button>
 
                 </form>
             </div>
@@ -122,4 +124,7 @@ const DeckForm = (props) => {
     )
 };
 
-export default DeckForm;
+export default connect(
+    null,
+    { postDecks }
+)(DeckForm);
