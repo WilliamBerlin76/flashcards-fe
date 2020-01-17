@@ -5,7 +5,7 @@ import { postDecks } from '../../actions';
 
 const DeckForm = (props) => {
 
-    const [newName, setNewName] = useState({ deckName: ''});
+    const [newName, setNewName] = useState({ colId: ''});
     const [newDecks, setNewDecks] = useState([
         {    front: '', back: ''}
     ]);
@@ -49,7 +49,7 @@ const DeckForm = (props) => {
     const handleSubmit = e => {
         console.log(newDecks, newName)
         e.preventDefault()
-        props.postDecks(newDecks)
+        props.postDecks(newDecks, newName)
     };
     
     return(
@@ -61,7 +61,7 @@ const DeckForm = (props) => {
                     <input
                         type = "text"
                         onChange = {handleName}
-                        name = "deckName"
+                        name = "colId"
                         placeholder = "Deck Name" 
                     />
 

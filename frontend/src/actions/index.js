@@ -1,5 +1,6 @@
 // import { axiosWithAuth } from '../utils/axiosWithAuth';
 import axios from 'axios';
+import firebase from 'firebase';
 
 //ACTION FOR DECKS
 export const FETCH_START = "FETCH_START"
@@ -56,14 +57,18 @@ export const getCards = (deck) => dispatch => {
     })
 };
 
-//POSTING A DECK
-export const postDecks = (deck, id, colId) => dispatch => {
+//POSTING A DECK W/ CARDS
+export const postDecks = (deck, props, colId) => dispatch => {
 
     dispatch({ type: POST_DECK})
 
-    // const id = req.match.params.id
+    const id = firebase.auth().currentUser.uid
+    // const colId = props.deckName
+    const cardd = {cards: deck}
+    const colId = props.colId
+    console.log(deck)
     axios
-    .post(`https://localhost:5000/api/deck/${id}/${colId}`, deck)
+    .post(`http://localhost:5000/api/deck/${id}/${colId}`,cardd)
     .then(res => {
         console.log(res)
         dispatch({
