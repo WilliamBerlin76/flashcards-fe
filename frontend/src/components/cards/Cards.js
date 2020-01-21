@@ -88,7 +88,7 @@ const Cards = props => {
 
 const mapStateToProps = (state, props) => {
     return{
-        cards: state.cards,
+        cards: state.deckcards,
         isFetching: state.isFetching,
         error: state.error,
         

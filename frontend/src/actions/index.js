@@ -26,9 +26,10 @@ export const CARDS_FAILURE = "CARDS_FAILURE"
 export const getDecks = () => dispatch => {
 
     dispatch({ type: FETCH_START });
-    const id = firebase.auth().currentUser.uid
+    // const id = firebase.auth().currentUser.uid
     axios
-    .get(`https://flashcards-be.herokuapp.com/api/deck/${id}`)
+    .get(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy`)
+    // https://flashcards-be.herokuapp.com/api/demo/${id}
     .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data})
         console.log(response.data)
@@ -46,10 +47,11 @@ export const getCards = (deck) => dispatch => {
     
     dispatch({ type: FETCH_CARDS});
 
-    const id = firebase.auth().currentUser.uid
+    // const id = firebase.auth().currentUser.uid
 
     axios
-    .get(`https://flashcards-be.herokuapp.com/api/deck/${id}/${deck}`)
+    .get(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`)
+    // https://flashcards-be.herokuapp.com/api/deck/${id}/${deck}`
     .then(response => {
        console.log(response.data.data)
         dispatch({ type: CARDS_SUCCESS, payload: response.data.data})

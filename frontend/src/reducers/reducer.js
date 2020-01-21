@@ -2,7 +2,7 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, 
 
 const initialState = {
     decks: [],
-    cards: [],
+    deckcards: [],
     isFetching: false,
     error: '',
     isPosting: false,
@@ -51,12 +51,12 @@ const reducer = (state = initialState, action) => {
                 isFetching: false,
                 error: '',
                 decks: [],
-                cards: action.payload
+                deckcards: action.payload
             };
         case CARDS_FAILURE: 
             return {
                 ...state, 
-                cards: [], 
+                deckcards: [], 
                 isFetching: false,
                 error: action.payload
             };
