@@ -9,6 +9,8 @@ const DeckForm = (props) => {
     const [newDecks, setNewDecks] = useState([
         {    front: '', back: ''}
     ]);
+    // const [currentCard, setCurrentCard] = useState(0)
+
 
     const handleChanges = (index, event) => {
         const values = [...newDecks]
@@ -32,12 +34,12 @@ const DeckForm = (props) => {
 
     const handleAdd = () => {
         const values = [...newDecks];
-        values.push({ front: '', back: '' });
+        values.unshift({ front: '', back: '' });
         setNewDecks(values);
     };
 
     const handleRemove = index => {
-        const values = [...newDecks];
+        const values = [ ...newDecks];
         values.splice(index, 1);
         setNewDecks(values);
     };
@@ -61,9 +63,23 @@ const DeckForm = (props) => {
                     <input
                         type = "text"
                         onChange = {handleName}
-                        name = "colId"
+                        name = "colId" 
                         placeholder = "Deck Name" 
                     />
+
+                    <div>
+                            <button
+                            type = "button"
+                            onClick = {() => handleAdd()}>
+                                Add Card
+                            </button>
+                   
+                            <button
+                             onSubmit = {handleSubmit}
+                            >
+                             Save Deck
+                            </button>
+                    </div>
 
                     {newDecks.map((newDeck, index) => (
                         <Fragment key = {`${newDeck}~${index}`}>
@@ -102,12 +118,12 @@ const DeckForm = (props) => {
                         </Fragment>
                     ))}
 
-                            <button
+                            {/* <button
                             type = "button"
                             onClick = {() => handleAdd()}>
                                 Add Card
                             </button>
-                   
+                    */}
                    {/* Uncomment when saving deck is possible */}
                     <button
                         
@@ -117,6 +133,9 @@ const DeckForm = (props) => {
                     </button>
 
                 </form>
+
+
+
             </div>
 
         </div>
