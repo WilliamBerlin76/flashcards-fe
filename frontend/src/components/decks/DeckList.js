@@ -60,7 +60,7 @@ const DeckList = props => {
             ))}
             </div>
             <div className = "button">
-            <button className = "btn1">Create</button>
+            <button className = "btn1" onClick = {()=> props.history.push('/create-deck')}>Create</button>
             <button className = "btn2" >Update Settings</button>
             </div>
         </div>
