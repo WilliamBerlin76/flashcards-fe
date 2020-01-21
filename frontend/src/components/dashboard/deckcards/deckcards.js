@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Line } from 'rc-progress';
+import firebase from 'firebase';
 
 import DeckMenu from './deckMenu/deckMenu';
 
@@ -12,16 +13,25 @@ const DeckCards = props => {
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
-    console.log(props.deckName);
-    axios
-      .get(
-        `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${props.deckName}`
-      )
-      .then(res => {
-        console.log(props);
-        setExampleCard(res.data.data[0]);
-        setDeckLength(res.data.data.length);
-      });
+    let currentUser = firebase.auth().currentUser.uid;
+    if (props.demo) {
+      axios
+        .get(
+          `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${props.deckName}`
+        )
+        .then(res => {
+          let card = res.data.data[0];
+          setExampleCard(card.data.front);
+          setDeckLength(res.data.data.length);
+        });
+    } else {
+      axios
+        .get(`http://localhost:5000/api/deck/${currentUser}/${props.deckName}`)
+        .then(res => {
+          setExampleCard(res.data.deckInformation.exampleCard);
+          setDeckLength(res.data.deckInformation.deckLength);
+        });
+    }
   }, []);
 
   const toggleMenu = () => {
@@ -38,7 +48,9 @@ const DeckCards = props => {
     return (
       <div>
         <div className='menu-button'>
-          <i className='fas fa-ellipsis-h' onClick={toggleMenu}></i>
+          {!props.demo ? (
+            <i className='fas fa-ellipsis-h' onClick={toggleMenu}></i>
+          ) : null}
         </div>
         {showMenu ? <DeckMenu colId={props.deckName} /> : null}
         <div className='deck' onClick={() => props.openDeck(props.deckName)}>
@@ -47,7 +59,7 @@ const DeckCards = props => {
               <h3 className='deck-name'>{props.deckName}</h3>
               <p className='deck-length'>{deckLength} cards</p>
             </div>
-            <div className='example-card'>{exampleCard.data.front}</div>
+            <div className='example-card'>{exampleCard}</div>
           </div>
           <div className='mastery'>
             <h3>Mastery</h3>

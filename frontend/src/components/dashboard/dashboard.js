@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import firebase from 'firebase';
 import { Link } from 'react-router-dom';
 import DashNav from '../dashNav/dashNav';
 import DeckCards from './deckcards/deckcards.js';
@@ -9,7 +10,8 @@ import './dashboard.scss';
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
-    props.getDecks();
+    let user = firebase.auth().currentUser.uid;
+    props.getDecks(user);
   }, []);
 
   useEffect(() => {
@@ -47,7 +49,14 @@ const Dashboard = props => {
         </div> */}
 
         {deckArr.map(item => {
-          return <DeckCards key={item} deckName={item} openDeck={openDeck} />;
+          return (
+            <DeckCards
+              key={Math.random()}
+              demo={item.demo}
+              deckName={item.deckName}
+              openDeck={openDeck}
+            />
+          );
         })}
       </section>
       {/* <button className='bottom-button'>Create</button> */}
