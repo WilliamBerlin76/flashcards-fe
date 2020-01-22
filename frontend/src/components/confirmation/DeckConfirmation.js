@@ -45,10 +45,28 @@ function DeckConfirmation(props) {
       });
   };
 
+  const deleteDeck = () => {
+    axios
+      .delete(
+        `http://localhost:5000/api/deck/${currentUser}/${colId}/delete-deck`
+      )
+      .then(res => {
+        setTimeout(function() {
+          dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
+          props.history.push('/dashboard');
+        }, 1000);
+      })
+      .catch(err => {
+        console.log('archive deck err', err);
+      });
+  };
+
   return (
     <div>
       <p>Sure you want to {action} this deck?</p>
-      {action === 'unarchive' ? (
+      {action === 'delete' ? (
+        <button onClick={deleteDeck}>{action}</button>
+      ) : action === 'unarchive' ? (
         <button onClick={unArchiveDeck}>{action}</button>
       ) : (
         <button onClick={archiveDeck}>{action}</button>
