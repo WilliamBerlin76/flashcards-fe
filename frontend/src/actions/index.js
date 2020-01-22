@@ -27,7 +27,6 @@ export const getDecks = id => dispatch => {
         } else {
           deckArray = response.data;
         }
-        console.log(deckArray);
         dispatch({ type: FETCH_SUCCESS, payload: deckArray });
       });
     })

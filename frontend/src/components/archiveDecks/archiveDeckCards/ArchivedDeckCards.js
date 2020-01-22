@@ -24,7 +24,7 @@ export default function ArchivedDeckCards(props) {
           <i className='fas fa-ellipsis-h' onClick={toggleMenu}></i>
         </div>
         {showMenu ? <DeckMenu unArchive={true} colId={props.deckName} /> : null}
-        <div className='deck' onClick={() => props.openDeck(props.deckName)}>
+        <div className='deck'>
           <div className='deck-card'>
             <div className='deck-info'>
               <h3 className='deck-name'>{props.deckName}</h3>

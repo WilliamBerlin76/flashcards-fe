@@ -1,19 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import axios from 'axios';
+import Loader from 'react-loader-spinner';
+import styled from 'styled-components';
 
 import ArchivedDeckCards from './archiveDeckCards/ArchivedDeckCards';
 
+const Loading = styled.div`
+  margin-top: 10%;
+`;
+
 export default function ArchiveDecks(props) {
   const [archived, setArchived] = useState([]);
+  const [noArchived, setNoArchived] = useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     let currentUser = firebase.auth().currentUser.uid;
     axios
       .get(`http://localhost:5000/api/deck/${currentUser}/archive`)
       .then(res => {
+        console.log(res);
         setArchived(res.data);
+        setLoading(false);
+        if (res.data.length === 0) {
+          setNoArchived(true);
+        }
+      })
+      .catch(err => {
+        console.log(err);
       });
   }, []);
+
+  if (noArchived) {
+    return (
+      <div>
+        <p>You have no decks currently archived!</p>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div>
+        <Loading>
+          <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
+        </Loading>
+      </div>
+    );
+  }
 
   return (
     <div>
