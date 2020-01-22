@@ -12,6 +12,7 @@ const Dashboard = props => {
   useEffect(() => {
     let user = firebase.auth().currentUser.uid;
     props.getDecks(user);
+    console.log(props.decks);
   }, []);
 
   useEffect(() => {

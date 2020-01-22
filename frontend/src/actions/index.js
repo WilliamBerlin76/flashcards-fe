@@ -19,10 +19,17 @@ export const getDecks = id => dispatch => {
   axios
     .get('http://localhost:5000/api/demo/I2r2gejFYwCQfqafWlVy')
     .then(response => {
+      console.log('I am working');
       // dispatch({ type: FETCH_SUCCESS, payload: response.data})
-      // console.log(response.data)
       axios.get(`http://localhost:5000/api/deck/${id}`).then(res => {
-        let deckArray = response.data.concat(res.data);
+        let deckArray;
+        console.log('I am working');
+        if (res.data) {
+          deckArray = response.data.concat(res.data);
+        } else {
+          deckArray = response.data;
+        }
+        console.log(deckArray);
         dispatch({ type: FETCH_SUCCESS, payload: deckArray });
       });
     })
