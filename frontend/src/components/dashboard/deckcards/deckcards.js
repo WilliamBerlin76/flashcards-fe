@@ -14,7 +14,8 @@ const DeckCards = props => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    let currentUser = firebase.auth().currentUser.uid;
+    // let currentUser = firebase.auth().currentUser.uid;
+    let currentUser = 'oXPbqoUeMAZBW2PuLzPy5KczqsU2';
     if (props.demo) {
       axios
         .get(

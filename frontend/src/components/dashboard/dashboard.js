@@ -10,8 +10,8 @@ import './dashboard.scss';
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
-    let user = firebase.auth().currentUser.uid;
-    props.getDecks(user);
+    // let user = firebase.auth().currentUser.uid;
+    props.getDecks('oXPbqoUeMAZBW2PuLzPy5KczqsU2');
     console.log(props.decks);
   }, []);
 
