@@ -90,7 +90,7 @@ function App() {
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
-            path='/cards/:deckName/cards'
+            path='/:user/:deckName/cards'
             render={props => <Cards {...props} />}
           />
           <Route path='/login' render={props => <Login {...props} />} />

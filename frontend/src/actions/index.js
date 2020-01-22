@@ -37,20 +37,32 @@ export const getDecks = id => dispatch => {
 };
 
 //GETTING CARDS FOR DECKS
-export const getCards = deck => dispatch => {
+export const getCards = (deck, user) => dispatch => {
   console.log(deck);
 
   dispatch({ type: FETCH_CARDS });
 
-  axios
-    .get(
-      `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`
-    )
-    .then(response => {
-      console.log(response.data.data);
-      dispatch({ type: CARDS_SUCCESS, payload: response.data.data });
-    })
-    .catch(error => {
-      dispatch({ type: CARDS_FAILURE, payload: error });
-    });
+  if (user === 'demo') {
+    axios
+      .get(
+        `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`
+      )
+      .then(response => {
+        console.log(response.data);
+        dispatch({ type: CARDS_SUCCESS, payload: response.data.data });
+      })
+      .catch(error => {
+        dispatch({ type: CARDS_FAILURE, payload: error });
+      });
+  } else {
+    axios
+      .get(`http://localhost:5000/api/deck/${user}/${deck}`)
+      .then(response => {
+        console.log(response.data);
+        dispatch({ type: CARDS_SUCCESS, payload: response.data.data });
+      })
+      .catch(error => {
+        dispatch({ type: CARDS_FAILURE, payload: error });
+      });
+  }
 };

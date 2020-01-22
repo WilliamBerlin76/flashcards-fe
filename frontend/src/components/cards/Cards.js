@@ -14,7 +14,7 @@ const Cards = props => {
 
   useEffect(() => {
     console.log(props.match.params.deckName);
-    props.getCards(props.match.params.deckName);
+    props.getCards(props.match.params.deckName, props.match.params.user);
   }, []);
 
   let history = useHistory();

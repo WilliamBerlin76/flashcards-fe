@@ -19,8 +19,8 @@ const Dashboard = props => {
     setDeckArr(props.decks);
   }, [props.decks]);
 
-  const openDeck = deck => {
-    props.history.push(`/cards/${deck}/cards`);
+  const openDeck = (deck, user) => {
+    props.history.push(`/${user}/${deck}/cards`);
   };
 
   return (

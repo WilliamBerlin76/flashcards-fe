@@ -11,6 +11,7 @@ const DeckCards = props => {
   const [exampleCard, setExampleCard] = useState(null);
   const [deckLength, setDeckLength] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     let currentUser = firebase.auth().currentUser.uid;
@@ -23,6 +24,7 @@ const DeckCards = props => {
           let card = res.data.data[0];
           setExampleCard(card.data.front);
           setDeckLength(res.data.data.length);
+          setUser('demo');
         });
     } else {
       axios
@@ -30,6 +32,7 @@ const DeckCards = props => {
         .then(res => {
           setExampleCard(res.data.deckInformation.exampleCard);
           setDeckLength(res.data.deckInformation.deckLength);
+          setUser(currentUser);
         });
     }
   }, []);
@@ -53,7 +56,10 @@ const DeckCards = props => {
           ) : null}
         </div>
         {showMenu ? <DeckMenu colId={props.deckName} /> : null}
-        <div className='deck' onClick={() => props.openDeck(props.deckName)}>
+        <div
+          className='deck'
+          onClick={() => props.openDeck(props.deckName, user)}
+        >
           <div className='deck-card'>
             <div className='deck-info'>
               <h3 className='deck-name'>{props.deckName}</h3>
