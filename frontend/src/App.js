@@ -19,6 +19,7 @@ import Cards from './components/cards/Cards';
 import Marketing from './components/marketing/Marketing';
 import Privacy from './components/Privacy/privacy';
 import DeckConfirmation from './components/confirmation/DeckConfirmation';
+import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -101,8 +102,12 @@ function App() {
           <Route path='/preferences' component={Settings} />
           <Route path='/privacy' component={Privacy} />
           <Route
-            path='/:type/:colId/:action'
+            path='/confirmation/:type/:colId/:action'
             render={props => <DeckConfirmation {...props} />}
+          />
+          <Route
+            path='/archived-decks'
+            render={props => <ArchiveDecks {...props} />}
           />
           {/* //Switch Here */}
         </div>

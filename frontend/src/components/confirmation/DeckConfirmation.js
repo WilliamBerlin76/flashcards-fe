@@ -29,10 +29,30 @@ function DeckConfirmation(props) {
       });
   };
 
+  const unArchiveDeck = async () => {
+    axios
+      .post(
+        `http://localhost:5000/api/deck/remove-archive/${currentUser}/${colId}/`
+      )
+      .then(res => {
+        setTimeout(function() {
+          dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
+          props.history.push('/archived-decks');
+        }, 1000);
+      })
+      .catch(err => {
+        console.log('archive deck err', err);
+      });
+  };
+
   return (
     <div>
       <p>Sure you want to {action} this deck?</p>
-      <button onClick={archiveDeck}>{action}</button>
+      {action === 'unarchive' ? (
+        <button onClick={unArchiveDeck}>{action}</button>
+      ) : (
+        <button onClick={archiveDeck}>{action}</button>
+      )}
     </div>
   );
 }

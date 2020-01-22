@@ -7,7 +7,15 @@ export default function DeckMenu(props) {
   return (
     <div className='deck-menu'>
       <div>
-        <Link to={`/${type}/${props.colId}/${actionType}`}>Archive</Link>
+        {props.unArchive ? (
+          <Link to={`confirmation/${type}/${props.colId}/unarchive`}>
+            Return to Decks
+          </Link>
+        ) : (
+          <Link to={`confirmation/${type}/${props.colId}/${actionType}`}>
+            Archive
+          </Link>
+        )}
       </div>
     </div>
   );
