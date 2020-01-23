@@ -1,0 +1,105 @@
+.mdc-text-field__input {
+    color: black;
+} 
+.text {
+    color: black
+}
+
+.mdc-text-field-disabled-placeholder-color {
+   color: #6A5C55
+}
+.mdc-text-field-label-color{
+    color: #6A5C55
+}
+
+.card {
+    border: 0.5px solid rgba(106, 92, 85, 0.3);
+   margin-bottom: 4%;
+    .frontLabel {
+        color: #F66E00;
+    }
+    .frontCard {
+        display: flex;
+        color: #6A5C55;
+        font-weight: bold;
+        border-bottom: 1.5px solid #6A5C55;
+        padding-bottom: 3%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+ 
+    }
+    .backLabel {
+        color: #F66E00;
+    }
+    .backCard{
+        display: flex;
+        color: #6A5C55;
+        font-weight: bold;
+        border: none;
+    }
+}
+
+@media only screen and (min-width: 400px){
+.page {
+    margin-top: 85%;
+}
+.deckInfo{
+    margin-left: 20%;
+}
+
+    .cardForm {
+        margin-top: -51.5%;
+        padding-bottom: 10%;
+        
+    }
+        .buttonHolder{
+      margin-bottom: -90%;
+      padding-bottom: 1%;
+      margin-left: 35%;
+      .save {
+        background-color:#F66E00;
+        color: #FCFCFC;
+        font-size: 18px;
+        line-height: 21px;
+        border-radius: 23px;
+      }
+    }
+
+    .card {
+       margin-top: 10%;
+       padding-left: 10%;
+       width: 90%;
+       margin-left: 6%;
+       padding-top: 2%;
+       .frontLabel {
+           margin-left: -10%;
+       }
+       .frontCard {
+        margin-left: -7%;
+        width: 100%;
+        text-align: center;
+        height: 70px;
+        margin-bottom: 2%;
+        font-size: 2rem;
+        overflow: none;
+       }
+       .backLabel {
+           margin-left: -10%;
+       }
+       .backCard {
+        margin-left: -7%;
+        width: 100%;
+        text-align: center;
+        height: 70px;
+        margin-bottom: 2%;
+        font-size: 210%;
+        padding-bottom: 10%;
+           
+       }
+    }
+    .new{
+        margin-bottom: -9%;
+        margin-left: 6%;
+    }
+};

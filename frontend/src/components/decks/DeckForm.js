@@ -1,6 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { postDecks } from '../../actions';
+import './DeckForm.scss'
+import {TextField, Input} from '@material-ui/core'; 
 
 
 const DeckForm = (props) => {
@@ -10,7 +12,7 @@ const DeckForm = (props) => {
         {    front: '', back: ''}
     ]);
     // const [currentCard, setCurrentCard] = useState(0)
-
+  
 
     const handleChanges = (index, event) => {
         const values = [...newDecks]
@@ -48,68 +50,98 @@ const DeckForm = (props) => {
     //     e.preventDefault();
     // };
 
+
     const handleSubmit = e => {
         console.log(newDecks, newName)
         e.preventDefault()
         props.postDecks(newDecks, newName)
     };
-    
+
+
+
     return(
+
         <div>
         <h1>Create Your New Deck</h1>
 
+        <div className = "page">
+        <div className = "buttonHolder">
+        <button
+        type = "button"
+        className = "add"
+        onClick = {() => handleAdd()}>
+            Add Card
+
+        </button>
+
+        <button
+        className = "save"
+        onSubmit = {handleSubmit}
+        onClick = {() => props.history.push(`/decklist`)}
+        >
+        Save Deck
+        </button>
+        </div>
+        
+
             <div>
-                <form onSubmit = {handleSubmit}>
+                <form onSubmit = {handleSubmit} className = "cardForm">
+                    
+                    <h3 className = "deckInfo">Deck Info</h3>
+
+                    <TextField label = 'Deck Name' >
                     <input
+                    
+                        className = "mdc-text-field"
                         type = "text"
                         onChange = {handleName}
                         name = "colId" 
                         placeholder = "Deck Name" 
                     />
-
-                    <div>
-                            <button
-                            type = "button"
-                            onClick = {() => handleAdd()}>
-                                Add Card
-                            </button>
-                   
-                            <button
-                             onSubmit = {handleSubmit}
-                             onClick = {() => props.history.push(`/decklist`)}
-                            >
-                             Save Deck
-                            </button>
-                    </div>
+                    </TextField>
+                    
+                    <h3 className = "new">New Card</h3> 
 
                     {newDecks.map((newDeck, index) => (
-                        <Fragment key = {`${newDeck}~${index}`}>
-                            <div>
 
-                                <label htmlFor = "front">Front of Card</label>
+                                 
+                        <Fragment key = {`${newDeck}~${index}`}>
+                            <div className = "card" >
+                          
+                                                     
+
+                                <label htmlFor = "front" className = "frontLabel">Front</label>
                                 <input
+                                    className = "frontCard"
                                     type = "text"
                                     onChange = {event => handleChanges(index, event)}
                                     name = "front"
                                     placeholder = "Term"
                                     value = {newDeck.front}
                                 />
+                                
 
-                                <label htmlFor = "back">Back of Card</label>
+                                <div className = "backHolder">
+                            
+                                <label htmlFor = "back" className = "backLabel">Back</label>
                                 <input
+                                    className = "backCard"
                                     type = "text"
                                     onChange = {event => handleChanges(index, event)}
                                     name = "back"
                                     value = {newDeck.back}
                                     placeholder = "Definition"
                                 />
-                            </div>
-
-                            <button
+                             </div>
+                             <button
                             type = "button"
                             onClick = {() => handleRemove(index)}>
                                 Remove This Card
                             </button>
+
+                            </div>
+
+
 
                             {/* <button
                             type = "button"
@@ -117,31 +149,25 @@ const DeckForm = (props) => {
                                 Add Card
                             </button> */}
                         </Fragment>
+ 
                     ))}
 
-                            {/* <button
-                            type = "button"
-                            onClick = {() => handleAdd()}>
-                                Add Card
-                            </button>
-                    */}
-                   {/* Uncomment when saving deck is possible */}
-                    <button
-                        onClick = {() => props.history.push(`/decklist`)}
-                        onSubmit = {handleSubmit}
-                    >
-                    Save Deck
-                    </button>
+
 
                 </form>
 
 
+            </div>
+ 
 
             </div>
 
+
         </div>
-        
+
+
     )
+
 };
 
 export default connect(
