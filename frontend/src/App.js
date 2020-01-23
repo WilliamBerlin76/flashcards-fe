@@ -18,6 +18,9 @@ import DeckList from './components/decks/DeckList';
 import Cards from './components/cards/Cards';
 import Marketing from './components/marketing/Marketing';
 import Privacy from './components/Privacy/privacy';
+import EditDeck from './components/decks/EditDeck';
+import EditCard from './components/cards/EditCard';
+
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -99,7 +102,8 @@ function App() {
           />
           <Route path='/preferences' component={Settings} />
           <Route path='/privacy' component={Privacy} />
-
+          <Route path = '/editdeck' component = {EditDeck} />
+  <Route path = '/editcard/:deckName/cards' render ={props => <EditCard {...props}/>} />
           {/* //Switch Here */}
         </div>
       </>
