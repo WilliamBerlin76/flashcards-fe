@@ -23,7 +23,7 @@ function DeckConfirmation(props) {
 
   const archiveDeck = async () => {
     axios
-      .post(`http://localhost:5000/api/deck/archive/${currentUser}/${colId}/`)
+      .post(`https://flashcards-be.herokuapp.com/api/deck/archive/${currentUser}/${colId}/`)
       .then(res => {
         setTimeout(function() {
           dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
@@ -38,7 +38,7 @@ function DeckConfirmation(props) {
   const unArchiveDeck = async () => {
     axios
       .post(
-        `http://localhost:5000/api/deck/remove-archive/${currentUser}/${colId}/`
+        `https://flashcards-be.herokuapp.com/api/deck/remove-archive/${currentUser}/${colId}/`
       )
       .then(res => {
         setTimeout(function() {
@@ -54,7 +54,7 @@ function DeckConfirmation(props) {
   const deleteDeck = () => {
     axios
       .delete(
-        `http://localhost:5000/api/deck/${currentUser}/${colId}/delete-deck`
+        `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${colId}/delete-deck`
       )
       .then(res => {
         setTimeout(function() {
@@ -67,15 +67,29 @@ function DeckConfirmation(props) {
       });
   };
 
+  const deleteArchivedDeck = () => {
+    axios.delete(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${colId}/delete-archived-deck`).then(res => {
+      setTimeout(function() {
+        dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
+        props.history.push('/archived-decks');
+      }, 1000);
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div>
-      <p>Sure you want to {action} this deck?</p>
+      <p>Sure you want to {action === 'deleteArchived' ? 'delete' : action} this deck?</p>
       {action === 'delete' ? (
-        <button onClick={deleteDeck}>{action}</button>
+        <button onClick={deleteDeck}>Delete</button>
       ) : action === 'unarchive' ? (
-        <button onClick={unArchiveDeck}>{action}</button>
+        <button onClick={unArchiveDeck}>Un-Archive</button>
+      ) : action === 'deleteArchived' ? (
+        <button onClick={deleteArchivedDeck}>Delete</button>
       ) : (
-        <button onClick={archiveDeck}>{action}</button>
+        <button onClick={archiveDeck}>Archive</button>
       )}
     </div>
   );

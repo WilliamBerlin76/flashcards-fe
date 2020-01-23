@@ -9,12 +9,16 @@ export default function DeckMenu(props) {
     <div className='deck-menu'>
       <div>
         {props.unArchive ? (
+          <>
           <Link
             className='menu-link'
             to={`confirmation/${type}/${props.colId}/unarchive`}
           >
             Return to Decks
           </Link>
+          
+          <Link className='menu-link' to={`confirmation/${type}/${props.colId}/deleteArchived`}>Delete</Link>
+          </>
         ) : (
           <>
             <Link

@@ -29,7 +29,7 @@ const DeckCards = props => {
         });
     } else {
       axios
-        .get(`http://localhost:5000/api/deck/${currentUser}/${props.deckName}`)
+        .get(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.deckName}`)
         .then(res => {
           setExampleCard(res.data.deckInformation.exampleCard);
           setDeckLength(res.data.deckInformation.deckLength);
@@ -63,7 +63,9 @@ const DeckCards = props => {
         >
           <div className='deck-card'>
             <div className='deck-info'>
-              <h3 className='deck-name'>{props.deckName}</h3>
+              {/* <h3 className='deck-name'>{props.deckName}</h3> */}
+              {props.demo ? <h3 className='deck-name'>{`${props.deckName} - Demo`}</h3>
+              : <h3 className='deck-name'>{props.deckName}</h3>}
               <p className='deck-length'>{deckLength} cards</p>
             </div>
             <div className='example-card'>{exampleCard}</div>

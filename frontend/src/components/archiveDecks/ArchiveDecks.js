@@ -20,7 +20,7 @@ export default function ArchiveDecks(props) {
       if (user){
         let currentUser = firebase.auth().currentUser.uid;
         axios
-          .get(`http://localhost:5000/api/deck/${currentUser}/archive`)
+          .get(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/archive`)
           .then(res => {
             console.log(res);
             setArchived(res.data);
