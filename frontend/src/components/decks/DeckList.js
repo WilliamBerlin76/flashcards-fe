@@ -15,9 +15,15 @@ const DeckList = props => {
   const [deckLength, setDeckLength] = useState(0);
 
   useEffect(() => {
-    let currentUser = firebase.auth().currentUser.uid;
-    props.getDecks(currentUser);
-    // console.log(props.cards)
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        let currentUser = firebase.auth().currentUser.uid;
+        props.getDecks(currentUser);
+        // console.log(props.cards)
+      } else {
+        return null
+      }
+    })
   }, []);
 
   const openDeck = (deck, user) => {

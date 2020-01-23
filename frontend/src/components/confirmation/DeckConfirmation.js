@@ -8,8 +8,14 @@ import { getDecks } from '../../actions';
 function DeckConfirmation(props) {
   const [currentUser, setCurrentUser] = useState(null);
   useEffect(() => {
-    let currentUserId = firebase.auth().currentUser.uid;
-    setCurrentUser(currentUserId);
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        let currentUserId = firebase.auth().currentUser.uid;
+        setCurrentUser(currentUserId);
+      } else {
+        return null
+      }
+    })
   }, []);
   const dispatch = useDispatch();
 

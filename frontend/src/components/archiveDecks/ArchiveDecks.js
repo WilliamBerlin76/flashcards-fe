@@ -16,20 +16,27 @@ export default function ArchiveDecks(props) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    let currentUser = firebase.auth().currentUser.uid;
-    axios
-      .get(`http://localhost:5000/api/deck/${currentUser}/archive`)
-      .then(res => {
-        console.log(res);
-        setArchived(res.data);
-        setLoading(false);
-        if (res.data.length === 0) {
-          setNoArchived(true);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user){
+        let currentUser = firebase.auth().currentUser.uid;
+        axios
+          .get(`http://localhost:5000/api/deck/${currentUser}/archive`)
+          .then(res => {
+            console.log(res);
+            setArchived(res.data);
+            setLoading(false);
+            if (res.data.length === 0) {
+              setNoArchived(true);
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      } else {
+        return null
+      }
+    })
+    
   }, []);
 
   if (noArchived) {

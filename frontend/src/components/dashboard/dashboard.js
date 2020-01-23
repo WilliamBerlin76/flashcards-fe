@@ -10,11 +10,18 @@ import './dashboard.scss';
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
-    let user = firebase.auth().currentUser.uid;
-    props.getDecks(user);
-    console.log(props.decks);
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        let user = firebase.auth().currentUser.uid;
+        props.getDecks(user);
+        console.log(props.decks);
+      } else {
+        return null
+      }
+    });  
   }, []);
-
+  
+  
   useEffect(() => {
     setDeckArr(props.decks);
   }, [props.decks]);
