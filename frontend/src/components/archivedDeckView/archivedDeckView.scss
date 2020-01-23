@@ -1,8 +1,20 @@
 .back {
   
   margin-left: 1rem;
+  &:hover{
+      cursor: pointer;
+  }
 }
 
 .header {
   background-color: #F66E00;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  .deck-name{
+      color: #FAFAFA;
+      margin-bottom: 25px;
+      margin-left: 10px;
+      cursor: pointer;
+  }
 }

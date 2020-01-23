@@ -82,15 +82,18 @@ function DeckConfirmation(props) {
   return (
     <div>
       <p>Sure you want to {action === 'deleteArchived' ? 'delete' : action} this deck?</p>
-      {action === 'delete' ? (
-        <button onClick={deleteDeck}>Delete</button>
-      ) : action === 'unarchive' ? (
-        <button onClick={unArchiveDeck}>Un-Archive</button>
-      ) : action === 'deleteArchived' ? (
-        <button onClick={deleteArchivedDeck}>Delete</button>
-      ) : (
-        <button onClick={archiveDeck}>Archive</button>
-      )}
+      <div className="buttons">
+        <p className="go-back">← No, go back</p>
+        {action === 'delete' ? (
+          <button onClick={deleteDeck}>Delete</button>
+        ) : action === 'unarchive' ? (
+          <button onClick={unArchiveDeck}>Un-Archive</button>
+        ) : action === 'deleteArchived' ? (
+          <button onClick={deleteArchivedDeck}>Delete</button>
+        ) : (
+          <button onClick={archiveDeck}>Archive</button>
+        )}
+      </div>
     </div>
   );
 }

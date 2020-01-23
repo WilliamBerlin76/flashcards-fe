@@ -11,17 +11,23 @@ import './Cards.scss';
 
 const Cards = props => {
   const [currentCard, setCurrentCard] = useState(0);
+  const [deck, setDeck] = useState([]);
 
   useEffect(() => {
     console.log(props.match.params.deckName);
     props.getCards(props.match.params.deckName, props.match.params.user);
   }, []);
 
+  useEffect(() => {
+    let filteredCards = props.cards.filter(card => !card.data.archived);
+    setDeck(filteredCards);
+  }, [props.cards])
+
   let history = useHistory();
 
   const goNext = () => {
     let index = currentCard;
-    if (currentCard >= props.cards.length - 1) {
+    if (currentCard >= deck.length - 1) {
       setCurrentCard(0);
     } else {
       setCurrentCard(index + 1);
@@ -32,7 +38,7 @@ const Cards = props => {
   const goPrev = () => {
     let index = currentCard;
     if (currentCard <= 0) {
-      setCurrentCard(props.cards.length - 1);
+      setCurrentCard(deck.length - 1);
     } else {
       setCurrentCard(index - 1);
     }
@@ -59,7 +65,7 @@ const Cards = props => {
           />
           <h1 className='deckName'>{props.match.params.deckName}</h1>
 
-          <h4 className='listCards'>{props.cards.length}</h4>
+          <h4 className='listCards'>{deck.length}</h4>
           <h4 className='cardsHeader'>Cards</h4>
 
           {/* <div className = "rightside"> */}
@@ -72,8 +78,8 @@ const Cards = props => {
           {props.error && <p>{props.error}</p>}
 
           <Card
-            key={props.cards.id}
-            card={props.cards[currentCard]}
+            key={deck.id}
+            card={deck[currentCard]}
             goNext={goNext}
             goPrev={goPrev}
           />

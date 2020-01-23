@@ -33,13 +33,13 @@ export default function ArchivedDeckView(props) {
   return (
     <div>
         <div className="header">
-            <h2>{deckInfo.deckName}</h2>
             <img
             className='back'
             src={poly}
             alt='back-arrow'
             onClick={() => history.goBack()}
           />
+            <h2 className='deck-name' onClick={() => history.goBack()}>{deckInfo.deckName}</h2>
         </div>  
         {deckArr.map(item => {
           return(
