@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import axios from 'axios';
 import { connect, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 
 import { getDecks } from '../../actions';
+import './deckConfirmation.scss';
 
 function DeckConfirmation(props) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -18,6 +20,7 @@ function DeckConfirmation(props) {
     })
   }, []);
   const dispatch = useDispatch();
+  let history = useHistory();
 
   const { action, colId } = props.match.params;
 
@@ -81,17 +84,17 @@ function DeckConfirmation(props) {
 
   return (
     <div>
-      <p>Sure you want to {action === 'deleteArchived' ? 'delete' : action} this deck?</p>
+      <p className="sure">Sure you want to {action === 'deleteArchived' ? 'delete' : action} this deck?</p>
       <div className="buttons">
-        <p className="go-back">← No, go back</p>
+        <p onClick={() => history.goBack()} className="go-back">← No, go back</p>
         {action === 'delete' ? (
-          <button onClick={deleteDeck}>Delete</button>
+          <div className="confirm-button" onClick={deleteDeck}>Delete</div>
         ) : action === 'unarchive' ? (
-          <button onClick={unArchiveDeck}>Un-Archive</button>
+          <div className="confirm-button" onClick={unArchiveDeck}>Un-Archive</div>
         ) : action === 'deleteArchived' ? (
-          <button onClick={deleteArchivedDeck}>Delete</button>
+          <div className="confirm-button" onClick={deleteArchivedDeck}>Delete</div>
         ) : (
-          <button onClick={archiveDeck}>Archive</button>
+          <div className="confirm-button" onClick={archiveDeck}>Archive</div>
         )}
       </div>
     </div>
