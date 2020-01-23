@@ -39,6 +39,10 @@ export default function ArchiveDecks(props) {
     
   }, []);
 
+  const openDeck = (collectionId) => {
+    props.history.push(`/archived-decks/${collectionId}`)
+  }
+
   if (noArchived) {
     return (
       <div>
@@ -85,6 +89,7 @@ export default function ArchiveDecks(props) {
               deckName={item.deckName}
               exampleCard={item.exampleCard}
               deckLength={item.deckLength}
+              openDeck={openDeck}
             />
           );
         })}

@@ -20,6 +20,7 @@ import Marketing from './components/marketing/Marketing';
 import Privacy from './components/Privacy/privacy';
 import DeckConfirmation from './components/confirmation/DeckConfirmation';
 import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
+import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -106,9 +107,13 @@ function App() {
             render={props => <DeckConfirmation {...props} />}
           />
           <Route
+            exact
             path='/archived-decks'
             render={props => <ArchiveDecks {...props} />}
           />
+          <Route
+            path='/archived-decks/:colId'
+            render={props => <ArchivedDeckView {...props}/>}  />
           {/* //Switch Here */}
         </div>
       </>
