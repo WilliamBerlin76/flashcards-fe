@@ -3,11 +3,17 @@ import { connect } from 'react-redux';
 import { postDecks } from '../../actions';
 import './DeckForm.scss'
 import {TextField, Input} from '@material-ui/core'; 
+import Tags from './Tags';
+
+
+
 
 
 const DeckForm = (props) => {
 
     const [newName, setNewName] = useState({ colId: ''});
+    const [newIcon, setNewIcon] = useState({ icon: ''})
+    
     const [newDecks, setNewDecks] = useState([
         {    front: '', back: ''}
     ]);
@@ -33,23 +39,26 @@ const DeckForm = (props) => {
             [name] : e.target.value
         })
     };
-
+     
+    const handleIcon = (e) => {
+        let name = e.target.name
+        setNewIcon({
+            ...newIcon,
+            [name] : e.target.value
+        })
+    };
+  
     const handleAdd = () => {
         const values = [...newDecks];
         values.unshift({ front: '', back: '' });
         setNewDecks(values);
     };
-
+ 
     const handleRemove = index => {
         const values = [ ...newDecks];
         values.splice(index, 1);
         setNewDecks(values);
     };
-
-    // const handleButton = e => {
-    //     e.preventDefault();
-    // };
-
 
     const handleSubmit = e => {
         console.log(newDecks, newName)
@@ -58,14 +67,16 @@ const DeckForm = (props) => {
     };
 
 
-
+ 
+    const selectedTags  = tags => console.log(tags)
+    
     return(
 
         <div>
         <h1>Create Your New Deck</h1>
 
         <div className = "page">
-        <div className = "buttonHolder">
+        {/* <div className = "buttonHolder">
         <button
         type = "button"
         className = "add"
@@ -81,7 +92,7 @@ const DeckForm = (props) => {
         >
         Save Deck
         </button>
-        </div>
+        </div> */}
         
 
             <div>
@@ -99,6 +110,19 @@ const DeckForm = (props) => {
                         placeholder = "Deck Name" 
                     />
                     </TextField>
+
+                    <TextField label = 'Icon' >
+                    <input
+                    
+                        className = "iconField"
+                        type = "text"
+                        onChange = {handleIcon}
+                        name = "icon" 
+                        placeholder = "Deck Name" 
+                    />
+                    </TextField>
+
+                    <Tags selectedTags = {selectedTags} />
                     
                     <h3 className = "new">New Card</h3> 
 
@@ -151,7 +175,23 @@ const DeckForm = (props) => {
                         </Fragment>
  
                     ))}
+                <div className = "buttonHolder">
+        <button
+        type = "button"
+        className = "add"
+        onClick = {() => handleAdd()}>
+            Add Card
 
+        </button>
+
+        <button
+        className = "save"
+        onSubmit = {handleSubmit}
+        onClick = {() => props.history.push(`/decklist`)}
+        >
+        Save Deck
+        </button>
+        </div>
 
 
                 </form>
