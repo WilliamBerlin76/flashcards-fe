@@ -13,7 +13,13 @@ const initialState = {
             back: '',
         }
     ],
-    colId: '' 
+    deckInformation: [
+        {
+            deckName: ''
+        }
+    ],
+    tags: [],
+    icon: '' 
 };
 
 
@@ -63,8 +69,10 @@ const reducer = (state = initialState, action) => {
         case POST_DECK:
             return {
                 ...state,
-                colId: '',
+                deckInformation: [],
                 cards: [],
+                tags: [],
+                icon: '',
                 isFetching: false,
                 isPosting: true,
                 error: ''
@@ -72,13 +80,19 @@ const reducer = (state = initialState, action) => {
         case POST_SUCCESS:
             return {
                 ...state,
-                colId: action.payload,
+                deckInformation: [
+                    {
+                        deckName: action.payload
+                    }
+                ],
+                tags: action.payload,
                 cards: [
                     {
                         front: action.payload,
                         back: action.payload,
                     }
                 ],
+                icon: action.payload,
                 isFetching: false,
                 isPosting: false,
                 error: ''
@@ -87,6 +101,9 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 cards: [],
+                tags: [],
+                deckInformation: [],
+                icon: '',
                 isFetching: true,
                 isPosting: false,
                 error: action.payload

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {TextField, Input} from '@material-ui/core'; 
+import TextField from '@material-ui/core/TextField'; 
 
 
 const Tags = props => {
@@ -8,9 +8,10 @@ const Tags = props => {
 
         //TAGS
         const addTags = event => {
-            if (event.key === "Enter" && event.target.value !== "") {
+            event.preventDefault();
+            if (event.target.value !== "") {
                 setTags([...tags, event.target.value]);
-                props.selectedTags([...tags, event.target.value])
+                props.selectedTags([...tags, event.target.value]);
                 event.target.value = "";
             }
         };
@@ -23,27 +24,30 @@ const Tags = props => {
 
 
         return(
-        <div>
-            <ul>
+        <div className = "tags-input">
+      
+            <ul id = "tags">
             {tags.map((tag, index) => (
-                <li key = {index}>
-                    <span>{tag}</span>
-                    <i
+                <li key = {index} className = "tag">
+                    <span className = "tag-title">{tag}</span>
+                    <span
+                        className = "tag-close-icon"
                         onClick = {() => removeTags(index)}
                     >
-                        close
-                    </i>
-
+                        X
+                    </span>
+                    
                 </li>
             ))}
             </ul>
-                <TextField label = "Tags">
-                <input
+            <input
+                    className = "tagss"
                     type = "text"
-                    placeholder = "Press enter to add tags"
-                    onKeyUp = {event => addTags(event)}
+                    placeholder = "Add tags to make searching easier"
+                    onKeyUp = {event => event.key === "Enter" ? addTags(event) : null}
                 />
-                </TextField>
+
+
         </div>
 
 )
