@@ -97,7 +97,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 colId: [],
-                isEditing: true
+                isEditing: true,
                 error: ''
             };
         case EDIT_SUCCESS:
@@ -116,8 +116,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 colId: [],
-                isEditing false,
-                error: action.payload
+                isEditing: false,
+                error: action.payload,
             };
         
         default: return state;

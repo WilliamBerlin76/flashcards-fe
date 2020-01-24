@@ -14,10 +14,10 @@ const Deck = (props) => {
 
   useEffect(() => {
     // props.getDecks(); 
-    console.log(props.deck);
+    console.log(props.deckName);
     axios
       .get(
-        `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${props.deck}`
+        `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${props.deckName}`
       )
       .then(res => {
         console.log(res.data.data[0].data.front);

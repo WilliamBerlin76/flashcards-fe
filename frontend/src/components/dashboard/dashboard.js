@@ -5,11 +5,21 @@ import DeckCards from './deckcards/deckcards.js';
 import { getDecks, getCards } from '../../actions';
 import { connect } from 'react-redux';
 import './dashboard.scss';
+import firebase from "firebase";
 
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
-    props.getDecks();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        let user = firebase.auth().currentUser.uid;
+        console.log(user)
+        props.getDecks(user);
+        console.log(props.decks);
+      } else {
+        return null
+      }
+    });  
   }, []);
 
   useEffect(() => {
@@ -47,7 +57,8 @@ const Dashboard = props => {
         </div> */}
 
         {deckArr.map(item => {
-          return <DeckCards key={item} deckName={item} openDeck={openDeck} />;
+          console.log(item);
+          return <DeckCards key={item} demo = {item.demo} deckName={item.deckName} openDeck={openDeck} />;
         })}
       </section>
       {/* <button className='bottom-button'>Create</button> */}
