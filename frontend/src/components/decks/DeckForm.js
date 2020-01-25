@@ -18,17 +18,7 @@ const OrangeInput = withStyles({
       '& .MuiInput-underline:after': {
         borderBottomColor: 'rgba(106, 92, 85, 0.5)',
       },
-    //   '& .MuiOutlinedInput-root': {
-    //     '& fieldset': {
-    //       borderColor: 'red',
-    //     },
-    //     '&:hover fieldset': {
-    //       borderColor: 'yellow',
-    //     },
-    //     '&.Mui-focused fieldset': {
-    //       borderColor: 'green',
-    //     },
-    //   },
+
     },
   })(TextField);
 
@@ -99,17 +89,19 @@ const DeckForm = (props) => {
         <div>
              <div className = "loading-background">
            <img className = "back"src = {poly} onClick ={() => props.history.goBack()}/>
-            <h1 className = "deckName">Create Your New Deck</h1>
+            <h1 className = "deckName">Create New Deck</h1>
 
 
 
             {/* <div className = "rightside"> */}
-            <img className = "smile" src = {smiley} alt = {'a smiling emoji'}/>
+            <div className = "number">
+            <h3 className = "smile">{newDecks.length}</h3>
+            </div>
             <h4 className = "mastered">Total Cards</h4>
             {/* </div> */}
-            </div>
+        </div>
 
-        
+        <div>
 
         <div className = "page">
 
@@ -123,29 +115,21 @@ const DeckForm = (props) => {
                     <OrangeInput label = 'Deck Name'   type = "text"
                         onChange = { handleName}
                         name = "deckName" 
-                        placeholder = "Deck Name" / >
+                        // placeholder = "Deck Name" 
+                        / >
 
-                    {/* <input
-                    
-                       
-                        type = "text"
-                        onChange = { handleName}
-                        name = "deckName" 
-                        placeholder = "Deck Name" 
-                    /> */}
-                    {/* </OrangeInput> */}
 
                     <div className = "iconHolder">
-                    <OrangeInput label = 'Icon' >
-                    <input
+                    <OrangeInput label = 'Icon' 
+                    
                     
                         className = "iconField"
                         type = "text"
                         onChange = {handleIcon}
                         name = "icon" 
-                        placeholder = "Deck Name" 
-                    />
-                    </OrangeInput>
+                         />
+                    
+                    </div>
                     </div>
 
                     <div className = "tagHolder">
@@ -154,10 +138,9 @@ const DeckForm = (props) => {
                    
                     </div>
 
-                    </div>
-
-                    
-                    <div>
+                   
+                    <h3 className = "flashcards">Flashcards</h3>
+        
 
                     <h3 className = "new">New Card</h3> 
 
@@ -170,20 +153,21 @@ const DeckForm = (props) => {
                                         
 
                     <label htmlFor = "front" className = "frontLabel">Front</label>
-                    <input
+                    <textarea
                         className = "frontCard"
                         type = "text"
                         onChange = {event => handleChanges(index, event)}
                         name = "front"
                         placeholder = "Term"
                         value = {newDeck.front}
+                        multiline = {true}
                     />
                     
 
                     <div className = "backHolder">
 
                     <label htmlFor = "back" className = "backLabel">Back</label>
-                    <input
+                    <textarea
                         className = "backCard"
                         type = "text"
                         onChange = {event => handleChanges(index, event)}
@@ -192,10 +176,11 @@ const DeckForm = (props) => {
                         placeholder = "Definition"
                     />
                 </div>
+                
                 <button
                 type = "button"
                 onClick = {() => handleRemove(index)}>
-                    Remove This Card
+                    X
                 </button>
 
                 </div>
@@ -209,47 +194,34 @@ const DeckForm = (props) => {
                 </Fragment>
 
                 ))}
-                </div>
-
+             
 
                 </form>
 
-
-
-
-
                 <div className = "buttonHolder">
-        <button
-        type = "button"
-        className = "add"
-        onClick = {() => handleAdd()}>
-            Add Card
+                    <button
+                    type = "button"
+                    className = "add"
+                    onClick = {() => handleAdd()}>
+                        Add Card
 
-        </button>
+                    </button>
 
-        <button
-        className = "save"
-        // onSubmit = {handleSubmit}
-        // onClick = {() => props.history.push(`/decklist`)}
-        onClick = {handleSubmit}
-        >
-        Save Deck
-        </button>
-        </div>
-
-        
+                    <button
+                    className = "save"
+                    // onSubmit = {handleSubmit}
+                    // onClick = {() => props.history.push(`/decklist`)}
+                    onClick = {handleSubmit}
+                    >
+                    Save Deck
+                    </button>
+                    </div>
 
 
             </div>
             
 
-
-
-
-
-
-
-
+     
 
             <form onSubmit = {handleSubmit} className = "cardFormBottom">
 
@@ -260,36 +232,41 @@ const DeckForm = (props) => {
                         <div key = {`${newDeck}~${index}`}>
                             <div className = "card" >
                           
-                                                     
+                          <div className = "removeHolder">
+                            <button
+                            type = "button"
+                            className = "remove"
+                            onClick = {() => handleRemove(index)}>
+                                X
+                            </button>               
+
+                            </div>
 
                                 <label htmlFor = "front" className = "frontLabel">Front</label>
-                                <input
+                                <textarea
                                     className = "frontCard"
                                     type = "text"
                                     onChange = {event => handleChanges(index, event)}
                                     name = "front"
-                                    placeholder = "Term"
+                                    // placeholder = "Term"
                                     value = {newDeck.front}
+                                    
                                 />
                                 
 
                                 <div className = "backHolder">
                             
                                 <label htmlFor = "back" className = "backLabel">Back</label>
-                                <input
+                                <textarea
                                     className = "backCard"
                                     type = "text"
                                     onChange = {event => handleChanges(index, event)}
                                     name = "back"
                                     value = {newDeck.back}
-                                    placeholder = "Definition"
+                                    // placeholder = "Definition"
                                 />
                              </div>
-                             <button
-                            type = "button"
-                            onClick = {() => handleRemove(index)}>
-                                Remove This Card
-                            </button>
+
 
                             </div>
 
@@ -309,13 +286,12 @@ const DeckForm = (props) => {
                 </form>
 
             </div>
-
+            </div>
 
         </div>
 
-
-    )
-
+)
+    
 };
 
 export default connect(

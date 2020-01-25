@@ -18,8 +18,11 @@ const initialState = {
             deckName: ''
         }
     ],
-    tags: [],
-    icon: '' 
+    deck: {
+        tags: [],
+        icon: '' 
+    }
+    
 };
 
 
@@ -71,8 +74,10 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 deckInformation: [],
                 cards: [],
-                tags: [],
-                icon: '',
+                deck: {
+                    tags: [],
+                    icon: '' 
+                },
                 isFetching: false,
                 isPosting: true,
                 error: ''
@@ -85,14 +90,16 @@ const reducer = (state = initialState, action) => {
                         deckName: action.payload
                     }
                 ],
-                tags: action.payload,
                 cards: [
                     {
                         front: action.payload,
                         back: action.payload,
                     }
                 ],
-                icon: action.payload,
+                deck: {
+                    tags: action.payload,
+                    icon: action.payload
+                },
                 isFetching: false,
                 isPosting: false,
                 error: ''
@@ -101,9 +108,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 cards: [],
-                tags: [],
                 deckInformation: [],
-                icon: '',
+                deck: {},
                 isFetching: true,
                 isPosting: false,
                 error: action.payload
