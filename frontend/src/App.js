@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './hooks/hooks';
 import firebase from 'firebase';
 //import dashNav from './components/dashNav';
 import Burger from './components/Burger';
 import Menu from './components/menu/menu';
 import { theme } from './components/theme';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import FocusLock from 'react-focus-lock';
 import { ThemeProvider } from 'styled-components';
 import Login from './components/login/login.js';

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
-import { Link } from 'react-router-dom';
-import DashNav from '../dashNav/dashNav';
 import DeckCards from './deckcards/deckcards.js';
 import { getDecks, getCards } from '../../actions';
 import { connect } from 'react-redux';
@@ -21,7 +19,6 @@ const Dashboard = props => {
       if (user) {
         let user = firebase.auth().currentUser.uid;
         props.getDecks(user);
-        console.log(props.decks);
       } else {
         return null;
       }

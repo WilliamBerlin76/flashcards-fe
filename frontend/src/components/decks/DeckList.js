@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import firebase from 'firebase';
-import Deck from './Deck';
 import DeckCards from '../dashboard/deckcards/deckcards';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import { getDecks, getCards } from '../../actions';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { getDecks } from '../../actions';
 import smileyface from './smileyface.png';
 import './DeckList.scss';
 
 const DeckList = props => {
-  const [topCard, setTopCard] = useState(null);
-  const [deckLength, setDeckLength] = useState(0);
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -21,9 +16,9 @@ const DeckList = props => {
         props.getDecks(currentUser);
         // console.log(props.cards)
       } else {
-        return null
+        return null;
       }
-    })
+    });
   }, []);
 
   const openDeck = (deck, user) => {
