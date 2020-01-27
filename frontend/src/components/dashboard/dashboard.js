@@ -16,12 +16,11 @@ const Dashboard = props => {
         props.getDecks(user);
         console.log(props.decks);
       } else {
-        return null
+        return null;
       }
-    });  
+    });
   }, []);
-  
-  
+
   useEffect(() => {
     setDeckArr(props.decks);
   }, [props.decks]);
@@ -74,7 +73,7 @@ const Dashboard = props => {
 
 const mapStateToProps = state => {
   return {
-    cards: state.cards,
+    cards: state.deckcards,
     decks: state.decks,
     isFetching: state.isFetching,
     error: state.error
