@@ -17,10 +17,12 @@ export default function ArchiveDecks(props) {
   useEffect(() => {
     setLoading(true);
     firebase.auth().onAuthStateChanged(function(user) {
-      if (user){
+      if (user) {
         let currentUser = firebase.auth().currentUser.uid;
         axios
-          .get(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/archive`)
+          .get(
+            `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/archive`
+          )
           .then(res => {
             console.log(res);
             setArchived(res.data);
@@ -33,15 +35,14 @@ export default function ArchiveDecks(props) {
             console.log(err);
           });
       } else {
-        return null
+        return null;
       }
-    })
-    
+    });
   }, []);
 
-  const openDeck = (collectionId) => {
-    props.history.push(`/archived-decks/${collectionId}`)
-  }
+  const openDeck = collectionId => {
+    props.history.push(`/archived-decks/${collectionId}`);
+  };
 
   if (noArchived) {
     return (
@@ -90,6 +91,7 @@ export default function ArchiveDecks(props) {
               exampleCard={item.exampleCard}
               deckLength={item.deckLength}
               openDeck={openDeck}
+              icon={item.icon}
             />
           );
         })}
