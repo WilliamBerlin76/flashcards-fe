@@ -66,7 +66,12 @@ const Dashboard = props => {
           );
         })}
       </section>
-      {/* <button className='bottom-button'>Create</button> */}
+      <button
+        className='bottom-button'
+        onClick={() => props.history.push('/create-deck')}
+      >
+        Create Deck
+      </button>
     </>
   );
 };

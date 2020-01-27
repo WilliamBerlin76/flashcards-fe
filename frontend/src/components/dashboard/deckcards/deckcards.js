@@ -12,6 +12,7 @@ const DeckCards = props => {
   const [deckLength, setDeckLength] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
   const [user, setUser] = useState(null);
+  const [icon, setIcon] = useState(null);
 
   useEffect(() => {
     // let currentUser = firebase.auth().currentUser.uid;
@@ -29,11 +30,18 @@ const DeckCards = props => {
         });
     } else {
       axios
-        .get(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.deckName}`)
+        .get(
+          `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.deckName}`
+        )
         .then(res => {
           setExampleCard(res.data.deckInformation.exampleCard);
           setDeckLength(res.data.deckInformation.deckLength);
           setUser(currentUser);
+          if (res.data.deckInformation.icon) {
+            setIcon(res.data.deckInformation.icon);
+          } else {
+            return null;
+          }
         });
     }
   }, []);
@@ -64,8 +72,15 @@ const DeckCards = props => {
           <div className='deck-card'>
             <div className='deck-info'>
               {/* <h3 className='deck-name'>{props.deckName}</h3> */}
-              {props.demo ? <h3 className='deck-name'>{`${props.deckName} - Demo`}</h3>
-              : <h3 className='deck-name'>{props.deckName}</h3>}
+              {props.demo ? (
+                <h3 className='deck-name'>{`${props.deckName} - Demo`}</h3>
+              ) : icon ? (
+                <h3 className='deck-name'>
+                  {icon} {props.deckName}
+                </h3>
+              ) : (
+                <h3 className='deck-name'>{props.deckName}</h3>
+              )}
               <p className='deck-length'>{deckLength} cards</p>
             </div>
             <div className='example-card'>{exampleCard}</div>

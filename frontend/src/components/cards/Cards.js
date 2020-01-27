@@ -21,7 +21,7 @@ const Cards = props => {
   useEffect(() => {
     let filteredCards = props.deckcards.filter(card => !card.data.archived);
     setDeck(filteredCards);
-  }, [props.deckcards])
+  }, [props.deckcards]);
 
   let history = useHistory();
 
@@ -44,7 +44,7 @@ const Cards = props => {
     }
   };
 
-  if (!props.cards) {
+  if (!props.deckcards) {
     return (
       <div className='loading-background'>
         <h1 className='deckName'>{props.match.params.deckName}</h1>

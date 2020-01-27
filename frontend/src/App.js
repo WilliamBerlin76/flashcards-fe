@@ -102,7 +102,10 @@ function App() {
             render={props => <Dashboard {...props} />}
           />
           <Route path='/preferences' component={Settings} />
-          <Route path = '/create-deck' component = {DeckForm} />
+          <Route
+            path='/create-deck'
+            render={props => <DeckForm {...props} />}
+          />
           <Route path='/privacy' component={Privacy} />
           <Route
             path='/confirmation/:type/:colId/:action'
@@ -115,7 +118,8 @@ function App() {
           />
           <Route
             path='/archived-decks/:colId'
-            render={props => <ArchivedDeckView {...props}/>}  />
+            render={props => <ArchivedDeckView {...props} />}
+          />
           {/* //Switch Here */}
         </div>
       </>
