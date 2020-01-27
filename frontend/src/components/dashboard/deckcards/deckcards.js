@@ -51,11 +51,7 @@ const DeckCards = props => {
   };
 
   if (!exampleCard) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <div></div>;
   } else {
     return (
       <div>

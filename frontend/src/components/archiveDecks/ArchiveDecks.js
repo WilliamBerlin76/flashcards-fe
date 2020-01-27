@@ -6,8 +6,11 @@ import styled from 'styled-components';
 
 import ArchivedDeckCards from './archiveDeckCards/ArchivedDeckCards';
 
+import './archiveDecks.scss';
+
 const Loading = styled.div`
   margin-top: 10%;
+  text-align: center;
 `;
 
 export default function ArchiveDecks(props) {
@@ -46,7 +49,7 @@ export default function ArchiveDecks(props) {
 
   if (noArchived) {
     return (
-      <div>
+      <div className='no-archived'>
         <p>You have no decks currently archived!</p>
       </div>
     );

@@ -6,6 +6,13 @@ import DeckCards from './deckcards/deckcards.js';
 import { getDecks, getCards } from '../../actions';
 import { connect } from 'react-redux';
 import './dashboard.scss';
+import Loader from 'react-loader-spinner';
+import styled from 'styled-components';
+
+const Loading = styled.div`
+  margin-top: 10%;
+  text-align: center;
+`;
 
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
@@ -55,16 +62,24 @@ const Dashboard = props => {
           <span>All Decks</span>
         </div> */}
 
-        {deckArr.map(item => {
-          return (
-            <DeckCards
-              key={Math.random()}
-              demo={item.demo}
-              deckName={item.deckName}
-              openDeck={openDeck}
-            />
-          );
-        })}
+        {deckArr.length === 0 ? (
+          <div>
+            <Loading>
+              <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
+            </Loading>
+          </div>
+        ) : (
+          deckArr.map(item => {
+            return (
+              <DeckCards
+                key={Math.random()}
+                demo={item.demo}
+                deckName={item.deckName}
+                openDeck={openDeck}
+              />
+            );
+          })
+        )}
       </section>
       <button
         className='bottom-button'
