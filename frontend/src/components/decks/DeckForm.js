@@ -78,6 +78,7 @@ const DeckForm = (props) => {
         console.log(newDecks, newName, tags)
         e.preventDefault()
         props.postDecks(newDecks, newName, tags, newIcon)
+        props.history.push(`/decklist`)
     };
 
     const addTags = event => {
