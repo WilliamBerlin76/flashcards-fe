@@ -224,9 +224,9 @@ const DeckForm = (props) => {
 
                     <button
                     className = "save"
-                    onSubmit = {handleSubmit}
-                    onClick = {() => props.history.push(`/decklist`)}
-                    // onClick = {handleSubmit}
+                    // onSubmit = {handleSubmit}
+                    // onClick = {() => props.history.push(`/decklist`)}
+                    onClick = {handleSubmit}
                     >
                     Save Deck
                     </button>

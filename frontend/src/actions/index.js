@@ -79,12 +79,12 @@ export const postDecks = (deck, deckName, tags, icon ) => dispatch => {
     const decks = {tags, icon}
     // const tagz = decks.tags
     // const iconz = decks.icon
-    const card = cardd.cards
+    const cards = cardd.cards
     // const body = {cards: cardd.cards, deckz: {tagz, iconz}}
     // const colId = props.colId
-    console.log({card, deck: {tags, icon} })
+    console.log({cards, deck: {tags, icon} })
     axios
-    .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${deckName.deckName}`, {card, deck: {tags, icon} })
+    .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${deckName.deckName}`, {cards, deck: {tags, icon} })
     .then(res => {
         console.log(res)
         dispatch({

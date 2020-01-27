@@ -19,9 +19,9 @@ const Cards = props => {
   }, []);
 
   useEffect(() => {
-    let filteredCards = props.cards.filter(card => !card.data.archived);
+    let filteredCards = props.deckcards.filter(card => !card.data.archived);
     setDeck(filteredCards);
-  }, [props.cards])
+  }, [props.deckcards])
 
   let history = useHistory();
 
