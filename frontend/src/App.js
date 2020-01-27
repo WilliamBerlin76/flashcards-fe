@@ -18,6 +18,10 @@ import DeckList from './components/decks/DeckList';
 import Cards from './components/cards/Cards';
 import Marketing from './components/marketing/Marketing';
 import DeckForm from './components/decks/DeckForm';
+import Privacy from './components/Privacy/privacy';
+import DeckConfirmation from './components/confirmation/DeckConfirmation';
+import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
+import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -88,7 +92,7 @@ function App() {
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
-            path='/cards/:deckName/cards'
+            path='/:user/:deckName/cards'
             render={props => <Cards {...props} />}
           />
           <Route path='/login' render={props => <Login {...props} />} />
@@ -99,6 +103,19 @@ function App() {
           />
           <Route path='/preferences' component={Settings} />
           <Route path = '/create-deck' component = {DeckForm} />
+          <Route path='/privacy' component={Privacy} />
+          <Route
+            path='/confirmation/:type/:colId/:action'
+            render={props => <DeckConfirmation {...props} />}
+          />
+          <Route
+            exact
+            path='/archived-decks'
+            render={props => <ArchiveDecks {...props} />}
+          />
+          <Route
+            path='/archived-decks/:colId'
+            render={props => <ArchivedDeckView {...props}/>}  />
           {/* //Switch Here */}
         </div>
       </>

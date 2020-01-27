@@ -12,54 +12,61 @@ export const POST_SUCCESS = "POST_SUCCESS"
 export const POST_FAILURE = "POST_FAILURE"
 
 //ACTION FOR CARDS
-export const FETCH_CARDS = "FETCH_CARDS"
-export const CARDS_SUCCESS = "CARDS_SUCCESS"
-export const CARDS_FAILURE = "CARDS_FAILURE"
-
-
-
-
-
+export const FETCH_CARDS = 'FETCH_CARDS';
+export const CARDS_SUCCESS = 'CARDS_SUCCESS';
+export const CARDS_FAILURE = 'CARDS_FAILURE';
 
 //GETTING DECKS
 
-export const getDecks = () => dispatch => {
+export const getDecks = id => dispatch => {
+  dispatch({ type: FETCH_START });
 
-    dispatch({ type: FETCH_START });
-    // const id = firebase.auth().currentUser.uid
-    axios
-    .get(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy`)
-    // https://flashcards-be.herokuapp.com/api/demo/${id}
+  axios
+    .get('https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy')
     .then(response => {
-        dispatch({ type: FETCH_SUCCESS, payload: response.data})
-        console.log(response.data)
+      // dispatch({ type: FETCH_SUCCESS, payload: response.data})
+      axios.get(`https://flashcards-be.herokuapp.com/api/deck/${id}`).then(res => {
+        let deckArray;
+        if (res.data) {
+          deckArray = response.data.concat(res.data);
+        } else {
+          deckArray = response.data;
+        }
+        dispatch({ type: FETCH_SUCCESS, payload: deckArray });
+      });
     })
     .catch(error => {
-        dispatch({ type: FETCH_FAILURE, payload: error})
-    })
-
+      dispatch({ type: FETCH_FAILURE, payload: error });
+    });
 };
 
 
 //GETTING CARDS FOR DECKS
-export const getCards = (deck) => dispatch => {
-    console.log(deck)
-    
-    dispatch({ type: FETCH_CARDS});
-
-    // const id = firebase.auth().currentUser.uid
-
-    axios
-    .get(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`)
-    // https://flashcards-be.herokuapp.com/api/deck/${id}/${deck}`
-    .then(response => {
-       console.log(response.data.data)
-        dispatch({ type: CARDS_SUCCESS, payload: response.data.data})
-    })
-    .catch(error => {
-        dispatch({ type: CARDS_FAILURE, payload: error})
-    })
-};
+export const getCards = (deck, user) => dispatch => {
+    if (user === 'demo') {
+        axios
+          .get(
+            `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`
+          )
+          .then(response => {
+            console.log(response.data);
+            dispatch({ type: CARDS_SUCCESS, payload: response.data.data });
+          })
+          .catch(error => {
+            dispatch({ type: CARDS_FAILURE, payload: error });
+          });
+      } else {
+        axios
+          .get(`https://flashcards-be.herokuapp.com/api/deck/${user}/${deck}`)
+          .then(response => {
+            console.log(response.data);
+            dispatch({ type: CARDS_SUCCESS, payload: response.data.data });
+          })
+          .catch(error => {
+            dispatch({ type: CARDS_FAILURE, payload: error });
+          });
+      }
+    };
 
 //POSTING A DECK W/ CARDS
 export const postDecks = (deck, deckName, tags, icon ) => dispatch => {
@@ -90,4 +97,5 @@ export const postDecks = (deck, deckName, tags, icon ) => dispatch => {
         dispatch({ type: POST_FAILURE, payload: error})
     })
 };
+
 

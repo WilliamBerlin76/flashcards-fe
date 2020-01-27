@@ -22,9 +22,8 @@ const initialState = {
         tags: [],
         icon: '' 
     }
-    
-};
 
+}
 
 const reducer = (state = initialState, action) => {
     switch(action.type){

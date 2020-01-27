@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import firebase from 'firebase';
 import { Link } from 'react-router-dom';
 import DashNav from '../dashNav/dashNav';
 import DeckCards from './deckcards/deckcards.js';
@@ -9,15 +10,24 @@ import './dashboard.scss';
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
-    props.getDecks();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        let user = firebase.auth().currentUser.uid;
+        props.getDecks(user);
+        console.log(props.decks);
+      } else {
+        return null
+      }
+    });  
   }, []);
-
+  
+  
   useEffect(() => {
     setDeckArr(props.decks);
   }, [props.decks]);
 
-  const openDeck = deck => {
-    props.history.push(`/cards/${deck}/cards`);
+  const openDeck = (deck, user) => {
+    props.history.push(`/${user}/${deck}/cards`);
   };
 
   return (
@@ -47,7 +57,14 @@ const Dashboard = props => {
         </div> */}
 
         {deckArr.map(item => {
-          return <DeckCards key={item} deckName={item} openDeck={openDeck} />;
+          return (
+            <DeckCards
+              key={Math.random()}
+              demo={item.demo}
+              deckName={item.deckName}
+              openDeck={openDeck}
+            />
+          );
         })}
       </section>
       {/* <button className='bottom-button'>Create</button> */}

@@ -16,9 +16,9 @@
     .deck{
         font-size: 18px;
         font-weight: normal;
-
+        margin: 0;
     }
-    .deckNav{
+    .deckNav{ 
         display: flex;
         flex-direction: column;
         justify-content: space-between; 
@@ -63,16 +63,14 @@
 .deckLink {
     display: flex;
     justify-content: space-between;
-    padding: 0px 25px 25px;
-
-//     font-family: Roboto Condensed;
+    padding: 25px 25px 0px;
+    color: #6A5C55;
 // font-style: normal;
 // font-weight: bold;
 // font-size: 16px;
 // line-height: 19px;
 // margin-left: 75%;
-margin-top: 7%;
-color: #6A5C55;
+// margin-top: ;
 
     .recentDeck{
         font-weight: bold;
@@ -89,13 +87,9 @@ color: #6A5C55;
 }
 
 .deckList{
-    display: flex;
-    flex-direction: column;
-    // justify-content: center; 
-    align-items: center;
-    text-align: center;
-    // height: 60%;
-
+  
+    // width: 90%;
+    padding: 25px 25px 25px;
 
     .deckin{
         text-align: center;
@@ -105,10 +99,9 @@ color: #6A5C55;
         border: 0.5px solid #F66E00;
         box-sizing: border-box;
         border-radius: 4px;
-        padding: 2rem 0.7rem;
-        margin-bottom: 15%;
-
-        color: #6A5C55;
+        padding: 1.6rem 1rem;
+        margin-bottom: 7%;
+        // color: #6A5C55;
         
 
         .words{
@@ -125,21 +118,50 @@ color: #6A5C55;
         .topSection{
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
+            color: #6A5C55;
 
             .cardplaceholder{
                 border: 2px;
+                width: 45%;
+                height: 5rem;
+                text-align: center;
+                padding: 2rem 0;
+                border-radius: 3px;
+                background-color: rgb(243, 236, 227);
             }
 
             .deckText{
-                padding-right: 2%;
+                // padding-right: 5rem;
+                p{
+                    text-align: left;  
+                    font-size: 0.8rem;
+                    color: #6A5C55;
+
+                }
             }
 
         }
         .masteryBar{
-            .p{
-
+            display: flex;
+            flex-direction: column;
+            align-items: left;  
+            h4{
+                text-align: left; 
+                margin-bottom: 0.7rem; 
+                font-size: 1rem;
+                color: black;
             }
+            p{
+                text-align: left;  
+                font-style: normal;
+                font-weight: lighter;
+                font-size: 0.8rem;;
+                line-height: 14px;
+                margin-top: 1%;
+                color: #6A5C55;
+            }   
+
         }
     }
 }
@@ -151,7 +173,7 @@ color: #6A5C55;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 7% 0;
+    padding-bottom:  7%;
     .btn1 {
         border: 2px solid #F66E00;
         box-sizing: border-box;

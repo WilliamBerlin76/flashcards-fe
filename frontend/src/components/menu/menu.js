@@ -10,23 +10,40 @@ const Menu = ({ open, ...props }) => {
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      <Link to='/dashboard' onClick={props.closeMenu} tabIndex={tabIndex}>
-        Dashboard
-      </Link>
-      
-      <Link to='/DeckList' onClick={props.closeMenu} tabIndex={tabIndex}>
-        Decks
-      </Link>
-      
-      <Link to='/Preferences' onClick={props.closeMenu} tabIndex={tabIndex}>
-        Preferences
+      <Link to='/privacy' onClick={props.closeMenu} tabIndex={tabIndex}>
+        Privacy
       </Link>
 
       {firebase.auth().currentUser ? (
-        <Link to='/' onClick={props.logout}>
-          Log Out
+        <>
+          <Link to='/dashboard' onClick={props.closeMenu} tabIndex={tabIndex}>
+            Dashboard
+          </Link>
+
+          <Link to='/DeckList' onClick={props.closeMenu} tabIndex={tabIndex}>
+            Decks
+          </Link>
+
+          <Link
+            to='/archived-decks'
+            onClick={props.closeMenu}
+            tabIndex={tabIndex}
+          >
+            Archived Decks
+          </Link>
+
+          <Link to='/Preferences' onClick={props.closeMenu} tabIndex={tabIndex}>
+            Preferences
+          </Link>
+          <Link to='/' onClick={props.logout}>
+            Log Out
+          </Link>
+        </>
+      ) : (
+        <Link to='/login' onClick={props.closeMenu}>
+          Login
         </Link>
-      ) : null}
+      )}
     </StyledMenu>
   );
 };

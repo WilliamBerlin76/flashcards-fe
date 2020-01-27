@@ -1,0 +1,36 @@
+.deck-menu {
+  max-width: 600px;
+  margin: 0 auto;
+
+  div {
+    width: 200px;
+    position: absolute;
+    right: 25px;
+    color: black;
+    background-color: #fafafa;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+
+    .menu-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+      padding: 10px;
+
+      &:first-child {
+        margin-top: 5px;
+      }
+
+      &:last-child {
+        margin-bottom: 5px;
+      }
+
+      &:hover {
+        background-color: #f66e00;
+        opacity: 0.4;
+        color: #fafafa;
+      }
+    }
+  }
+}
