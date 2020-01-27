@@ -4,14 +4,33 @@ import {
   FETCH_FAILURE,
   FETCH_CARDS,
   CARDS_SUCCESS,
-  CARDS_FAILURE
+  CARDS_FAILURE,
+  POST_DECK,
+  POST_SUCCESS,
+  POST_FAILURE
 } from '../actions';
 
 const initialState = {
   decks: [],
-  cards: [],
+  deckcards: [],
   isFetching: false,
-  error: ''
+  error: '',
+  isPosting: false,
+  cards: [
+    {
+      front: '',
+      back: ''
+    }
+  ],
+  deckInformation: [
+    {
+      deckName: ''
+    }
+  ],
+  deck: {
+    tags: [],
+    icon: ''
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -48,13 +67,58 @@ const reducer = (state = initialState, action) => {
         isFetching: false,
         error: '',
         decks: [],
-        cards: action.payload
+        deckcards: action.payload
       };
     case CARDS_FAILURE:
       return {
         ...state,
-        cards: [],
+        deckcards: [],
         isFetching: false,
+        error: action.payload
+      };
+    case POST_DECK:
+      return {
+        ...state,
+        deckInformation: [],
+        cards: [],
+        deck: {
+          tags: [],
+          icon: ''
+        },
+        isFetching: false,
+        isPosting: true,
+        error: ''
+      };
+    case POST_SUCCESS:
+      return {
+        ...state,
+        deckInformation: [
+          {
+            deckName: action.payload
+          }
+        ],
+        cards: [
+          {
+            front: action.payload,
+            back: action.payload
+          }
+        ],
+        deck: {
+          tags: action.payload,
+          icon: action.payload
+        },
+        isFetching: false,
+        isPosting: false,
+        error: ''
+      };
+    case POST_FAILURE:
+      return {
+        ...state,
+        cards: [],
+        deckInformation: [],
+        deck: {},
+        isFetching: true,
+        isPosting: false,
         error: action.payload
       };
     case 'ARCHIVE_SUCCESSFUL':
@@ -62,7 +126,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         decks: []
       };
-
     default:
       return state;
   }

@@ -14,14 +14,13 @@ const Cards = props => {
   const [deck, setDeck] = useState([]);
 
   useEffect(() => {
-    console.log(props.match.params.deckName);
     props.getCards(props.match.params.deckName, props.match.params.user);
   }, []);
 
   useEffect(() => {
-    let filteredCards = props.cards.filter(card => !card.data.archived);
+    let filteredCards = props.deckcards.filter(card => !card.data.archived);
     setDeck(filteredCards);
-  }, [props.cards])
+  }, [props.deckcards]);
 
   let history = useHistory();
 
@@ -44,7 +43,7 @@ const Cards = props => {
     }
   };
 
-  if (!props.cards) {
+  if (!props.deckcards) {
     return (
       <div className='loading-background'>
         <h1 className='deckName'>{props.match.params.deckName}</h1>
@@ -91,7 +90,7 @@ const Cards = props => {
 
 const mapStateToProps = (state, props) => {
   return {
-    cards: state.cards,
+    deckcards: state.deckcards,
     isFetching: state.isFetching,
     error: state.error
   };

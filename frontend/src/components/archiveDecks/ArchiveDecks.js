@@ -6,8 +6,11 @@ import styled from 'styled-components';
 
 import ArchivedDeckCards from './archiveDeckCards/ArchivedDeckCards';
 
+import './archiveDecks.scss';
+
 const Loading = styled.div`
   margin-top: 10%;
+  text-align: center;
 `;
 
 export default function ArchiveDecks(props) {
@@ -17,10 +20,12 @@ export default function ArchiveDecks(props) {
   useEffect(() => {
     setLoading(true);
     firebase.auth().onAuthStateChanged(function(user) {
-      if (user){
+      if (user) {
         let currentUser = firebase.auth().currentUser.uid;
         axios
-          .get(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/archive`)
+          .get(
+            `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/archive`
+          )
           .then(res => {
             console.log(res);
             setArchived(res.data);
@@ -33,19 +38,18 @@ export default function ArchiveDecks(props) {
             console.log(err);
           });
       } else {
-        return null
+        return null;
       }
-    })
-    
+    });
   }, []);
 
-  const openDeck = (collectionId) => {
-    props.history.push(`/archived-decks/${collectionId}`)
-  }
+  const openDeck = collectionId => {
+    props.history.push(`/archived-decks/${collectionId}`);
+  };
 
   if (noArchived) {
     return (
-      <div>
+      <div className='no-archived'>
         <p>You have no decks currently archived!</p>
       </div>
     );
@@ -90,6 +94,7 @@ export default function ArchiveDecks(props) {
               exampleCard={item.exampleCard}
               deckLength={item.deckLength}
               openDeck={openDeck}
+              icon={item.icon}
             />
           );
         })}

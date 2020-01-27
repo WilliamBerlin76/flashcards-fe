@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
-import { Link } from 'react-router-dom';
-import DashNav from '../dashNav/dashNav';
 import DeckCards from './deckcards/deckcards.js';
 import { getDecks, getCards } from '../../actions';
 import { connect } from 'react-redux';
 import './dashboard.scss';
+import Loader from 'react-loader-spinner';
+import styled from 'styled-components';
+
+const Loading = styled.div`
+  margin-top: 10%;
+  text-align: center;
+`;
 
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
@@ -14,14 +19,12 @@ const Dashboard = props => {
       if (user) {
         let user = firebase.auth().currentUser.uid;
         props.getDecks(user);
-        console.log(props.decks);
       } else {
-        return null
+        return null;
       }
-    });  
+    });
   }, []);
-  
-  
+
   useEffect(() => {
     setDeckArr(props.decks);
   }, [props.decks]);
@@ -56,25 +59,38 @@ const Dashboard = props => {
           <span>All Decks</span>
         </div> */}
 
-        {deckArr.map(item => {
-          return (
-            <DeckCards
-              key={Math.random()}
-              demo={item.demo}
-              deckName={item.deckName}
-              openDeck={openDeck}
-            />
-          );
-        })}
+        {deckArr.length === 0 ? (
+          <div>
+            <Loading>
+              <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
+            </Loading>
+          </div>
+        ) : (
+          deckArr.map(item => {
+            return (
+              <DeckCards
+                key={Math.random()}
+                demo={item.demo}
+                deckName={item.deckName}
+                openDeck={openDeck}
+              />
+            );
+          })
+        )}
       </section>
-      {/* <button className='bottom-button'>Create</button> */}
+      <button
+        className='bottom-button'
+        onClick={() => props.history.push('/create-deck')}
+      >
+        Create Deck
+      </button>
     </>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    cards: state.cards,
+    cards: state.deckcards,
     decks: state.decks,
     isFetching: state.isFetching,
     error: state.error

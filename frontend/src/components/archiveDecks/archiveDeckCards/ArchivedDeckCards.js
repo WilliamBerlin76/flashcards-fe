@@ -27,7 +27,13 @@ export default function ArchivedDeckCards(props) {
         <div className='deck' onClick={() => props.openDeck(props.deckName)}>
           <div className='deck-card'>
             <div className='deck-info'>
-              <h3 className='deck-name'>{props.deckName}</h3>
+              {props.icon ? (
+                <h3 className='deck-name'>
+                  {props.icon} {props.deckName}
+                </h3>
+              ) : (
+                <h3 className='deck-name'>{props.deckName}</h3>
+              )}
               <p className='deck-length'>{props.deckLength} cards</p>
             </div>
             <div className='example-card'>{props.exampleCard}</div>
