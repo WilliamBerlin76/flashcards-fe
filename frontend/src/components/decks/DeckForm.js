@@ -25,8 +25,8 @@ const OrangeInput = withStyles({
 const DeckForm = (props) => {
 
     const [newName, setNewName] = useState( '');
-    const [newIcon, setNewIcon] = useState({ icon: ''})
-
+    const [newIcon, setNewIcon] = useState( '')
+    const [tags, setTags] = useState([])
     const [newDecks, setNewDecks] = useState([
         {    front: '', back: ''}
     ]);
@@ -57,10 +57,9 @@ const DeckForm = (props) => {
      
     const handleIcon = (e) => {
         let name = e.target.name
-        setNewIcon({
-            ...newIcon,
-            [name] : e.target.value
-        })
+        setNewIcon(
+            e.target.value
+        )
     };
   
     const handleAdd = () => {
@@ -76,13 +75,29 @@ const DeckForm = (props) => {
     };
 
     const handleSubmit = e => {
-        console.log(newDecks, newName, selectedTags)
+        console.log(newDecks, newName, tags)
         e.preventDefault()
-        props.postDecks(newDecks, newName, props.tags, newIcon)
+        props.postDecks(newDecks, newName, tags, newIcon)
     };
 
+    const addTags = event => {
+        event.preventDefault();
+        if (event.target.value !== "") {
+            setTags([...tags, event.target.value]);
+            // selectedTags([...tags, event.target.value]);
+            event.target.value = "";
+        }
+        console.log(tags)
+    };
 
-    const selectedTags  = tags => console.log(tags)
+    const removeTags = index => {
+        setTags([...tags.filter(tag =>
+            tags.indexOf(tag) !== index)
+        ])
+        console.log(tags)
+    }
+
+    // const selectedTags  =  {tags}
     
     return(
 
@@ -101,7 +116,7 @@ const DeckForm = (props) => {
             {/* </div> */}
         </div>
 
-        <div>
+         <div>
 
         <div className = "page">
 
@@ -134,7 +149,7 @@ const DeckForm = (props) => {
 
                     <div className = "tagHolder">
 
-                    <Tags selectedTags = {selectedTags} />
+                    <Tags tags = {tags} addTags = {addTags} removeTags = {removeTags}/>
                    
                     </div>
 
@@ -209,9 +224,9 @@ const DeckForm = (props) => {
 
                     <button
                     className = "save"
-                    // onSubmit = {handleSubmit}
-                    // onClick = {() => props.history.push(`/decklist`)}
-                    onClick = {handleSubmit}
+                    onSubmit = {handleSubmit}
+                    onClick = {() => props.history.push(`/decklist`)}
+                    // onClick = {handleSubmit}
                     >
                     Save Deck
                     </button>
