@@ -1,28 +1,46 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, CARDS_FAILURE,POST_DECK, POST_SUCCESS, POST_FAILURE,EDIT_CARDS, EDIT_SUCCESS, EDIT_FAILURE,
-
+import {
+  FETCH_START,
+  FETCH_SUCCESS,
+  FETCH_FAILURE,
+  FETCH_CARDS,
+  CARDS_SUCCESS,
+  CARDS_FAILURE,
+  POST_DECK,
+  POST_SUCCESS,
+  POST_FAILURE,
+  EDIT_CARDS, 
+  EDIT_SUCCESS, 
+  EDIT_FAILURE,
 } from '../actions';
 
 const initialState = {
-    decks: [],
-    deckcards: [],
-    isFetching: false,
-    error: '',
-    isPosting: false,
-    cards: [
-        
-        {
-            front: '',
-            back: '',
-        }
-    ],
-    colId: '',
-    changes: [{
-            front: '',
-            back: '',
-            archived: false,
-    }]
+  decks: [],
+  deckcards: [],
+  isFetching: false,
+  error: '',
+  isPosting: false,
+  cards: [
+    {
+      front: '',
+      back: ''
+    }
+  ],
+  colId: '',
+  deckInformation: [
+    {
+      deckName: ''
+    }
+  ],
+  deck: {
+    tags: [],
+    icon: ''
+  }, 
+  changes: [{
+    front: '',
+    back: '',
+    archived: false,
+}]
 };
-
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
@@ -70,8 +88,12 @@ const reducer = (state = initialState, action) => {
             case POST_DECK:
                 return {
                     ...state,
-                    colId: '',
+                    deckInformation: [],
                     cards: [],
+                    deck: {
+                      tags: [],
+                      icon: ''
+                    },
                     isFetching: false,
                     isPosting: true,
                     error: ''
@@ -79,13 +101,21 @@ const reducer = (state = initialState, action) => {
             case POST_SUCCESS:
                 return {
                     ...state,
-                    colId: action.payload,
+                    deckInformation: [
+                      {
+                        deckName: action.payload
+                      }
+                    ],
                     cards: [
                         {
                             front: action.payload,
                             back: action.payload,
                         }
                     ],
+                    deck: {
+                      tags: action.payload,
+                      icon: action.payload
+                    },
                     isFetching: false,
                     isPosting: false,
                     error: ''
@@ -94,6 +124,8 @@ const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     cards: [],
+                    deckInformation: [],
+                    deck: {},
                     isFetching: true,
                     isPosting: false,
                     error: action.payload
@@ -126,7 +158,12 @@ const reducer = (state = initialState, action) => {
                 isEditing: false,
                 error: action.payload,
             };
-        
+        case 'ARCHIVE_SUCCESSFUL':
+          return {
+            ...state,
+            decks: []
+          };
+
         default: return state;
     }
 };

@@ -111,7 +111,7 @@ class EditTemplate extends React.Component {
 						<Segment className="segments">
 						<button type='button' className="deleteCard" onClick={(index) => this.handleDelete(index)}><Icon  name='trash' /></button>
 							<div className="cardTop">
-								<Header as="h5" className="header">
+								<Header as="h4" style={{ backgroundColor: "white", color: "#F66E00"}} className="headers">
 									Front
 								</Header>
                                 <Checkbox 
@@ -123,7 +123,6 @@ class EditTemplate extends React.Component {
 							{/* <form onSubmit={this.handleSubmit}> */}
 								<TextArea  rows={2}
                                     // style={{ minHeight: 100, textAlign: 'center', width: 100%; height: 70px;  }}
-									// transparent size="massive"
 									className="defination"
 									type="text"
 									name="front"
@@ -134,7 +133,7 @@ class EditTemplate extends React.Component {
 
 								<Divider clearing />
 								
-								<Header as="h5" style={{ marginTop: -2}} className="header">
+								<Header as="h4" style={{ marginTop: -2, backgroundColor: "white", color: "#F66E00"}} className="headers">
 									Back
 								</Header>
 
