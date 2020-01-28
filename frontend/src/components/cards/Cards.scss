@@ -784,6 +784,12 @@
     border-radius: 7px;
     color: #FCFCFC;
 }
+.deleteCard{
+    position: absolute;
+      right: 29px;
+    color: lighten(#6a5c55, 30%);
+    margin: 2px;
+}
 .btn2{
     display: flex;
     align-items: center;
@@ -800,7 +806,7 @@
         line-height: 21px;
         color: #FCFCFC;
         padding: 1rem 4rem ;
-        
+        // position: sticky;
     }
 
     .delete{

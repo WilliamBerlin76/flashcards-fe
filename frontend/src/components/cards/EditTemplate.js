@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from "react-loader-spinner";
 import "semantic-ui-css/semantic.min.css";
-import { Divider, Segment, Header, Checkbox, Input,TextArea } from "semantic-ui-react";
+import { Divider, Segment, Header, Checkbox, Input,TextArea , Icon} from "semantic-ui-react";
 import "./Cards.scss";
 import { editCard } from '../../actions';
 import firebase from "firebase";
@@ -68,6 +68,24 @@ class EditTemplate extends React.Component {
 
 	};
 
+	handleDelete = (e, index, id, deckName) => {
+		e.preventDefault();
+		var array = [...this.state.singleCard];
+		var index = array.indexOf(e.target.value.front)
+		// this.setState({
+			// singleCard: {
+			if (index !== -1) {
+				array.splice(index, 1);
+				this.setState({singleCard: array});
+			}
+		// }
+		// });
+
+		// this.setState({singleCard: this.state.singleCard.filter(function(singleCard) { 
+		// 	return singleCard !== e.target.value 
+		// })});
+	};
+
 	render() {
         if (!this.props.card) {
 
@@ -83,7 +101,9 @@ class EditTemplate extends React.Component {
 			<div className="container">
 				<div className="cardList">
 					<div className="cardData ">
+					
 						<Segment className="segments">
+						<button type='button' className="deleteCard" onClick={(e) => this.handleDelete(e)}><Icon  name='trash' /></button>
 							<div className="cardTop">
 								<Header as="h5" className="header">
 									Front
@@ -94,7 +114,6 @@ class EditTemplate extends React.Component {
                                     
                                 />
 							</div>
-
 							{/* <form onSubmit={this.handleSubmit}> */}
 								<TextArea  rows={2}
                                     // style={{ minHeight: 100, textAlign: 'center', width: 100%; height: 70px;  }}
@@ -108,6 +127,7 @@ class EditTemplate extends React.Component {
 								/>
 
 								<Divider clearing />
+								
 								<Header as="h5" style={{ marginTop: -2}} className="header">
 									Back
 								</Header>

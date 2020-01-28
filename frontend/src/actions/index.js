@@ -129,3 +129,19 @@ export const editCard = (deck, id, deckName, props) => dispatch => {
     })
 
   };
+
+  // const deleteCard = () => {
+  //   axios
+  //     .delete(
+  //       `http://localhost:5000/api/deck/${id}/${deckName}/delete-cards`
+  //     )
+  //     .then(res => {
+  //       setTimeout(function() {
+  //         dispatch({ type: '_SUCCESSFUL' });
+          
+  //       }, 1000);
+  //     })
+  //     .catch(err => {
+  //       console.log(' card err', err);
+  //     });
+  // };

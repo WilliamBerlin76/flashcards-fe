@@ -59,7 +59,7 @@ const Cards = props => {
         e.preventDefault()
         // props.editCard(e)
         props.editCard(editedCard, currentUser, props.match.params.deckName);
-
+        // props.history.push(`/dashboard`);
     };
 
    
