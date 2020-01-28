@@ -127,18 +127,14 @@ const Cards = props => {
 
         <div className='middleSection'>
           <h2>Flashcards</h2>
-          <p>
-            Select a card below to edit card content or add a new card. To
-            archive, check the checkbox, confirm the changes on the card, and
-            then{' '}
-          </p>
-          <button
+          <p>Select a card below to edit card content or archive the card.</p>
+          {/* <button
             className='Add New Card'
             // onClick = {() => props.history.push(`/decklist`)}
             onSubmit={handleSubmit}
           >
             Add New Card
-          </button>
+          </button> */}
         </div>
         <div className='bottomSection'>
           {/* <Input
@@ -183,7 +179,7 @@ const Cards = props => {
           <button
             className='delete'
             // onClick = {() => props.history.push(`/decklist`)}
-            // onSubmit = {handleSubmit}
+            onClick={e => handleSubmit(e)}
           >
             Archive
           </button>
@@ -193,7 +189,7 @@ const Cards = props => {
             onClick={e => handleSubmit(e)}
           >
             {' '}
-            submit{' '}
+            Submit{' '}
           </button>
         </div>
       </div>

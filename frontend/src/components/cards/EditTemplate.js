@@ -121,9 +121,15 @@ class EditTemplate extends React.Component {
             <div className='cardData '>
               <Segment className='segments'>
                 <div className='cardTop'>
-                  <Header as='h5' className='header'>
-                    Front
-                  </Header>
+                  {this.state.singleCard.archived ? (
+                    <Header as='h5' className='header'>
+                      Front - <span className='archived-span'>archived</span>
+                    </Header>
+                  ) : (
+                    <Header as='h5' className='header'>
+                      Front
+                    </Header>
+                  )}
                   <Checkbox
                     // style={{border: "none"}}
                     className='check'
