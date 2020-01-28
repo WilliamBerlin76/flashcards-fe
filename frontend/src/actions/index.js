@@ -34,13 +34,17 @@ export const getDecks = id => dispatch => {
       .get('https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy')
       .then(response => {
         // dispatch({ type: FETCH_SUCCESS, payload: response.data})
-        axios.get(`https://flashcards-be.herokuapp.com/api/deck/${id}`).then(res => {
+        axios.get(`http://localhost:5000/api/deck/${id}`).then(res => {
           let deckArray;
           if (res.data) {
+
             deckArray = response.data.concat(res.data);
           } else {
+           
             deckArray = response.data;
-          }
+          } console.log(response.data);
+        console.log(deckArray);
+
           dispatch({ type: FETCH_SUCCESS, payload: deckArray });
         });
       })

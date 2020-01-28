@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from "react-loader-spinner";
 import "semantic-ui-css/semantic.min.css";
-import { Divider, Segment, Header, Checkbox, Input } from "semantic-ui-react";
+import { Divider, Segment, Header, Checkbox, Input,TextArea } from "semantic-ui-react";
 import "./Cards.scss";
 import { editCard } from '../../actions';
 import firebase from "firebase";
@@ -88,12 +88,17 @@ class EditTemplate extends React.Component {
 								<Header as="h5" className="header">
 									Front
 								</Header>
-								<Checkbox className="check" />
+                                <Checkbox 
+                                    // style={{border: "none"}}
+                                    className="check" 
+                                    
+                                />
 							</div>
 
 							{/* <form onSubmit={this.handleSubmit}> */}
-								<Input
-									transparent size="massive"
+								<TextArea  rows={2}
+                                    // style={{ minHeight: 100, textAlign: 'center', width: 100%; height: 70px;  }}
+									// transparent size="massive"
 									className="defination"
 									type="text"
 									name="front"
@@ -103,12 +108,13 @@ class EditTemplate extends React.Component {
 								/>
 
 								<Divider clearing />
-								<Header as="h5" className="header">
+								<Header as="h5" style={{ marginTop: -2}} className="header">
 									Back
 								</Header>
 
-								<Input
-									transparent size="massive"
+								<TextArea rows={2}
+                                    // style={{ minHeight: 100, textAlign: 'center'  }}
+									// transparent size="massive"
 									className="defination"
 									type="text"
 									name="back"
@@ -116,12 +122,12 @@ class EditTemplate extends React.Component {
 									onChange={this.handleChange}
 									value={this.state.singleCard.back}
 								/>
-                               
+                                 <button className="quo-btn" onClick = {(e) => this.addCardtoEdited(e)}>
+            Confirm change, then submit
+          </button>
 							{/* </form> */}
 						</Segment> 
-                        <button className="quo-btn" onClick = {(e) => this.addCardtoEdited(e)}>
-            UpDATE
-          </button>
+                      
 					</div>
 				</div>
 				{/* <div className = "button">
@@ -133,3 +139,11 @@ class EditTemplate extends React.Component {
 	}
 }
 export default EditTemplate;
+
+
+
+
+
+
+
+   
