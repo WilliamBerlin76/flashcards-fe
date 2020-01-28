@@ -5,8 +5,6 @@ import './DeckForm.scss';
 import TextField from '@material-ui/core/TextField';
 import Tags from './Tags';
 import poly from '../../assets/poly.png';
-import { useHistory } from 'react-router-dom';
-import smiley from '../../assets/smiley.png';
 import { withStyles } from '@material-ui/core/styles';
 
 const OrangeInput = withStyles({
@@ -67,10 +65,20 @@ const DeckForm = props => {
   };
 
   const handleSubmit = e => {
-    console.log(newDecks, newName, tags);
     e.preventDefault();
-    props.postDecks(newDecks, newName, tags, newIcon);
-    props.history.push(`/dashboard`);
+    let dArr = [];
+    
+    newDecks.map(item => {
+      if(!item.front || !item.back || !newName.deckName){
+        alert('please fill in all cards and information')
+      } else {
+        dArr.push(item)
+      }
+    })
+    if(dArr.length === newDecks.length){
+      props.postDecks(newDecks, newName, tags, newIcon);
+      props.history.push(`/dashboard`);
+    }
   };
 
   const addTags = event => {
@@ -112,7 +120,7 @@ const DeckForm = props => {
       <div>
         <div className='page'>
           <div className='form'>
-            <form onSubmit={handleSubmit} className='cardForm'>
+            <form className='cardForm'>
               <h3 className='deckInfo'>Deck Info</h3>
 
               <div className='inputHolders'>
