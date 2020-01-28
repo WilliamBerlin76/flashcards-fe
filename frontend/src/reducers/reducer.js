@@ -15,7 +15,12 @@ const initialState = {
             back: '',
         }
     ],
-    colId: '' 
+    colId: '',
+    changes: [{
+            front: '',
+            back: '',
+            archived: false,
+    }]
 };
 
 
@@ -96,17 +101,19 @@ const reducer = (state = initialState, action) => {
          case EDIT_CARDS:
             return {
                 ...state,
-                colId: [],
+                changes: [],
                 isEditing: true,
                 error: ''
             };
         case EDIT_SUCCESS:
             return {
                 ...state,
-                colId: action.payload [
+                changes: [
                     {
+                        
                         front: action.payload,
                         back: action.payload,
+                        archived: action.payload,
                     }
                 ],
                 isEditing: false,
@@ -115,7 +122,7 @@ const reducer = (state = initialState, action) => {
         case EDIT_FAILURE: 
             return {
                 ...state,
-                colId: [],
+                changes: [],
                 isEditing: false,
                 error: action.payload,
             };

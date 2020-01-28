@@ -69,6 +69,8 @@ export const getCards = (deck, user) => dispatch => {
       axios
         .get(`https://flashcards-be.herokuapp.com/api/deck/${user}/${deck}`)
         .then(response => {
+          console.log(user);
+          console.log(deck);
           console.log(response.data);
           dispatch({ type: CARDS_SUCCESS, payload: response.data.data });
         })
@@ -104,17 +106,19 @@ export const postDecks = (deck, props, colId) => dispatch => {
 };
 
 //UPDATE CARDS FOR DECKS
-export const editCard = (deck, id, colId) => async dispatch => {
+export const editCard = (deck, id, deckName, props) => dispatch => {
     dispatch({ type: EDIT_CARDS });
 
-    const changes = {}
+    const changess = {changes: deck}
+    // const colId = props.colId
+    console.log(changess)
     axios
-    .put(`https://localhost:5000/api/deck/update/${id}/${colId}`, changes)
+    .put(`https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`, changess)
     // .put(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck.id}`, deck.data)
     .then(response => {
-       console.log(response.data.data.data)
+       console.log(response.data)
     //    history.push(`/editdeck/`);
-        dispatch({ type: EDIT_SUCCESS, payload: response.data.data})
+        dispatch({ type: EDIT_SUCCESS, payload: response.data})
     })
     .catch(error => {
         dispatch({ type: EDIT_FAILURE, payload: error})

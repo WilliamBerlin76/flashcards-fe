@@ -5,24 +5,26 @@ import Loader from 'react-loader-spinner';
 import { Form, Input, Divider, Icon, Grid, Search} from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import firebase from "firebase"
-import { getCards } from '../../actions';
+import { getCards, editCard } from '../../actions';
 import poly from '../../assets/poly.png';
 import { useHistory } from 'react-router-dom';
 import './Cards.scss';
 
 const Cards = props => {
     const [currentCard, setCurrentCard] = useState(0)
-    const [newName, setNewName] = useState({colId: ''});
-    const [editDeck, setEditDeck] = useState([
-        {    front: '', back: ''}
-    ]);
-    
+    const [newName, setNewName] = useState({deckName: ''});
+    const [editedCard, setEditedCard] = useState([]);
+    // const [currentUser, setcurrentUser] = useState(null)
+    // const [currentUser, setcurrentUser] = useState(null);
+
+    // console.log(props);
     useEffect(() => {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-            let user = firebase.auth().currentUser.uid;
-            console.log(user)
-            props.getCards(props.match.params.deckName, user);
+              let currentUser = firebase.auth().currentUser.uid;
+            // setcurrentUser(firebase.auth().currentUser.uid);
+            console.log(currentUser)
+            props.getCards(props.match.params.deckName, currentUser);
 
           } else {
             return null
@@ -36,26 +38,31 @@ const Cards = props => {
     // }, []);
 
     let history = useHistory();
-    const handleChanges = (index, e) => {
+    const handleChange = (index, e) => {
 
-        setEditDeck({
-            ...editDeck,
+        setEditedCard({
+            ...editedCard,
             [e.target.name]: e.target.value
         })
     }
      const handleName = e => {
-            console.log(editDeck, newName)
+            console.log(editedCard, newName)
             setNewName({
                 ...newName,
                 [e.target.name] : e.target.value
             })
         };
 
-    const handleSubmit = e => {
-        console.log(editDeck, newName)
+    const handleSubmit = (e, user, deckName) => {
+        // console.log(editCard, newName)
+        let currentUser = firebase.auth().currentUser.uid;
         e.preventDefault()
-        props.updateDeck(editDeck, newName)
+        // props.editCard(e)
+        props.editCard(editedCard, currentUser, props.match.params.deckName);
+
     };
+
+   
 
     if (!props.deckcards) {
         return(
@@ -90,7 +97,7 @@ const Cards = props => {
              <div className = "topSection">
                 <div className = "subtitle">
                     <h2>Deck Info</h2>
-                    <h1>...</h1> 
+                    <h1></h1> 
                 </div>  
 
                 <Form size={"large"}>
@@ -114,7 +121,7 @@ const Cards = props => {
                         </button>
                         <button
                             className= "save"
-                            onClick = {() => props.history.push(`/decklist`)}
+                            // onClick = {() => props.history.push(`/decklist`)}
                             onSubmit = {handleSubmit}
                         >
                         Save
@@ -129,7 +136,7 @@ const Cards = props => {
                     <p>Select a card below to edit card content or add a new card</p>
                     <button
                             className= "Add New Card"
-                            onClick = {() => props.history.push(`/decklist`)}
+                            // onClick = {() => props.history.push(`/decklist`)}
                             onSubmit = {handleSubmit}
                         >
                         Add New Card
@@ -137,7 +144,7 @@ const Cards = props => {
                 </div>
                 <div className = "bottomSection">
                 
-                    <Input size= "large" position = "center"
+                    <Input size= "large" 
                          className= "search"
                         icon='search'
                         iconPosition='left'
@@ -145,30 +152,38 @@ const Cards = props => {
                     /> 
                 
                     <div>
+                    <form onSubmit={handleSubmit}>
                     {props.error && <p>{props.error}</p>}
                         {props.deckcards.map(card =>(
-                        <EditTemplate key = {props.deckcards.id} card = {card.data} />
-                    ))}
 
+                           console.log(card),
+                        <EditTemplate key = {props.deckcards.id} deckName ={props.match.params.deckName} user= {firebase.auth().currentUser.uid} setEditedCard = {setEditedCard} id= {card.id} card = {card.data} />
+                    ))}
+                     {/* <button onSubmit={handleSubmit}>Update</button> */}
+                    </form>
                     </div>
 
                 </div>
 
                 <div className= "btn2">
-                    <button
+                    {/* <button
                             className= "delete"
                         //     onClick ={() => props.history.goBack()}
                         //     onSubmit = {handleSubmit}
                         >
                          Delete
-                        </button>
+                        </button> */}
                         <button
-                            className= "archive"
+                            className= "delete"
                             // onClick = {() => props.history.push(`/decklist`)}
                             // onSubmit = {handleSubmit}
                         >
                         Archive
                         </button>
+                        <button className= "archive"
+                            // onClick = {() => props.history.push(`/decklist`)}
+                            onClick = {(e)=> handleSubmit(e)}> submit </button>
+
                         </div>
         </div>
     )
@@ -186,7 +201,7 @@ const mapStateToProps = (state, props) => {
 
 export default connect(
     mapStateToProps,
-    { getCards }
+    { getCards , editCard}
 )(Cards);
 
 
