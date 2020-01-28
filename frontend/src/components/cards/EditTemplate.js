@@ -68,15 +68,21 @@ class EditTemplate extends React.Component {
 
 	};
 
-	handleDelete = (e, index, id, deckName) => {
+	handleDelete = (e,  id, deckName) => {
 		e.preventDefault();
-		var array = [...this.state.singleCard];
-		var index = array.indexOf(e.target.value.front)
+		let card = {
+			id: this.props.id,
+			front: this.state.singleCard.front,
+			back: this.state.singleCard.back,
+			archived: this.state.singleCard.archived,
+		  };
+		const array = [...this.state.singleCard, card];
+		const index = array.indexOf(e.target.value.front)
 		// this.setState({
 			// singleCard: {
 			if (index !== -1) {
 				array.splice(index, 1);
-				this.setState({singleCard: array});
+				this.setState({edited: array});
 			}
 		// }
 		// });
@@ -103,7 +109,7 @@ class EditTemplate extends React.Component {
 					<div className="cardData ">
 					
 						<Segment className="segments">
-						<button type='button' className="deleteCard" onClick={(e) => this.handleDelete(e)}><Icon  name='trash' /></button>
+						<button type='button' className="deleteCard" onClick={(index) => this.handleDelete(index)}><Icon  name='trash' /></button>
 							<div className="cardTop">
 								<Header as="h5" className="header">
 									Front
