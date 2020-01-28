@@ -1,149 +1,182 @@
-import React from "react";
-import Loader from "react-loader-spinner";
-import "semantic-ui-css/semantic.min.css";
-import { Divider, Segment, Header, Checkbox, Input,TextArea } from "semantic-ui-react";
-import "./Cards.scss";
+import React from 'react';
+import Loader from 'react-loader-spinner';
+import 'semantic-ui-css/semantic.min.css';
+import {
+  Divider,
+  Segment,
+  Header,
+  Checkbox,
+  Input,
+  TextArea
+} from 'semantic-ui-react';
+import './Cards.scss';
 import { editCard } from '../../actions';
-import firebase from "firebase";
+import firebase from 'firebase';
 
 // import './DeckList.scss';
 
 class EditTemplate extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			singleCard: {
-				front: this.props.card.front,
-				back: this.props.card.back,
-				archived: this.props.card.archived,
-				 edited: []
-            }
-           
-		};
-	}
-
-	handleChange = e => {
-		this.setState({
-			singleCard: {
-				...this.state.singleCard,
-				[e.target.name]: e.target.value
-			}
-		});
-    };
-    
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.singleCard.edited !== this.state.singleCard.edited) {
-            this.props.setEditedCard(this.state.singleCard.edited)
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      singleCard: {
+        front: this.props.card.front,
+        back: this.props.card.back,
+        archived: this.props.card.archived,
+        completed: false
       }
+    };
+  }
 
-    addCardtoEdited = e => {
-        e.preventDefault();
-        console.log(this.props.card)
-	    let card = {
-	      id: this.props.id,
-	      front: this.state.singleCard.front,
-	      back: this.state.singleCard.back,
-	      archived: this.state.singleCard.archived,
-        };
-        console.log(card);
-	    this.setState({singleCard: {
-            ...this.state.singleCard,
-            edited: [...this.state.singleCard.edited, card]
-            // console.log(this.state.singleCard);
-        }        
-        }); 
-        setTimeout(function(){
+  archiveCard = e => {
+    e.preventDefault();
+    this.setState({
+      singleCard: {
+        ...this.state.singleCard,
+        archived: !this.state.singleCard.archived
+      }
+    });
+  };
 
-        }, 1000)         
-            console.log(this.state);
+  handleChange = e => {
+    this.setState({
+      singleCard: {
+        ...this.state.singleCard,
+        [e.target.name]: e.target.value
+      }
+    });
+  };
 
-        this.props.setEditedCard(this.state.singleCard.edited);
-	  };
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(this.state.singleCard.edited);
+  //   if (prevState.singleCard.edited !== this.state.singleCard.edited) {
+  //     this.props.setEditedCard(this.state.singleCard.edited);
+  //   }
+  // }
 
-	handleSubmit = (e, id, deckName) => {
-		e.preventDefault();
-        // this.props.editCard(this.state.singleCard);
-        this.props.editCard(this.props.editedCard, this.props.user, this.props.deckName);
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('current completed', this.state.singleCard.completed);
+  //   console.log('next completed', nextState.singleCard.completed);
+  //   if (this.state.singleCard.completed !== nextState.singleCard.completed) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 
-	};
+  addCardtoEdited = e => {
+    e.preventDefault();
+    console.log(this.state);
+    let card = {
+      id: this.props.id,
+      front: this.state.singleCard.front,
+      back: this.state.singleCard.back,
+      archived: this.state.singleCard.archived
+    };
+    let cardArr;
+    if (this.props.editedCard.length > 0) {
+      cardArr = [...this.props.editedCard, card];
+    } else {
+      cardArr = [card];
+    }
+    this.props.setEditedCard(cardArr);
+    let newDeck = [];
+    this.props.currentDeck.map(c => {
+      if (this.props.id !== c.id) {
+        newDeck.push({ data: c });
+      } else {
+        newDeck.push({ data: card });
+      }
+    });
+    console.log(newDeck);
+    this.props.setCurrentDeck(newDeck);
 
-	render() {
-        if (!this.props.card) {
+    // setTimeout(function() {}, 1000);
+    // console.log(this.state);
 
-            return    (
-             <div className = "loader">
-        
-          <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
-        
-           </div>
-                        )
-         }  else {
-		return (
-			<div className="container">
-				<div className="cardList">
-					<div className="cardData ">
-						<Segment className="segments">
-							<div className="cardTop">
-								<Header as="h5" className="header">
-									Front
-								</Header>
-                                <Checkbox 
-                                    // style={{border: "none"}}
-                                    className="check" 
-                                    
-                                />
-							</div>
+    // this.props.setEditedCard(this.state.singleCard.edited);
+  };
 
-							{/* <form onSubmit={this.handleSubmit}> */}
-								<TextArea  rows={2}
-                                    // style={{ minHeight: 100, textAlign: 'center', width: 100%; height: 70px;  }}
-									// transparent size="massive"
-									className="defination"
-									type="text"
-									name="front"
-									placeholder="Front"
-									onChange={this.handleChange}
-									value={this.state.singleCard.front}
-								/>
+  handleSubmit = (e, id, deckName) => {
+    e.preventDefault();
+    // this.props.editCard(this.state.singleCard);
+    this.props.editCard(
+      this.props.editedCard,
+      this.props.user,
+      this.props.deckName
+    );
+  };
 
-								<Divider clearing />
-								<Header as="h5" style={{ marginTop: -2}} className="header">
-									Back
-								</Header>
+  render() {
+    if (!this.props.card) {
+      return (
+        <div className='loader'>
+          <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
+        </div>
+      );
+    } else {
+      return (
+        <div className='container'>
+          <div className='cardList'>
+            <div className='cardData '>
+              <Segment className='segments'>
+                <div className='cardTop'>
+                  <Header as='h5' className='header'>
+                    Front
+                  </Header>
+                  <Checkbox
+                    // style={{border: "none"}}
+                    className='check'
+                    checked={this.state.singleCard.archived}
+                    onChange={this.archiveCard}
+                  />
+                </div>
 
-								<TextArea rows={2}
-                                    // style={{ minHeight: 100, textAlign: 'center'  }}
-									// transparent size="massive"
-									className="defination"
-									type="text"
-									name="back"
-									placeholder="Back"
-									onChange={this.handleChange}
-									value={this.state.singleCard.back}
-								/>
-                                 <button className="quo-btn" onClick = {(e) => this.addCardtoEdited(e)}>
-            Confirm change, then submit
-          </button>
-							{/* </form> */}
-						</Segment> 
-                      
-					</div>
-				</div>
-				{/* <div className = "button">
+                {/* <form onSubmit={this.handleSubmit}> */}
+                <TextArea
+                  rows={2}
+                  // style={{ minHeight: 100, textAlign: 'center', width: 100%; height: 70px;  }}
+                  // transparent size="massive"
+                  className='defination'
+                  type='text'
+                  name='front'
+                  placeholder='Front'
+                  onChange={this.handleChange}
+                  value={this.state.singleCard.front}
+                />
+
+                <Divider clearing />
+                <Header as='h5' style={{ marginTop: -2 }} className='header'>
+                  Back
+                </Header>
+
+                <TextArea
+                  rows={2}
+                  // style={{ minHeight: 100, textAlign: 'center'  }}
+                  // transparent size="massive"
+                  className='defination'
+                  type='text'
+                  name='back'
+                  placeholder='Back'
+                  onChange={this.handleChange}
+                  value={this.state.singleCard.back}
+                />
+                <button
+                  className='quo-btn'
+                  onClick={e => this.addCardtoEdited(e)}
+                >
+                  Confirm change, then submit
+                </button>
+                {/* </form> */}
+              </Segment>
+            </div>
+          </div>
+          {/* <div className = "button">
 	//                <button className = "submit" onClick = {this.handlesubmit}>submit</button>
 	//              </div> */}
-			</div>   
-        );
-        }
-	}
+        </div>
+      );
+    }
+  }
 }
 export default EditTemplate;
-
-
-
-
-
-
-
-   
