@@ -68,6 +68,7 @@ const Dashboard = props => {
           </div>
         ) : (
           deckArr.map(item => {
+            console.log('item', item)
             return (
               <DeckCards
                 key={Math.random()}
