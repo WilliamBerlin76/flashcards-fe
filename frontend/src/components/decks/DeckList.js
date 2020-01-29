@@ -62,14 +62,17 @@ const DeckList = props => {
       </div>
       <div className='deckList'>
         {props.error && <p>{props.error}</p>}
-        {props.decks.map(deck => (
+        {props.decks ? props.decks.map(deck => (
           <DeckCards
             key={Math.random()}
             demo={deck.demo}
             deckName={deck.deckName}
             openDeck={openDeck}
           />
-        ))}
+        )) : 
+        <Loading>
+          <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
+        </Loading> }
       </div>
       {/* <div className = "button">
                 <button className = "btn1">Create</button>

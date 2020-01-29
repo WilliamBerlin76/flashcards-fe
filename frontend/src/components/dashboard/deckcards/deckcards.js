@@ -54,13 +54,11 @@ const DeckCards = props => {
     return <div></div>;
   } else {
     return (
-      <div className='deck' onClick={() => props.openDeck(props.deckName)}>
-        <div className='deck-card'>
-          <div className='deck-info'>
-            <h3 className='deck-name'>{props.deckName}</h3>
-            <p className='deck-length'>{deckLength} cards</p>
-          </div>
-          <div className='example-card'>{exampleCard}</div>
+      <div>
+        <div className='menu-button'>
+          {!props.demo ? (
+            <i className='fas fa-ellipsis-h' onClick={toggleMenu}></i>
+          ) : null}
         </div>
         {showMenu ? <DeckMenu colId={props.deckName} /> : null}
         <div

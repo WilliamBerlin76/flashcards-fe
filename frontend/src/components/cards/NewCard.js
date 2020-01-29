@@ -64,6 +64,7 @@ const NewCard = (props) => {
         e.preventDefault()
         props.postCards(newDecks, props.match.params.deckName)
         props.history.push(`/decklist`)
+        
     };
 
 
