@@ -9,7 +9,6 @@ import smileyface from './smileyface.png';
 import './DeckList.scss';
 
 const DeckList = props => {
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -27,7 +26,8 @@ const DeckList = props => {
     props.history.push(`/${user}/${deck}/cards`);
   };
 
-  if (props.isFetching) {
+  if (props.isFetching || !props.decks) {
+    props.getDecks(firebase.auth().currentUser.uid);
     return (
       // <>
       //     <h1>Your Decks!</h1>
