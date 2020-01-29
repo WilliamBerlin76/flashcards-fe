@@ -23,13 +23,20 @@ const Settings = props => {
   const [preferences, setPreferences] = useState({});
 
   useEffect(() => {
-    axios.get(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`)
-      .then(res => {
-          setPreferences(res.data.data)
-      })
-      .catch(err => {
-        console.log('get user err', err)
-      })
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        let user = firebase.auth().currentUser.uid;
+        axios.get(`https://flashcards-be.herokuapp.com/api/users/${user}`)
+          .then(res => {
+            setPreferences(res.data.data)
+          })
+          .catch(err => {
+            console.log('get user err', err)
+          })
+      } else {
+        return null
+      }
+    });  
   }, []);
 
   const nonCheckChange = e => {
@@ -61,8 +68,12 @@ const Settings = props => {
     <>
       <div className='settings-header-container'>
         <div className='name-pic-container'>
-          <h2>{firebase.auth().currentUser.displayName}</h2>
-          <img src={firebase.auth().currentUser.photoURL} alt='profile pic' className='profile-pic' />
+          {firebase.auth().currentUser ? 
+          <>
+            <h2>{firebase.auth().currentUser.displayName}</h2>
+            <img src={firebase.auth().currentUser.photoURL} alt='profile pic' className='profile-pic' /> 
+          </>
+          : null}
         </div>
       </div>
       <form className='profile-form'>

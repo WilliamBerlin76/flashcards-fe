@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './hooks/hooks';
 import firebase from 'firebase';
 //import dashNav from './components/dashNav';
 import Burger from './components/Burger';
 import Menu from './components/menu/menu';
 import { theme } from './components/theme';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import FocusLock from 'react-focus-lock';
 import { ThemeProvider } from 'styled-components';
 import Login from './components/login/login.js';
@@ -17,9 +17,13 @@ import DashNav from './components/dashNav/dashNav';
 import DeckList from './components/decks/DeckList';
 import Cards from './components/cards/Cards';
 import Marketing from './components/marketing/Marketing';
+import DeckForm from './components/decks/DeckForm';
 import Privacy from './components/Privacy/privacy';
 import EditCard from './components/cards/EditCard';
 
+import DeckConfirmation from './components/confirmation/DeckConfirmation';
+import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
+import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -90,7 +94,12 @@ function App() {
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
-            path='/cards/:deckName/cards'
+            exact
+            path='/editcard/:deckName'
+            render={props => <EditCard {...props} />}
+          />
+          <Route
+            path='/:user/:deckName/cards'
             render={props => <Cards {...props} />}
           />
           <Route path='/login' render={props => <Login {...props} />} />
@@ -100,8 +109,24 @@ function App() {
             render={props => <Dashboard {...props} />}
           />
           <Route path='/preferences' component={Settings} />
+          <Route
+            path='/create-deck'
+            render={props => <DeckForm {...props} />}
+          />
           <Route path='/privacy' component={Privacy} />
-          <Route path = '/editcard/:deckName/cards' render ={props => <EditCard {...props}/>} />
+          <Route
+            path='/confirmation/:type/:colId/:action'
+            render={props => <DeckConfirmation {...props} />}
+          />
+          <Route
+            exact
+            path='/archived-decks'
+            render={props => <ArchiveDecks {...props} />}
+          />
+          <Route
+            path='/archived-decks/:colId'
+            render={props => <ArchivedDeckView {...props} />}
+          />
           {/* //Switch Here */}
         </div>
       </>

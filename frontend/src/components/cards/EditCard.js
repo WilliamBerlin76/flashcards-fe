@@ -14,6 +14,8 @@ const Cards = props => {
   const [currentDeck, setCurrentDeck] = useState([]);
   const [newName, setNewName] = useState({ deckName: '' });
   const [editedCard, setEditedCard] = useState([]);
+  const [editing, setEditing] = useState(false);
+  const [editedDeck, setEditedDeck] = useState([]);
   // const [currentUser, setcurrentUser] = useState(null)
   // const [currentUser, setcurrentUser] = useState(null);
 
@@ -32,10 +34,29 @@ const Cards = props => {
 
   useEffect(() => {
     setCurrentDeck(props.deckcards);
+    setEditedDeck(props.deckcards);
   }, [props.deckcards]);
 
+  if (editing) {
+    setEditedCard(editedDeck);
+    console.log(currentDeck);
+    setEditing(false);
+  }
+
   function addCard(deck) {
-    setEditedCard(deck);
+    setCurrentDeck(deck);
+    setEditing(true);
+    let newDeck = [];
+    deck.map(card => {
+      let newCard = {
+        id: card.id,
+        front: card.data.front,
+        back: card.data.back,
+        archived: card.data.archived
+      };
+      newDeck.push(newCard);
+    });
+    setEditedDeck(newDeck);
   }
 
   // useEffect(() => {
@@ -161,6 +182,8 @@ const Cards = props => {
                   currentDeck={currentDeck}
                   id={card.id}
                   card={card.data}
+                  addCard={addCard}
+                  editedDeck={editedDeck}
                 />
               ))}
               {/* <button onSubmit={handleSubmit}>Update</button> */}

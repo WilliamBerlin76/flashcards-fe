@@ -31,17 +31,18 @@ This app is connected to a node backend API, which uses cloud firstore as a data
 ### Dependencies
 
 ```javascript
-    "@material-ui/core": "^4.8.3",
+     "@material-ui/core": "^4.8.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.0",
     "contentful": "^7.13.0",
-    "firebase": "^7.6.0",
+    "firebase": "^7.6.1",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "rc-progress": "^2.5.2",
     "react": "^16.12.0",
+    "react-card-flip": "^1.0.10",
     "react-dom": "^16.12.0",
     "react-firebaseui": "^4.0.0",
     "react-focus-lock": "^2.0.5",
@@ -52,7 +53,9 @@ This app is connected to a node backend API, which uses cloud firstore as a data
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.3.2",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "styled-components": "^4.4.1",
     "thunk": "0.0.1"
 ```
 
@@ -63,4 +66,7 @@ There are some necessary environment variables for the authentication system to 
 ```javascript
 * REACT_APP_FIREBASE_API_KEY
 * REACT_APP_FIREBASE_AUTH_DOMAIN
+* REACT_APP_MEASUREMENT_ID
+* REACT_APP_PROJECT_ID
+* REACT_APP_APP_ID
 ```

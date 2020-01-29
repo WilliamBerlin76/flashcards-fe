@@ -66,30 +66,25 @@ class EditTemplate extends React.Component {
 
   addCardtoEdited = e => {
     e.preventDefault();
-    console.log(this.state);
     let card = {
       id: this.props.id,
-      front: this.state.singleCard.front,
-      back: this.state.singleCard.back,
-      archived: this.state.singleCard.archived
+      data: {
+        front: this.state.singleCard.front,
+        back: this.state.singleCard.back,
+        archived: this.state.singleCard.archived
+      }
     };
-    let cardArr;
-    if (this.props.editedCard.length > 0) {
-      cardArr = [...this.props.editedCard, card];
-    } else {
-      cardArr = [card];
-    }
-    this.props.setEditedCard(cardArr);
     let newDeck = [];
+    console.log(this.props.editedDeck);
     this.props.currentDeck.map(c => {
       if (this.props.id !== c.id) {
-        newDeck.push({ data: c });
+        newDeck.push(c);
       } else {
-        newDeck.push({ data: card });
+        newDeck.push(card);
       }
     });
     console.log(newDeck);
-    this.props.setCurrentDeck(newDeck);
+    this.props.addCard(newDeck);
 
     // setTimeout(function() {}, 1000);
     // console.log(this.state);

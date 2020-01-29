@@ -1,0 +1,33 @@
+.cards {
+  border: 0.5px solid rgba(106, 92, 85, 0.3);
+  border-radius: 4px;
+  max-width: 375px;
+  margin: 30px auto;
+  width: 85%;
+  .section-title {
+    margin: 10px 15px;
+    color: #f66e00;
+    font-weight: lighter;
+  }
+  .card-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 0 auto;
+    p {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .card-front {
+      font-weight: bold;
+    }
+    .card-back {
+      font-size: 1.2rem;
+    }
+  }
+  .top {
+    border-bottom: 1px solid rgba(106, 92, 85, 0.5);
+  }
+}

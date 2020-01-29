@@ -32,7 +32,6 @@ const Login = props => {
             .auth()
             .currentUser.getIdToken(true)
             .then(token => {
-              console.log(firebase.auth().currentUser.uid);
               props.history.push('/dashboard');
             });
         }

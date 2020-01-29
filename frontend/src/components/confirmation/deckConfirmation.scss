@@ -1,0 +1,39 @@
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    font-family: Roboto;
+    color: #ff6e00;
+    margin-top: 3rem;
+    max-width: 500px;
+
+    .confirm-button {
+      background-color: #fafafa;
+      border: 2px solid #ff6e00;
+      padding: 10px 30px;
+      border-radius: 23px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ff6e00;
+        color: #fafafa;
+      }
+    }
+
+    .go-back {
+      cursor: pointer;
+      margin-top: 13px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+}
+
+.sure {
+  margin-top: 3rem !important;
+  text-align: center;
+  font-family: Roboto;
+}
