@@ -145,6 +145,7 @@ const reducer = (state = initialState, action) => {
                       back: action.payload,
                   }
               ],
+              colId: action.payload,
               isFetching: false,
               isPosting: true,
               error: ''

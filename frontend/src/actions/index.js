@@ -110,21 +110,14 @@ export const postDecks = (deck, deckName, tags, icon) => dispatch => {
     })
   }
 
-export const postCards = (cards, deckName, props, deckInformation) => dispatch => {
+export const postCards = (cards, colId, props, deckInformation) => dispatch => {
   dispatch({ type: POST_CARDS})
 
   const id = firebase.auth().currentUser.uid
-  // const colId = props.deckName
-  // const cardd = {cards: deck}
-  // const decks = {tags, icon}
-  // // const tagz = decks.tags
-  // // const iconz = decks.icon
-  // const cards = cardd.cards
-  // const body = {cards: cardd.cards, deckz: {tagz, iconz}}
-  // const colId = props.colId
-  console.log(cards)
+  
+  console.log(cards, id, colId)
   axios
-  .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${cards.deckName}/add`, cards)
+  .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${colId}/add`, {cards: cards})
   .then(res => {
       console.log(res)
       dispatch({
