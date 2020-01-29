@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { postCards, getCards } from '../../actions';
 import './NewCard.scss'
 import poly from '../../assets/poly.png';
-import firebase from "firebase"
-import DeckForm from '../decks/DeckForm';
 
 const NewCard = (props) => {
 
