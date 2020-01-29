@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import axios from 'axios';
 import { connect, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 import { getDecks } from '../../actions';
 import './deckConfirmation.scss';
@@ -15,9 +15,9 @@ function DeckConfirmation(props) {
         let currentUserId = firebase.auth().currentUser.uid;
         setCurrentUser(currentUserId);
       } else {
-        return null
+        return null;
       }
-    })
+    });
   }, []);
   const dispatch = useDispatch();
   let history = useHistory();
@@ -26,7 +26,9 @@ function DeckConfirmation(props) {
 
   const archiveDeck = async () => {
     axios
-      .post(`https://flashcards-be.herokuapp.com/api/deck/archive/${currentUser}/${colId}/`)
+      .post(
+        `https://flashcards-be.herokuapp.com/api/deck/archive/${currentUser}/${colId}/`
+      )
       .then(res => {
         setTimeout(function() {
           dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
@@ -71,30 +73,47 @@ function DeckConfirmation(props) {
   };
 
   const deleteArchivedDeck = () => {
-    axios.delete(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${colId}/delete-archived-deck`).then(res => {
-      setTimeout(function() {
-        dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
-        props.history.push('/archived-decks');
-      }, 1000);
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+    axios
+      .delete(
+        `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${colId}/delete-archived-deck`
+      )
+      .then(res => {
+        setTimeout(function() {
+          dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
+          props.history.push('/archived-decks');
+        }, 1000);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
-      <p className="sure">Sure you want to {action === 'deleteArchived' ? 'delete' : action} this deck?</p>
-      <div className="buttons">
-        <p onClick={() => history.goBack()} className="go-back">← No, go back</p>
+      <p className='sure'>
+        Sure you want to {action === 'deleteArchived' ? 'delete' : action} this
+        deck?
+      </p>
+      <div className='buttons'>
+        <p onClick={() => history.goBack()} className='go-back'>
+          ← No, go back
+        </p>
         {action === 'delete' ? (
-          <div className="confirm-button" onClick={deleteDeck}>Delete</div>
+          <div className='confirm-button' onClick={deleteDeck}>
+            Delete
+          </div>
         ) : action === 'unarchive' ? (
-          <div className="confirm-button" onClick={unArchiveDeck}>Un-Archive</div>
+          <div className='confirm-button' onClick={unArchiveDeck}>
+            Un-Archive
+          </div>
         ) : action === 'deleteArchived' ? (
-          <div className="confirm-button" onClick={deleteArchivedDeck}>Delete</div>
+          <div className='confirm-button' onClick={deleteArchivedDeck}>
+            Delete
+          </div>
         ) : (
-          <div className="confirm-button" onClick={archiveDeck}>Archive</div>
+          <div className='confirm-button' onClick={archiveDeck}>
+            Archive
+          </div>
         )}
       </div>
     </div>
@@ -103,7 +122,7 @@ function DeckConfirmation(props) {
 
 const mapStateToProps = state => {
   return {
-    cards: state.cards,
+    cards: state.deckcards,
     decks: state.decks,
     isFetching: state.isFetching,
     error: state.error
