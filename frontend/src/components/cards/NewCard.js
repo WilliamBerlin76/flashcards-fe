@@ -8,28 +8,9 @@ import DeckForm from '../decks/DeckForm';
 
 const NewCard = (props) => {
 
-    const [colId, setColId] = useState('');
     const [newDecks, setNewDecks] = useState([
         { front: '', back: ''}
     ]);
-    const [deck, setDeck] = useState([]);
-
-
-    // const [currentCard, setCurrentCard] = useState(0)
-  
-
-    useEffect(() => {
-       
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            let currentUser = firebase.auth().currentUser.uid;
-            // props.getCards(props.match.params.deckName, currentUser);
-            
-          } else {
-            return null
-          }
-        });  
-      }, []);
     
    
     const handleChanges = (index, event) => {
@@ -50,14 +31,12 @@ const NewCard = (props) => {
         const values = [...newDecks];
         values.unshift({ front: '', back: '' });
         setNewDecks(values);
-        console.log(newDecks)
     };
  
     const handleRemove = index => {
         const values = [ ...newDecks];
         values.splice(index, 1);
         setNewDecks(values);
-        console.log(newDecks)
     };
 
     const handleSubmit = e => {
@@ -114,17 +93,14 @@ const NewCard = (props) => {
                     <h3 className = "new">New Cards</h3>  */}
                     <div className = "buttonHolder">
                     <button
-                    type = "button"
-                    className = "add"
-                    onClick = {() => handleAdd()}>
-                        Add Card
-
+                        type = "button"
+                        className = "add"
+                        onClick = {() => handleAdd()}>
+                            Add Card
                     </button>
 
                     <button
                     className = "save"
-                    // onSubmit = {handleSubmit}
-                    // onClick = {() => props.history.push(`/decklist`)}
                     onClick = {handleSubmit}
                     >
                     Save Deck

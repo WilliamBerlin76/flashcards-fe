@@ -115,7 +115,6 @@ export const postCards = (cards, colId, props, deckInformation) => dispatch => {
 
   const id = firebase.auth().currentUser.uid
   
-  console.log(cards, id, colId)
   axios
   .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${colId}/add`, {cards: cards})
   .then(res => {
