@@ -92,6 +92,19 @@ class EditTemplate extends React.Component {
     // this.props.setEditedCard(this.state.singleCard.edited);
   };
 
+  addCardtoDeleted = e => {
+    e.preventDefault();
+    let card = {
+      id: this.props.id
+    };
+    if (this.props.deletedDeck.length > 0) {
+      let newDeck = [...this.props.deletedDeck, card];
+      this.props.deleteDeck(newDeck);
+    } else {
+      this.props.deleteDeck([card]);
+    }
+  };
+
   handleSubmit = (e, id, deckName) => {
     e.preventDefault();
     // this.props.editCard(this.state.singleCard);
@@ -125,12 +138,12 @@ class EditTemplate extends React.Component {
                       Front
                     </Header>
                   )}
-                  <Checkbox
+                  {/* <Checkbox
                     // style={{border: "none"}}
                     className='check'
-                    checked={this.state.singleCard.archived}
+                    checked={this.state.singleCard.completed}
                     onChange={this.archiveCard}
-                  />
+                  /> */}
                 </div>
 
                 {/* <form onSubmit={this.handleSubmit}> */}
@@ -162,6 +175,12 @@ class EditTemplate extends React.Component {
                   onChange={this.handleChange}
                   value={this.state.singleCard.back}
                 />
+                <button onClick={e => this.addCardtoDeleted(e)}>Delete</button>
+                {this.state.singleCard.archived ? (
+                  <button onClick={e => this.archiveCard(e)}>Un-Archive</button>
+                ) : (
+                  <button onClick={e => this.archiveCard(e)}>Archive</button>
+                )}
                 <button
                   className='quo-btn'
                   onClick={e => this.addCardtoEdited(e)}

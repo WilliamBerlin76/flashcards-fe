@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import EditTemplate from './EditTemplate';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
@@ -16,6 +17,7 @@ const Cards = props => {
   const [editedCard, setEditedCard] = useState([]);
   const [editing, setEditing] = useState(false);
   const [editedDeck, setEditedDeck] = useState([]);
+  const [deletedDeck, setDeletedDeck] = useState([]);
   // const [currentUser, setcurrentUser] = useState(null)
   // const [currentUser, setcurrentUser] = useState(null);
 
@@ -57,6 +59,30 @@ const Cards = props => {
       newDeck.push(newCard);
     });
     setEditedDeck(newDeck);
+  }
+
+  function deleteDeck(deck) {
+    setDeletedDeck(deck);
+  }
+
+  function runDelete(e) {
+    e.preventDefault();
+    let cards = {
+      cards: deletedDeck
+    };
+    console.log(cards);
+    let currentUser = firebase.auth().currentUser.uid;
+    axios
+      .delete(
+        `http://localhost:5000/api/deck/${currentUser}/${props.match.params.deckName}/delete-cards`,
+        { data: cards }
+      )
+      .then(res => {
+        setCurrentDeck(res.data.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   // useEffect(() => {
@@ -103,7 +129,7 @@ const Cards = props => {
           <img className='back' src={poly} onClick={() => history.goBack()} />
           <h1 className='deckName'>Edit Deck</h1>
           <div className='cardnum'>
-            <h4 className='card-length'>{props.deckcards.length}</h4>
+            <h4 className='card-length'>{currentDeck.length}</h4>
             {/* <img className = "smile" src = {smiley} alt = {'a smiling emoji'}/> */}
             <h4 className='Total-Cards'>Total Cards</h4>
           </div>
@@ -184,6 +210,8 @@ const Cards = props => {
                   card={card.data}
                   addCard={addCard}
                   editedDeck={editedDeck}
+                  deleteDeck={deleteDeck}
+                  deletedDeck={deletedDeck}
                 />
               ))}
               {/* <button onSubmit={handleSubmit}>Update</button> */}
@@ -202,9 +230,9 @@ const Cards = props => {
           <button
             className='delete'
             // onClick = {() => props.history.push(`/decklist`)}
-            onClick={e => handleSubmit(e)}
+            onClick={e => runDelete(e)}
           >
-            Archive
+            Delete
           </button>
           <button
             className='archive'
