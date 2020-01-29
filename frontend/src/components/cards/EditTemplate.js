@@ -23,6 +23,7 @@ class EditTemplate extends React.Component {
         front: this.props.card.front,
         back: this.props.card.back,
         archived: this.props.card.archived,
+        delete: false,
         completed: false
       }
     };
@@ -65,26 +66,38 @@ class EditTemplate extends React.Component {
   // }
 
   addCardtoEdited = e => {
+    console.log(this.state);
     e.preventDefault();
-    let card = {
-      id: this.props.id,
-      data: {
-        front: this.state.singleCard.front,
-        back: this.state.singleCard.back,
-        archived: this.state.singleCard.archived
+    this.setState(
+      {
+        singleCard: {
+          ...this.state.singleCard,
+          completed: true,
+          delete: false
+        }
+      },
+      () => {
+        let card = {
+          id: this.props.id,
+          data: {
+            front: this.state.singleCard.front,
+            back: this.state.singleCard.back,
+            archived: this.state.singleCard.archived
+          }
+        };
+        let newDeck = [];
+        console.log(this.props.editedDeck);
+        this.props.currentDeck.map(c => {
+          if (this.props.id !== c.id) {
+            newDeck.push(c);
+          } else {
+            newDeck.push(card);
+          }
+        });
+        this.props.addCard(newDeck);
+        console.log(this.state);
       }
-    };
-    let newDeck = [];
-    console.log(this.props.editedDeck);
-    this.props.currentDeck.map(c => {
-      if (this.props.id !== c.id) {
-        newDeck.push(c);
-      } else {
-        newDeck.push(card);
-      }
-    });
-    console.log(newDeck);
-    this.props.addCard(newDeck);
+    );
 
     // setTimeout(function() {}, 1000);
     // console.log(this.state);
@@ -94,15 +107,26 @@ class EditTemplate extends React.Component {
 
   addCardtoDeleted = e => {
     e.preventDefault();
-    let card = {
-      id: this.props.id
-    };
-    if (this.props.deletedDeck.length > 0) {
-      let newDeck = [...this.props.deletedDeck, card];
-      this.props.deleteDeck(newDeck);
-    } else {
-      this.props.deleteDeck([card]);
-    }
+    this.setState(
+      {
+        singleCard: {
+          ...this.state.singleCard,
+          completed: false,
+          delete: true
+        }
+      },
+      () => {
+        let card = {
+          id: this.props.id
+        };
+        if (this.props.deletedDeck.length > 0) {
+          let newDeck = [...this.props.deletedDeck, card];
+          this.props.deleteDeck(newDeck);
+        } else {
+          this.props.deleteDeck([card]);
+        }
+      }
+    );
   };
 
   handleSubmit = (e, id, deckName) => {
@@ -129,21 +153,25 @@ class EditTemplate extends React.Component {
             <div className='cardData '>
               <Segment className='segments'>
                 <div className='cardTop'>
-                  {this.state.singleCard.archived ? (
-                    <Header as='h5' className='header'>
-                      Front - <span className='archived-span'>archived</span>
-                    </Header>
-                  ) : (
-                    <Header as='h5' className='header'>
-                      Front
-                    </Header>
-                  )}
+                  <Header as='h5' className='headers'>
+                    Front
+                  </Header>
                   {/* <Checkbox
                     // style={{border: "none"}}
                     className='check'
-                    checked={this.state.singleCard.completed}
+                    checked={this.state.singleCard.checked}
                     onChange={this.archiveCard}
                   /> */}
+                  <div>
+                    <i
+                      class='fas fa-folder'
+                      onClick={e => this.archiveCard(e)}
+                    ></i>
+                    <i
+                      class='fas fa-trash'
+                      onClick={e => this.addCardtoDeleted(e)}
+                    ></i>
+                  </div>
                 </div>
 
                 {/* <form onSubmit={this.handleSubmit}> */}
@@ -160,7 +188,7 @@ class EditTemplate extends React.Component {
                 />
 
                 <Divider clearing />
-                <Header as='h5' style={{ marginTop: -2 }} className='header'>
+                <Header as='h5' style={{ marginTop: -2 }} className='headers'>
                   Back
                 </Header>
 
@@ -175,18 +203,11 @@ class EditTemplate extends React.Component {
                   onChange={this.handleChange}
                   value={this.state.singleCard.back}
                 />
-                <button onClick={e => this.addCardtoDeleted(e)}>Delete</button>
-                {this.state.singleCard.archived ? (
-                  <button onClick={e => this.archiveCard(e)}>Un-Archive</button>
-                ) : (
-                  <button onClick={e => this.archiveCard(e)}>Archive</button>
-                )}
-                <button
-                  className='quo-btn'
-                  onClick={e => this.addCardtoEdited(e)}
-                >
-                  Confirm change, then submit
-                </button>
+
+                <div className='quo-btn' onClick={e => this.addCardtoEdited(e)}>
+                  Update
+                </div>
+
                 {/* </form> */}
               </Segment>
             </div>

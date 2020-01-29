@@ -3,13 +3,14 @@ import axios from 'axios';
 import EditTemplate from './EditTemplate';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
-import { Form, Input, Divider, Icon, Grid, Search } from 'semantic-ui-react';
+import Modal from '@material-ui/core/Modal';
 import 'semantic-ui-css/semantic.min.css';
 import firebase from 'firebase';
 import { getCards, editCard } from '../../actions';
 import poly from '../../assets/poly.png';
 import { useHistory } from 'react-router-dom';
 import './Cards.scss';
+import { createGlobalStyle } from 'styled-components';
 
 const Cards = props => {
   const [currentDeck, setCurrentDeck] = useState([]);
@@ -193,27 +194,30 @@ const Cards = props => {
             transparent
             placeholder='Search for a Card...'
           /> */}
-
           <div>
             <form onSubmit={handleSubmit}>
               {props.error && <p>{props.error}</p>}
-              {currentDeck.map(card => (
-                <EditTemplate
-                  key={Math.random()}
-                  deckName={props.match.params.deckName}
-                  user={firebase.auth().currentUser.uid}
-                  setEditedCard={addCard}
-                  editedCard={editedCard}
-                  setCurrentDeck={setCurrentDeck}
-                  currentDeck={currentDeck}
-                  id={card.id}
-                  card={card.data}
-                  addCard={addCard}
-                  editedDeck={editedDeck}
-                  deleteDeck={deleteDeck}
-                  deletedDeck={deletedDeck}
-                />
-              ))}
+              {currentDeck.map(card => {
+                return (
+                  <EditTemplate
+                    key={Math.random()}
+                    deckName={props.match.params.deckName}
+                    user={firebase.auth().currentUser.uid}
+                    setEditedCard={addCard}
+                    editedCard={editedCard}
+                    setCurrentDeck={setCurrentDeck}
+                    currentDeck={currentDeck}
+                    id={card.id}
+                    card={card.data}
+                    addCard={addCard}
+                    editedDeck={editedDeck}
+                    deleteDeck={deleteDeck}
+                    deletedDeck={deletedDeck}
+                    delete={false}
+                    completed={false}
+                  />
+                );
+              })}
               {/* <button onSubmit={handleSubmit}>Update</button> */}
             </form>
           </div>
@@ -228,7 +232,7 @@ const Cards = props => {
                          Delete
                         </button> */}
           <button
-            className='delete'
+            className='archive'
             // onClick = {() => props.history.push(`/decklist`)}
             onClick={e => runDelete(e)}
           >

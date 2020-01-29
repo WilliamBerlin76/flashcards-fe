@@ -719,7 +719,9 @@
       width: 31rem;
     }
     .headers {
-      color: #f66e00;
+      color: #f66e00 !important;
+      background-color: white;
+      font-family: Roboto;
     }
     h3 {
       text-align: center;
@@ -749,12 +751,11 @@
     // max-width: 300px;
     // margin: auto;
     position: absolute;
-    right: 0;
-    border: 0.9px solid #f66e00;
-    background-color: lighten(#f66e00, 20%);
+    right: 2rem;
+    bottom: 0.5rem;
     // padding: 1rem 4rem;
-    border-radius: 7px;
-    color: #fcfcfc;
+    color: #f66e00;
+    cursor: pointer;
   }
   .deleteCard {
     position: absolute;
@@ -797,5 +798,18 @@
   font-style: italic;
 }
 .cardstyle-back {
+  cursor: pointer;
+}
+
+.fa-trash {
+  color: #f66e00;
+  font-size: 1.4rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.fa-folder {
+  color: #f66e00;
+  font-size: 1.4rem;
   cursor: pointer;
 }
