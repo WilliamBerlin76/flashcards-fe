@@ -142,7 +142,7 @@ const DeckForm = props => {
               <h3 className='flashcards'>Flashcards</h3>
 
               <h3 className='new'>New Card</h3>
-
+              <div className ="top">
               {newDecks.forEach((newDeck, index) => (
                 <Fragment key={`${newDeck}~${index}`}>
                   <div className='topCard'>
@@ -185,6 +185,7 @@ const DeckForm = props => {
                 </button> */}
                 </Fragment>
               ))}
+              </div>
             </form>
           </div>
           <div className='buttonHolder'>
@@ -204,7 +205,7 @@ const DeckForm = props => {
 
           <form onSubmit={handleSubmit} className='cardFormBottom'>
             {newDecks.map((newDeck, index) => (
-              <div key={`${newDeck}~${index}`}>
+              <Fragment key={`${newDeck}~${index}`}>
                 <div className='card'>
                   <div className='removeHolder'>
                     <button
@@ -248,7 +249,7 @@ const DeckForm = props => {
                             onClick = {() => handleAdd()}>
                                 Add Card
                             </button> */}
-              </div>
+              </Fragment>
             ))}
           </form>
         </div>

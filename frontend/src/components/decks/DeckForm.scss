@@ -3,6 +3,7 @@
 }
 .card {
   border: 0.5px solid rgba(106, 92, 85, 0.3);
+  
   .frontLabel {
     color: #f66e00;
   }
@@ -23,7 +24,8 @@
     display: flex;
     color: #6a5c55;
     font-weight: bold;
-    border: none;
+    border: none; 
+ 
   }
 }
 .iconHolder {
@@ -106,6 +108,10 @@
   }
 }
 
+
+// .top {
+//   margin-top: 220%;
+// }
 // @media only screen and (min-width: 320px) {
 //   .loading-background {
 //     background: #f66e00;
@@ -353,8 +359,9 @@
   .buttonHolder {
     // margin-bottom: -130%;
     padding-bottom: 1%;
-    margin-left: 5%;
-    margin-top: 10%;
+    margin-left: 7%;
+    margin-top: 40%;
+    margin-bottom: -60%;
     //   width: 100%;
     .save {
       background-color: #f66e00;
@@ -384,10 +391,10 @@
       }
     }
   }
-  .topCard {
-    margin-top: 40%;
-    margin-bottom: 150%;
-  }
+  // .topCard {
+  //   margin-top: 40%;
+  //   margin-bottom: 150%;
+  // }
   .card {
     margin-top: 14%;
     padding-left: 10%;
@@ -397,7 +404,7 @@
     // margin-bottom: 130%;
     &:first-child {
       // margin-bottom: 30%;
-      margin-top: 5%;
+      margin-top: 10%;
     }
     // &:last-child{
     //     margin-bottom: 112%;
