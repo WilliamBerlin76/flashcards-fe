@@ -27,7 +27,7 @@ const NewCard = (props) => {
   
     const handleAdd = () => {
         const values = [...newDecks];
-        values.unshift({ front: '', back: '' });
+        values.push({ front: '', back: '' });
         setNewDecks(values);
     };
  
