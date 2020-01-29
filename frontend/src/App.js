@@ -22,6 +22,8 @@ import Privacy from './components/Privacy/privacy';
 import DeckConfirmation from './components/confirmation/DeckConfirmation';
 import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
 import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
+import EditCard from './components/cards/EditCard';
+import NewCard from './components/cards/NewCard';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -116,6 +118,8 @@ function App() {
           <Route
             path='/archived-decks/:colId'
             render={props => <ArchivedDeckView {...props}/>}  />
+          <Route path = '/editcard/:deckName/cards' render ={props => <EditCard {...props}/>} />
+          <Route path = '/editcard/:deckName/newcards' render = {props => <NewCard {...props}/>} />
           {/* //Switch Here */}
         </div>
       </>

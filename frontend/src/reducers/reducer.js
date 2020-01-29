@@ -1,4 +1,4 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, CARDS_FAILURE, POST_DECK, POST_SUCCESS, POST_FAILURE } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE, FETCH_CARDS, CARDS_SUCCESS, CARDS_FAILURE,POST_DECK, POST_SUCCESS, POST_FAILURE,EDIT_CARDS, EDIT_SUCCESS, EDIT_FAILURE, POST_CARDS, PCARDS_SUCCESS, PCARDS_FAILURE } from '../actions';
 
 const initialState = {
     decks: [],
@@ -21,9 +21,18 @@ const initialState = {
     deck: {
         tags: [],
         icon: '' 
-    }
+    },
+    colId: '',
+    changes: [
+        {
+            front: '',
+            back: '',
+            archived: false,
+        }
+    ]
+};
 
-}
+
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
@@ -113,6 +122,63 @@ const reducer = (state = initialState, action) => {
                 isPosting: false,
                 error: action.payload
             };
+          
+         case EDIT_CARDS:
+            return {
+                ...state,
+                changes: [],
+                isEditing: true,
+                error: ''
+            };
+        case EDIT_SUCCESS:
+            return {
+                ...state,
+                changes: [
+                    {
+                        
+                        front: action.payload,
+                        back: action.payload,
+                        archived: action.payload,
+                    }
+                ],
+                isEditing: false,
+                error: ''
+            };
+        case EDIT_FAILURE: 
+            return {
+                ...state,
+                changes: [],
+                isEditing: false,
+                error: action.payload,
+            };
+        case POST_CARDS: 
+        return {
+            ...state,
+            cards: [],
+            isFetching: false,
+            isPosting: false,
+            error: ''
+        };
+        case PCARDS_SUCCESS:
+            return {
+                cards: [
+                    {
+                        front: action.payload,
+                        back: action.payload,
+                    }
+                ],
+                isFetching: false,
+                isPosting: true,
+                error: ''
+            };
+        case PCARDS_FAILURE:
+            return {
+                ...state,
+                cards: [],
+                isFetching: true,
+                isPosting: false,
+                error: action.payload
+            }
         default: return state;
     }
 };

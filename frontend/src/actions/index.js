@@ -2,6 +2,7 @@
 import axios from 'axios';
 import firebase from 'firebase';
 
+
 //ACTION FOR DECKS
 export const FETCH_START = "FETCH_START"
 export const FETCH_SUCCESS = "FETCH_SUCCESS"
@@ -15,6 +16,16 @@ export const POST_FAILURE = "POST_FAILURE"
 export const FETCH_CARDS = 'FETCH_CARDS';
 export const CARDS_SUCCESS = 'CARDS_SUCCESS';
 export const CARDS_FAILURE = 'CARDS_FAILURE';
+
+export const EDIT_CARDS = "EDIT_CARDS"
+export const EDIT_SUCCESS = "EDIT_SUCCESS"
+export const EDIT_FAILURE = "EDIT_FAILURE"
+
+export const POST_CARDS = 'POST_CARDS';
+export const PCARDS_SUCCESS = 'PCARDS_SUCCESS';
+export const PCARDS_FAILURE = 'PCARDS_FAILURE'
+
+
 
 //GETTING DECKS
 
@@ -96,6 +107,55 @@ export const postDecks = (deck, deckName, tags, icon ) => dispatch => {
         console.log(error);
         dispatch({ type: POST_FAILURE, payload: error})
     })
+  }
+
+export const postCards = (cards, deckName, props, deckInformation) => dispatch => {
+  dispatch({ type: POST_CARDS})
+
+  const id = firebase.auth().currentUser.uid
+  // const colId = props.deckName
+  // const cardd = {cards: deck}
+  // const decks = {tags, icon}
+  // // const tagz = decks.tags
+  // // const iconz = decks.icon
+  // const cards = cardd.cards
+  // const body = {cards: cardd.cards, deckz: {tagz, iconz}}
+  // const colId = props.colId
+  console.log(cards)
+  axios
+  .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${cards.deckName}/add`, cards)
+  .then(res => {
+      console.log(res)
+      dispatch({
+          type: PCARDS_SUCCESS,
+          payload: res.data
+      })
+  })
+  .catch(error => {
+      console.log(error);
+      dispatch({ type: PCARDS_FAILURE, payload: error})
+  })
 };
 
 
+
+//UPDATE CARDS FOR DECKS
+export const editCard = (deck, id, deckName, props) => dispatch => {
+    dispatch({ type: EDIT_CARDS });
+
+    const changess = {changes: deck}
+    // const colId = props.colId
+    console.log(changess)
+    axios
+    .put(`https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`, changess)
+    // .put(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck.id}`, deck.data)
+    .then(response => {
+       console.log(response.data)
+    //    history.push(`/editdeck/`);
+        dispatch({ type: EDIT_SUCCESS, payload: response.data})
+    })
+    .catch(error => {
+        dispatch({ type: EDIT_FAILURE, payload: error})
+    })
+
+  }

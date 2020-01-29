@@ -7,6 +7,7 @@ import { getDecks, getCards } from '../../actions';
 import { connect } from 'react-redux';
 import './dashboard.scss';
 
+
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
@@ -57,14 +58,8 @@ const Dashboard = props => {
         </div> */}
 
         {deckArr.map(item => {
-          return (
-            <DeckCards
-              key={Math.random()}
-              demo={item.demo}
-              deckName={item.deckName}
-              openDeck={openDeck}
-            />
-          );
+          console.log(item);
+          return <DeckCards key={item} demo = {item.demo} deckName={item.deckName} openDeck={openDeck} />;
         })}
       </section>
       {/* <button className='bottom-button'>Create</button> */}
