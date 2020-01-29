@@ -62,9 +62,19 @@ const NewCard = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        props.postCards(newDecks, props.match.params.deckName)
-        props.history.push(`/decklist`)
-        
+        let dArr = [];
+    
+        newDecks.map(item => {
+            if(!item.front || !item.back){
+                alert('please fill in all cards and information')
+            } else {
+                dArr.push(item)
+            }
+        })
+        if(dArr.length === newDecks.length){
+            props.postCards(newDecks, props.match.params.deckName)
+            props.history.push(`/decklist`)
+        }
     };
 
 
