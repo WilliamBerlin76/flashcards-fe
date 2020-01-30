@@ -642,6 +642,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 1.4rem;
+      position: absolute;
+      bottom: 0;
+      background-color: white;
+      width: 100vw;
 
       .save {
         background: #f66e00;
@@ -719,7 +723,9 @@
       width: 31rem;
     }
     .headers {
-      color: #f66e00;
+      color: #f66e00 !important;
+      background-color: white;
+      font-family: Roboto;
     }
     h3 {
       text-align: center;
@@ -749,12 +755,11 @@
     // max-width: 300px;
     // margin: auto;
     position: absolute;
-    right: 0;
-    border: 0.9px solid #f66e00;
-    background-color: lighten(#f66e00, 20%);
+    right: 2rem;
+    bottom: 0.5rem;
     // padding: 1rem 4rem;
-    border-radius: 7px;
-    color: #fcfcfc;
+    color: #f66e00;
+    cursor: pointer;
   }
   .deleteCard {
     position: absolute;
@@ -765,8 +770,12 @@
   .btn2 {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 0 1.4rem 3rem;
+    justify-content: space-between;
+    padding: 1rem 1.4rem;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 100vw;
 
     .archive {
       background: #f66e00;
@@ -778,6 +787,7 @@
       line-height: 21px;
       color: #fcfcfc;
       padding: 1rem 4rem;
+      cursor: pointer;
       // position: sticky;
     }
 
@@ -788,6 +798,7 @@
       color: #f66e00;
       padding: 1rem 4rem;
       border-radius: 50px;
+      cursor: pointer;
     }
   }
 }
@@ -798,4 +809,67 @@
 }
 .cardstyle-back {
   cursor: pointer;
+}
+
+.fa-trash {
+  color: #f66e00;
+  font-size: 1.4rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.fa-folder {
+  color: #f66e00;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.fa-folder-open {
+  color: #f66e00;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.div-form {
+  margin-bottom: 5rem;
+}
+
+.new-card {
+  // padding: 0 25px 25px;
+  margin-bottom: 4rem;
+
+  .container {
+    display: block;
+    width: 91%;
+    margin: 0 auto;
+
+    .segments {
+      margin: 0;
+    }
+  }
+}
+
+.archive {
+  background: #f66e00;
+  border: 2px solid #f66e00;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #fcfcfc;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  // position: sticky;
+}
+
+.button-div {
+  display: flex;
+  justify-content: flex-end;
+  width: 91%;
+  margin: 0 auto;
+
+  .add-button {
+    width: 50%;
+  }
 }
