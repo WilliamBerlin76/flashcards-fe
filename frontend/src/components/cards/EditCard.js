@@ -85,7 +85,7 @@ const Cards = props => {
     let currentUser = firebase.auth().currentUser.uid;
     axios
       .delete(
-        `http://localhost:5000/api/deck/${currentUser}/${props.match.params.deckName}/delete-cards`,
+        `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.match.params.deckName}/delete-cards`,
         { data: cards }
       )
       .then(res => {
