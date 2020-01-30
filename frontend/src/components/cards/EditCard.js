@@ -71,8 +71,9 @@ const Cards = props => {
     setEditedDeck(newDeck);
   }
 
-  function deleteDeck(deck) {
+  function deleteDeck(deck, cd) {
     setDeletedDeck(deck);
+    setCurrentDeck(cd);
   }
 
   function runDelete(e) {
@@ -170,8 +171,12 @@ const Cards = props => {
     return (
       <div className='page'>
         <div className='loading-background'>
-          <img className='back' src={poly} onClick={() => history.goBack()} />
-          <h1 className='deckName'>Edit Deck</h1>
+          <div className='back-button-and-header'>
+            <img className='back' src={poly} onClick={() => history.goBack()} />
+            <h1 className='deckNames' onClick={() => history.goBack()}>
+              Edit Deck
+            </h1>
+          </div>
           <div className='cardnum'>
             <h4 className='card-length'>{currentDeck.length}</h4>
             {/* <img className = "smile" src = {smiley} alt = {'a smiling emoji'}/> */}
@@ -327,6 +332,7 @@ const Cards = props => {
                   editedDeck={editedDeck}
                   deleteDeck={deleteDeck}
                   deletedDeck={deletedDeck}
+                  deleted={card.data.deleted}
                 />
               ))}
               {/* <button onSubmit={handleSubmit}>Update</button> */}
@@ -342,21 +348,44 @@ const Cards = props => {
                         >
                          Delete
                         </button> */}
-          <button
-            className='delete'
-            // onClick = {() => props.history.push(`/decklist`)}
-            onClick={e => runDelete(e)}
-          >
-            Delete
-          </button>
-          <button
-            className='archive'
-            // onClick = {() => props.history.push(`/decklist`)}
-            onClick={e => handleSubmit(e)}
-          >
-            {' '}
-            Submit{' '}
-          </button>
+          {deletedDeck.length > 0 ? (
+            <button
+              className='delete'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => runDelete(e)}
+            >
+              Delete
+            </button>
+          ) : (
+            <button
+              className='delete'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => runDelete(e)}
+              style={{ opacity: 0.5 }}
+            >
+              Delete
+            </button>
+          )}
+          {editedCard.length > 0 ? (
+            <button
+              className='archive'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => handleSubmit(e)}
+            >
+              {' '}
+              Submit{' '}
+            </button>
+          ) : (
+            <button
+              className='archive'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => handleSubmit(e)}
+              style={{ opacity: 0.5 }}
+            >
+              {' '}
+              Submit
+            </button>
+          )}
         </div>
       </div>
     );
