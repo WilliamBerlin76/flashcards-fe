@@ -6,13 +6,15 @@
     padding-bottom: 2%;
     margin-bottom: 10%;
     padding-top: 2%;
-
+    
     .smile {
       opacity: 0.25;
-      margin-left: 63%;
-      margin-top: -60%;
-      width: 30%;
+      margin-left: 65%;
+      max-width: 125px;
+      // margin-top: -60%;
+      width: 25%;
       margin-bottom: 6%;
+      // height: 120px;
     }
     .mastered {
       // display: flex;
@@ -20,10 +22,10 @@
       font-family: Roboto Condensed;
       font-style: normal;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       line-height: 19px;
       margin-left: 75%;
-      margin-top: -7%;
+      margin-top: 3%;
       color: #ffffff;
     }
     .back {
@@ -55,20 +57,20 @@
     font-family: Roboto Condensed;
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 29px;
     line-height: 28px;
     margin-top: 16%;
     color: #ffffff;
-    margin-bottom: 9%;
+    margin-bottom: -6%;
   }
   .cardsHeader {
     margin-left: 4%;
-    margin-top: -8%;
-    margin-bottom: -3%;
+    margin-top: 8%;
+    margin-bottom: -29%;
     font-family: Roboto;
     font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
+    // font-weight: bold;
+    font-size: 20px;
     line-height: 19px;
 
     color: #ffffff;
@@ -120,7 +122,7 @@
       font-family: Roboto;
       font-style: normal;
       font-weight: bold;
-      font-size: 1.25rem;
+      font-size: 2rem;
       line-height: 40px;
       // display: flex;
 
@@ -133,7 +135,7 @@
   }
 
   .button-holder {
-    margin-left: 6%;
+    margin-left: 11%;
     margin-bottom: 5%;
     .previous {
       border: 2px solid #f66e00;
@@ -146,7 +148,7 @@
       padding-left: 40%;
       padding-bottom: 2%;
       padding-top: 3%;
-      padding-right: 33%;
+      padding-right: 34%;
     }
     .next {
       border: 2px solid #f66e00;
@@ -164,7 +166,7 @@
   }
 
   .instruct {
-    margin-left: 35%;
+    margin-left: 40%;
   }
 
   .point {
@@ -591,9 +593,12 @@
   cursor: pointer;
 }
 
-.cardstyle-back {
-  cursor: pointer;
+.cardstyle-back{
+    cursor: pointer;
 }
+
+
+
 
 //Editing css
 
@@ -873,3 +878,4 @@
     width: 50%;
   }
 }
+

@@ -66,18 +66,20 @@ const DeckForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    let dArr = [];
-    
-    newDecks.map(item => {
-      if(!item.front || !item.back || !newName.deckName){
-        alert('please fill in all cards and information')
-      } else {
-        dArr.push(item)
-      }
-    })
-    if(dArr.length === newDecks.length){
-      props.postDecks(newDecks, newName, tags, newIcon);
-      props.history.push(`/dashboard`);
+
+    // only returns filled cards
+    const subDeck = newDecks.filter(card => {
+      return card.front && card.back;
+    });
+    if(!newName.deckName){
+      // insures deckname is filled
+      alert('Please add a Deck Name')
+    } else {
+      props.postDecks(subDeck, newName, tags, newIcon);
+      // gives time for firestore to update so that deck shows up in dashboard
+      setTimeout(() => {
+        props.history.push(`/dashboard`);
+      }, 400)
     }
   };
 
@@ -107,11 +109,11 @@ const DeckForm = props => {
           alt='back arrow'
           onClick={() => props.history.goBack()}
         />
-        <h1 className='deckName'>Create New Deck</h1>
+        <h1 className='deckName'>Create new deck</h1>
 
         {/* <div className = "rightside"> */}
         <div className='number'>
-          <h3 className='smile'>{newDecks.length}</h3>
+          <h3 className='smile-form'>{newDecks.length}</h3>
         </div>
         <h4 className='mastered'>Total Cards</h4>
         {/* </div> */}
@@ -121,7 +123,7 @@ const DeckForm = props => {
         <div className='page'>
           <div className='form'>
             <form className='cardForm'>
-              <h3 className='deckInfo'>Deck Info</h3>
+              <p className='deckInfo'>Deck Info</p>
 
               <div className='inputHolders'>
                 <OrangeInput
@@ -147,9 +149,11 @@ const DeckForm = props => {
                 <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
               </div>
 
-              {/* <h3 className='flashcards'>Flashcards</h3>
+              <h3 className='flashcards'>Flashcards</h3>
 
-              <h3 className='new'>New Card</h3> */}
+              <div className='new'>New card</div>
+              <div className ="top">
+              
 
               {newDecks.forEach((newDeck, index) => (
                 <Fragment key={`${newDeck}~${index}`}>
@@ -180,12 +184,12 @@ const DeckForm = props => {
                         placeholder='Definition'
                       />
                     </div>
-
+                   
                     <button type='button' onClick={() => handleRemove(index)}>
                       X
                     </button>
                   </div>
-
+                  
                   {/* <button
                 type = "button"
                 onClick = {() => handleAdd()}>
@@ -196,13 +200,14 @@ const DeckForm = props => {
                 </Fragment>
                 
               ))}
+              
+              </div>
             </form>
           </div>
-          
 
           <form onSubmit={handleSubmit} className='cardFormBottom'>
             {newDecks.map((newDeck, index) => (
-              <div key={`${newDeck}~${index}`}>
+              <Fragment key={`${newDeck}~${index}`}>
                 <div className='card'>
                   <div className='removeHolder'>
                     <button
@@ -240,26 +245,28 @@ const DeckForm = props => {
                     />
                   </div>
                 </div>
-              {index === 0 ?  <div className='buttonHolder'>
-                          <button type='button' className='add' onClick={() => handleAdd()}>
-                            Add Card
-                          </button>
+                {index === 0 ?               <div className='buttonHolder'>
+            <button type='button' className='add' onClick={() => handleAdd()}>
+              Add card
+            </button>
 
-                          <button
-                            className='save'
-                            // onSubmit = {handleSubmit}
-                            // onClick = {() => props.history.push(`/decklist`)}
-                            onClick={handleSubmit}
-                          >
-                            Save Deck
-                          </button>
-                        </div> : null}
+            <button
+              className='save'
+              // onSubmit = {handleSubmit}
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={handleSubmit}
+            >
+              Save deck
+            </button>
+            <div className = "created">Cards in deck</div>
+          </div>
+           : null}
                 {/* <button
                             type = "button"
                             onClick = {() => handleAdd()}>
                                 Add Card
                             </button> */}
-              </div>
+              </Fragment>
             ))}
           </form>
         </div>
