@@ -19,7 +19,7 @@
                 color: #FAFAFA;
                 margin-bottom: 25px;
                 margin-left: 10px;
-                font-size: 2.8rem;
+                font-size: 3.4rem;
                 cursor: pointer;
             }
         }
@@ -29,6 +29,8 @@
                 font-size: 1.5rem;
                 font-style: normal;
                 font-weight: 300;
+                opacity: .85;
+                cursor: pointer;
             }
         }
         @media only screen and (max-width: 1000px){
@@ -39,14 +41,22 @@
     .name-pic-container{
         display: flex;
         align-items: flex-end;
-        justify-content: center;
+        justify-content: space-around;
+        width: 100%;
+        margin: 0 auto;
         padding-bottom: 40px;
-        h2{
+        .users-name{
             font-size: 1.3rem;
+            @media only screen and (min-width: 1000px){
+                font-size: 2rem;
+            }
         }
         .profile-pic{
             width:140px;
             border-radius: 50%;
+            @media only screen and (min-width: 1000px){
+                width: 200px
+            }
         }
     }
 }
@@ -61,6 +71,10 @@
         font-style: normal;
         font-weight: normal;
         font-size: 1.8rem;
+        color: #453C38;
+        @media only screen and (min-width: 1000px){
+            font-size: 2.15rem;
+        }
     }
     .subject-input{
         border: 1px solid #F3852C;

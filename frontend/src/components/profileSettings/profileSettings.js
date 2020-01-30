@@ -89,12 +89,13 @@ const Settings = props => {
         <div className='name-pic-container'>
           {firebase.auth().currentUser ? 
           <>
-            <h2>{firebase.auth().currentUser.displayName}</h2>
+            <h2 className='users-name'>{firebase.auth().currentUser.displayName}</h2>
             <img src={firebase.auth().currentUser.photoURL} alt='profile pic' className='profile-pic' /> 
           </>
           : null}
         </div>
       </div>
+
       <form className='profile-form'>
         <h2 className='pref-h2'>User Preferences</h2>
         <p>Which subjects do you use flashcards for most often?</p>
