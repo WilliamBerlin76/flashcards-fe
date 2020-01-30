@@ -13,21 +13,23 @@ import './Cards.scss';
 import { editCard } from '../../actions';
 import firebase from 'firebase';
 
-// import './DeckList.scss';
 
 class EditTemplate extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      singleCard: {
-        front: this.props.card.front,
-        back: this.props.card.back,
-        archived: this.props.card.archived,
-        delete: false,
-        completed: false
+	constructor(props) {		
+		super(props);
+		this.state = {			
+			singleCard: {				
+				front: this.props.card.front,
+				back: this.props.card.back,
+				archived: this.props.card.archived,
+				 edited: [],
+				 completed: false
       }
-    };
-  }
+           
+		};		
+		// console.log(this.state);
+
+	}
 
   archiveCard = e => {
     e.preventDefault();

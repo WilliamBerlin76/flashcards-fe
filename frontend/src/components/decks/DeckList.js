@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import firebase from 'firebase';
 import DeckCards from '../dashboard/deckcards/deckcards';
+import Deck from './Deck';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
@@ -14,7 +15,7 @@ const DeckList = props => {
       if (user) {
         let currentUser = firebase.auth().currentUser.uid;
         props.getDecks(currentUser);
-        // console.log(props.cards)
+        console.log(props.cards)
       } else {
         return null;
       }
@@ -70,6 +71,11 @@ const DeckList = props => {
             openDeck={openDeck}
           />
         ))}
+
+{/* // {props.error && <p>{props.error}</p>}
+//             {props.decks.map(deck =>(
+//                 <Deck key = {deck.id} deck = {deck} />
+            ))} */}
       </div>
       {/* <div className = "button">
                 <button className = "btn1">Create</button>

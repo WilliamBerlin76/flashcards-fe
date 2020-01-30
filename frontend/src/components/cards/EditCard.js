@@ -3,7 +3,6 @@ import axios from 'axios';
 import EditTemplate from './EditTemplate';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
-import Modal from '@material-ui/core/Modal';
 import 'semantic-ui-css/semantic.min.css';
 import firebase from 'firebase';
 import { getCards, editCard } from '../../actions';
@@ -309,30 +308,27 @@ const Cards = props => {
             transparent
             placeholder='Search for a Card...'
           /> */}
+
           <div>
             <form onSubmit={handleSubmit} className='div-form'>
               {props.error && <p>{props.error}</p>}
-              {currentDeck.map(card => {
-                return (
-                  <EditTemplate
-                    key={Math.random()}
-                    deckName={props.match.params.deckName}
-                    user={firebase.auth().currentUser.uid}
-                    setEditedCard={addCard}
-                    editedCard={editedCard}
-                    setCurrentDeck={setCurrentDeck}
-                    currentDeck={currentDeck}
-                    id={card.id}
-                    card={card.data}
-                    addCard={addCard}
-                    editedDeck={editedDeck}
-                    deleteDeck={deleteDeck}
-                    deletedDeck={deletedDeck}
-                    delete={false}
-                    completed={false}
-                  />
-                );
-              })}
+              {currentDeck.map(card => (
+                <EditTemplate
+                  key={Math.random()}
+                  deckName={props.match.params.deckName}
+                  user={firebase.auth().currentUser.uid}
+                  setEditedCard={addCard}
+                  editedCard={editedCard}
+                  setCurrentDeck={setCurrentDeck}
+                  currentDeck={currentDeck}
+                  id={card.id}
+                  card={card.data}
+                  addCard={addCard}
+                  editedDeck={editedDeck}
+                  deleteDeck={deleteDeck}
+                  deletedDeck={deletedDeck}
+                />
+              ))}
               {/* <button onSubmit={handleSubmit}>Update</button> */}
             </form>
           </div>

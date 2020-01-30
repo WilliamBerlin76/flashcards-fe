@@ -105,15 +105,33 @@ export const editCard = (deck, id, deckName) => dispatch => {
   const changess = { changes: deck };
   console.log(changess);
   axios
-    .put(
-      `https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`,
-      changess
-    )
-    .then(response => {
-      console.log(response.data);
-      dispatch({ type: EDIT_SUCCESS, payload: response.data });
-    })
-    .catch(error => {
-      dispatch({ type: EDIT_FAILURE, payload: error });
-    });
+  .put(`https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`, changess)
+  // .put(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck.id}`, deck.data)
+  .then(response => {
+     console.log(response.data)
+  //    history.push(`/editdeck/`);
+      dispatch({ type: EDIT_SUCCESS, payload: response.data})
+  })
+  .catch(error => {
+      dispatch({ type: EDIT_FAILURE, payload: error})
+  })
+
 };
+
+// export const deleteCard = (deck, id, deckName, props) => dispatch => {
+
+  //   dispatch({ type: EDIT_CARDS });
+  //   console.log(props)
+  
+  //   axios.delete(`https://flashcards-be.herokuapp.com/api/deck/${id}/${deckName}/delete-cards`, id)
+  //     .then(res => {
+  //       setTimeout(function() {
+  //         dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
+  //         props.history.push('/dashboard');
+  //       }, 1000);
+  //     })
+  //     .catch(err => {
+  //       console.log('archive deck err', err);
+  //     });
+  // };
+ 
