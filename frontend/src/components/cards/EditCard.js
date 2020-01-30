@@ -71,8 +71,9 @@ const Cards = props => {
     setEditedDeck(newDeck);
   }
 
-  function deleteDeck(deck) {
+  function deleteDeck(deck, cd) {
     setDeletedDeck(deck);
+    setCurrentDeck(cd);
   }
 
   function runDelete(e) {
@@ -327,6 +328,7 @@ const Cards = props => {
                   editedDeck={editedDeck}
                   deleteDeck={deleteDeck}
                   deletedDeck={deletedDeck}
+                  deleted={card.data.deleted}
                 />
               ))}
               {/* <button onSubmit={handleSubmit}>Update</button> */}
@@ -342,21 +344,44 @@ const Cards = props => {
                         >
                          Delete
                         </button> */}
-          <button
-            className='delete'
-            // onClick = {() => props.history.push(`/decklist`)}
-            onClick={e => runDelete(e)}
-          >
-            Delete
-          </button>
-          <button
-            className='archive'
-            // onClick = {() => props.history.push(`/decklist`)}
-            onClick={e => handleSubmit(e)}
-          >
-            {' '}
-            Submit{' '}
-          </button>
+          {deletedDeck.length > 0 ? (
+            <button
+              className='delete'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => runDelete(e)}
+            >
+              Delete
+            </button>
+          ) : (
+            <button
+              className='delete'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => runDelete(e)}
+              style={{ opacity: 0.5 }}
+            >
+              Delete
+            </button>
+          )}
+          {editedCard.length > 0 ? (
+            <button
+              className='archive'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => handleSubmit(e)}
+            >
+              {' '}
+              Submit{' '}
+            </button>
+          ) : (
+            <button
+              className='archive'
+              // onClick = {() => props.history.push(`/decklist`)}
+              onClick={e => handleSubmit(e)}
+              style={{ opacity: 0.5 }}
+            >
+              {' '}
+              Submit
+            </button>
+          )}
         </div>
       </div>
     );
