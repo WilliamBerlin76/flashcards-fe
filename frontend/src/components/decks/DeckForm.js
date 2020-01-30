@@ -66,18 +66,20 @@ const DeckForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    let dArr = [];
-    
-    newDecks.map(item => {
-      if(!item.front || !item.back || !newName.deckName){
-        alert('please fill in all cards and information')
-      } else {
-        dArr.push(item)
-      }
-    })
-    if(dArr.length === newDecks.length){
-      props.postDecks(newDecks, newName, tags, newIcon);
-      props.history.push(`/dashboard`);
+
+    // only returns filled cards
+    const subDeck = newDecks.filter(card => {
+      return card.front && card.back;
+    });
+    if(!newName.deckName){
+      // insures deckname is filled
+      alert('Please add a Deck Name')
+    } else {
+      props.postDecks(subDeck, newName, tags, newIcon);
+      // gives time for firestore to update so that deck shows up in dashboard
+      setTimeout(() => {
+        props.history.push(`/dashboard`);
+      }, 400)
     }
   };
 
