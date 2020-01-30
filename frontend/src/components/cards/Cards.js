@@ -68,7 +68,7 @@ const Cards = props => {
           <h1 className='deckName'>{props.match.params.deckName}</h1>
 
           <h4 className='listCards'>{deck.length}</h4>
-          <h4 className='cardsHeader'>Cards</h4>
+          <h5 className='cardsHeader'>Cards</h5>
 
           {/* <div className = "rightside"> */}
           <img className='smile' src={smiley} alt={'a smiling emoji'} />
