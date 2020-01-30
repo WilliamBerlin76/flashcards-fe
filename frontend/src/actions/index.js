@@ -105,7 +105,10 @@ export const editCard = (deck, id, deckName) => dispatch => {
   const changess = { changes: deck };
   console.log(changess);
   axios
-    .put(`http:localhost:5000/api/deck/update/${id}/${deckName}`, changess)
+    .put(
+      `https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`,
+      changess
+    )
     .then(response => {
       console.log(response.data);
       dispatch({ type: EDIT_SUCCESS, payload: response.data });

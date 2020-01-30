@@ -143,11 +143,9 @@ const Cards = props => {
         { cards: [card] }
       )
       .then(res => {
-        console.log(res.data);
+        setCurrentDeck(res.data.data);
       });
     let newDeck = currentDeck;
-    newDeck.unshift(newCard);
-    setCurrentDeck(newDeck);
     setNewCard(null);
   };
 
@@ -157,6 +155,7 @@ const Cards = props => {
     e.preventDefault();
     // props.editCard(e)
     props.editCard(editedCard, currentUser, props.match.params.deckName);
+    props.history.push('/dashboard');
   };
 
   if (currentDeck.length === 0) {
