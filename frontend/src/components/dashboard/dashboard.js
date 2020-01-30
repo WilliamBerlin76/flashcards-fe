@@ -12,7 +12,6 @@ const Loading = styled.div`
   text-align: center;
 `;
 
-
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
@@ -32,6 +31,7 @@ const Dashboard = props => {
 
   const openDeck = (deck, user) => {
     props.history.push(`/${user}/${deck}/cards`);
+    console.log(deck);
   };
 
   return (

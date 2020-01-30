@@ -27,7 +27,12 @@ export default function DeckMenu(props) {
             >
               Archive
             </Link>
-
+            <Link
+              className='menu-link'
+              to={`/editcard/${props.colId}`}
+            >
+              Edit
+            </Link>
             <Link
               className='menu-link'
               to={`confirmation/${type}/${props.colId}/delete`}

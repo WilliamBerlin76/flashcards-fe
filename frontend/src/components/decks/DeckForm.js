@@ -153,6 +153,8 @@ const DeckForm = props => {
 
               <div className='new'>New card</div>
               <div className ="top">
+              
+
               {newDecks.forEach((newDeck, index) => (
                 <Fragment key={`${newDeck}~${index}`}>
                   <div className='topCard'>
@@ -193,13 +195,15 @@ const DeckForm = props => {
                 onClick = {() => handleAdd()}>
                     Add Card
                 </button> */}
+
+
                 </Fragment>
+                
               ))}
               
               </div>
             </form>
           </div>
-
 
           <form onSubmit={handleSubmit} className='cardFormBottom'>
             {newDecks.map((newDeck, index) => (

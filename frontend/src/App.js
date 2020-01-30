@@ -94,6 +94,11 @@ function App() {
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
+            exact
+            path='/editcard/:deckName'
+            render={props => <EditCard {...props} />}
+          />
+          <Route
             path='/:user/:deckName/cards'
             render={props => <Cards {...props} />}
           />

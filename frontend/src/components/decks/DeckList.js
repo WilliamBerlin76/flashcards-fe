@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase';
 import DeckCards from '../dashboard/deckcards/deckcards';
+import Deck from './Deck';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
@@ -14,7 +15,7 @@ const DeckList = props => {
       if (user) {
         let currentUser = firebase.auth().currentUser.uid;
         props.getDecks(currentUser);
-        // console.log(props.cards)
+        console.log(props.cards)
       } else {
         return null;
       }
