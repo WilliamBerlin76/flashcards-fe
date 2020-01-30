@@ -71,13 +71,19 @@ const Settings = props => {
     <>
       <div className='settings-header-container'>
         <div className='header-back-selectors-container'>
-          <img
-            className='back-arrow'
-            src={poly}
-            alt='back-arrow'
-            onClick={() => history.goBack()}
-          />
-          <h2 className='preferences-back' onClick={() => history.goBack()}>Preferences</h2>
+          <div className='back-button'>
+            <img
+              className='back-arrow'
+              src={poly}
+              alt='back-arrow'
+              onClick={() => history.goBack()}
+            />
+            <h2 className='preferences-back' onClick={() => history.goBack()}>Preferences</h2>
+          </div>
+          <div className='selector-container'>
+            <span className='selector-text'>Demo deck</span>
+            <span className='selector-text'>Log Out</span>
+          </div>
         </div>
           
         <div className='name-pic-container'>
