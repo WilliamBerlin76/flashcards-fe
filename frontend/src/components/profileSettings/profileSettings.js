@@ -5,8 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 import { orange } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
+import { useHistory } from 'react-router-dom';
 
 import './profileSettings.scss';
+import poly from '../../assets/poly.png'
 
 const OrangeRadio = withStyles({
   root: {
@@ -21,6 +23,7 @@ const OrangeRadio = withStyles({
 
 const Settings = props => {
   const [preferences, setPreferences] = useState({});
+  let history = useHistory();
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -67,6 +70,16 @@ const Settings = props => {
   return (
     <>
       <div className='settings-header-container'>
+        <div className='header-back-selectors-container'>
+          <img
+            className='back-arrow'
+            src={poly}
+            alt='back-arrow'
+            onClick={() => history.goBack()}
+          />
+          <h2 className='preferences-back' onClick={() => history.goBack()}>Preferences</h2>
+        </div>
+          
         <div className='name-pic-container'>
           {firebase.auth().currentUser ? 
           <>

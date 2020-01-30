@@ -2,6 +2,23 @@
     
     background: #F66E00;
     color: #FAFAFA;
+    .header-back-selectors-container{
+        display: flex;
+        align-items: center;
+        .back-arrow {
+            margin-left: 1rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .preferences-back{
+            color: #FAFAFA;
+            margin-bottom: 25px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    }
+    
     .name-pic-container{
         display: flex;
         align-items: flex-end;
