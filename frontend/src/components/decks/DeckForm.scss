@@ -1,5 +1,15 @@
 .flashcards {
   margin-left: 5%;
+  color: #6A5C55;
+  margin-bottom: 10%;
+  font-size: 24px;
+}
+.created {
+  color: #6A5C55;
+  margin-left: -1%;
+  margin-top: 10%;
+  font-size: 18px;
+  margin-bottom: -9%;
 }
 .card {
   border: 0.5px solid rgba(106, 92, 85, 0.3);
@@ -341,6 +351,9 @@
   // }
   .deckInfo {
     margin-left: 4%;
+    color: #6A5C55;
+    font-size: 24px;
+line-height: 28px;
   }
   // .topForm {
   //     margin-top: -70%;
@@ -361,7 +374,8 @@
     padding-bottom: 1%;
     margin-left: 7%;
     margin-top: 40%;
-    margin-bottom: -60%;
+    margin-bottom: 3%;
+    // margin-bottom: -20%;
     //   width: 100%;
     .save {
       background-color: #f66e00;
@@ -403,7 +417,7 @@
     padding-top: 2%;
     // margin-bottom: 130%;
     &:first-child {
-      // margin-bottom: 30%;
+      margin-bottom: 8%;
       margin-top: 10%;
     }
     // &:last-child{
@@ -456,8 +470,10 @@
     }
   }
   .new {
-    margin-bottom: 4%;
+    margin-bottom: -5%;
     margin-left: 6%;
+    color: #6A5C55;
+    font-size: 18px;
   }
   .form {
     display: flex;
