@@ -6,7 +6,7 @@
     padding-bottom: 2%;
     margin-bottom: 10%;
     padding-top: 2%;
-    
+
     .smile {
       opacity: 0.25;
       margin-left: 65%;
@@ -593,12 +593,9 @@
   cursor: pointer;
 }
 
-.cardstyle-back{
-    cursor: pointer;
+.cardstyle-back {
+  cursor: pointer;
 }
-
-
-
 
 //Editing css
 
@@ -725,7 +722,10 @@
       border: 0.5px solid rgba(106, 92, 85, 0.3);
       box-sizing: border-box;
       border-radius: 5px;
-      width: 31rem;
+
+      @media screen and (min-width: 475px) {
+        width: 31rem;
+      }
     }
     .headers {
       color: #f66e00 !important;
@@ -745,6 +745,7 @@
       width: 100%;
       height: 70px;
       color: #6a5c55;
+      outline: none;
     }
     .cardTop {
       display: flex;
@@ -878,4 +879,3 @@
     width: 50%;
   }
 }
-

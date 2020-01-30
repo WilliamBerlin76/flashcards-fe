@@ -171,8 +171,12 @@ const Cards = props => {
     return (
       <div className='page'>
         <div className='loading-background'>
-          <img className='back' src={poly} onClick={() => history.goBack()} />
-          <h1 className='deckName'>Edit Deck</h1>
+          <div className='back-button-and-header'>
+            <img className='back' src={poly} onClick={() => history.goBack()} />
+            <h1 className='deckNames' onClick={() => history.goBack()}>
+              Edit Deck
+            </h1>
+          </div>
           <div className='cardnum'>
             <h4 className='card-length'>{currentDeck.length}</h4>
             {/* <img className = "smile" src = {smiley} alt = {'a smiling emoji'}/> */}
