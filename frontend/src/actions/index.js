@@ -16,9 +16,15 @@ export const FETCH_CARDS = 'FETCH_CARDS';
 export const CARDS_SUCCESS = 'CARDS_SUCCESS';
 export const CARDS_FAILURE = 'CARDS_FAILURE';
 
-export const EDIT_CARDS = 'EDIT_CARDS';
-export const EDIT_SUCCESS = 'EDIT_SUCCESS';
-export const EDIT_FAILURE = 'EDIT_FAILURE';
+export const EDIT_CARDS = "EDIT_CARDS"
+export const EDIT_SUCCESS = "EDIT_SUCCESS"
+export const EDIT_FAILURE = "EDIT_FAILURE"
+
+export const POST_CARDS = 'POST_CARDS';
+export const PCARDS_SUCCESS = 'PCARDS_SUCCESS';
+export const PCARDS_FAILURE = 'PCARDS_FAILURE'
+
+
 
 //GETTING DECKS
 
@@ -94,10 +100,32 @@ export const postDecks = (deck, deckName, tags, icon) => dispatch => {
       });
     })
     .catch(error => {
+        console.log(error);
+        dispatch({ type: POST_FAILURE, payload: error})
+    })
+  }
+
+export const postCards = (cards, colId, props, deckInformation) => dispatch => {
+  dispatch({ type: POST_CARDS})
+
+  const id = firebase.auth().currentUser.uid
+  
+  axios
+  .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${colId}/add`, {cards: cards})
+  .then(res => {
+      console.log(res)
+      dispatch({
+          type: PCARDS_SUCCESS,
+          payload: res.data
+      })
+  })
+  .catch(error => {
       console.log(error);
-      dispatch({ type: POST_FAILURE, payload: error });
-    });
+      dispatch({ type: PCARDS_FAILURE, payload: error})
+  })
 };
+
+
 
 //UPDATE CARDS FOR DECKS
 export const editCard = (deck, id, deckName) => dispatch => {
@@ -118,20 +146,5 @@ export const editCard = (deck, id, deckName) => dispatch => {
 
 };
 
-// export const deleteCard = (deck, id, deckName, props) => dispatch => {
 
-  //   dispatch({ type: EDIT_CARDS });
-  //   console.log(props)
-  
-  //   axios.delete(`https://flashcards-be.herokuapp.com/api/deck/${id}/${deckName}/delete-cards`, id)
-  //     .then(res => {
-  //       setTimeout(function() {
-  //         dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
-  //         props.history.push('/dashboard');
-  //       }, 1000);
-  //     })
-  //     .catch(err => {
-  //       console.log('archive deck err', err);
-  //     });
-  // };
- 
+

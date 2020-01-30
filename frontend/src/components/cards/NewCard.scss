@@ -1,0 +1,485 @@
+// .flashcards{
+//     margin-left: 5%;
+// }
+// .card {
+//     border: 0.5px solid rgba(106, 92, 85, 0.3);
+//    margin-bottom: -1%;
+//     .frontLabel {
+//         color: #F66E00;
+//     }
+//     .frontCard {
+//         display: flex;
+//         color: #6A5C55;
+//         font-weight: bold;
+//         border-bottom: 1.5px solid #6A5C55;
+//         padding-bottom: 3%;
+//         border-top: none;
+//         border-left: none;
+//         border-right: none;
+ 
+//     }
+//     .backLabel {
+//         color: #F66E00;
+//     }
+//     .backCard{
+//         display: flex;
+//         color: #6A5C55;
+//         font-weight: bold;
+//         border: none;
+//     }
+// }
+// // .iconHolder{
+// //     display: flex;
+// // }
+// // .tags-input {
+// // 	display: flex;
+// // 	align-items: flex-start;
+// // 	flex-wrap: wrap;
+// // 	min-height: 48px;
+// // 	width: 380px;
+// //     padding: 0 8px;
+// //     margin-left: 3%;
+// //     border-bottom: 1px solid #6A5C55;
+// //     margin-bottom: 10%;
+// // 	// border-radius: 6px;
+// // 	&:focus-within {
+// // 		border-bottom: 1px solid #6A5C55;
+// // 	}
+// // 	input {
+// // 		flex: 1;
+// // 		border: none;
+// // 		height: 46px;
+// // 		font-size: 14px;
+// // 		padding: 4px 0 0 0;
+// // 		&:focus {
+// // 			outline: transparent;
+// // 		}
+// // 	}
+// // }
+// .save {
+//     background-color:#F66E00;
+//     color: #FCFCFC;
+//     font-size: 18px;
+//     line-height: 21px;
+//     border-radius: 23px;
+//   }
+//   .add {
+//     background-color:#FCFCFC;
+//     color: #F66E00;
+//     font-size: 18px;
+//     line-height: 21px;
+//     border-radius: 23px;
+//     border: 2px solid #F66E00;
+//   }
+// // #tags {
+// // 	display: flex;
+// // 	flex-wrap: wrap;
+// // 	padding: 0;
+// // 	margin: 8px 0 0 0;
+// // }
+// // .tag {
+// // 	width: auto;
+// // 	height: 22px;
+// // 	display: flex;
+// // 	align-items: center;
+// // 	justify-content: center;
+// // 	color: #fff;
+// // 	padding: 0 8px;
+// // 	font-size: 14px;
+// // 	list-style: none;
+// // 	border-radius: 6px;
+// // 	margin: 0 8px 8px 0;
+// // 	background: #F66E00;
+// // 	.tag-title {
+// // 		margin-top: 3px;
+// // 	}
+// // 	.tag-close-icon {
+// // 		display: block;
+// // 		width: 16px;
+// // 		height: 16px;
+// // 		line-height: 16px;
+// // 		text-align: center;
+// // 		font-size: 14px;
+// // 		margin-left: 8px;
+// // 		color: #fff;
+// // 		border-radius: 50%;
+// // 		background: #F66E00;
+// // 		cursor: pointer;
+// // 	}
+// // }
+
+// // @media only screen and (min-width: 320px){
+
+// //     .loading-background {
+// //         background: #F66E00;
+// //         max-width: 100vw; 
+// //         // margin-top: -4%;
+// //         padding-bottom: 4%;
+// //         margin-bottom: 10%;
+// //         padding-top: 2%;
+// //             .number{
+// //                 margin-left: 15%;
+// //             }
+// //             .smile {
+// //                 opacity: 0.25;
+// //                 margin-left: 62%;
+// //                 // margin-top: -60%;
+// //                 font-size: 70px;
+// //                 margin-top: 1%;
+// //                 width: 10%;
+// //                 // margin-bottom: 6%;
+// //                 color: white;
+
+// //             }
+// //             .mastered {
+// //                 // display: flex;
+// //                 // justify-content: flex-end;
+// //                 font-family: Roboto Condensed;
+// //             font-style: normal;
+// //             font-weight: bold;
+// //             font-size: 1.3rem;
+// //             line-height: 19px;
+// //             margin-left: 70%;
+// //             margin-top: -6%;
+// //             color: #FFFFFF;
+// //             width: 50%;
+
+// //             }
+// //             .back{
+
+// //                 margin-bottom: -6%;
+// //                 margin-left: 6%;
+// //                 margin-right: 4%;
+
+// //                 }
+// //     }
+// //     .deckName {
+// //         font-size: 1.9rem;
+
+// //     }
+// // // .page {
+// // //     margin-top: 85%;
+// // // }
+// // .deckInfo{
+// //     margin-left: 4%;
+// // }
+// //     // .topForm {
+// //     //     margin-top: -70%;
+// //     // }
+// //     // .cardForm {
+// //     //     margin-top: -41.5%;
+// //     //     padding-bottom: 10%;
+
+// //     // }
+
+// //     .inputHolders {
+// //         margin-left: 4%;
+// //     }
+
+
+// //     // .topCard{
+// //     //     margin-bottom: 120%;
+// //     // }
+// //         .buttonHolder{
+// //       margin-bottom: -170%;
+// //       padding-bottom: 1%;
+// //       margin-left:13%;
+// //       margin-top: 50%;
+// //     //   width: 100%;
+
+// //       .save {
+// //         background-color:#F66E00;
+// //         color: #FCFCFC;
+// //         font-size: 15px;
+// //         line-height: 21px;
+// //         border-radius: 25px;
+// //         padding-top: 3%;
+// //         padding-bottom: 3%;
+// //         width: 30%;
+// //         margin-left: 12%;
+// //         cursor: pointer;
+// //       }
+
+// //       .add {
+// //         background-color:#FCFCFC;
+// //         color: #F66E00;
+// //         font-size: 15px;
+// //         line-height: 21px;
+// //         border-radius: 25px;
+// //         border: 2px solid #F66E00;
+// //         padding-top: 3%;
+// //         padding-bottom: 3%;
+// //         width: 30%;
+// //         cursor: pointer;
+// //         &:focus {
+// // 			outline: transparent;
+// // 		}
+// //       }
+// //     }
+// //     .topCard {
+// //         margin-top: 50%;
+// //         margin-bottom: 60%;
+// //     } 
+// //     .card {
+// //        margin-top: 5%;
+// //        padding-left: 10%;
+// //        width: 70%;
+// //        margin-left: 6%;
+// //        padding-top: 2%;
+// //        margin-bottom: 30%;
+// //        &:first-child {
+// //            margin-top: 15%;
+// //            margin-bottom: 30%;
+// //        }
+
+// //        .removeHolder {
+// //            margin-bottom: -5%;
+// //        }
+// //        .remove{
+// //            margin-left: 85%;
+// //            border: 2px solid #F66E00;
+// //            color: #F66E00;
+// //            border-radius: 3px;
+// //            cursor: pointer;
+// //            &:focus {
+// // 			outline: transparent;
+// // 		}
+// //        }
+// //        .frontLabel {
+// //            margin-left: -10%;
+
+// //        }
+// //        .frontCard {
+// //         margin-left: -7%;
+// //         width: 100%;
+// //         text-align: center;
+// //         height: 70px;
+// //         margin-bottom: 2%;
+// //         font-size: 2rem;
+// //         resize: none;
+
+
+// //         &:focus {
+// // 			outline: transparent;
+// // 		}
+// //        }
+// //        .backLabel {
+// //            margin-left: -10%;
+
+// //        }
+// //        .backCard {
+// //         margin-left: -7%;
+// //         width: 100%;
+// //         text-align: center;
+// //         height: 60px;
+// //         margin-bottom: 2%;
+// //         font-size:2rem;
+
+// //         resize: none;
+
+// //         &:focus {
+// // 			outline: transparent;
+// // 		} 
+// //        }
+// //     }
+// //     .new{
+// //         margin-bottom: -9%;
+// //         margin-left: 6%;
+// //     }
+
+// //     .form{ 
+// //         display: flex;
+// //         flex-direction: column-reverse;
+// //         flex-flow: column-reverse;
+// //     }
+
+// //     .tags-input {
+// //         width: 80%;
+// //     }
+
+// // }; 
+
+// @media only screen and (min-width: 400px){
+//     .loading-background {
+//         background: #F66E00;
+//         max-width: 100vw; 
+//         // margin-top: -4%;
+//         padding-bottom: 4%;
+//         margin-bottom: 10%;
+//         padding-top: 2%;
+//         margin-top: .1%;
+//             .number{
+//                 margin-left: 15%;
+//             }
+//             .smile {
+//                 opacity: 0.25;
+//                 // margin-left: 70%;
+//                 // margin-top: -60%;
+//                 font-size: 74px;
+//                 margin-top: 1%;
+//                 // width: 10%;
+//                 // margin-bottom: 6%;
+//                 color: white;
+                
+//             }
+//             .mastered {
+//                 // display: flex;
+//                 // justify-content: flex-end;
+//                 font-family: Roboto Condensed;
+//             font-style: normal;
+//             font-weight: bold;
+//             font-size: 1.3rem;
+//             line-height: 19px;
+//             margin-left: 75%;
+//             margin-top: -11%;
+//             color: #FFFFFF;
+//             width: 50%;
+            
+//             }
+//             .back{
+            
+//                 margin-bottom: -6%;
+//                 margin-left: 6%;
+//                 margin-right: 4%;
+                
+//                 }
+//     }
+//     .deckName {
+//         font-size: 2.3rem;
+//        margin-top: -2%;
+//     }
+
+// .deckInfo{
+//     margin-left: 4%;
+// }
+//     // .topForm {
+//     //     margin-top: -70%;
+//     // }
+//     // .cardForm {
+//     //     margin-top: -41.5%;
+//     //     padding-bottom: 10%;
+        
+//     // }
+//     .inputHolders {
+//         margin-left: 4%;
+//     }
+//     // .topCard{
+//     //     margin-bottom: 120%;
+//     // }
+//         .buttonHolder{
+//     //   margin-bottom: -130%;
+//     //   padding-bottom: 1%;
+//     //   margin-left: 5%;
+//       margin-top: 10%;
+//     //   width: 100%;
+//       .save {
+//         background-color:#F66E00;
+//         color: #FCFCFC;
+//         font-size: 15px;
+//         line-height: 21px;
+//         border-radius: 25px;
+//         padding-top: 3%;
+//         padding-bottom: 3%;
+//         width: 40%;
+//         margin-left: 12%;
+//         cursor: pointer;
+//       }
+//       .add {
+//         background-color:#FCFCFC;
+//         color: #F66E00;
+//         font-size: 15px;
+//         line-height: 21px;
+//         border-radius: 25px;
+//         border: 2px solid #F66E00;
+//         padding-top: 3%;
+//         padding-bottom: 3%;
+//         width: 40%;
+//         cursor: pointer;
+//         &:focus {
+// 			outline: transparent;
+// 		}
+//       }
+//     }
+//     // .topCard {
+//     //     margin-top: 40%;
+//     //     // margin-bottom: 150%;
+//     // } 
+//     .card {
+//        margin-top: 12%;
+//        padding-left: 10%;
+//        width: 90%;
+//        margin-left: 6%;
+//        padding-top: 2%;
+//     //    margin-bottom: 130%;
+//     //    &:first-child {
+//     //     margin-bottom: 30%;
+//     //     margin-top: 5%;
+//     // }
+//         // &:last-child{
+//         //     margin-bottom: 112%;
+//         // }
+//        .removeHolder {
+//            margin-bottom: -5%;
+//        }
+//        .remove{
+//            margin-left: 90%;
+//            border: 2px solid #F66E00;
+//            color: #F66E00;
+//            border-radius: 3px;
+//            cursor: pointer;
+//            &:focus {
+// 			outline: transparent;
+// 		}
+//        }
+//        .frontLabel {
+//            margin-left: -10%;
+           
+//        }
+//        .frontCard {
+//         margin-left: -7%;
+//         width: 100%;
+//         text-align: center;
+//         height: 70px;
+//         margin-bottom: 2%;
+//         font-size: 2rem;
+//         resize: none;
+        
+//         &:focus {
+// 			outline: transparent;
+// 		}
+//        }
+//        .backLabel {
+//            margin-left: -10%;
+//        }
+//        .backCard {
+//         margin-left: -7%;
+//         width: 100%;
+//         text-align: center;
+//         height: 60px;
+//         margin-bottom: 2%;
+//         font-size:2rem;
+    
+//         resize: none;
+//         &:focus {
+// 			outline: transparent;
+// 		} 
+//        }
+//     }
+//     // .new{
+//     //     margin-bottom: 4%;
+//     //     margin-left: 6%;
+//     // }
+//     .form{ 
+//         display: flex;
+//         flex-direction: column-reverse;
+//         flex-flow: column-reverse;
+//     }
+//     .deckN {
+//         margin-left: 5%;
+//     }
+
+//     .page{
+//         margin-top: -2%;
+//     }
+// };
+

@@ -18,8 +18,11 @@ const Cards = props => {
   }, []);
 
   useEffect(() => {
-    let filteredCards = props.deckcards.filter(card => !card.data.archived);
-    setDeck(filteredCards);
+    if(props.deckcards){
+      let filteredCards = props.deckcards.filter(card => !card.data.archived);
+    
+      setDeck(filteredCards);
+    }
   }, [props.deckcards]);
 
   let history = useHistory();
@@ -66,11 +69,11 @@ const Cards = props => {
           <h1 className='deckName'>{props.match.params.deckName}</h1>
 
           <h4 className='listCards'>{deck.length}</h4>
-          <h4 className='cardsHeader'>Cards</h4>
+          <h5 className='cardsHeader'>Cards</h5>
 
           {/* <div className = "rightside"> */}
-          <img className='smile' src={smiley} alt={'a smiling emoji'} />
-          <h4 className='mastered'>Mastered</h4>
+            <img className='smile' src={smiley} alt={'a smiling emoji'} />
+            <h4 className='mastered'>Mastered</h4>
           {/* </div> */}
         </div>
 

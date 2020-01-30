@@ -8,6 +8,9 @@ import {
   POST_DECK,
   POST_SUCCESS,
   POST_FAILURE,
+  POST_CARDS,
+  PCARDS_SUCCESS,
+  PCARDS_FAILURE,
   EDIT_CARDS,
   EDIT_SUCCESS,
   EDIT_FAILURE
@@ -164,7 +167,35 @@ const reducer = (state = initialState, action) => {
         ...state,
         decks: []
       };
-
+      case POST_CARDS: 
+      return {
+          ...state,
+          cards: [],
+          isFetching: false,
+          isPosting: false,
+          error: ''
+      };
+      case PCARDS_SUCCESS:
+          return {
+              cards: [
+                  {
+                      front: action.payload,
+                      back: action.payload,
+                  }
+              ],
+              colId: action.payload,
+              isFetching: false,
+              isPosting: true,
+              error: ''
+          };
+      case PCARDS_FAILURE:
+          return {
+              ...state,
+              cards: [],
+              isFetching: true,
+              isPosting: false,
+              error: action.payload
+          }
     default:
       return state;
   }

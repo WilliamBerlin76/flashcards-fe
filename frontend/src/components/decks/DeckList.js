@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import firebase from 'firebase';
 import DeckCards from '../dashboard/deckcards/deckcards';
 import Deck from './Deck';
@@ -22,11 +22,13 @@ const DeckList = props => {
     });
   }, []);
 
+
   const openDeck = (deck, user) => {
     props.history.push(`/${user}/${deck}/cards`);
   };
 
-  if (props.isFetching) {
+  if (props.isFetching || !props.decks) {
+    props.getDecks(firebase.auth().currentUser.uid);
     return (
       // <>
       //     <h1>Your Decks!</h1>
@@ -40,50 +42,44 @@ const DeckList = props => {
       </div>
     );
   }
-
-  return (
-    <div className='container'>
-      <div className='dash'>
-        {/* <div className='dashNav deck'> 
-                    <p>Today</p>
-                    <p>This Week</p>
-                    <p>Lifetime</p>
-                    </div> */}
-        <div className='deckNav'>
-          <p className='subtitle1'>
-            Explore our Demo deck, create your own or search new decks
-          </p>
-          <p className='subtitle2'>Start mastering with mNeme!</p>
-          <img className='smile' src={smileyface} alt={'smiley face emoji'} />
+    return (
+      <div className='container'>
+        <div className='dash'>
+          {/* <div className='dashNav deck'> 
+                      <p>Today</p>
+                      <p>This Week</p>
+                      <p>Lifetime</p>
+                      </div> */}
+          <div className='deckNav'>
+            <p className='subtitle1'>
+              Explore our Demo deck, create your own or search new decks
+            </p>
+            <p className='subtitle2'>Start mastering with mNeme!</p>
+            <img className='smile' src={smileyface} alt={'smiley face emoji'} />
+          </div>
         </div>
+        <div className='deckLink'>
+          <p className='recentDeck'>Recent Deck</p>
+          <p className='allDeck'>All Decks</p>
+        </div>
+        <div className='deckList'>
+          {props.error && <p>{props.error}</p>}
+          {props.decks.map(deck => (
+            <DeckCards
+              key={Math.random()}
+              demo={deck.demo}
+              deckName={deck.deckName}
+              openDeck={openDeck}
+            />
+          ))}
+        </div>
+        {/* <div className = "button">
+                  <button className = "btn1">Create</button>
+                  <button className = "btn2" >Update Settings</button>
+                  </div> */}
       </div>
-      <div className='deckLink'>
-        <p className='recentDeck'>Recent Deck</p>
-        <p className='allDeck'>All Decks</p>
-      </div>
-      <div className='deckList'>
-        {props.error && <p>{props.error}</p>}
-        {props.decks.map(deck => (
-          <DeckCards
-            key={Math.random()}
-            demo={deck.demo}
-            deckName={deck.deckName}
-            openDeck={openDeck}
-          />
-        ))}
-
-{/* // {props.error && <p>{props.error}</p>}
-//             {props.decks.map(deck =>(
-//                 <Deck key = {deck.id} deck = {deck} />
-            ))} */}
-      </div>
-      {/* <div className = "button">
-                <button className = "btn1">Create</button>
-                <button className = "btn2" >Update Settings</button>
-                </div> */}
-    </div>
-  );
-};
+    );
+  }
 
 const mapStateToProps = state => {
   return {
