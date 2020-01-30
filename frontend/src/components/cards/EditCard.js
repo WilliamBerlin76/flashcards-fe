@@ -11,6 +11,15 @@ import poly from '../../assets/poly.png';
 import { useHistory } from 'react-router-dom';
 import './Cards.scss';
 import { createGlobalStyle } from 'styled-components';
+import uuidv4 from 'uuid/v4';
+import {
+  Divider,
+  Segment,
+  Header,
+  Checkbox,
+  Input,
+  TextArea
+} from 'semantic-ui-react';
 
 const Cards = props => {
   const [currentDeck, setCurrentDeck] = useState([]);
@@ -19,6 +28,7 @@ const Cards = props => {
   const [editing, setEditing] = useState(false);
   const [editedDeck, setEditedDeck] = useState([]);
   const [deletedDeck, setDeletedDeck] = useState([]);
+  const [newCard, setNewCard] = useState(null);
   // const [currentUser, setcurrentUser] = useState(null)
   // const [currentUser, setcurrentUser] = useState(null);
 
@@ -92,11 +102,15 @@ const Cards = props => {
   // }, []);
 
   let history = useHistory();
-  const handleChange = (index, e) => {
-    setEditedCard({
-      ...editedCard,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = e => {
+    let card = {
+      id: newCard.id,
+      data: {
+        ...newCard.data,
+        [e.target.name]: e.target.value
+      }
+    };
+    setNewCard(card);
   };
   const handleName = e => {
     console.log(editedCard, newName);
@@ -104,6 +118,37 @@ const Cards = props => {
       ...newName,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleNewCard = () => {
+    let newerCard = {
+      id: uuidv4(),
+      data: {
+        front: '',
+        back: '',
+        archived: false
+      }
+    };
+    setNewCard(newerCard);
+  };
+
+  const addNewCard = e => {
+    let currentUser = firebase.auth().currentUser.uid;
+    e.preventDefault();
+    let card = { front: newCard.data.front, back: newCard.data.back };
+    console.log(card);
+    axios
+      .post(
+        `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.match.params.deckName}/add`,
+        { cards: [card] }
+      )
+      .then(res => {
+        console.log(res.data);
+      });
+    let newDeck = currentDeck;
+    newDeck.unshift(newCard);
+    setCurrentDeck(newDeck);
+    setNewCard(null);
   };
 
   const handleSubmit = (e, user, deckName) => {
@@ -176,14 +221,85 @@ const Cards = props => {
         <div className='middleSection'>
           <h2>Flashcards</h2>
           <p>Select a card below to edit card content or archive the card.</p>
-          {/* <button
+          <button
             className='Add New Card'
             // onClick = {() => props.history.push(`/decklist`)}
-            onSubmit={handleSubmit}
+            onClick={handleNewCard}
           >
             Add New Card
-          </button> */}
+          </button>
         </div>
+        {newCard ? (
+          <div className='new-card'>
+            <div className='container'>
+              <div className='cardList'>
+                <div className='cardData '>
+                  <Segment className='segments'>
+                    <div className='cardTop'>
+                      <Header as='h5' className='headers'>
+                        Front
+                      </Header>
+                      {/* <Checkbox
+                    // style={{border: "none"}}
+                    className='check'
+                    checked={this.state.singleCard.checked}
+                    onChange={this.archiveCard}
+                  /> */}
+                    </div>
+
+                    {/* <form onSubmit={this.handleSubmit}> */}
+                    <TextArea
+                      rows={2}
+                      style={{ resize: 'none' }}
+                      transparent
+                      size='massive'
+                      className='defination'
+                      type='text'
+                      name='front'
+                      onChange={handleChange}
+                      value={newCard.data.front}
+                    />
+
+                    <Divider clearing />
+                    <Header
+                      as='h5'
+                      style={{ marginTop: -2 }}
+                      className='headers'
+                    >
+                      Back
+                    </Header>
+
+                    <TextArea
+                      rows={2}
+                      style={{ resize: 'none' }}
+                      // transparent size="massive"
+                      className='defination'
+                      type='text'
+                      name='back'
+                      onChange={handleChange}
+                      value={newCard.data.back}
+                    />
+
+                    {/* </form> */}
+                  </Segment>
+                </div>
+              </div>
+              {/* <div className = "button">
+	//                <button className = "submit" onClick = {this.handlesubmit}>submit</button>
+	//              </div> */}
+            </div>
+            <div className='button-div'>
+              <button
+                className='archive add-button'
+                // onClick = {() => props.history.push(`/decklist`)}
+                onClick={e => addNewCard(e)}
+              >
+                {' '}
+                Add{' '}
+              </button>
+            </div>
+          </div>
+        ) : null}
         <div className='bottomSection'>
           {/* <Input
             size='large'
@@ -195,7 +311,7 @@ const Cards = props => {
             placeholder='Search for a Card...'
           /> */}
           <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='div-form'>
               {props.error && <p>{props.error}</p>}
               {currentDeck.map(card => {
                 return (
@@ -232,7 +348,7 @@ const Cards = props => {
                          Delete
                         </button> */}
           <button
-            className='archive'
+            className='delete'
             // onClick = {() => props.history.push(`/decklist`)}
             onClick={e => runDelete(e)}
           >

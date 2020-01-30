@@ -163,10 +163,17 @@ class EditTemplate extends React.Component {
                     onChange={this.archiveCard}
                   /> */}
                   <div>
-                    <i
-                      class='fas fa-folder'
-                      onClick={e => this.archiveCard(e)}
-                    ></i>
+                    {this.state.singleCard.archived ? (
+                      <i
+                        class='fas fa-folder'
+                        onClick={e => this.archiveCard(e)}
+                      ></i>
+                    ) : (
+                      <i
+                        class='fas fa-folder-open'
+                        onClick={e => this.archiveCard(e)}
+                      ></i>
+                    )}
                     <i
                       class='fas fa-trash'
                       onClick={e => this.addCardtoDeleted(e)}
@@ -177,7 +184,7 @@ class EditTemplate extends React.Component {
                 {/* <form onSubmit={this.handleSubmit}> */}
                 <TextArea
                   rows={2}
-                  // style={{ minHeight: 100, textAlign: 'center', width: 100%; height: 70px;  }}
+                  style={{ resize: 'none' }}
                   // transparent size="massive"
                   className='defination'
                   type='text'
@@ -194,7 +201,7 @@ class EditTemplate extends React.Component {
 
                 <TextArea
                   rows={2}
-                  // style={{ minHeight: 100, textAlign: 'center'  }}
+                  style={{ resize: 'none' }}
                   // transparent size="massive"
                   className='defination'
                   type='text'
