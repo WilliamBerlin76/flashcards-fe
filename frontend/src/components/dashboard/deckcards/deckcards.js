@@ -30,7 +30,9 @@ const DeckCards = props => {
         });
     } else {
       axios
-        .get(`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.deckName}`)
+        .get(
+          `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.deckName}`
+        )
         .then(res => {
           setExampleCard(res.data.deckInformation.exampleCard);
           setDeckLength(res.data.deckInformation.deckLength);

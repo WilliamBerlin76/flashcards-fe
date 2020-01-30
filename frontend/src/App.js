@@ -93,7 +93,11 @@ function App() {
           <DashNav />
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
-          <Route exact path = '/editcard/:deckName' render ={props => <EditCard {...props}/>} />
+          <Route
+            exact
+            path='/editcard/:deckName'
+            render={props => <EditCard {...props} />}
+          />
           <Route
             path='/:user/:deckName/cards'
             render={props => <Cards {...props} />}
@@ -110,7 +114,6 @@ function App() {
             render={props => <DeckForm {...props} />}
           />
           <Route path='/privacy' component={Privacy} />
-          
           <Route
             path='/confirmation/:type/:colId/:action'
             render={props => <DeckConfirmation {...props} />}
