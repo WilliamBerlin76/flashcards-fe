@@ -6,20 +6,21 @@ import "./Cards.scss";
 import { editCard } from '../../actions';
 import firebase from "firebase";
 
-// import './DeckList.scss';
 
 class EditTemplate extends React.Component {
-	constructor(props) {
+	constructor(props) {		
 		super(props);
-		this.state = {
-			singleCard: {
+		this.state = {			
+			singleCard: {				
 				front: this.props.card.front,
 				back: this.props.card.back,
 				archived: this.props.card.archived,
 				 edited: []
             }
            
-		};
+		};		
+		// console.log(this.state);
+
 	}
 
 	handleChange = e => {

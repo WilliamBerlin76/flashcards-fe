@@ -128,3 +128,20 @@ export const editCard = (deck, id, deckName, props) => dispatch => {
   })
 
 };
+
+// export const deleteCard = (deck, id, deckName, props) => dispatch => {
+
+  //   dispatch({ type: EDIT_CARDS });
+  //   console.log(props)
+  
+  //   axios.delete(`https://flashcards-be.herokuapp.com/api/deck/${id}/${deckName}/delete-cards`, id)
+  //     .then(res => {
+  //       setTimeout(function() {
+  //         dispatch({ type: 'ARCHIVE_SUCCESSFUL' });
+  //         props.history.push('/dashboard');
+  //       }, 1000);
+  //     })
+  //     .catch(err => {
+  //       console.log('archive deck err', err);
+  //     });
+  // };

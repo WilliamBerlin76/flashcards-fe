@@ -147,9 +147,9 @@ const DeckForm = props => {
                 <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
               </div>
 
-              <h3 className='flashcards'>Flashcards</h3>
+              {/* <h3 className='flashcards'>Flashcards</h3>
 
-              <h3 className='new'>New Card</h3>
+              <h3 className='new'>New Card</h3> */}
 
               {newDecks.forEach((newDeck, index) => (
                 <Fragment key={`${newDeck}~${index}`}>
@@ -191,24 +191,14 @@ const DeckForm = props => {
                 onClick = {() => handleAdd()}>
                     Add Card
                 </button> */}
+
+
                 </Fragment>
+                
               ))}
             </form>
           </div>
-          <div className='buttonHolder'>
-            <button type='button' className='add' onClick={() => handleAdd()}>
-              Add Card
-            </button>
-
-            <button
-              className='save'
-              // onSubmit = {handleSubmit}
-              // onClick = {() => props.history.push(`/decklist`)}
-              onClick={handleSubmit}
-            >
-              Save Deck
-            </button>
-          </div>
+          
 
           <form onSubmit={handleSubmit} className='cardFormBottom'>
             {newDecks.map((newDeck, index) => (
@@ -250,7 +240,20 @@ const DeckForm = props => {
                     />
                   </div>
                 </div>
+              {index === 0 ?  <div className='buttonHolder'>
+                          <button type='button' className='add' onClick={() => handleAdd()}>
+                            Add Card
+                          </button>
 
+                          <button
+                            className='save'
+                            // onSubmit = {handleSubmit}
+                            // onClick = {() => props.history.push(`/decklist`)}
+                            onClick={handleSubmit}
+                          >
+                            Save Deck
+                          </button>
+                        </div> : null}
                 {/* <button
                             type = "button"
                             onClick = {() => handleAdd()}>
