@@ -31,6 +31,7 @@ const Dashboard = props => {
 
   const openDeck = (deck, user) => {
     props.history.push(`/${user}/${deck}/cards`);
+    console.log(deck);
   };
 
   return (

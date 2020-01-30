@@ -19,6 +19,8 @@ import Cards from './components/cards/Cards';
 import Marketing from './components/marketing/Marketing';
 import DeckForm from './components/decks/DeckForm';
 import Privacy from './components/Privacy/privacy';
+import EditCard from './components/cards/EditCard';
+
 import DeckConfirmation from './components/confirmation/DeckConfirmation';
 import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
 import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
@@ -91,6 +93,11 @@ function App() {
           <DashNav />
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
+          <Route
+            exact
+            path='/editcard/:deckName'
+            render={props => <EditCard {...props} />}
+          />
           <Route
             path='/:user/:deckName/cards'
             render={props => <Cards {...props} />}

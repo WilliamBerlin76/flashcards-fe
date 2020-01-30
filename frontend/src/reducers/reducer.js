@@ -7,7 +7,10 @@ import {
   CARDS_FAILURE,
   POST_DECK,
   POST_SUCCESS,
-  POST_FAILURE
+  POST_FAILURE,
+  EDIT_CARDS,
+  EDIT_SUCCESS,
+  EDIT_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -22,6 +25,7 @@ const initialState = {
       back: ''
     }
   ],
+  colId: '',
   deckInformation: [
     {
       deckName: ''
@@ -30,7 +34,14 @@ const initialState = {
   deck: {
     tags: [],
     icon: ''
-  }
+  },
+  changes: [
+    {
+      front: '',
+      back: '',
+      archived: false
+    }
+  ]
 };
 
 const reducer = (state = initialState, action) => {
@@ -121,11 +132,39 @@ const reducer = (state = initialState, action) => {
         isPosting: false,
         error: action.payload
       };
+    case EDIT_CARDS:
+      return {
+        ...state,
+        changes: [],
+        isEditing: true,
+        error: ''
+      };
+    case EDIT_SUCCESS:
+      return {
+        ...state,
+        changes: [
+          {
+            front: action.payload,
+            back: action.payload,
+            archived: action.payload
+          }
+        ],
+        isEditing: false,
+        error: ''
+      };
+    case EDIT_FAILURE:
+      return {
+        ...state,
+        changes: [],
+        isEditing: false,
+        error: action.payload
+      };
     case 'ARCHIVE_SUCCESSFUL':
       return {
         ...state,
         decks: []
       };
+
     default:
       return state;
   }

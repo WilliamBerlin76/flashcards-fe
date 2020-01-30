@@ -31,6 +31,7 @@ const Cards = props => {
     } else {
       setCurrentCard(index + 1);
       console.log(currentCard);
+      console.log("test");
     }
   };
 
