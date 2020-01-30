@@ -77,6 +77,7 @@ const Settings = props => {
         </div>
       </div>
       <form className='profile-form'>
+        <h2 className='pref-h2'>User Preferences</h2>
         <p>Which subjects do you use flashcards for most often?</p>
         <input
           className='subject-input'

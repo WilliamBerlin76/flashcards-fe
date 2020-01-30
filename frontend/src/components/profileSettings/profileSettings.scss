@@ -6,12 +6,12 @@
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        padding-bottom: 25px;
+        padding-bottom: 40px;
         h2{
-            font-size: 1rem;
+            font-size: 1.3rem;
         }
         .profile-pic{
-            width:120px;
+            width:140px;
             border-radius: 50%;
         }
     }
@@ -21,6 +21,13 @@
     width: 90%;
     text-align: left;
     font-size: .95rem;
+    .pref-h2{
+        margin: 25px 0;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+    }
     .subject-input{
         border: 1px solid #F3852C;
         border-radius: 4px;
