@@ -39,12 +39,12 @@ export default function DeckMenu(props) {
             >
               Delete
             </Link>
-            <Link
+            {/* <Link
               className='menu-link'
               to={`editcard/${props.colId}/newcards`}
             >
               Add Cards
-            </Link>
+            </Link> */}
           </>
         )}
       </div>

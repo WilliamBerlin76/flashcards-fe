@@ -113,7 +113,7 @@ const DeckForm = props => {
 
         {/* <div className = "rightside"> */}
         <div className='number'>
-          <h3 className='smile'>{newDecks.length}</h3>
+          <h3 className='smile-form'>{newDecks.length}</h3>
         </div>
         <h4 className='mastered'>Total Cards</h4>
         {/* </div> */}

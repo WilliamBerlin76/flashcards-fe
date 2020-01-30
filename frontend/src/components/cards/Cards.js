@@ -72,8 +72,8 @@ const Cards = props => {
           <h5 className='cardsHeader'>Cards</h5>
 
           {/* <div className = "rightside"> */}
-          <img className='smile' src={smiley} alt={'a smiling emoji'} />
-          <h4 className='mastered'>Mastered</h4>
+            <img className='smile' src={smiley} alt={'a smiling emoji'} />
+            <h4 className='mastered'>Mastered</h4>
           {/* </div> */}
         </div>
 
