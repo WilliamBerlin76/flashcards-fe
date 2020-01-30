@@ -6,6 +6,7 @@ import { orange } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { useHistory } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 
 import './profileSettings.scss';
 import poly from '../../assets/poly.png'
@@ -19,6 +20,17 @@ const OrangeRadio = withStyles({
   },
   checked: {},
 })(props => <Radio color="default" label="MobileOrDesktop" {...props} />);
+
+const OrangeInput = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'rgba(106, 92, 85, 0.5)'
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'rgba(106, 92, 85, 0.5)'
+    }
+  }
+})(TextField);
 
 
 const Settings = props => {
@@ -99,14 +111,27 @@ const Settings = props => {
       <form className='profile-form'>
         <h2 className='pref-h2'>User Preferences</h2>
         <p>Which subjects do you use flashcards for most often?</p>
-        <input
-          className='subject-input'
+        <OrangeInput
+          // className='subject-input'
+          label={'Subjects'}
           type='text'
           name='favSubjects'
+          helperText="List subjects you most frequently study"
           value={preferences.favSubjects}
           onChange={nonCheckChange}
         />
-
+        
+        <p>How frequently do you want to study?</p>
+        <select name='studyFrequency' onChange={nonCheckChange} className='subject-input'>
+          <option hidden='' value={preferences.studyFrequency}>{!preferences.studyFrequency ? 'Please select one' : preferences.studyFrequency}</option>
+          <option value='Once a day'>Once a day</option>
+          <option value='Twice a Day'>Twice a day</option>
+          <option value='Once a week'>Once a week</option>
+          <option value='Twice a week'>Twice a week</option>
+          <option value='Three times a week'>Three times a week</option>
+          <option value='Everyday'>Everyday</option>
+          <option value='Other'>Other</option>
+        </select>
         <p>Do you prefer studying on a mobile or desktop device?</p>
         <RadioGroup className='radio-container' name='MobileOrDesktop'>
           <div>
@@ -144,17 +169,7 @@ const Settings = props => {
           <option value='Other'>Other</option>
         </select>
 
-        <p>How frequently do you want to study?</p>
-        <select name='studyFrequency' onChange={nonCheckChange} className='subject-input'>
-          <option hidden='' value={preferences.studyFrequency}>{!preferences.studyFrequency ? 'Please select one' : preferences.studyFrequency}</option>
-          <option value='Once a day'>Once a day</option>
-          <option value='Twice a Day'>Twice a day</option>
-          <option value='Once a week'>Once a week</option>
-          <option value='Twice a week'>Twice a week</option>
-          <option value='Three times a week'>Three times a week</option>
-          <option value='Everyday'>Everyday</option>
-          <option value='Other'>Other</option>
-        </select>
+        
 
         <p>How often would you like to recieve notifications?</p>
         <select name='notificationFrequency' onChange={nonCheckChange} className='subject-input'>
