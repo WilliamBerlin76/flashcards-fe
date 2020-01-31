@@ -6,15 +6,25 @@ import TextField from '@material-ui/core/TextField';
 import Tags from './Tags';
 import poly from '../../assets/poly.png';
 import { withStyles } from '@material-ui/core/styles';
+import notebook from '../../assets/notebook.png';
+import graduate from '../../assets/graduate.png';
+import audio from '../../assets/audio.png';
 
 const OrangeInput = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: 'rgba(106, 92, 85, 0.5)'
+      color: 'rgba(106, 92, 85, 0.5)',
+
+    },
+    '@media (min-width: 1000px)' : {
+      width: '50%',
+      fontSize:'12rem'
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: 'rgba(106, 92, 85, 0.5)'
-    }
+      borderBottomColor: 'rgba(106, 92, 85, 0.5)',
+
+    },
+    
   }
 })(TextField);
 
@@ -269,6 +279,22 @@ const DeckForm = props => {
               </Fragment>
             ))}
           </form>
+        </div>
+      </div>
+      <div className = "studystuff">
+        <h2 className ="bigStudy">Study Tips</h2>
+        <p className = "other">and other bits</p>
+        <div className = "note">
+          <img className = "notebook" src = {notebook} alt = {'a notebook'} />
+          <p className = "notewords">What exactly is spaced-repition and how it can help you</p>
+        </div>
+        <div className = 'grad'>
+          <img className = "gradpic" src = {graduate} alt = {'a graduate world'} />
+          <p className = "gradwords">Harvard University is taking a new approach to learning using mNeme</p>
+        </div>
+        <div className = "aud">
+          <img className = "audpic" src = {audio} alt = {'a person listening to audio'} />
+          <p className = "audwords">Discover what mNeme has in store for the future</p>
         </div>
       </div>
     </div>

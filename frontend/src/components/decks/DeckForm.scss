@@ -480,4 +480,172 @@ line-height: 28px;
     flex-direction: column-reverse;
     flex-flow: column-reverse;
   }
+
+  .studystuff{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+  .loading-background{
+
+    .deckName {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 56px;
+      line-height: 42px;
+      color: #FFFFFF;
+      margin-bottom: 10%;
+    }
+  }
+
+
+  .number{
+    display: none;
+  }
+  .mastered{
+    display: none;
+  }
+  .cardForm{
+    .deckInfo{
+      font-size: 50px;
+    }
+  }
+
+
+  .page{
+    margin: 1rem 12rem;
+    .inputHolders{
+      display: flex;
+      // align-items: flex-start;
+
+      .iconHolder{
+        margin-left: 20%;
+        width: 100%;
+      };
+    }
+    .tagHolder{
+      margin-top:10%;
+      margin-left: 47%;
+    }
+  }
+
+  .flashcards{
+    font-size: 40px;
+  }
+.new{
+  font-size: 34px;
+}
+
+  .cardFormBottom{
+
+    .card{
+      width: 46%;
+      height: 220px;
+      padding-right: 2%;
+
+      .removeHolder{
+        margin-left: -22%;
+      }
+      .frontLabel{
+        margin-left: -17%;
+      }
+      .backLabel{
+        margin-left: -17%;
+      }
+
+    }
+    .buttonHolder{
+      display: flex;
+      flex-direction: column;
+      margin-top: -24%;
+      margin-left: 50%;
+      // height: 100px;
+      .add{
+        width: 100%;
+        margin-bottom: 4%;
+        margin-left: 11%;
+      }
+      .save{
+        width: 100%;
+      }
+    }
+    .created{
+      font-size: 34px;
+      margin-top: 26%;
+      margin-left:-90%;
+    }
+  }
+
+
+
+  .studystuff{
+    display: flex;
+    margin-top: 30%;
+    width: 168px;
+    height: 433px;
+    right: 226px;
+    top: 574px;
+    margin-bottom: 30%;
+
+    .bigStudy{
+      width: 100%;
+      height: 75px;
+      margin-left: 120%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #F66E00;
+    }
+    .other{
+      // width: 3746px;
+      // height: 49px;
+      margin-top: 80%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #F66E00;
+      margin-left: -55%;
+    }
+
+    .note{
+     margin-left: -60%;
+     margin-right: 15%;
+      width: 290.4px;
+      height: 248px;
+      margin-top: 180%;
+      .notebook{
+        width: 200px;
+      }
+    };
+
+    .grad {
+      margin-top: 180%;
+      width: 290.4px;
+      height: 248px;
+      left: 494.8px;
+      top: 1859px;
+      margin-right: 15%;
+      .gradpic{
+        width: 200px;
+      }
+    };
+
+    .aud{
+      margin-top: 180%;
+      width: 290.4px;
+      height: 248px;
+      left: 833.6px;
+      top: 1859px;
+      .audpic{
+        width: 200px;
+      }
+    }
+  }
 }

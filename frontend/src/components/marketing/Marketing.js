@@ -53,7 +53,7 @@ const Marketing = () => {
         </div>
 
         <div className = "study">
-            <h3 className = 'studywords'>Students have seen a 87% improvement in their grades and continue to use mNeme through out all stages of their education</h3>
+            <h3 className = 'studywords'>Students have seen a <h3 className = "percent">87%</h3> improvement in their grades and continue to use mNeme through out all stages of their education</h3>
         </div>
 
         <div className = "picthreeholder">
