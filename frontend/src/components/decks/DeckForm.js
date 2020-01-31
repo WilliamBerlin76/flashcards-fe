@@ -5,6 +5,7 @@ import './DeckForm.scss';
 import TextField from '@material-ui/core/TextField';
 import Tags from './Tags';
 import poly from '../../assets/poly.png';
+import polyy from '../../assets/polyy.png';
 import { withStyles } from '@material-ui/core/styles';
 import notebook from '../../assets/notebook.png';
 import graduate from '../../assets/graduate.png';
@@ -111,24 +112,45 @@ const DeckForm = props => {
   // const selectedTags  =  {tags}
 
   return (
+    
     <div>
+      
+           <section className='study-dataa'>
+        <div className='timeline-selectorss'>
+          <span>Today</span>
+          <span>This Week</span>
+          <span>Lifetime</span>
+        </div>
+        <div className='studiedd'>
+          <div className='numberss'>
+
+            <span className='mastered-numberr'>87</span>
+          </div>
+          <div className='textt'>
+
+            <span className='mastered-textt'>Mastered</span>
+          </div>
+        </div>
+      </section>
       <div className='loading-background'>
+        <div className = "first">
         <img
           className='back'
           src={poly}
           alt='back arrow'
           onClick={() => props.history.goBack()}
         />
-        <h1 className='deckName'>Create new deck</h1>
-
+        
+        <h1 className='deckNamee'>Create new deck</h1>
+        </div>
         {/* <div className = "rightside"> */}
         <div className='number'>
           <h3 className='smile-form'>{newDecks.length}</h3>
         </div>
-        <h4 className='mastered'>Total Cards</h4>
+        <h4 className='masteredd'>Cards</h4>
         {/* </div> */}
       </div>
-
+     
       <div>
         <div className='page'>
           <div className='form'>

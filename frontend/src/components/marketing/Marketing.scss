@@ -292,6 +292,10 @@
 }
 
 @media only screen and (min-width: 1000px) {
+
+  .page{
+    margin: 1rem 12rem;
+  }
  .top-holder {
   //  width: 100%;
  
@@ -316,7 +320,7 @@
     line-height: 147px;
     text-align: center;
     position: absolute;
-    left: 390px;
+    left: 490px;
     top: 250px;
     
   }
@@ -358,6 +362,7 @@
   position: absolute;
   width: 900px;
   top: 0px;
+  right: 670px;
   .flexup{
     width: 50%;
     margin-right: 10%;
@@ -394,7 +399,7 @@
    position: absolute;
    top: 750px;
    left: 16px;
-   width: 420px;
+   width: 450px;
   }
 }
 
@@ -404,8 +409,8 @@
   position: absolute;
   width: 310px;
   height: 350px;
-  left: 600px;
-  top: 1019px;
+  left: 650px;
+  top: 1039px;
   .orangewords{
     text-align: center;
     font-weight: 500;
@@ -419,7 +424,7 @@
 .study{
   position: absolute;
   top: 1140px;
-  right: 850px;
+  right: 950px;
 
   .studywords{
     position: absolute;
@@ -453,10 +458,10 @@
 .picthreeholder{
   position: absolute;
   top: 1850px;
-  left: 470px;
+  left: 570px;
   .picthree{
     height: 430px;
-    width: 400px;
+    width: 300px;
   }
 }
 
@@ -464,7 +469,7 @@
   position: absolute;
   width: 405px;
   height: 56px;
-  right: 450px;
+  right: 515px;
   top: 2005px;
   align-items: left;
   font-family: Roboto;
@@ -475,84 +480,39 @@
   
 
 }
+.bottomb{
+  width: 50%;
+  margin-right: 10%;
+  // margin-left: -77%;
+  left: 400px;
+  top: 30px;
+  position: absolute;
+
+
 .signuptwo{
   position: absolute;
-  height: 115px;
+  height: 75px;
   text-align: center;
   top: 2130px;
-  width:520px;
+  width:420px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 27px;
   right: 360px;
   line-height: 20px;
   border-radius: 230px;
+  margin-top:-2%;
+  // padding-bottom: 7%;
+  line-height: 120%;
 }
-
+}
 };
+
 
 
 @media screen and (min-width: 1200px) {
 
-.top-holder{
-
-  .title{
-    position: absolute;
-    left: 511px;
-  }
-}
-
-.topwordsholder{
-  position: absolute;
-  bottom: 700px;
-  right: 1150px;
-}
-
-.piconeholder{
-  
-  .picone{
-    top: 720px;
-    width: 525px;
-    left: 20px;
-  }
-}
-
-.orange{
-  position: absolute;
-  left: 700px;
-  height: 350px;
-}
-
-.pictwoholder{
-
-  .pictwo{
-    width: 500px;
-  }
-};
-
-.picthreeholder{
-  left: 600px;
-  .picthree{
-    width: 440px;
-    height: 500px;
-    
-  }
-};
-
-.join {
-  right: 630px;
-};
-
-button.signuptwo{
-  font-size: 20px;
-  bottom: 553px;
-  right: 500px;
-
-}
-};
-
-@media screen and (min-width: 1200px) {
 
   .top-holder{
     .welcome {
@@ -566,34 +526,108 @@ button.signuptwo{
       position: absolute;
       left: 580px;
     }
+    .pro{
+      left: 240px;
+    }
   };
 
 
   .topwordsholder{
     position: absolute;
-    right: 1290px;
+    right: 1160px;
+    bottom:700px; 
   }
   .piconeholder{
     .picone{
-      width: 600px;
+      width: 500px;
     }
   }
   .orange{
-    left: 790px;
-    width: 400px;
-    top: 1060px;
+    left: 690px;
+    width: 350px;
+    top: 1030px;
   };
 
   .study{
-    left:20px;
+    left:90px;
   }
   .pictwoholder{
     .pictwo{
-      width: 600px;
+      width: 500px;
     }
   }
 
   .picthreeholder{
-    left: 700px;
+    left: 590px;
+    .picthree{
+      width: 400px;
+    }
   }
+  .join {
+    position: absolute;
+    right: 610px;
+  };
+  
+  .bottomb{
+    width: 300px;
+    .signuptwo{
+      font-size: 20px;
+      bottom: 553px;
+      right: 100px;
+    
+    }
+  }
+};
+
+@media screen and (min-width: 1400px) {
+.page{
+  margin: 1rem 12rem;
+}
+  .top-holder{
+    .welcome{
+      position: absolute;
+      left: 300px;
+    }
+      
+    .title{
+      position: absolute;
+      left: 800px;
+    }
+  }
+.topwordsholder{
+  position: absolute;
+  right: 1400px;
+}
+
+.piconeholder{
+  position: absolute;
+  left: 380px;
+}
+.orange{
+  position: absolute;
+  left: 900px;
+  height: 100px;
+  bottom: 400px;
+}
+.study{
+  position: absolute;
+  left: 200px;
+}
+.pictwoholder{
+  position: absolute;
+  left: 700px;
+}
+.join{
+  position: absolute;
+  right: 800px;
+}
+
+.picthreeholder{
+  position: absolute;
+  left: 800px;
+}
+.bottomb{
+  position: absolute;
+  left: 580px;
+}
 };

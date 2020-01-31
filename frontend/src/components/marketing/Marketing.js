@@ -62,9 +62,13 @@ const Marketing = () => {
 
         <h3 className = "join">Join mNeme today</h3>
 
+        <div className = "bottomb">
         <Link to = '/login'>
+
             <button className = "signuptwo">Sign Up</button>
+  
         </Link>
+        </div>
 
         </div>
     )
