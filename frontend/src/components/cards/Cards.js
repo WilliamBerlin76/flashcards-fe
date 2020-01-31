@@ -71,13 +71,20 @@ const Cards = props => {
               {props.match.params.deckName}
             </h1>
           </div>
-
-          <h4 className='listCards'>{deck.length}</h4>
-          <h5 className='cardsHeader'>Cards</h5>
-
-          {/* <div className = "rightside"> */}
-          <img className='smile' src={smiley} alt={'a smiling emoji'} />
-          <h4 className='mastered'>Mastered</h4>
+          
+          <div className='studied-cards-container'>
+            <div className='studied-numbers'>
+              <h4 className='listCards'>{deck.length}</h4>
+              <img className='smile' src={smiley} alt={'a smiling emoji'} />
+            </div>
+      
+            <div className='studied-text'>
+              <h5 className='cardsHeader'>Cards</h5>
+              <h4 className='mastered'>Mastered</h4>
+            </div>
+            {/* <div className = "rightside"> */}
+          </div>
+         
           {/* </div> */}
         </div>
 

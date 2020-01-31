@@ -6,28 +6,6 @@
     padding-bottom: 2%;
     margin-bottom: 25px;
     padding-top: 2%;
-
-    .smile {
-      opacity: 0.25;
-      margin-left: 65%;
-      max-width: 125px;
-      // margin-top: -60%;
-      width: 25%;
-      margin-bottom: 6%;
-      // height: 120px;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 1.3rem;
-      line-height: 19px;
-      margin-left: 75%;
-      margin-top: 3%;
-      color: #ffffff;
-    }
     .back-button-and-header{
       display: flex;
       align-items: center;
@@ -51,6 +29,47 @@
           font-size: 3.4rem;
         }
       }
+    }
+    .studied-cards-container{
+      margin: 1rem 2rem;
+      .studied-numbers{
+        display: flex;
+        justify-content: space-between;
+        
+        .listCards{
+          font-size: 1.5rem;
+          padding-top: 6rem;
+        }
+        .smile {
+          opacity: 0.25;
+          // margin-left: 65%;
+          max-width: 125px;
+          // margin-top: -60%;
+          width: 25%;
+          // margin-bottom: 6%;
+          // height: 120px;
+        }
+      }
+      .studied-text{
+        display: flex;
+        justify-content: space-between;
+        .cardsHeader{
+          margin-top: 25px;
+        }
+        .mastered {
+          // display: flex;
+          // justify-content: flex-end;
+          font-family: Roboto Condensed;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 1.3rem;
+          // line-height: 19px;
+          // margin-left: 75%;
+          // margin-top: 3%;
+          color: #ffffff;
+        }
+      }
+      
     }
   }
 
