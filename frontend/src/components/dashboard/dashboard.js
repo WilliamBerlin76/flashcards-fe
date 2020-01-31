@@ -7,6 +7,7 @@ import './dashboard.scss';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
 import smiley from '../../assets/smiley.png';
+import Footer from '../footer/Footer';
 
 const Loading = styled.div`
   margin-top: 10%;
@@ -95,6 +96,7 @@ const Dashboard = props => {
           </div>
         </div> */}
       </section>
+      <Footer />
     </>
   );
 };
