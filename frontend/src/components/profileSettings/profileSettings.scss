@@ -4,9 +4,10 @@
     color: #FAFAFA;
     .header-back-selectors-container{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        max-width:1450px;
+        width: 90%;
+        max-width:1500px;
         margin: 0 auto;
         .back-button{
             display: flex;
@@ -46,7 +47,7 @@
         justify-content: space-around;
         margin: 0 auto;
         padding-bottom: 40px;
-        max-width:1450px;
+        max-width:1750px;
         .users-name{
             font-size: 1.3rem;
             @media only screen and (min-width: 1000px){
@@ -67,6 +68,7 @@
     width: 90%;
     text-align: left;
     font-size: .95rem;
+    max-width:1250px;
     .pref-h2{
         margin: 25px 0;
         font-family: Roboto;
@@ -76,56 +78,67 @@
         color: #453C38;
         @media only screen and (min-width: 1000px){
             font-size: 2.15rem;
+            margin: 50px 0;
         }
     }
-    .subject-input{
-        margin-bottom: 80px;
-        width: 100%;
-        height: 30px;
-    }
-    .field-title{
-        font-weight: normal;
-        font-size: 1.4rem;
-        line-height: 28px;
-        color: #6A5C55;
-    }
-    .radio-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-right: 10px;
-        margin-bottom: 45px;
-        .rad-text{
-            font-size: 1.2rem;
-            color: #453C38;
-            &:hover{
-                cursor: pointer;
+    .input-sections{
+        max-width: 1000px;
+        margin: 0 auto;
+        .subject-input{
+            margin-bottom: 80px;
+            width: 100%;
+            height: 30px;
+            @media only screen and (min-width: 1000px){
+                font-size: 3rem;
             }
         }
-        .helper-text{
-            opacity: .8;
-            font-size: .8rem;
+        .field-title{
+            font-weight: normal;
+            font-size: 1.4rem;
+            line-height: 28px;
             color: #6A5C55;
+            margin-bottom: 10px;
         }
-    }
-    .button-container{
-        display: flex;
-        justify-content: center;
-        margin-top: 35px;
-        margin-bottom: 35px;
-        .bottom-button{
-            font-weight: bold;
-            font-size: 1.2rem;
-            height: 38px;
-            width: 90%;
-            color: #FCFCFC;
-            background: #F66E00;
-            border: 2px solid #F66E00;
-            border-radius: 23px;
-            &:hover{
-                cursor: pointer;
+        .radio-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-right: 10px;
+            margin-bottom: 45px;
+            max-width: 500px;
+            .rad-text{
+                font-size: 1.2rem;
+                color: #453C38;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .helper-text{
+                opacity: .8;
+                width: 100%;
+                font-size: .8rem;
+                color: #6A5C55;
             }
         }
-    }   
+        .button-container{
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+            margin-bottom: 35px;
+            .bottom-button{
+                font-weight: bold;
+                font-size: 1.2rem;
+                height: 38px;
+                width: 90%;
+                color: #FCFCFC;
+                background: #F66E00;
+                border: 2px solid #F66E00;
+                border-radius: 23px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }   
+    } 
 }
 
