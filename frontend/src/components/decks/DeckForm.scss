@@ -534,18 +534,21 @@ line-height: 28px;
 
   .flashcards{
     font-size: 40px;
+    margin-top: 10%;
   }
 .new{
   font-size: 34px;
 }
 
   .cardFormBottom{
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     .card{
-      width: 46%;
+      width: 39%;
       height: 220px;
       padding-right: 2%;
-
+      // margin-right: 15%;
       .removeHolder{
         margin-left: -22%;
       }
@@ -562,6 +565,7 @@ line-height: 28px;
       flex-direction: column;
       margin-top: -24%;
       margin-left: 50%;
+      width: 40%;
       // height: 100px;
       .add{
         width: 100%;
@@ -574,8 +578,8 @@ line-height: 28px;
     }
     .created{
       font-size: 34px;
-      margin-top: 26%;
-      margin-left:-90%;
+      margin-top: 66%;
+      margin-left:-110%;
     }
   }
 
@@ -616,7 +620,7 @@ line-height: 28px;
 
     .note{
      margin-left: -60%;
-     margin-right: 15%;
+     margin-right: 55%;
       width: 290.4px;
       height: 248px;
       margin-top: 180%;
@@ -631,7 +635,7 @@ line-height: 28px;
       height: 248px;
       left: 494.8px;
       top: 1859px;
-      margin-right: 15%;
+      margin-right: 55%;
       .gradpic{
         width: 200px;
       }

@@ -291,7 +291,7 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) {
  .top-holder {
   //  width: 100%;
  
@@ -334,6 +334,7 @@
   }
 
 }
+
 
 .topwordsholder {
 
@@ -389,11 +390,11 @@
   // width: 50%;
   
   .picone{
-    width: 620px;
+ 
    position: absolute;
-   top: 650px;
-   left: 76px;
-   width: 530px;
+   top: 750px;
+   left: 16px;
+   width: 420px;
   }
 }
 
@@ -418,7 +419,7 @@
 .study{
   position: absolute;
   top: 1140px;
-  width: 500px;
+  right: 850px;
 
   .studywords{
     position: absolute;
@@ -511,9 +512,9 @@
 .piconeholder{
   
   .picone{
-    top: 670px;
-    width: 550px;
-    left: 150px;
+    top: 720px;
+    width: 525px;
+    left: 20px;
   }
 }
 
