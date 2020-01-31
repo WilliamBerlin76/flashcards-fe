@@ -94,7 +94,7 @@ const Settings = props => {
           </div>
           <div className='selector-container'>
             {/* <span className='selector-text'>Demo deck</span> */}
-            <span className='selector-text'>Log Out</span>
+            <span className='selector-text' onClick={() => firebase.auth().signOut().then(() => props.history.push('/'))}>Log Out</span>
           </div>
         </div>
           
