@@ -79,17 +79,24 @@
         }
     }
     .subject-input{
-        border: 1px solid #F3852C;
-        border-radius: 4px;
+        margin-bottom: 80px;
         width: 100%;
         height: 30px;
+    }
+    .field-title{
+        font-weight: normal;
+        font-size: 1.5rem;
+        line-height: 28px;
+        color: #6A5C55;
     }
     .radio-container{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-right: 10px;
-        label{
+        .rad-text{
+            font-size: 1.2rem;
+            color: #453C38;
             &:hover{
                 cursor: pointer;
             }

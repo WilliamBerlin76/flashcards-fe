@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase';
 import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { orange } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -32,10 +33,19 @@ const OrangeInput = withStyles({
   }
 })(TextField);
 
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     '& .MuiTextField-root': {
+//       margin: theme.spacing(1),
+//       width: 5000,
+//     },
+//   },
+// }));
 
 const Settings = props => {
   const [preferences, setPreferences] = useState({});
   let history = useHistory();
+  // const classes = useStyles();
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -110,20 +120,28 @@ const Settings = props => {
 
       <form className='profile-form'>
         <h2 className='pref-h2'>User Preferences</h2>
-        <p>Which subjects do you use flashcards for most often?</p>
+        {/* <p>Which subjects do you use flashcards for most often?</p> */}
         <OrangeInput
-          // className='subject-input'
-          label={'Subjects'}
+          className='subject-input'
+          label={preferences.favSubjects ? null : 'Subjects'}
           type='text'
           name='favSubjects'
           helperText="List subjects you most frequently study"
-          value={preferences.favSubjects}
+          value={!preferences.favSubjects ? null : preferences.favSubjects}
           onChange={nonCheckChange}
         />
-        
-        <p>How frequently do you want to study?</p>
-        <select name='studyFrequency' onChange={nonCheckChange} className='subject-input'>
-          <option hidden='' value={preferences.studyFrequency}>{!preferences.studyFrequency ? 'Please select one' : preferences.studyFrequency}</option>
+
+        {/* <p>How frequently do you want to study?</p> */}
+        <TextField 
+          select name='studyFrequency' 
+          onChange={nonCheckChange}
+          SelectProps={{
+            native: true,
+          }}
+          className='subject-input'
+          helperText='How often would you like to study'
+        >
+          <option hidden='' value={preferences.studyFrequency}>{!preferences.studyFrequency ? 'Study frequency' : preferences.studyFrequency}</option>
           <option value='Once a day'>Once a day</option>
           <option value='Twice a Day'>Twice a day</option>
           <option value='Once a week'>Once a week</option>
@@ -131,8 +149,8 @@ const Settings = props => {
           <option value='Three times a week'>Three times a week</option>
           <option value='Everyday'>Everyday</option>
           <option value='Other'>Other</option>
-        </select>
-        <p>Do you prefer studying on a mobile or desktop device?</p>
+        </TextField>
+        <p className='field-title'>Mobile or desktop preference</p>
         <RadioGroup className='radio-container' name='MobileOrDesktop'>
           <div>
             <OrangeRadio
@@ -143,7 +161,7 @@ const Settings = props => {
               value='Mobile'
               onChange={radioChange}
               checked={preferences.MobileOrDesktop === 'Mobile' ? true : false}
-            /><label for='mobileId'>Mobile</label>
+            /><label className='rad-text' htmlFor='mobileId'>Mobile</label>
             
           </div>
           <div>
@@ -155,7 +173,7 @@ const Settings = props => {
               onChange={radioChange}
               checked={preferences.MobileOrDesktop === 'Desktop' ? true : false}
             />
-            <label for='deskId'>Desktop</label>
+            <label className='rad-text' htmlFor='deskId'>Desktop</label>
           </div>
         </RadioGroup>
        
