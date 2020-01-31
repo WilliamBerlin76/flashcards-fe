@@ -4,7 +4,7 @@
   padding-top: 1rem;
 
   .deck-info {
-    margin: 0rem 1rem;
+    margin: 1rem 1rem;
 
     .deck-name {
       margin-bottom: 0px;
@@ -19,21 +19,21 @@
 
   .example-card {
     width: 45%;
-    height: 5rem;
+    height: 6rem;
     text-align: center;
     padding: 2rem 0;
     margin: 1rem 1rem;
     border-radius: 3px;
-    background-color: rgb(243, 236, 227);
+    border: 0.5px solid #f66e00;
   }
 }
 
 .deck {
   border: 0.5px solid #f66e00;
   border-radius: 4px;
-  margin: 20px auto;
+  margin: 40px auto;
   margin-top: 0px;
-  max-width: 600px;
+  max-width: 400px;
   &:hover {
     cursor: pointer;
   }
@@ -64,9 +64,20 @@
   max-width: 600px;
   margin: 0 auto;
   padding-right: 5px;
+  position: relative;
 }
 
 .fa-ellipsis-h {
   font-size: 1.5rem;
-  opacity: 0.4;
+  position: absolute;
+  top: -1.5rem;
+  color: #f66e00;
+}
+
+.deckcard-div {
+  max-width: 400px;
+
+  @media screen and (min-width: 600px) {
+    width: 300px;
+  }
 }
