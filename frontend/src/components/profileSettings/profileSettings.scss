@@ -85,7 +85,7 @@
     }
     .field-title{
         font-weight: normal;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         line-height: 28px;
         color: #6A5C55;
     }
@@ -94,12 +94,18 @@
         flex-direction: row;
         justify-content: space-between;
         margin-right: 10px;
+        margin-bottom: 45px;
         .rad-text{
             font-size: 1.2rem;
             color: #453C38;
             &:hover{
                 cursor: pointer;
             }
+        }
+        .helper-text{
+            opacity: .8;
+            font-size: .8rem;
+            color: #6A5C55;
         }
     }
     .button-container{

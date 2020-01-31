@@ -133,7 +133,8 @@ const Settings = props => {
 
         {/* <p>How frequently do you want to study?</p> */}
         <TextField 
-          select name='studyFrequency' 
+          select 
+          name='studyFrequency' 
           onChange={nonCheckChange}
           SelectProps={{
             native: true,
@@ -175,36 +176,11 @@ const Settings = props => {
             />
             <label className='rad-text' htmlFor='deskId'>Desktop</label>
           </div>
+          <p className='helper-text'>Do you prefer to study on your mobile or desktop device</p>
         </RadioGroup>
-       
-        <p>Do you prefer to study by</p>
-        <select name='technique' onChange={nonCheckChange} className='subject-input'>
-          <option hidden='' value={preferences.technique}>{!preferences.technique ? 'Please select one' : preferences.technique}</option>
-          <option value='Listening'>Listening</option>
-          <option value='Doing'>Doing</option>
-          <option value='Reading'>Reading</option>
-          <option value='Writing'>Writing</option>
-          <option value='Other'>Other</option>
-        </select>
 
         
-
-        <p>How often would you like to recieve notifications?</p>
-        <select name='notificationFrequency' onChange={nonCheckChange} className='subject-input'>
-          <option hidden='' value={preferences.notificationFrequency}>{!preferences.notificationFrequency ? 'Please select one' : preferences.notificationFrequency}</option>
-          <option value="When I haven't met my goal in a day">
-            When I haven't met my goal in a day
-          </option>
-          <option value="When I haven't met my goal in a week">
-            When I haven't met my goal in a week
-          </option>
-          <option value='Everyday'>Everyday</option>
-          <option value="Don't send me notifications">
-            Don't send me notifications
-          </option>
-        </select>
-
-        <p>Do you prefer to study from decks that are</p>
+        <p className='field-title'>Do you prefer to study from decks that are</p>
         <RadioGroup className='radio-container' name='customOrPremade'>
           <div>
             <OrangeRadio
@@ -215,7 +191,7 @@ const Settings = props => {
             onChange={radioChange}
             checked={preferences.customOrPremade === "pre-made" ? true : false}
             />
-            <label for='preId'>Pre-made</label>
+            <label className='rad-text' htmlFor='preId'>Pre-made</label>
           </div>
         
           <div>
@@ -227,10 +203,46 @@ const Settings = props => {
               onChange={radioChange}
               checked={preferences.customOrPremade === 'custom' ? true : false}
             />
-            <label for='customId'>Custom</label >
+            <label className='rad-text' htmlFor='customId'>Custom</label >
           </div>
-        
+          <p className='helper-text'>Do you prefer to study from pre-made or custom decks</p>
         </RadioGroup>
+       
+        {/* <p>Do you prefer to study by</p>
+        <select name='technique' onChange={nonCheckChange} className='subject-input'>
+          <option hidden='' value={preferences.technique}>{!preferences.technique ? 'Please select one' : preferences.technique}</option>
+          <option value='Listening'>Listening</option>
+          <option value='Doing'>Doing</option>
+          <option value='Reading'>Reading</option>
+          <option value='Writing'>Writing</option>
+          <option value='Other'>Other</option>
+        </select> */}
+
+        
+
+        <TextField 
+          select
+           SelectProps={{
+            native: true,
+          }}
+          helperText="How often would you like to be notified"
+          name='notificationFrequency' 
+          onChange={nonCheckChange} 
+          className='subject-input'
+        >
+          <option hidden='' value={preferences.notificationFrequency}>{!preferences.notificationFrequency ? 'Notification frequency' : preferences.notificationFrequency}</option>
+          <option value="When I haven't met my goal in a day">
+            When I haven't met my goal in a day
+          </option>
+          <option value="When I haven't met my goal in a week">
+            When I haven't met my goal in a week
+          </option>
+          <option value='Everyday'>Everyday</option>
+          <option value="Don't send me notifications">
+            Don't send me notifications
+          </option>
+        </TextField>
+
         <div className='button-container'>
           <button onClick={submitForm} className='bottom-button'>Save</button>
         </div>
