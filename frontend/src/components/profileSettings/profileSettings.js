@@ -30,9 +30,6 @@ const OrangeInput = withStyles({
     '& .MuiInput-underline:after': {
       borderBottomColor: 'rgba(106, 92, 85, 0.5)'
     }
-  },
-  typography: {
-    fontSize: 16
   }
 })(TextField);
 
@@ -122,7 +119,7 @@ const Settings = props => {
             className='subject-input'
             label={preferences.favSubjects ? null : 'Subjects'}
             type='text'
-            inputProps={ isActive ? { style: {fontSize: '1.5rem'}} : { style: {fontSize: '1.3rem'}}}
+            inputProps={ isActive ? { style: {fontSize: '1.3rem', color:'#6A5C55'}} : { style: {fontSize: '1.1rem', color:'#6A5C55'}}}
             name='favSubjects'
             helperText="List subjects you most frequently study"
             value={!preferences.favSubjects ? null : preferences.favSubjects}
@@ -134,6 +131,7 @@ const Settings = props => {
             select 
             name='studyFrequency' 
             onChange={nonCheckChange}
+            inputProps={ isActive ? { style: {fontSize: '1.3rem', color:'#6A5C55'}} : { style: {fontSize: '1.1rem', color:'#6A5C55'}}}
             SelectProps={{
               native: true,
             }}
@@ -220,6 +218,7 @@ const Settings = props => {
 
           <TextField 
             select
+            inputProps={ isActive ? { style: {fontSize: '1.3rem', color:'#6A5C55'}} : { style: {fontSize: '1.1rem', color:'#6A5C55'}}}
             SelectProps={{
               native: true,
             }}
