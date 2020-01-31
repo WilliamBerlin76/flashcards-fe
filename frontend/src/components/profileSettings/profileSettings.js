@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 import { orange } from '@material-ui/core/colors';
+import { useMediaQuery } from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { useHistory } from 'react-router-dom';
@@ -28,14 +29,19 @@ const OrangeInput = withStyles({
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: 'rgba(106, 92, 85, 0.5)'
-    } 
+    }
+  },
+  typography: {
+    fontSize: 16
   }
 })(TextField);
+
 
 
 const Settings = props => {
   const [preferences, setPreferences] = useState({});
   let history = useHistory();
+  const isActive = useMediaQuery('(min-width: 1000px)')
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -116,6 +122,7 @@ const Settings = props => {
             className='subject-input'
             label={preferences.favSubjects ? null : 'Subjects'}
             type='text'
+            inputProps={ isActive ? { style: {fontSize: '1.5rem'}} : { style: {fontSize: '1.3rem'}}}
             name='favSubjects'
             helperText="List subjects you most frequently study"
             value={!preferences.favSubjects ? null : preferences.favSubjects}
