@@ -59,7 +59,7 @@ const Cards = props => {
   } else {
     return (
       <div className='page'>
-        <div className='loading-background'>
+        <div className='loading-background-study'>
           <div className='back-button-and-header'>
             <img
               className='back'

@@ -1,10 +1,10 @@
 @media only screen and (min-width: 100px) {
-  .loading-background {
+  .loading-background-study {
     background: #f66e00;
     max-width: 100vw;
     margin-top: -4%;
     padding-bottom: 2%;
-    margin-bottom: 10%;
+    margin-bottom: 25px;
     padding-top: 2%;
 
     .smile {
@@ -28,10 +28,29 @@
       margin-top: 3%;
       color: #ffffff;
     }
-    .back {
-      margin-bottom: -6%;
-      margin-left: 6%;
-      margin-right: 6%;
+    .back-button-and-header{
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+      @media only screen and (min-width: 1000px) {
+        margin-left: 200px;
+      }
+      .back {
+        margin-left: 1rem;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .deckNames{
+        color: #FAFAFA;
+        margin-bottom: 25px;
+        margin-left: 10px;
+        font-size: 2rem;
+        cursor: pointer;
+        @media only screen and (min-width: 1000px) {
+          font-size: 3.4rem;
+        }
+      }
     }
   }
 
