@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import firebase from 'firebase';
 import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
@@ -6,7 +7,6 @@ import { orange } from '@material-ui/core/colors';
 import { useMediaQuery } from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 
 import './profileSettings.scss';
@@ -204,7 +204,10 @@ const Settings = props => {
             <p className='helper-text'>Do you prefer to study from pre-made or custom decks</p>
           </RadioGroup>
         
-          {/* <p>Do you prefer to study by</p>
+          
+          {/* old form input options
+          
+          <p>Do you prefer to study by</p>
           <select name='technique' onChange={nonCheckChange} className='subject-input'>
             <option hidden='' value={preferences.technique}>{!preferences.technique ? 'Please select one' : preferences.technique}</option>
             <option value='Listening'>Listening</option>
@@ -213,8 +216,6 @@ const Settings = props => {
             <option value='Writing'>Writing</option>
             <option value='Other'>Other</option>
           </select> */}
-
-          
 
           <TextField 
             select
@@ -243,7 +244,7 @@ const Settings = props => {
           <div className='button-container'>
             <button onClick={submitForm} className='bottom-button'>Save</button>
           </div>
-          </div>
+        </div>
       </form>
     </>
   );
