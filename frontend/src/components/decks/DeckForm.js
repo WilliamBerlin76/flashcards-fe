@@ -114,40 +114,51 @@ const DeckForm = props => {
   return (
     
     <div>
-      
-           <section className='study-dataa'>
-        <div className='timeline-selectorss'>
+{/*       
+           <section className='study-data'> */}
+        {/* <div className='timeline-selectorss'>
           <span>Today</span>
           <span>This Week</span>
           <span>Lifetime</span>
-        </div>
-        <div className='studiedd'>
-          <div className='numberss'>
+        </div> */}
+        {/* <div className = "study">
+        <h3 className='decks'>{newDecks.length}</h3>
+        <h4 className='cardWord'>Cards</h4>
+        </div> */}
 
-            <span className='mastered-numberr'>87</span>
-          </div>
-          <div className='textt'>
-
-            <span className='mastered-textt'>Mastered</span>
-          </div>
-        </div>
-      </section>
+      {/* </section> */}
       <div className='loading-background'>
         <div className = "first">
+        <img
+          className='backk'
+          src={polyy}
+          alt='back arrow'
+          onClick={() => props.history.goBack()}
+        />
         <img
           className='back'
           src={poly}
           alt='back arrow'
           onClick={() => props.history.goBack()}
         />
-        
-        <h1 className='deckNamee'>Create new deck</h1>
+
+        <h1 className='deckName'>Create new deck</h1>
         </div>
         {/* <div className = "rightside"> */}
         <div className='number'>
           <h3 className='smile-form'>{newDecks.length}</h3>
         </div>
-        <h4 className='masteredd'>Cards</h4>
+        <h4 className='mastered'>Cards</h4>
+        <div className='studied'>
+          
+
+            <h1 className='numberrr'>87</h1>
+{/*           
+          <div className='text'> */}
+            {/* <h1 className = "mastereddd">87</h1> */}
+            <span className='mastered-text'>Mastered</span>
+          {/* </div> */}
+        </div>
         {/* </div> */}
       </div>
      
