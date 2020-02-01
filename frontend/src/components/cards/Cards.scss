@@ -32,6 +32,9 @@
     }
     .studied-cards-container{
       margin: 1rem 2rem;
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1000px;
       .studied-numbers{
         display: flex;
         justify-content: space-between;
@@ -39,6 +42,13 @@
         .listCards{
           font-size: 1.5rem;
           padding-top: 6rem;
+          font-family: Roboto Condensed;
+          font-style: normal;
+          font-weight: bold;
+          color: #ffffff;
+          @media only screen and (min-width: 1000px){
+            font-size: 2rem;
+          }
         }
         .smile {
           opacity: 0.25;
@@ -54,7 +64,15 @@
         display: flex;
         justify-content: space-between;
         .cardsHeader{
-          margin-top: 25px;
+          margin-top: 10px;
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 1.5rem;
+          color: #ffffff;
+          @media only screen and (min-width: 1000px){
+            font-size: 2rem;
+          }
         }
         .mastered {
           // display: flex;
@@ -63,10 +81,13 @@
           font-style: normal;
           font-weight: bold;
           font-size: 1.3rem;
-          // line-height: 19px;
+          margin-bottom: 10px;
           // margin-left: 75%;
           // margin-top: 3%;
           color: #ffffff;
+          @media only screen and (min-width: 1000px){
+            font-size: 2rem;
+          }
         }
       }
       
@@ -90,29 +111,29 @@
     padding-bottom: 9%;
   }
 
-  .listCards {
-    margin-left: 6.5%;
-    font-family: Roboto Condensed;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 29px;
-    line-height: 28px;
-    margin-top: 16%;
-    color: #ffffff;
-    margin-bottom: -6%;
-  }
-  .cardsHeader {
-    margin-left: 4%;
-    margin-top: 8%;
-    margin-bottom: -29%;
-    font-family: Roboto;
-    font-style: normal;
-    // font-weight: bold;
-    font-size: 20px;
-    line-height: 19px;
+  // .listCards {
+  //   margin-left: 6.5%;
+  //   font-family: Roboto Condensed;
+  //   font-style: normal;
+  //   font-weight: bold;
+  //   font-size: 29px;
+  //   line-height: 28px;
+  //   margin-top: 16%;
+  //   color: #ffffff;
+  //   margin-bottom: -6%;
+  // }
+  // .cardsHeader {
+  //   margin-left: 4%;
+  //   margin-top: 8%;
+  //   margin-bottom: -29%;
+  //   font-family: Roboto;
+  //   font-style: normal;
+  //   // font-weight: bold;
+  //   font-size: 20px;
+  //   line-height: 19px;
 
-    color: #ffffff;
-  }
+  //   color: #ffffff;
+  // }
 
   .container {
     //    max-height: 20vw;
@@ -207,34 +228,39 @@
       font-size: 1rem;
     }
   }
-
-  .instruct {
-    margin-left: 40%;
-  }
-
-  .point {
-    margin-left: 47.5%;
-    margin-bottom: 3%;
-    margin-top: -1%;
-  }
-  .shineholder {
-    margin-left: 45%;
-    .shineone {
-      padding-top: 1%;
-      margin-left: 1%;
+  .tap-instructor{
+    @media only screen and(min-width: 800px){
+      display: none
     }
-    .shinetwo {
-      margin-bottom: 2%;
+    .instruct {
+      margin-left: 40%;
     }
-    .shinethree {
+  
+    .point {
+      margin-left: 47.5%;
       margin-bottom: 3%;
-      margin-left: 1%;
-      margin-right: 1%;
+      margin-top: -1%;
     }
-    .shinefour {
-      margin-bottom: 1.5%;
+    .shineholder {
+      margin-left: 45%;
+      .shineone {
+        padding-top: 1%;
+        margin-left: 1%;
+      }
+      .shinetwo {
+        margin-bottom: 2%;
+      }
+      .shinethree {
+        margin-bottom: 3%;
+        margin-left: 1%;
+        margin-right: 1%;
+      }
+      .shinefour {
+        margin-bottom: 1.5%;
+      }
     }
   }
+  
 } //end 500px
 
 // @media screen and (min-width: 961px) {

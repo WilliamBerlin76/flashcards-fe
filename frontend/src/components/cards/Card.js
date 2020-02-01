@@ -83,16 +83,18 @@ class Card extends React.Component {
                 </div>
         
             </ReactCardFlip>
-
-            <p className = "instruct">Tap card to flip</p>
-            <div className = "shineholder">
-            <img className = "shineone" src = {shineone} alt = {'shine'} />
-            <img className = "shinetwo" src = {shinetwo} alt = {'shine'} />
-            <img className = "shinethree" src = {shinethree} alt = {'shine'} />
-            <img className = "shinefour" src = {shinefour} alt = {'shine'} />
-            <img className = "shinefive" src = {shinefive} alt = {'shine'} />
+            <div className='tap-instructor'>
+                <p className = "instruct">Tap card to flip</p>
+                    <div className = "shineholder">
+                        <img className = "shineone" src = {shineone} alt = {'shine'} />
+                        <img className = "shinetwo" src = {shinetwo} alt = {'shine'} />
+                        <img className = "shinethree" src = {shinethree} alt = {'shine'} />
+                        <img className = "shinefour" src = {shinefour} alt = {'shine'} />
+                        <img className = "shinefive" src = {shinefive} alt = {'shine'} />
+                    </div>
+                <img className = "point" src = {point} alt = {'finger pointing'} />
             </div>
-            <img className = "point" src = {point} alt = {'finger pointing'} />
+           
             <div className = "button-holder">
             <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
             <button className = "next" onClick = {this.handleGoNext}>Next</button>
