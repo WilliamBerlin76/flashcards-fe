@@ -55,7 +55,7 @@ class Card extends React.Component {
             return    (       
             <div className = "loader">
 
-            <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
+                <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
 
             </div>
             )

@@ -138,13 +138,18 @@
   .container {
     //    max-height: 20vw;
     width: 100%;
+    
     .card__face{
       display: flex;
+      margin-bottom: 25px;
+      height: 350px;
+      @media only screen and (min-width: 800px){
+        height: 450px;
+      }
       .cardstyle {
         // max-width: 100vh;
         width: 80%;
         max-width: 600px;
-        height: 350px;
         padding: 4%;
         // padding-bottom: 25%;
         // padding-top: 20%;
@@ -171,16 +176,17 @@
       .cardstyle-back {
         // max-width: 150vw;
         width: 80%;
-        height: 350px;
+        max-width: 600px;
         padding: 4%;
         // padding-bottom: 17%;
         // padding-top: 20%;
         background: #ffffff;
         border: 1px solid #ffd164;
         border-radius: 4px;
-        margin-left: 10.5%;
-        margin-right: 10%;
-        margin-bottom: 10%;
+        margin: 0 auto;
+        // margin-left: 10.5%;
+        // margin-right: 10%;
+        // margin-bottom: 10%;
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
