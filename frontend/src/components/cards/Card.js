@@ -96,8 +96,8 @@ class Card extends React.Component {
             </div>
            
             <div className = "button-holder">
-            <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
-            <button className = "next" onClick = {this.handleGoNext}>Next</button>
+                <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
+                <button className = "previous" onClick = {this.handleGoNext}>Next</button>
             </div>
             
           </div>
