@@ -19,7 +19,8 @@ class Card extends React.Component {
         this.state = {
             isFlipped: false,
             flipSpeedBackToFront: 0.001,
-            flipSpeedFrontToBack: 0.001
+            flipSpeedFrontToBack: 0.001,
+            desktopInstructor: true
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleGoNext = this.handleGoNext.bind(this);
@@ -33,6 +34,12 @@ class Card extends React.Component {
         }))
     };
 
+    handleDeskInstructor = e => {
+        e.preventDefault();
+        this.setState({
+            desktopInstructor: false
+        })
+    };
     handleGoNext = (e) => {
         console.log(e)
         e.preventDefault();
@@ -85,12 +92,14 @@ class Card extends React.Component {
                         
 
                     </ReactCardFlip>
-
-                    <span className='desktop-instructor'>
-                        <i class="fas fa-times"></i>
+                {this.state.desktopInstructor ? 
+                    <div className='desktop-instructor'>
+                        <i className="fas fa-times" onClick={this.handleDeskInstructor}></i>
                         <i className="fas fa-mouse-pointer"></i>
                         <p>Click card to flip</p>
-                    </span>
+                    </div> : null
+                }
+                    
                 </div>
                 
             <div className='tap-instructor'>

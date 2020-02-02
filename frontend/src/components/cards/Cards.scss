@@ -219,14 +219,25 @@
         width: 164px;
         border: 1px solid #F66E00;
         border-radius: 4px;
-        
+        .fa-times{
+          position: relative;
+          right: -40%;
+          top: -20%;
+          opacity: .5;
+          cursor: pointer;
+          &:hover{
+            opacity: 1;
+          }
+        }
         .fa-mouse-pointer{
           margin-bottom: 20px;
           font-size: 1.8rem;
         }
-        
         @media only screen and (max-width: 1450px){
           margin-right: 78px;
+        }
+        @media only screen and (max-width: 1000px){
+          display: none;
         }
       }
     }
