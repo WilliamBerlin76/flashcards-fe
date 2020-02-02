@@ -66,23 +66,33 @@ class Card extends React.Component {
         return (
             
            <div className = "container">
-            <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
-        
-                <div className = "card__face card__face--front">
-                    <button 
-                        className = "cardstyle" 
-                        onClick = {this.handleClick}
-                    >{this.props.card.data.front}</button>
+                <div className='card-section'>
+                    <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
+                        
+                        <div className = "card__face card__face--front">
+                            <button 
+                                className = "cardstyle" 
+                                onClick = {this.handleClick}
+                            >{this.props.card.data.front}</button>
+                        </div>
+
+                        <div className = 'card__face card__face--back'>
+                            <button 
+                                className = "cardstyle-back" 
+                                onClick = {this.handleClick}
+                            >{this.props.card.data.back}</button>
+                        </div>
+                        
+
+                    </ReactCardFlip>
+
+                    <span className='desktop-instructor'>
+                        <i class="fas fa-times"></i>
+                        <i className="fas fa-mouse-pointer"></i>
+                        <p>Click card to flip</p>
+                    </span>
                 </div>
-    
-                <div className = 'card__face card__face--back'>
-                    <button 
-                        className = "cardstyle-back" 
-                        onClick = {this.handleClick}
-                    >{this.props.card.data.back}</button>
-                </div>
-        
-            </ReactCardFlip>
+                
             <div className='tap-instructor'>
                 <p className = "instruct">Tap card to flip</p>
                     <div className = "shineholder">
