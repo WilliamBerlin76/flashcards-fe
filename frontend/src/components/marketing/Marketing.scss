@@ -411,7 +411,7 @@
   // margin-left: 50%;
   position: absolute;
   width: 310px;
-  height: 350px;
+  // height: 350px;
   left: 550px;
   top: 1039px;
   .orangewords{
@@ -544,7 +544,7 @@
     line-height: 147px;
     text-align: center;
     position: absolute;
-    left: 490px;
+    left: 430px;
     top: 250px;
     
   }
@@ -567,7 +567,7 @@
 .topwordsholder {
   position: absolute;
   top: 10px;
-  right: 1050px;
+  right: 1030px;
   .topwords {
     position: absolute;
     width: 800px;
@@ -588,7 +588,7 @@
   position: absolute;
   width: 900px;
   top: 0px;
-  right: 670px;
+  right: 570px;
   .flexup{
     width: 50%;
     margin-right: 10%;
@@ -634,7 +634,7 @@
   // margin-left: 50%;
   position: absolute;
   width: 310px;
-  height: 350px;
+  // height: 350px;
   left: 650px;
   top: 1039px;
   .orangewords{
@@ -737,7 +737,9 @@
 
 @media screen and (min-width: 1100px) {
 
-
+  .page{
+    margin: 1rem 12rem;
+  }
   .top-holder{
     .welcome {
       position: absolute;
@@ -748,18 +750,22 @@
     }
     .title{
       position: absolute;
-      left: 580px;
+      left: 480px;
     }
     .pro{
-      left: 240px;
+      left: 200px;
     }
   };
 
 
   .topwordsholder{
     position: absolute;
-    right: 1160px;
+    right: 1100px;
     bottom:700px; 
+  }
+  .buttons{
+    position: absolute;
+    right: 640px;
   }
   .piconeholder{
     .picone{
@@ -789,7 +795,7 @@
   }
   .join {
     position: absolute;
-    right: 610px;
+    right: 510px;
   };
   
   .bottomb{
@@ -805,7 +811,9 @@
 
 @media screen and (min-width: 1200px) {
 
-
+  .page{
+    margin: 1rem 12rem;
+  }
   .top-holder{
     .welcome {
       position: absolute;
@@ -872,7 +880,9 @@
 };
 
 @media screen and (min-width: 1300px) {
-
+  .page{
+    margin: 1rem 12rem;
+  }
 
   .top-holder{
     .welcome {
@@ -909,7 +919,7 @@
   };
 
   .study{
-    left:90px;
+    left:60px;
   }
   .pictwoholder{
     .pictwo{
@@ -925,7 +935,7 @@
   }
   .join {
     position: absolute;
-    right: 770px;
+    right: 690px;
   };
   
   .bottomb{
@@ -951,12 +961,12 @@
       
     .title{
       position: absolute;
-      left: 800px;
+      left: 720px;
     }
   }
 .topwordsholder{
   position: absolute;
-  right: 1400px;
+  right: 1200px;
 }
 
 .piconeholder{
@@ -966,7 +976,7 @@
 .orange{
   position: absolute;
   left: 900px;
-  height: 100px;
+  // height: 100px;
   bottom: 400px;
 }
 .study{
@@ -979,7 +989,7 @@
 }
 .join{
   position: absolute;
-  right: 800px;
+  right: 650px;
 }
 
 .picthreeholder{
@@ -992,6 +1002,303 @@
 }
 };
 
+// @media screen and (min-width: 1400px) {
+//   .page{
+//     margin: 1rem 12rem;
+//   }
+//     .top-holder{
+//       .welcome{
+//         position: absolute;
+//         left: 300px;
+//       }
+        
+//       .title{
+//         position: absolute;
+//         left: 820px;
+//       }
+//     }
+//   .topwordsholder{
+//     position: absolute;
+//     right: 1300px;
+//   }
+  
+//   .piconeholder{
+//     position: absolute;
+//     left: 380px;
+//   }
+//   .orange{
+//     position: absolute;
+//     left: 900px;
+//     // height: 100px;
+//     bottom: 400px;
+//   }
+//   .study{
+//     position: absolute;
+//     left: 200px;
+//   }
+//   .pictwoholder{
+//     position: absolute;
+//     left: 700px;
+//   }
+//   .join{
+//     position: absolute;
+//     right: 790px;
+//   }
+  
+//   .picthreeholder{
+//     position: absolute;
+//     left: 800px;
+//   }
+//   .bottomb{
+//     position: absolute;
+//     left: 580px;
+//   }
+//   };
+
+  @media screen and (min-width: 1400px) {
+    .page{
+      margin: 1rem 12rem;
+    }
+      .top-holder{
+        .welcome{
+          position: absolute;
+          left: 300px;
+        }
+          
+        .title{
+          position: absolute;
+          left: 720px;
+        }
+      }
+    .topwordsholder{
+      position: absolute;
+      right: 1300px;
+    }
+    .buttons{
+      position: absolute;
+      right: 780px;
+    }
+    .piconeholder{
+      position: absolute;
+      left: 380px;
+    }
+    .orange{
+      // position: absolute;
+      left: 900px;
+      // height: 100px;
+      bottom: 400px;
+    }
+    .study{
+      position: absolute;
+      left: 200px;
+    }
+    .pictwoholder{
+      position: absolute;
+      left: 700px;
+    }
+    .join{
+      position: absolute;
+      right: 690px;
+    }
+    
+    .picthreeholder{
+      position: absolute;
+      left: 800px;
+    }
+    .bottomb{
+      position: absolute;
+      left: 580px;
+    }
+    };
+    @media screen and (min-width: 1500px) {
+      .page{
+        margin: 1rem 12rem;
+      }
+        .top-holder{
+          .welcome{
+            position: absolute;
+            left: 300px;
+          }
+            
+          .title{
+            position: absolute;
+            left: 760px;
+          }
+        }
+      .topwordsholder{
+        position: absolute;
+        right: 1300px;
+      }
+      .buttons{
+        position: absolute;
+        right: 780px;
+      }
+      .piconeholder{
+        position: absolute;
+        left: 380px;
+      }
+      .orange{
+        // position: absolute;
+        left: 900px;
+        // height: 100px;
+        bottom: 400px;
+      }
+      .study{
+        position: absolute;
+        left: 200px;
+      }
+      .pictwoholder{
+        position: absolute;
+        left: 700px;
+      }
+      .join{
+        position: absolute;
+        right: 770px;
+      }
+      
+      .picthreeholder{
+        position: absolute;
+        left: 800px;
+      }
+      .bottomb{
+        position: absolute;
+        left: 580px;
+      }
+      };
+      @media screen and (min-width: 1600px) {
+        .page{
+          margin: 1rem 12rem;
+        }
+          .top-holder{
+            .welcome{
+              position: absolute;
+              left: 300px;
+            }
+              
+            .title{
+              position: absolute;
+              left: 590px;
+            }
+            .pro{
+              position: absolute;
+              left: 30px;
+            }
+          }
+        .topwordsholder{
+          position: absolute;
+          right: 1700px;
+          .topwords {
+            position: absolute;
+            width: 800px;
+            // height: 78px;
+            left: 420px;
+            top: 545px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 48px;
+            line-height: 56px;
+        
+          };
+        }
+        .buttons{
+          position: absolute;
+          right: 970px;
+        }
+        .piconeholder{
+          position: absolute;
+          left: 380px;
+        }
+        .orange{
+          // position: absolute;
+          left: 900px;
+          // height: 100px;
+          bottom: 400px;
+          
+        }
+        .study{
+          position: absolute;
+          left: 100px;
+        }
+        .pictwoholder{
+          position: absolute;
+          left: 700px;
+        }
+        .join{
+          position: absolute;
+          right: 850px;
+        }
+        
+        .picthreeholder{
+          position: absolute;
+          left: 800px;
+        }
+        .bottomb{
+          position: absolute;
+          left: 580px;
+        }
+        };
+
+        @media screen and (min-width: 1700px) {
+          .page{
+            margin: 1rem 12rem;
+          }
+            .top-holder{
+              .welcome{
+                position: absolute;
+                left: 300px;
+              }
+                
+              .title{
+                position: absolute;
+                left: 760px;
+              }
+              .pro{
+                position: absolute;
+                left: 30px;
+              }
+            }
+          .topwordsholder{
+            position: absolute;
+            right: 1700px;
+          }
+          .buttons{
+            position: absolute;
+            right: 1200px;
+          }
+          .piconeholder{
+            position: absolute;
+            left: 380px;
+          }
+          .orange{
+            // position: absolute;
+            left: 900px;
+            // height: 100px;
+            bottom: 400px;
+            
+          }
+          .study{
+            position: absolute;
+            left: 100px;
+          }
+          .pictwoholder{
+            position: absolute;
+            left: 700px;
+          }
+          .join{
+            position: absolute;
+            right: 800px;
+          }
+          
+          .picthreeholder{
+            position: absolute;
+            left: 800px;
+          }
+          .bottomb{
+            position: absolute;
+            left: 580px;
+          }
+          };
 @media screen and (max-width: 900px) {
   .study{
     display: none;
