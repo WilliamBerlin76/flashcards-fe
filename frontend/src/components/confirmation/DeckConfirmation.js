@@ -94,7 +94,7 @@ function DeckConfirmation(props) {
         Sure you want to {action === 'deleteArchived' ? 'delete' : action} this
         deck?
       </p>
-      <div className='buttons'>
+      <div className='buttons-div'>
         <p onClick={() => history.goBack()} className='go-back'>
           ← No, go back
         </p>
