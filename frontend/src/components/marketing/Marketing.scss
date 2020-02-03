@@ -949,58 +949,58 @@
   }
 };
 
-@media screen and (min-width: 1400px) {
-.page{
-  margin: 1rem 12rem;
-}
-  .top-holder{
-    .welcome{
-      position: absolute;
-      left: 300px;
-    }
+// @media screen and (min-width: 1400px) {
+// .page{
+//   margin: 1rem 12rem;
+// }
+//   .top-holder{
+//     .welcome{
+//       position: absolute;
+//       left: 300px;
+//     }
       
-    .title{
-      position: absolute;
-      left: 720px;
-    }
-  }
-.topwordsholder{
-  position: absolute;
-  right: 1200px;
-}
+//     .title{
+//       position: absolute;
+//       left: 720px;
+//     }
+//   }
+// .topwordsholder{
+//   position: absolute;
+//   right: 1200px;
+// }
 
-.piconeholder{
-  position: absolute;
-  left: 380px;
-}
-.orange{
-  position: absolute;
-  left: 900px;
-  // height: 100px;
-  bottom: 400px;
-}
-.study{
-  position: absolute;
-  left: 200px;
-}
-.pictwoholder{
-  position: absolute;
-  left: 700px;
-}
-.join{
-  position: absolute;
-  right: 650px;
-}
+// .piconeholder{
+//   position: absolute;
+//   left: 380px;
+// }
+// .orange{
+//   position: absolute;
+//   left: 900px;
+//   // height: 100px;
+//   bottom: 400px;
+// }
+// .study{
+//   position: absolute;
+//   left: 200px;
+// }
+// .pictwoholder{
+//   position: absolute;
+//   left: 700px;
+// }
+// .join{
+//   position: absolute;
+//   right: 450px;
+// }
 
-.picthreeholder{
-  position: absolute;
-  left: 800px;
-}
-.bottomb{
-  position: absolute;
-  left: 580px;
-}
-};
+// .picthreeholder{
+//   position: absolute;
+//   left: 800px;
+// }
+// .bottomb{
+//   position: absolute;
+//   left: 580px;
+// }
+// };
 
 // @media screen and (min-width: 1400px) {
 //   .page{
@@ -1098,7 +1098,7 @@
     }
     .join{
       position: absolute;
-      right: 690px;
+      right: 640px;
     }
     
     .picthreeholder{
@@ -1226,7 +1226,7 @@
         }
         .join{
           position: absolute;
-          right: 850px;
+          right: 890px;
         }
         
         .picthreeholder{
@@ -1299,6 +1299,66 @@
             left: 580px;
           }
           };
+          @media screen and (min-width: 1900px) {
+            .page{
+              margin: 1rem 12rem;
+            }
+              .top-holder{
+                .welcome{
+                  position: absolute;
+                  left: 300px;
+                }
+                  
+                .title{
+                  position: absolute;
+                  left: 860px;
+                }
+                .pro{
+                  position: absolute;
+                  left: 100px;
+                }
+              }
+            .topwordsholder{
+              position: absolute;
+              right: 2000px;
+            }
+            .buttons{
+              position: absolute;
+              right: 1200px;
+            }
+            .piconeholder{
+              position: absolute;
+              left: 480px;
+            }
+            .orange{
+              // position: absolute;
+              left: 1000px;
+              // height: 100px;
+              bottom: 400px;
+              
+            }
+            .study{
+              position: absolute;
+              left: 170px;
+            }
+            .pictwoholder{
+              position: absolute;
+              left: 800px;
+            }
+            .join{
+              position: absolute;
+              right: 1150px;
+            }
+            
+            .picthreeholder{
+              position: absolute;
+              left: 800px;
+            }
+            .bottomb{
+              position: absolute;
+              left: 580px;
+            }
+            };
 @media screen and (max-width: 900px) {
   .study{
     display: none;
