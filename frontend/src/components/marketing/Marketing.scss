@@ -362,7 +362,7 @@
 
 .buttons{
   position: absolute;
-  width: 900px;
+  width: 500px;
   top: 0px;
   right: 470px;
   .flexup{
@@ -586,9 +586,9 @@
 
 .buttons{
   position: absolute;
-  width: 900px;
+  width: 500px;
   top: 0px;
-  right: 570px;
+  right: 470px;
   .flexup{
     width: 50%;
     margin-right: 10%;
@@ -614,6 +614,7 @@
     }
   }
 };
+
 
 .piconeholder{
   // margin-top: 19%;
@@ -831,7 +832,37 @@
     }
   };
 
-
+  .buttons{
+    position: absolute;
+    width: 500px;
+    top: 0px;
+    right: 670px;
+    .flexup{
+      width: 50%;
+      margin-right: 10%;
+      // margin-left: -77%;
+      left: 160px;
+      top: 760px;
+      position: absolute;
+   
+      .signup {
+        width: 100%;
+        
+      }
+    }
+  
+    .flexsign{
+      width: 50%;
+      margin-top: 4%;
+      position: absolute;
+      top: 740px;
+      left: 460px;
+      .signin{
+        width: 100%;
+      }
+    }
+  };
+  
   .topwordsholder{
     position: absolute;
     right: 1160px;
