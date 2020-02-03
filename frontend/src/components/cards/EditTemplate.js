@@ -13,23 +13,21 @@ import './Cards.scss';
 import { editCard } from '../../actions';
 import firebase from 'firebase';
 
-
 class EditTemplate extends React.Component {
-	constructor(props) {		
-		super(props);
-		this.state = {			
-			singleCard: {				
-				front: this.props.card.front,
-				back: this.props.card.back,
-				archived: this.props.card.archived,
-				 edited: [],
-				 completed: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      singleCard: {
+        front: this.props.card.front,
+        back: this.props.card.back,
+        archived: this.props.card.archived,
+        edited: [],
+        completed: false,
+        deleted: this.props.deleted
       }
-           
-		};		
-		// console.log(this.state);
-
-	}
+    };
+    // console.log(this.state);
+  }
 
   archiveCard = e => {
     e.preventDefault();
@@ -121,11 +119,27 @@ class EditTemplate extends React.Component {
         let card = {
           id: this.props.id
         };
+        let newCurrentDeck = [];
+        this.props.currentDeck.map(c => {
+          if (c.id === card.id) {
+            newCurrentDeck.push({
+              id: c.id,
+              data: {
+                front: c.data.front,
+                back: c.data.back,
+                archived: c.data.archived,
+                deleted: true
+              }
+            });
+          } else {
+            newCurrentDeck.push(c);
+          }
+        });
         if (this.props.deletedDeck.length > 0) {
           let newDeck = [...this.props.deletedDeck, card];
-          this.props.deleteDeck(newDeck);
+          this.props.deleteDeck(newDeck, newCurrentDeck);
         } else {
-          this.props.deleteDeck([card]);
+          this.props.deleteDeck([card], newCurrentDeck);
         }
       }
     );
@@ -167,19 +181,28 @@ class EditTemplate extends React.Component {
                   <div>
                     {this.state.singleCard.archived ? (
                       <i
-                        class='fas fa-folder'
+                        className='fas fa-folder'
                         onClick={e => this.archiveCard(e)}
                       ></i>
                     ) : (
                       <i
-                        class='fas fa-folder-open'
+                        className='fas fa-folder'
                         onClick={e => this.archiveCard(e)}
+                        style={{ opacity: 0.5, cursor: 'pointer' }}
                       ></i>
                     )}
-                    <i
-                      class='fas fa-trash'
-                      onClick={e => this.addCardtoDeleted(e)}
-                    ></i>
+                    {this.state.singleCard.deleted ? (
+                      <i
+                        className='fas fa-trash'
+                        onClick={e => this.addCardtoDeleted(e)}
+                      ></i>
+                    ) : (
+                      <i
+                        className='fas fa-trash'
+                        onClick={e => this.addCardtoDeleted(e)}
+                        style={{ opacity: 0.4, cursor: 'pointer' }}
+                      ></i>
+                    )}
                   </div>
                 </div>
 

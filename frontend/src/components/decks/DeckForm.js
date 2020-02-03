@@ -10,6 +10,8 @@ import { withStyles } from '@material-ui/core/styles';
 import notebook from '../../assets/notebook.png';
 import graduate from '../../assets/graduate.png';
 import audio from '../../assets/audio.png';
+import Footer from '../footer/Footer';
+
 
 const OrangeInput = withStyles({
   root: {
@@ -82,15 +84,15 @@ const DeckForm = props => {
     const subDeck = newDecks.filter(card => {
       return card.front && card.back;
     });
-    if(!newName.deckName){
+    if (!newName.deckName) {
       // insures deckname is filled
-      alert('Please add a Deck Name')
+      alert('Please add a Deck Name');
     } else {
       props.postDecks(subDeck, newName, tags, newIcon);
       // gives time for firestore to update so that deck shows up in dashboard
       setTimeout(() => {
         props.history.push(`/dashboard`);
-      }, 400)
+      }, 400);
     }
   };
 
@@ -195,55 +197,49 @@ const DeckForm = props => {
               <h3 className='flashcards'>Flashcards</h3>
 
               <div className='new'>New card</div>
-              <div className ="top">
-              
-
-              {newDecks.forEach((newDeck, index) => (
-                <Fragment key={`${newDeck}~${index}`}>
-                  <div className='topCard'>
-                    <label htmlFor='front' className='frontLabel'>
-                      Front
-                    </label>
-                    <textarea
-                      className='frontCard'
-                      type='text'
-                      onChange={event => handleChanges(index, event)}
-                      name='front'
-                      placeholder='Term'
-                      value={newDeck.front}
-                      multiline={true}
-                    />
-
-                    <div className='backHolder'>
-                      <label htmlFor='back' className='backLabel'>
-                        Back
+              <div className='top'>
+                {newDecks.forEach((newDeck, index) => (
+                  <Fragment key={`${newDeck}~${index}`}>
+                    <div className='topCard'>
+                      <label htmlFor='front' className='frontLabel'>
+                        Front
                       </label>
                       <textarea
-                        className='backCard'
+                        className='frontCard'
                         type='text'
                         onChange={event => handleChanges(index, event)}
-                        name='back'
-                        value={newDeck.back}
-                        placeholder='Definition'
+                        name='front'
+                        placeholder='Term'
+                        value={newDeck.front}
+                        multiline={true}
                       />
+
+                      <div className='backHolder'>
+                        <label htmlFor='back' className='backLabel'>
+                          Back
+                        </label>
+                        <textarea
+                          className='backCard'
+                          type='text'
+                          onChange={event => handleChanges(index, event)}
+                          name='back'
+                          value={newDeck.back}
+                          placeholder='Definition'
+                        />
+                      </div>
+
+                      <button type='button' onClick={() => handleRemove(index)}>
+                        X
+                      </button>
                     </div>
-                   
-                    <button type='button' onClick={() => handleRemove(index)}>
-                      X
-                    </button>
-                  </div>
-                  
-                  {/* <button
+
+                    {/* <button
                 type = "button"
                 onClick = {() => handleAdd()}>
                     Add Card
                 </button> */}
-
-
-                </Fragment>
-                
-              ))}
-              
+                  </Fragment>
+                ))}
               </div>
             </form>
           </div>
@@ -288,22 +284,27 @@ const DeckForm = props => {
                     />
                   </div>
                 </div>
-                {index === 0 ?               <div className='buttonHolder'>
-            <button type='button' className='add' onClick={() => handleAdd()}>
-              Add card
-            </button>
+                {index === 0 ? (
+                  <div className='buttonHolders'>
+                    <button
+                      type='button'
+                      className='add'
+                      onClick={() => handleAdd()}
+                    >
+                      Add card
+                    </button>
 
-            <button
-              className='save'
-              // onSubmit = {handleSubmit}
-              // onClick = {() => props.history.push(`/decklist`)}
-              onClick={handleSubmit}
-            >
-              Save deck
-            </button>
-            <div className = "created">Cards in deck</div>
-          </div>
-           : null}
+                    <button
+                      className='save'
+                      // onSubmit = {handleSubmit}
+                      // onClick = {() => props.history.push(`/decklist`)}
+                      onClick={handleSubmit}
+                    >
+                      Save deck
+                    </button>
+                    <div className='created'>Cards in deck</div>
+                  </div>
+                ) : null}
                 {/* <button
                             type = "button"
                             onClick = {() => handleAdd()}>
@@ -314,7 +315,8 @@ const DeckForm = props => {
           </form>
         </div>
       </div>
-      <div className = "studystuff">
+      <Footer />
+      {/* <div className = "studystuff">
         <div className = "studywords">
           <h3 className ="bigStudy">Study Tips</h3>
           <h4 className = "other">and other bits</h4>
@@ -331,7 +333,7 @@ const DeckForm = props => {
           <img className = "audpic" src = {audio} alt = {'a person listening to audio'} />
           <p className = "audwords">Discover what mNeme has in store for the future</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,20 +1,27 @@
 .back {
-  
   margin-left: 1rem;
-  &:hover{
-      cursor: pointer;
+  &:hover {
+    cursor: pointer;
   }
 }
 
 .header {
-  background-color: #F66E00;
+  background-color: #f66e00;
   padding-bottom: 2rem;
   display: flex;
   align-items: center;
-  .deck-name{
-      color: #FAFAFA;
-      margin-bottom: 25px;
-      margin-left: 10px;
-      cursor: pointer;
+  .deck-name {
+    color: #fafafa;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    cursor: pointer;
   }
+}
+
+.card-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }

@@ -18,9 +18,9 @@ const Cards = props => {
   }, []);
 
   useEffect(() => {
-    if(props.deckcards){
+    if (props.deckcards) {
       let filteredCards = props.deckcards.filter(card => !card.data.archived);
-    
+
       setDeck(filteredCards);
     }
   }, [props.deckcards]);
@@ -34,7 +34,7 @@ const Cards = props => {
     } else {
       setCurrentCard(index + 1);
       console.log(currentCard);
-      console.log("test");
+      console.log('test');
     }
   };
 
@@ -60,20 +60,24 @@ const Cards = props => {
     return (
       <div className='page'>
         <div className='loading-background'>
-          <img
-            className='back'
-            src={poly}
-            alt='back-arrow'
-            onClick={() => history.goBack()}
-          />
-          <h1 className='deckName'>{props.match.params.deckName}</h1>
+          <div className='back-button-and-header'>
+            <img
+              className='back'
+              src={poly}
+              alt='back-arrow'
+              onClick={() => history.goBack()}
+            />
+            <h1 className='deckNames' onClick={() => history.goBack()}>
+              {props.match.params.deckName}
+            </h1>
+          </div>
 
           <h4 className='listCards'>{deck.length}</h4>
           <h5 className='cardsHeader'>Cards</h5>
 
           {/* <div className = "rightside"> */}
-            <img className='smile' src={smiley} alt={'a smiling emoji'} />
-            <h4 className='mastered'>Mastered</h4>
+          <img className='smile' src={smiley} alt={'a smiling emoji'} />
+          <h4 className='mastered'>Mastered</h4>
           {/* </div> */}
         </div>
 
