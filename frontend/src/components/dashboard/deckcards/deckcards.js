@@ -63,7 +63,6 @@ const DeckCards = props => {
           )}
           {showMenu ? <DeckMenu colId={props.deckName} /> : null}
         </div>
-        
 
         <div
           className='deck'
