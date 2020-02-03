@@ -94,7 +94,7 @@
       font-size: 1.1rem;
     }
   }
-  .study {
+  .stud {
     margin-left: 5%;
   }
 
@@ -247,9 +247,9 @@
     margin-bottom: 5%;
   }
 
-  .study {
+  .stud {
     // width: 100%;
-    .studywords {
+    .studyword {
       width: 68%;
       font-size: 1.1rem;
       margin-left: 17%;
@@ -424,6 +424,9 @@
   }
 }
 
+.stud{
+  display: none;
+}
 .study{
   position: absolute;
   top: 1140px;
@@ -988,3 +991,9 @@
   left: 580px;
 }
 };
+
+@media screen and (max-width: 900px) {
+  .study{
+    display: none;
+  }
+}
