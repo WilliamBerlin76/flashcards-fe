@@ -315,8 +315,10 @@ const DeckForm = props => {
         </div>
       </div>
       <div className = "studystuff">
-        <h2 className ="bigStudy">Study Tips</h2>
-        <p className = "other">and other bits</p>
+        <div className = "studywords">
+          <h3 className ="bigStudy">Study Tips</h3>
+          <h4 className = "other">and other bits</h4>
+        </div>
         <div className = "note">
           <img className = "notebook" src = {notebook} alt = {'a notebook'} />
           <p className = "notewords">What exactly is spaced-repition and how it can help you</p>
