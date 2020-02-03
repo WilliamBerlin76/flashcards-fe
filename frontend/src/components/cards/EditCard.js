@@ -181,7 +181,7 @@ const Cards = props => {
 		);
 	} else {
 		return (
-			<div className="page">
+			<div className="pages">
 				<div className="loading-background">
 					<div className="back-button-and-header">
 						{/* <div className='time'>
