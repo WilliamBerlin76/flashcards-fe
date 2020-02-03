@@ -7,8 +7,10 @@ import {
   Header,
   Checkbox,
   Input,
-  TextArea
+  TextArea, 
 } from 'semantic-ui-react';
+import TextareaAutosize from "react-textarea-autosize";
+
 import './Cards.scss';
 import { editCard } from '../../actions';
 import firebase from 'firebase';

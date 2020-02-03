@@ -713,9 +713,9 @@
 		align-items: center;
     justify-content: center;
     
-    @media screen and (min-width: 600px) {
-      margin: 1rem 12rem;
-    }
+    // @media screen and (min-width: 600px) {
+    //   margin: 1rem 12rem;
+    // }
 
 		.search {
 			border-bottom: 1.5px solid rgba(106, 92, 85, 0.5);
@@ -729,19 +729,19 @@
 		margin-bottom: 1.3rem;
 
 		.segments {
-			border: 0.5px solid rgba(106, 92, 85, 0.3);
-			box-sizing: border-box;
-			border-radius: 5px;
+		// 	border: 0.5px solid rgba(106, 92, 85, 0.3);
+		// 	box-sizing: border-box;
+		// 	border-radius: 5px;
 
-			@media screen and (min-width: 475px) {
-				width: 31rem;
-      }
-      @media screen and (min-width: 600px) {
-				width: 41rem;
-      }
-      @media screen and (min-width: 900px) {
-				width: 31rem;
-			}
+			// @media screen and (min-width: 475px) {
+			// 	width: 120%;
+      // }
+      // @media screen and (min-width: 600px) {
+			// 	width: 190%;
+      // }
+      // @media screen and (min-width: 900px) {
+			// 	width: 50%;
+			// }
 		}
 		.headers {
 			color: #f66e00 !important;
@@ -829,10 +829,7 @@
   .desktitle-back2 {
 		display: none;
   }
-  // .mobilemaster{
-  //   display: none;
-
-  // }
+  
 }
 
 
@@ -865,9 +862,9 @@
 	cursor: pointer;
 }
 
-.div-form {
-	margin-bottom: 5rem;
-}
+// .div-form {
+// 	margin-bottom: 5rem;
+// }
 
 .new-card {
 	// padding: 0 25px 25px;
@@ -875,7 +872,7 @@
 
 	.container {
 		display: block;
-		width: 91%;
+		// width: 91%;
 		margin: 0 auto;
 
 		.segments {
@@ -910,36 +907,56 @@
 }
 
 @media screen and (min-width: 950px) {
-	.page {
-	}
+	.segments {
+    margin: 0;
+  }
 	.btn2 {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.4rem;
+    margin-top: -50px;
 	}
 	//   
 
 
   .bottomSection{
+    padding: 0px 25px 0px;
     	.div-form {
 	  margin-bottom: 5rem;
     display: flex;
     flex-direction: row;
-	  flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
     // align-content: center;
     //   align-items: center;
     //   text-align: center;
     //   flex-flow: wrap;
-
+    .container{
+      width: 22%; 
+      display: flex;
+      justify-content: center;
+      margin: 0 2px;
+      
+    }
+  
   }
   }
 	.cardData {
 	    padding: 5px;
 	    // width: 100px;
 	    // height: 100px;
-	    margin: 10px;
+      // margin: 10px;
+      
+    .segments{
+    margin: 0 5px; 
+    }
+    .cardList{
+      margin: 0 5px; 
+
+    }
     }
 
 //   .formTitle{
@@ -986,11 +1003,11 @@
 		padding: 0 4rem;
 
 		.mobilemaster {
-			// display: contents;
 		
 			.card-length {
 				margin-left: 2%;
-			}
+      }
+     
 		}
 		.mobilenum {
 			display: flex;
@@ -1035,7 +1052,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 14rem 0;
+		margin-top: 10rem;
 
 		.DeskTitle {
 			width: 100%;
@@ -1114,4 +1131,10 @@
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 950px){
+  .mobilemaster{
+  display: none;
+  }
 }

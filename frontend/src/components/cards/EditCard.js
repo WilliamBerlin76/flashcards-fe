@@ -19,7 +19,7 @@ import {
 	Input,
 	Form,
 	Icon,
-	TextArea
+  TextArea
 } from "semantic-ui-react";
 import audio from "../../assets/audio.png";
 import graduate from "../../assets/graduate.png";
@@ -271,10 +271,10 @@ const Cards = props => {
 				</div>
 				{newCard ? (
 					<div className="new-card">
-						<div className="container">
+						<div className="container"> 
 							<div className="cardList">
 								<div className="cardData ">
-									<Segment className="segments">
+									<Segment className="segment">
 										<div className="cardTop">
 											<Header as="h5" className="headers">
 												Front
