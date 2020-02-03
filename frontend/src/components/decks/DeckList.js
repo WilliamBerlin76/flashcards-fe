@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { getDecks } from '../../actions';
 import smileyface from './smileyface.png';
 import './DeckList.scss';
+import Footer from '../footer/Footer';
 
 const DeckList = props => {
   useEffect(() => {
@@ -62,7 +63,7 @@ const DeckList = props => {
           <p className='recentDeck'>Recent Deck</p>
           <p className='allDeck'>All Decks</p>
         </div>
-        <div className='deckList'>
+        <div className='decks-section'>
           {props.error && <p>{props.error}</p>}
           {props.decks.map(deck => (
             <DeckCards
@@ -73,6 +74,7 @@ const DeckList = props => {
             />
           ))}
         </div>
+        <Footer />
         {/* <div className = "button">
                   <button className = "btn1">Create</button>
                   <button className = "btn2" >Update Settings</button>

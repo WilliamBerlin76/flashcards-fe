@@ -61,8 +61,9 @@ const DeckCards = props => {
           ) : (
             <i className='fas fa-ellipsis-h'></i>
           )}
+          {showMenu ? <DeckMenu colId={props.deckName} /> : null}
         </div>
-        {showMenu ? <DeckMenu colId={props.deckName} /> : null}
+        
 
         <div
           className='deck'

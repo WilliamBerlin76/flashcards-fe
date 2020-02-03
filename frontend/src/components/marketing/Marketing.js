@@ -51,9 +51,12 @@ const Marketing = () => {
         <div className = "pictwoholder">
             <img className = "pictwo" src = {landingtwo} alt = {'two people holding a smiley face'} />
         </div>
+        <div className = "stud">
+            <h3 className = 'studyword'>Students have seen a improvement in their grades and continue to use mNeme through out all stages of their education</h3>
+        </div>
 
         <div className = "study">
-            <h3 className = 'studywords'>Students have seen a 87% improvement in their grades and continue to use mNeme through out all stages of their education</h3>
+            <h3 className = 'studywords'>Students have seen a <h3 className = "percent">87%</h3> improvement in their grades and continue to use mNeme through out all stages of their education</h3>
         </div>
 
         <div className = "picthreeholder">
@@ -62,9 +65,13 @@ const Marketing = () => {
 
         <h3 className = "join">Join mNeme today</h3>
 
+        <div className = "bottomb">
         <Link to = '/login'>
+
             <button className = "signuptwo">Sign Up</button>
+  
         </Link>
+        </div>
 
         </div>
     )
