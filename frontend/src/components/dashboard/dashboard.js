@@ -44,7 +44,7 @@ const Dashboard = props => {
           <span>This Week</span>
           <span>Lifetime</span>
         </div> */}
-        <div className='studied'>
+        <div className='studied-dash'>
           <div className='numbers'>
             <span className='studied-number'>55</span>
             <span className='mastered-number'>15</span>
