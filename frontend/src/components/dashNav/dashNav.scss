@@ -4,13 +4,35 @@
   padding: 15px 25px 35px;
   display: flex;
   justify-content: space-between;
+  cursor: default;
+  @media only screen and (min-width: 1000px){
+    height: 120px;
+    padding: 40px 80px;
+    
+  }
   .mNeme {
     .m {
       font-size: 0.8rem;
+      @media only screen and (min-width: 1000px){
+        font-size: 1.85rem;
+      }
     }
     .neme {
       font-weight: bold;
       font-size: 1.2rem;
+      @media only screen and (min-width: 1000px){
+        font-size: 2.3rem;
+      }
+    }
+  }
+  .desk-dash-pic{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin-right: 50px;
+    margin-top: -25px;
+    @media only screen and (max-width: 1000px){
+      display: none;
     }
   }
 }

@@ -144,7 +144,7 @@ const DeckForm = props => {
           onClick={() => props.history.goBack()}
         />
 
-        <h1 className='deckName'>Create new deck</h1>
+        <h1 className='deckName-add'>Create new deck</h1>
         </div>
         {/* <div className = "rightside"> */}
         <div className='number'>

@@ -19,7 +19,8 @@ class Card extends React.Component {
         this.state = {
             isFlipped: false,
             flipSpeedBackToFront: 0.001,
-            flipSpeedFrontToBack: 0.001
+            flipSpeedFrontToBack: 0.001,
+            desktopInstructor: true
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleGoNext = this.handleGoNext.bind(this);
@@ -33,6 +34,12 @@ class Card extends React.Component {
         }))
     };
 
+    handleDeskInstructor = e => {
+        e.preventDefault();
+        this.setState({
+            desktopInstructor: false
+        })
+    };
     handleGoNext = (e) => {
         console.log(e)
         e.preventDefault();
@@ -55,7 +62,7 @@ class Card extends React.Component {
             return    (       
             <div className = "loader">
 
-            <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
+                <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
 
             </div>
             )
@@ -65,34 +72,51 @@ class Card extends React.Component {
 
         return (
             
-         
            <div className = "container">
+                <div className='card-section'>
+                    <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
+                        
+                        <div className = "card__face card__face--front">
+                            <button 
+                                className = "cardstyle" 
+                                onClick = {this.handleClick}
+                            >{this.props.card.data.front}</button>
+                        </div>
 
-            <ReactCardFlip isFlipped = {this.state.isFlipped} flipDirection = "horizontal"> 
-        
-                    <div className = "card__face card__face--front">
-                        <button className = "cardstyle" onClick = {this.handleClick}>{this.props.card.data.front}</button>
-                    </div>
-        
-                    <div className = 'card__face card__face--back'>
-                        <button className = "cardstyle-back" onClick = {this.handleClick}>{this.props.card.data.back}</button>
-                    </div>
-        
-                   
-            </ReactCardFlip>
+                        <div className = 'card__face card__face--back'>
+                            <button 
+                                className = "cardstyle-back" 
+                                onClick = {this.handleClick}
+                            >{this.props.card.data.back}</button>
+                        </div>
+                        
 
-            <p className = "instruct">Tap card to flip</p>
-            <div className = "shineholder">
-            <img className = "shineone" src = {shineone} alt = {'shine'} />
-            <img className = "shinetwo" src = {shinetwo} alt = {'shine'} />
-            <img className = "shinethree" src = {shinethree} alt = {'shine'} />
-            <img className = "shinefour" src = {shinefour} alt = {'shine'} />
-            <img className = "shinefive" src = {shinefive} alt = {'shine'} />
+                    </ReactCardFlip>
+                {this.state.desktopInstructor ? 
+                    <div className='desktop-instructor'>
+                        <i className="fas fa-times" onClick={this.handleDeskInstructor}></i>
+                        <i className="fas fa-mouse-pointer"></i>
+                        <p>Click card to flip</p>
+                    </div> : null
+                }
+                    
+                </div>
+                
+            <div className='tap-instructor'>
+                <p className = "instruct">Tap card to flip</p>
+                    <div className = "shineholder">
+                        <img className = "shineone" src = {shineone} alt = {'shine'} />
+                        <img className = "shinetwo" src = {shinetwo} alt = {'shine'} />
+                        <img className = "shinethree" src = {shinethree} alt = {'shine'} />
+                        <img className = "shinefour" src = {shinefour} alt = {'shine'} />
+                        <img className = "shinefive" src = {shinefive} alt = {'shine'} />
+                    </div>
+                <img className = "point" src = {point} alt = {'finger pointing'} />
             </div>
-            <img className = "point" src = {point} alt = {'finger pointing'} />
+           
             <div className = "button-holder">
-            <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
-            <button className = "next" onClick = {this.handleGoNext}>Next</button>
+                <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
+                <button className = "previous" onClick = {this.handleGoNext}>Next</button>
             </div>
             
           </div>

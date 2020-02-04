@@ -50,7 +50,7 @@ const Cards = props => {
   if (!props.deckcards) {
     return (
       <div className='loading-background'>
-        <h1 className='deckName'>{props.match.params.deckName}</h1>
+        <h1 className='deckName-study'>{props.match.params.deckName}</h1>
         <div className='loader'>
           <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
         </div>
@@ -58,26 +58,33 @@ const Cards = props => {
     );
   } else {
     return (
-      <div className='page'>
-        <div className='loading-background'>
-          <div className='back-button-and-header'>
+      <div>
+        <div className='loading-background-study'>
+          <div className='back-button-and-header-study'>
             <img
               className='back'
               src={poly}
               alt='back-arrow'
               onClick={() => history.goBack()}
             />
-            <h1 className='deckNames' onClick={() => history.goBack()}>
+            <h1 className='deckNames-study' onClick={() => history.goBack()}>
               {props.match.params.deckName}
             </h1>
           </div>
-
-          <h4 className='listCards'>{deck.length}</h4>
-          <h5 className='cardsHeader'>Cards</h5>
-
-          {/* <div className = "rightside"> */}
-          <img className='smile' src={smiley} alt={'a smiling emoji'} />
-          <h4 className='mastered'>Mastered</h4>
+          
+          <div className='studied-cards-container'>
+            <div className='studied-numbers'>
+              <h4 className='listCards'>{deck.length}</h4>
+              <img className='smile' src={smiley} alt={'a smiling emoji'} />
+            </div>
+      
+            <div className='studied-text'>
+              <h5 className='cardsHeader'>Cards</h5>
+              <h4 className='mastered'>Mastered</h4>
+            </div>
+            {/* <div className = "rightside"> */}
+          </div>
+         
           {/* </div> */}
         </div>
 
