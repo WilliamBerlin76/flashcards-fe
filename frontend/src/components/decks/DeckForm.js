@@ -5,16 +5,29 @@ import './DeckForm.scss';
 import TextField from '@material-ui/core/TextField';
 import Tags from './Tags';
 import poly from '../../assets/poly.png';
+import polyy from '../../assets/polyy.png';
 import { withStyles } from '@material-ui/core/styles';
+import notebook from '../../assets/notebook.png';
+import graduate from '../../assets/graduate.png';
+import audio from '../../assets/audio.png';
+import Footer from '../footer/Footer';
+
 
 const OrangeInput = withStyles({
   root: {
     '& label.Mui-focused': {
-      color: 'rgba(106, 92, 85, 0.5)'
+      color: 'rgba(106, 92, 85, 0.5)',
+
+    },
+    '@media (min-width: 1000px)' : {
+      width: '50%',
+      fontSize:'12rem'
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: 'rgba(106, 92, 85, 0.5)'
-    }
+      borderBottomColor: 'rgba(106, 92, 85, 0.5)',
+
+    },
+    
   }
 })(TextField);
 
@@ -101,28 +114,56 @@ const DeckForm = props => {
   // const selectedTags  =  {tags}
 
   return (
+    
     <div>
-      <div className='loading-background'>
-        <div className='back-button-and-header'>
-          <img
-            className='back'
-            src={poly}
-            alt='back arrow'
-            onClick={() => props.history.goBack()}
-          />
-          <h1 className='deckNames' onClick={() => props.history.goBack()}>
-            Create new deck
-          </h1>
-        </div>
+{/*       
+           <section className='study-data'> */}
+        {/* <div className='timeline-selectorss'>
+          <span>Today</span>
+          <span>This Week</span>
+          <span>Lifetime</span>
+        </div> */}
+        {/* <div className = "study">
+        <h3 className='decks'>{newDecks.length}</h3>
+        <h4 className='cardWord'>Cards</h4>
+        </div> */}
 
+      {/* </section> */}
+      <div className='loading-background'>
+        <div className = "first">
+        <img
+          className='backk'
+          src={polyy}
+          alt='back arrow'
+          onClick={() => props.history.goBack()}
+        />
+        <img
+          className='back'
+          src={poly}
+          alt='back arrow'
+          onClick={() => props.history.goBack()}
+        />
+
+        <h1 className='deckName-add'>Create new deck</h1>
+        </div>
         {/* <div className = "rightside"> */}
         <div className='number'>
           <h3 className='smile-form'>{newDecks.length}</h3>
         </div>
-        <h4 className='mastered'>Total Cards</h4>
+        <h4 className='mastered'>Cards</h4>
+        <div className='studied'>
+          
+
+            <h1 className='numberrr'>87</h1>
+{/*           
+          <div className='text'> */}
+            {/* <h1 className = "mastereddd">87</h1> */}
+            <span className='mastered-text'>Mastered</span>
+          {/* </div> */}
+        </div>
         {/* </div> */}
       </div>
-
+     
       <div>
         <div className='page'>
           <div className='form'>
@@ -274,6 +315,25 @@ const DeckForm = props => {
           </form>
         </div>
       </div>
+      <Footer />
+      {/* <div className = "studystuff">
+        <div className = "studywords">
+          <h3 className ="bigStudy">Study Tips</h3>
+          <h4 className = "other">and other bits</h4>
+        </div>
+        <div className = "note">
+          <img className = "notebook" src = {notebook} alt = {'a notebook'} />
+          <p className = "notewords">What exactly is spaced-repition and how it can help you</p>
+        </div>
+        <div className = 'grad'>
+          <img className = "gradpic" src = {graduate} alt = {'a graduate world'} />
+          <p className = "gradwords">Harvard University is taking a new approach to learning using mNeme</p>
+        </div>
+        <div className = "aud">
+          <img className = "audpic" src = {audio} alt = {'a person listening to audio'} />
+          <p className = "audwords">Discover what mNeme has in store for the future</p>
+        </div>
+      </div> */}
     </div>
   );
 };

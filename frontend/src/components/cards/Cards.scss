@@ -6,7 +6,7 @@
     padding-bottom: 2%;
     margin-bottom: 25px;
     padding-top: 2%;
-    .back-button-and-header{
+    .back-button-and-header-study{
       display: flex;
       align-items: center;
       margin-left: 30px;
@@ -19,7 +19,7 @@
           cursor: pointer;
         }
       }
-      .deckNames{
+      .deckNames-study{
         color: #FAFAFA;
         margin-bottom: 25px;
         margin-left: 10px;
@@ -98,7 +98,7 @@
     margin-left: 40%;
     margin-top: 50%;
   }
-  .deckName {
+  .deckName-study {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -755,10 +755,10 @@
 
   .topSection {
     padding: 0px 25px 25px;
-
-    h1 {
-      margin: 0 0 14px;
+    .desktitle-back2{
+      cursor: pointer;
     }
+   
     .subtitle {
       display: flex;
       justify-content: space-between;
@@ -769,15 +769,15 @@
     .loading-background {
       margin: 0;
     }
-    .btn2 {
+    .btnn {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 1.4rem;
-      position: absolute;
-      bottom: 0;
-      background-color: white;
-      width: 100vw;
+      // // position: absolute;
+      // bottom: 0;
+      // background-color: white;
+      // width: 100vw;
 
       .save {
         background: #f66e00;
@@ -799,7 +799,13 @@
       }
     }
   }
-
+  .titleInput {
+    // border-bottom: 1px solid rgba(34,36,38,.15);
+    padding-top: 0.8rem;
+  }
+  .iconbtn {
+    display: none;
+  }
   .middleSection {
     padding: 50px 40px 80px;
     display: flex;
@@ -837,6 +843,10 @@
     align-items: center;
     justify-content: center;
 
+    // @media screen and (min-width: 600px) {
+    //   margin: 1rem 12rem;
+    // }
+
     .search {
       border-bottom: 1.5px solid rgba(106, 92, 85, 0.5);
       padding-bottom: 0.6rem;
@@ -849,13 +859,19 @@
     margin-bottom: 1.3rem;
 
     .segments {
-      border: 0.5px solid rgba(106, 92, 85, 0.3);
-      box-sizing: border-box;
-      border-radius: 5px;
+      // 	border: 0.5px solid rgba(106, 92, 85, 0.3);
+      // 	box-sizing: border-box;
+      // 	border-radius: 5px;
 
-      @media screen and (min-width: 475px) {
-        width: 31rem;
-      }
+      // @media screen and (min-width: 475px) {
+      // 	width: 120%;
+      // }
+      // @media screen and (min-width: 600px) {
+      // 	width: 190%;
+      // }
+      // @media screen and (min-width: 900px) {
+      // 	width: 50%;
+      // }
     }
     .headers {
       color: #f66e00 !important;
@@ -937,6 +953,12 @@
       cursor: pointer;
     }
   }
+  .DesktopStudy {
+    display: none;
+  }
+  .desktitle-back2 {
+    display: none;
+  }
 }
 
 .archived-span {
@@ -966,9 +988,9 @@
   cursor: pointer;
 }
 
-.div-form {
-  margin-bottom: 5rem;
-}
+// .div-form {
+// 	margin-bottom: 5rem;
+// }
 
 .new-card {
   // padding: 0 25px 25px;
@@ -976,7 +998,7 @@
 
   .container {
     display: block;
-    width: 91%;
+    // width: 91%;
     margin: 0 auto;
 
     .segments {
@@ -1007,5 +1029,227 @@
 
   .add-button {
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .segments {
+    margin: 0;
+  }
+  .btn2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem 1.4rem;
+    margin-top: -50px;
+  }
+  //
+
+  .bottomSection {
+    padding: 0px 25px 0px;
+    .div-form {
+      margin-bottom: 5rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+
+      // align-content: center;
+      //   align-items: center;
+      //   text-align: center;
+      //   flex-flow: wrap;
+      .container {
+        width: 22%;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+        margin: 0 2px;
+      }
+    }
+  }
+  .cardData {
+    padding: 5px;
+    // width: 100px;
+    // height: 100px;
+    // margin: 10px;
+
+    .segments {
+      margin: 0 5px;
+    }
+    .cardList {
+      margin: 0 5px;
+    }
+  }
+
+  //   .formTitle{
+  //     display: flex;
+
+  //   }
+  //     .iconbtn{
+  //       display: contents;
+  //       border: 2px solid #6A5C55;
+  // box-sizing: border-box;
+  // border-radius: 23px;
+  //     }
+
+  .back-button-and-header {
+    .deckNames {
+      display: none;
+    }
+    .back {
+      display: none;
+    }
+  }
+  .topSection {
+    h1 {
+      margin: 0px;
+    }
+  }
+  .desktitle-back2 {
+    display: flex;
+    align-items: center;
+    margin-top: -5%;
+    margin-bottom: 4%;
+    h1 {
+      font-size: 3rem;
+      color: #453c38;
+    }
+  }
+
+  .cardnum {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4rem;
+
+    .mobilemaster {
+      .card-length {
+        margin-left: 2%;
+      }
+    }
+    .mobilenum {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      .card-length {
+        opacity: 1;
+        font-size: 3.2rem;
+        margin-left: 40%;
+      }
+      .Total-Cards {
+        margin-left: 0%;
+      }
+    }
+  }
+
+  .middleSection {
+    padding-bottom: 2.5rem;
+    button {
+      margin: 0;
+      width: 27rem;
+    }
+  }
+  .new-card {
+    padding-bottom: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 5rem;
+
+    .button-div {
+      display: flex;
+      justify-content: center;
+      // margin-right: 6rem;
+      width: 100%;
+    }
+  }
+  .DesktopStudy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+
+    .DeskTitle {
+      width: 100%;
+      margin-bottom: 0;
+      margin-left: 20%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #f66e00;
+    }
+    .DeskSub {
+      width: 100%;
+      margin-left: 20%;
+      height: 49px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #f66e00;
+      // margin-left: -55%;
+    }
+    .DeskCase {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 2rem 5rem;
+      align-items: center;
+      .pix {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+      .DeskPara {
+        text-align: center;
+        margin: 1rem 0;
+      }
+    }
+    .loading-background {
+      padding: 0;
+    }
+    .pic1 {
+      //  margin-left: -60%;
+      //  margin-right: 15%;
+      //   width: 290.4px;
+      // height: 248px;
+      //   margin-top: 180%;
+      .notebook {
+        width: 150px;
+      }
+    }
+
+    .pic2 {
+      // margin-top: 180%;
+      // width: 290.4px;
+      // height: 248px;
+      // left: 494.8px;
+      // top: 1859px;
+      // margin-right: 15%;
+      .graduate {
+        width: 150px;
+      }
+    }
+
+    .pic3 {
+      // margin-top: 180%;
+      // width: 290.4px;
+      // height: 248px;
+      // left: 833.6px;
+      // top: 1859px;
+      .audio {
+        width: 150px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .mobilemaster {
+    display: none;
   }
 }

@@ -17,7 +17,11 @@
   }
 
   .studied {
-    margin: 1rem 2rem;
+    margin: 1rem 5rem;
+
+    @media screen and (min-width: 1000px) {
+      margin: 1rem 12rem;
+    }
 
     .numbers {
       display: flex;
@@ -28,12 +32,21 @@
       .studied-number {
         font-size: 1.5rem;
         padding-top: 8rem;
+        position: absolute;
+        top: 4.5rem;
       }
 
       .mastered-number {
         font-size: 10rem;
         opacity: 0.4;
         line-height: normal;
+        position: absolute;
+        right: 4rem;
+        top: 5rem;
+
+        @media screen and (min-width: 1000px) {
+          right: 11rem;
+        }
       }
     }
 
@@ -45,7 +58,7 @@
 }
 
 .decks-section {
-  width: 90%;
+  width: 80%;
   margin: 30px auto;
   span {
     &:hover {
@@ -56,21 +69,87 @@
     display: flex;
     justify-content: space-between;
   }
+
+  @media screen and (min-width: 700px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 
 .bottom-button {
   display: block;
-  margin: auto;
+  margin: 1rem auto;
   margin-bottom: 1rem;
   font-weight: bold;
   font-size: 1.2rem;
+  max-width: 450px;
   height: 3rem;
-  width: 90%;
+  width: 95%;
   color: #fcfcfc;
   background: #f66e00;
   border: 2px solid #f66e00;
   border-radius: 23px;
   &:hover {
     cursor: pointer;
+  }
+
+  @media screen and (min-width: 1000px) {
+    width: 25vw;
+    margin: 0;
+    margin-top: 2rem;
+    margin-left: 11rem;
+  }
+
+  @media screen and (min-width: 1500px) {
+    width: 15vw;
+    margin: 0;
+    margin-top: 2rem;
+    margin-left: 14rem;
+  }
+
+  @media screen and (min-width: 1800px) {
+    margin-left: 16rem;
+  }
+}
+
+.deck {
+  @media screen and (min-width: 1000px) {
+    width: 300px;
+  }
+}
+
+.update-preference-box {
+  border: 0.5px solid #f66e00;
+  border-radius: 4px;
+  margin: 40px auto;
+  margin-top: 0px;
+  max-width: 600px;
+  height: 177px;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+
+  div {
+    display: block;
+    margin: 35px auto;
+    cursor: pointer;
+
+    .fa-user {
+      color: #f66e00;
+      font-size: 6rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #f66e00;
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    margin: 0;
+    width: 25vw;
   }
 }

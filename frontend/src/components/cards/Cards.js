@@ -50,7 +50,7 @@ const Cards = props => {
   if (!props.deckcards) {
     return (
       <div className='loading-background'>
-        <h1 className='deckName'>{props.match.params.deckName}</h1>
+        <h1 className='deckName-study'>{props.match.params.deckName}</h1>
         <div className='loader'>
           <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
         </div>
@@ -58,16 +58,16 @@ const Cards = props => {
     );
   } else {
     return (
-      <div className='page'>
+      <div>
         <div className='loading-background-study'>
-          <div className='back-button-and-header'>
+          <div className='back-button-and-header-study'>
             <img
               className='back'
               src={poly}
               alt='back-arrow'
               onClick={() => history.goBack()}
             />
-            <h1 className='deckNames' onClick={() => history.goBack()}>
+            <h1 className='deckNames-study' onClick={() => history.goBack()}>
               {props.match.params.deckName}
             </h1>
           </div>

@@ -45,7 +45,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   min-height: 48px;
-  width: 380px;
+  width: 305px;
   padding: 0 8px;
   margin-left: 3%;
   border-bottom: 1px solid #6a5c55;
@@ -116,7 +116,6 @@
     cursor: pointer;
   }
 }
-
 // .top {
 //   margin-top: 220%;
 // }
@@ -175,13 +174,10 @@
 //   // .cardForm {
 //   //     margin-top: -41.5%;
 //   //     padding-bottom: 10%;
-
 //   // }
-
 //   .inputHolders {
 //     margin-left: 4%;
 //   }
-
 //   // .topCard{
 //   //     margin-bottom: 120%;
 //   // }
@@ -191,7 +187,6 @@
 //     margin-left: 13%;
 //     margin-top: 50%;
 //     //   width: 100%;
-
 //     .save {
 //       background-color: #f66e00;
 //       color: #fcfcfc;
@@ -204,7 +199,6 @@
 //       margin-left: 12%;
 //       cursor: pointer;
 //     }
-
 //     .add {
 //       background-color: #fcfcfc;
 //       color: #f66e00;
@@ -236,7 +230,6 @@
 //       margin-top: 15%;
 //       // margin-bottom: 30%;
 //     }
-
 //     .removeHolder {
 //       margin-bottom: -5%;
 //     }
@@ -261,7 +254,6 @@
 //       margin-bottom: 2%;
 //       font-size: 2rem;
 //       resize: none;
-
 //       &:focus {
 //         outline: transparent;
 //       }
@@ -276,9 +268,7 @@
 //       height: 60px;
 //       margin-bottom: 2%;
 //       font-size: 2rem;
-
 //       resize: none;
-
 //       &:focus {
 //         outline: transparent;
 //       }
@@ -288,19 +278,22 @@
 //     margin-bottom: -9%;
 //     margin-left: 6%;
 //   }
-
 //   .form {
 //     display: flex;
 //     flex-direction: column-reverse;
 //     flex-flow: column-reverse;
 //   }
-
 //   .tags-input {
 //     width: 80%;
 //   }
 // }
+.backk{
+  cursor: pointer;
+}
 
-@media only screen and (min-width: 100px) {
+
+@media only screen and (min-width: 100px)  {
+
   .loading-background {
     background: #f66e00;
     max-width: 100vw;
@@ -340,14 +333,31 @@
       margin-left: 6%;
       margin-right: 4%;
     }
+    .backk {
+      margin-bottom: -6.5%;
+      margin-left: -7%;
+      
+      // margin-right: 4%;
+    }
+    .deckName-add {
+      font-size: 2.3rem;
+      color: #ffffff;
+      margin-left: 7%;
+      margin-top: -1%;
+      cursor: pointer;
+    }
   }
   .deckNames {
     font-size: 2.3rem;
+    color: #ffffff;
+    margin-left: 10%;
+    margin-top: -2%;
     font-family: Roboto;
     font-style: normal;
     line-height: 42px;
     color: #ffffff;
     font-weight: bold;
+    cursor: pointer;
   }
   // .page {
   //     margin-top: 70%;
@@ -364,7 +374,6 @@
   // .cardForm {
   //     margin-top: -41.5%;
   //     padding-bottom: 10%;
-
   // }
   .inputHolders {
     margin-left: 4%;
@@ -450,7 +459,6 @@
       margin-bottom: 2%;
       font-size: 2rem;
       resize: none;
-
       &:focus {
         outline: transparent;
       }
@@ -465,7 +473,6 @@
       height: 60px;
       margin-bottom: 2%;
       font-size: 2rem;
-
       resize: none;
       &:focus {
         outline: transparent;
@@ -483,13 +490,1539 @@
     flex-direction: column-reverse;
     flex-flow: column-reverse;
   }
+  .studystuff{
+    display: none;
+  }
 }
 
-.back-button-and-header {
+@media screen and (min-width: 600px) and (max-width: 700px){
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    .number {
+      margin-left: 15%;
+    }
+    .smile-form {
+      opacity: 0.25;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 74px;
+      margin-top: 1%;
+      width: 10%;
+      margin-bottom: 6%;
+      color: white;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.3rem;
+      line-height: 19px;
+      margin-left: 75%;
+      margin-top: -6%;
+      color: #ffffff;
+      width: 50%;
+    }
+    .back {
+      margin-bottom: -6%;
+      margin-left: 6%;
+      margin-right: 4%;
+    }
+    .deckName-add {
+      font-size: 2.3rem;
+      color: #ffffff;
+      margin-left: 7%;
+      margin-top: -1%;
+    }
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 800px){
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    .number {
+      margin-left: 15%;
+    }
+    .smile-form {
+      opacity: 0.25;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 74px;
+      margin-top: 1%;
+      width: 10%;
+      margin-bottom: 6%;
+      color: white;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.3rem;
+      line-height: 19px;
+      margin-left: 75%;
+      margin-top: -6%;
+      color: #ffffff;
+      width: 50%;
+    }
+    .back {
+      margin-bottom: -6%;
+      margin-left: 6%;
+      margin-right: 4%;
+    }
+    .deckName-add {
+      font-size: 2.3rem;
+      color: #ffffff;
+      margin-left: 7%;
+      margin-top: .5%;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 900px){
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    .number {
+      margin-left: 15%;
+    }
+    .smile-form {
+      opacity: 0.25;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 74px;
+      margin-top: 1%;
+      width: 10%;
+      margin-bottom: 6%;
+      color: white;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.3rem;
+      line-height: 19px;
+      margin-left: 75%;
+      margin-top: -6%;
+      color: #ffffff;
+      width: 50%;
+    }
+    .back {
+      margin-bottom: -6%;
+      margin-left: 6%;
+      margin-right: 4%;
+    }
+    .deckName-add {
+      font-size: 2.3rem;
+      color: #ffffff;
+      margin-left: 7%;
+      margin-top: 1%;
+    }
+  }
+}
+
+// @media screen and (min-width: 900px) and (max-width: 1000px){
+//   .loading-background {
+//     background: #f66e00;
+//     max-width: 100vw;
+//     // margin-top: -4%;
+//     padding-bottom: 4%;
+//     margin-bottom: 10%;
+//     padding-top: 2%;
+//     margin-top: -1%;
+//     .number {
+//       margin-left: 15%;
+//     }
+//     .smile-form {
+//       opacity: 0.25;
+//       margin-left: 70%;
+//       // margin-top: -60%;
+//       font-size: 74px;
+//       margin-top: 1%;
+//       width: 10%;
+//       margin-bottom: 6%;
+//       color: white;
+//     }
+//     .mastered {
+//       // display: flex;
+//       // justify-content: flex-end;
+//       font-family: Roboto Condensed;
+//       font-style: normal;
+//       font-weight: bold;
+//       font-size: 1.3rem;
+//       line-height: 19px;
+//       margin-left: 75%;
+//       margin-top: -6%;
+//       color: #ffffff;
+//       width: 50%;
+//     }
+//     .back {
+//       margin-bottom: -6%;
+//       margin-left: 6%;
+//       margin-right: 4%;
+//     }
+//     .deckName {
+//       font-size: 2.3rem;
+//       color: #ffffff;
+//       margin-left: 7%;
+//       margin-top: 1.5%;
+//     }
+//   }
+// }
+@media screen and (min-width: 900px) {
+
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    
+    .number {
+      margin-left: -185%;
+      margin-bottom: -2%;
+      margin-top: 5%;
+    }
+    .smile-form {
+      opacity: 1;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 44px;
+      margin-top: 1%;
+      width: 10%;
+      // margin-bottom: 6%;
+      color: #ffffff;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2rem;
+      line-height: 19px;
+      margin-left: 15%;
+      margin-top: 3%;
+
+      color: #ffffff;
+      width: 50%;
+    }
+  
+    .first{
+  position: absolute;
+  width: 510px;
+  height: 49px;
+  left: 140px;
+  top: 280px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 49px;
+
+    color: #453C38;
+  
+  .back{
+    display: none;
+  }
+  .backk{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 4%;
+  }
+  .deckName-add{
+    position: absolute;
+    color: #453C38;
+    // margin-bottom: -40%;
+    margin-top: 4%;
+    margin-left: 9%;
+  }
+}
+.studied {
+  margin-left: 80%;
+  margin-bottom: 1%;
+  ​ .mastereddd{
+    color: #ffffff;
+  }
+    .numberrr {
+      font-size: 12rem;
+      opacity: 0.4;
+      line-height: normal;
+      position: absolute;
+      right: 4rem;
+      top: 3rem;
+      color: #ffffff;
+    }
+  // .text {
+  //   display: flex;
+  //   justify-content: space-between;
+    .mastered-text{
+      position: absolute;
+      right: 9rem;
+      font-size: 2rem;
+      color: #ffffff;
+      top: 14rem;
+    }
+  // }
+}
+}
+// .number{
+//   display: none;
+// }
+// .mastered{
+//   display: none;
+// }
+.cardForm{
+  .deckInfo{
+    font-size: 40px;
+    margin-top: 5%;
+  }
+}
+.page{
+  margin: 1rem 12rem;
+  .inputHolders{
+    display: flex;
+    // align-items: flex-start;
+    .iconHolder{
+      margin-left: 20%;
+      width: 50%;
+    };
+  }
+  .tagHolder{
+    margin-top:10%;
+    margin-left: 47%;
+  }
+}
+  .flashcards{
+  font-size: 40px;
+  margin-top: 10%;
+}
+.new{
+font-size: 34px;
+}
+.cardFormBottom{
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .card{
+    width:44%;
+    height: 220px;
+    padding-right: 4%;
+    // margin-right: 15%;
+    .removeHolder{
+      margin-left: -22%;
+    }
+    .frontLabel{
+      margin-left: -17%;
+    }
+    .backLabel{
+      margin-left: -17%;
+    }
+  }
+  .buttonHolders{
+    display: flex;
+    flex-direction: column;
+    margin-top: -24%;
+    margin-left: 51%;
+    width: 40%;
+    // height: 100px;
+    .add{
+      width: 100%;
+      margin-bottom: 4%;
+      margin-left: 11%;
+    }
+    .save{
+      width: 100%;
+    }
+  }
+  .created{
+    font-size: 34px;
+    margin-top: 66%;
+    margin-left:-110%;
+  }
+}
+.studystuff{
+  display: flex;
+  margin-top: 30%;
+  width: 98px;
+  height: 433px;
+  right: 236px;
+  top: 574px;
+  margin-bottom: 30%;
+  .studywords{
+
+    .bigStudy{
+      width: 1100%;
+      // height: 75px;
+      margin-left: 50%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #F66E00;
+    
+    }
+    .other{
+      // width: 3746px;
+      // height: 49px;
+      width: 1100%;
+      margin-top: 10%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #F66E00;
+      margin-left: 65%;
+    }
+  }
+
+  .note{
+   margin-left: -20%;
+   margin-right: 55%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+    .notebook{
+      width: 200px;
+    }
+  };
+  .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 55%;
+    .gradpic{
+      width: 200px;
+    }
+  };
+  .aud{
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+    .audpic{
+      width: 200px;
+    }
+  }
+}
+}
+@media screen and (min-width: 1000px) {
+
+    .loading-background {
+      background: #f66e00;
+      max-width: 100vw;
+      // margin-top: -4%;
+      padding-bottom: 4%;
+      margin-bottom: 10%;
+      padding-top: 2%;
+      margin-top: -1%;
+      
+      .number {
+        margin-left: -185%;
+        margin-bottom: -2%;
+        margin-top: 3%;
+      }
+      .smile-form {
+        opacity: 1;
+        margin-left: 70%;
+        // margin-top: -60%;
+        font-size: 44px;
+        margin-top: 1%;
+        width: 10%;
+        // margin-bottom: 6%;
+        color: #ffffff;
+      }
+      .mastered {
+        // display: flex;
+        // justify-content: flex-end;
+        font-family: Roboto Condensed;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.2rem;
+        line-height: 19px;
+        margin-left: 15%;
+        margin-top: 3%;
+
+        color: #ffffff;
+        width: 50%;
+      }
+    
+      .first{
+    position: absolute;
+    width: 510px;
+    height: 49px;
+    left: 140px;
+    top: 280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 49px;
+  
+      color: #453C38;
+    
+    .back{
+      display: none;
+    }
+    .backk{
+      position: absolute;
+      margin-top: 11%;
+      margin-left: 4%;
+    }
+    .deckName-add{
+      position: absolute;
+      color: #453C38;
+      // margin-bottom: -40%;
+      margin-top: 9%;
+      margin-left: 9%;
+    }
+  }
+  .studied {
+    margin-left: 80%;
+    margin-bottom: 1%;
+    ​ .mastereddd{
+      color: #ffffff;
+    }
+      .numberrr {
+        font-size: 12rem;
+        opacity: 0.4;
+        line-height: normal;
+        position: absolute;
+        right: 4rem;
+        top: 5rem;
+        color: #ffffff;
+      }
+    // .text {
+    //   display: flex;
+    //   justify-content: space-between;
+      .mastered-text{
+        position: absolute;
+        right: 9rem;
+        font-size: 2rem;
+        color: #ffffff;
+      }
+    // }
+  }
+  }
+  // .number{
+  //   display: none;
+  // }
+  // .mastered{
+  //   display: none;
+  // }
+  .cardForm{
+    .deckInfo{
+      font-size: 40px;
+      margin-top: 5%;
+    }
+  }
+  .page{
+    margin: 1rem 12rem;
+    .inputHolders{
+      display: flex;
+      // align-items: flex-start;
+      .iconHolder{
+        margin-left: 20%;
+        width: 100%;
+      };
+    }
+    .tagHolder{
+      margin-top:10%;
+      margin-left: 47%;
+    }
+  }
+  .flashcards{
+    font-size: 40px;
+    margin-top: 10%;
+  }
+.new{
+  font-size: 34px;
+}
+  .cardFormBottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .card{
+      width: 39%;
+      height: 220px;
+      padding-right: 2%;
+      // margin-right: 15%;
+      .removeHolder{
+        margin-left: -22%;
+      }
+      .frontLabel{
+        margin-left: -17%;
+      }
+      .backLabel{
+        margin-left: -17%;
+      }
+    }
+    .buttonHolders{
+      display: flex;
+      flex-direction: column;
+      margin-top: -24%;
+      margin-left: 50%;
+      width: 40%;
+      // height: 100px;
+      .add{
+        width: 100%;
+        margin-bottom: 4%;
+        margin-left: 11%;
+      }
+      .save{
+        width: 100%;
+      }
+    }
+    .created{
+      font-size: 34px;
+      margin-top: 66%;
+      margin-left:-110%;
+    }
+  }
+  .studystuff{
+    display: flex;
+    margin-top: 30%;
+    width: 98px;
+    height: 433px;
+    right: 236px;
+    top: 574px;
+    margin-bottom: 30%;
+    .studywords{
+  
+      .bigStudy{
+        width: 1100%;
+        // height: 75px;
+        margin-left: 50%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 54px;
+        line-height: 75px;
+        color: #F66E00;
+      
+      }
+      .other{
+        // width: 3746px;
+        // height: 49px;
+        width: 1100%;
+        margin-top: 10%;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 49px;
+        color: #F66E00;
+        margin-left: 65%;
+      }
+    }
+  
+    .note{
+     margin-left: -20%;
+     margin-right: 85%;
+      width: 290.4px;
+      height: 248px;
+      margin-top: 180%;
+      .notebook{
+        width: 200px;
+      }
+    };
+    .grad {
+      margin-top: 180%;
+      width: 290.4px;
+      height: 248px;
+      left: 494.8px;
+      top: 1859px;
+      margin-right: 85%;
+      .gradpic{
+        width: 200px;
+      }
+    };
+    .aud{
+      margin-top: 180%;
+      width: 290.4px;
+      height: 248px;
+      left: 833.6px;
+      top: 1859px;
+      .audpic{
+        width: 200px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1100px){
+
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    
+    .number {
+      margin-left: -185%;
+      margin-bottom: -2%;
+      margin-top: 5%;
+    }
+    .smile-form {
+      opacity: 1;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 44px;
+      margin-top: 1%;
+      width: 10%;
+      // margin-bottom: 6%;
+      color: #ffffff;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2rem;
+      line-height: 19px;
+      margin-left: 15%;
+      margin-top: 3%;
+
+      color: #ffffff;
+      width: 50%;
+    }
+  
+    .first{
+  position: absolute;
+  margin-top: 30px;
+  width: 510px;
+  height: 49px;
+  left: 140px;
+  top: 280px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 49px;
+
+    color: #453C38;
+  
+  .back{
+    display: none;
+  }
+  .backk{
+    position: absolute;
+    margin-top: 11%;
+    margin-left: 4%;
+  }
+  .deckName-add{
+    // top: 100px;
+    // position: absolute;
+    color: #453C38;
+    // margin-bottom: -40%;
+    // margin-top: 100px;
+    margin-left: 9%;
+  }
+}
+.studied {
+  margin-left: 80%;
+  margin-bottom: 1%;
+  ​ .mastereddd{
+    color: #ffffff;
+  }
+    .numberrr {
+      font-size: 12rem;
+      opacity: 0.4;
+      line-height: normal;
+      position: absolute;
+      right: 4rem;
+      top: 5rem;
+      color: #ffffff;
+    }
+  // .text {
+  //   display: flex;
+  //   justify-content: space-between;
+    .mastered-text{
+      position: absolute;
+      right: 9rem;
+      font-size: 2rem;
+      color: #ffffff;
+      top: 16rem;
+    }
+  // }
+}
+.studystuff{
+  display: flex;
+  margin-top: 30%;
+  width: 98px;
+  height: 433px;
+  right: 136px;
+  top: 574px;
+  margin-bottom: 30%;
+  .studywords{
+
+    .bigStudy{
+      width: 1100%;
+      // height: 75px;
+      margin-left: 50%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #F66E00;
+    
+    }
+    .other{
+      // width: 3746px;
+      // height: 49px;
+      width: 1100%;
+      margin-top: 10%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #F66E00;
+      margin-left: 65%;
+    }
+  }
+
+  .note{
+   margin-left: -20%;
+   margin-right: 85%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+    .notebook{
+      width: 200px;
+    }
+  };
+  .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 85%;
+    .gradpic{
+      width: 200px;
+    }
+  };
+  .aud{
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+    .audpic{
+      width: 200px;
+    }
+  }
+}
 }
 
-input {
-  outline: none;
+}
+@media screen and (min-width: 1200px){
+
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    
+    .number {
+      margin-left: -185%;
+      margin-bottom: -2%;
+      margin-top: 5%;
+    }
+    .smile-form {
+      opacity: 1;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 44px;
+      margin-top: 1%;
+      width: 10%;
+      // margin-bottom: 6%;
+      color: #ffffff;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2rem;
+      line-height: 19px;
+      margin-left: 15%;
+      margin-top: 3%;
+
+      color: #ffffff;
+      width: 50%;
+    }
+  
+    .first{
+    margin-top: 30px;
+    position: absolute;
+    width: 510px;
+    height: 49px;
+    left: 140px;
+    top: 280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 49px;
+    color: #453C38;
+  
+  .back{
+    display: none;
+  }
+  .backk{
+    position: absolute;
+    margin-top: 11%;
+    margin-left: 4%;
+  }
+  .deckName-add{
+    position: absolute;
+    color: #453C38;
+    // margin-bottom: -40%;
+    margin-top: 9%;
+    margin-left: 9%;
+  }
+}
+.studied {
+  margin-left: 80%;
+  margin-bottom: 1%;
+  ​ .mastereddd{
+    color: #ffffff;
+  }
+    .numberrr {
+      font-size: 12rem;
+      opacity: 0.4;
+      line-height: normal;
+      position: absolute;
+      right: 4rem;
+      top: 5rem;
+      color: #ffffff;
+    }
+  // .text {
+  //   display: flex;
+  //   justify-content: space-between;
+    .mastered-text{
+      position: absolute;
+      right: 9rem;
+      font-size: 2rem;
+      color: #ffffff;
+      top: 16rem;
+    }
+  // }
+}
+}
+.studystuff{
+  display: flex;
+  margin-top: 30%;
+  width: 98px;
+  height: 433px;
+  right: 136px;
+  top: 574px;
+  margin-bottom: 30%;
+  .studywords{
+
+    .bigStudy{
+      width: 1100%;
+      // height: 75px;
+      margin-left: 70%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #F66E00;
+    
+    }
+    .other{
+      // width: 3746px;
+      // height: 49px;
+      width: 1100%;
+      margin-top: 10%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #F66E00;
+      margin-left: 85%;
+    }
+  }
+
+  .note{
+   margin-left: 40%;
+   margin-right: 85%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+    .notebook{
+      width: 200px;
+    }
+  };
+  .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 85%;
+    .gradpic{
+      width: 200px;
+    }
+  };
+  .aud{
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+    .audpic{
+      width: 200px;
+    }
+  }
+}
+}
+
+@media screen and (min-width: 1300px) {
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    
+    .number {
+      margin-left: -185%;
+      margin-bottom: -2%;
+      margin-top: 3%;
+    }
+    .smile-form {
+      opacity: 1;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 44px;
+      margin-top: 1%;
+      width: 10%;
+      // margin-bottom: 6%;
+      color: #ffffff;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2rem;
+      line-height: 19px;
+      margin-left: 15%;
+      margin-top: 3%;
+
+      color: #ffffff;
+      width: 50%;
+    }
+  
+    .first{
+  position: absolute;
+  width: 510px;
+  height: 49px;
+  left: 140px;
+  top: 280px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 49px;
+
+    color: #453C38;
+  
+  .back{
+    display: none;
+  }
+  .backk{
+    position: absolute;
+    margin-top: 11%;
+    margin-left: 4%;
+  }
+  .deckName-add{
+    position: absolute;
+    color: #453C38;
+    // margin-bottom: -40%;
+    margin-top: 9%;
+    margin-left: 9%;
+  }
+}
+.studied {
+  margin-left: 80%;
+  margin-bottom: 1%;
+  ​ .mastereddd{
+    color: #ffffff;
+  }
+    .numberrr {
+      font-size: 12rem;
+      opacity: 0.4;
+      line-height: normal;
+      position: absolute;
+      right: 4rem;
+      top: 5rem;
+      color: #ffffff;
+    }
+  // .text {
+  //   display: flex;
+  //   justify-content: space-between;
+    .mastered-text{
+      position: absolute;
+      right: 9rem;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+  // }
+}
+}
+.studystuff{
+  display: flex;
+  margin-top: 30%;
+  width: 98px;
+  height: 433px;
+  right: 236px;
+  top: 574px;
+  margin-bottom: 30%;
+  .studywords{
+
+    .bigStudy{
+      width: 1100%;
+      // height: 75px;
+      margin-left: 80%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #F66E00;
+    
+    }
+    .other{
+      // width: 3746px;
+      // height: 49px;
+      width: 1100%;
+      margin-top: 10%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #F66E00;
+      margin-left: 95%;
+    }
+  }
+
+  .note{
+   margin-left: 60%;
+   margin-right: 85%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+    .notebook{
+      width: 250px;
+    }
+  };
+  .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 85%;
+    .gradpic{
+      width: 250px;
+    }
+  };
+  .aud{
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+    .audpic{
+      width: 250px;
+    }
+  }
+}
+};
+
+@media screen and (min-width: 1400px) {
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    
+    .number {
+      margin-left: -185%;
+      margin-bottom: -2%;
+      margin-top: 3%;
+    }
+    .smile-form {
+      opacity: 1;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 44px;
+      margin-top: 1%;
+      width: 10%;
+      // margin-bottom: 6%;
+      color: #ffffff;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2rem;
+      line-height: 19px;
+      margin-left: 15%;
+      margin-top: 3%;
+
+      color: #ffffff;
+      width: 50%;
+    }
+  
+    .first{
+  position: absolute;
+  width: 510px;
+  height: 49px;
+  left: 140px;
+  top: 280px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 49px;
+
+    color: #453C38;
+  
+  .back{
+    display: none;
+  }
+  .backk{
+    position: absolute;
+    margin-top: 11%;
+    margin-left: 4%;
+  }
+  .deckName-add{
+    position: absolute;
+    color: #453C38;
+    // margin-bottom: -40%;
+    margin-top: 9%;
+    margin-left: 9%;
+  }
+}
+.studied {
+  margin-left: 80%;
+  margin-bottom: 1%;
+  ​ .mastereddd{
+    color: #ffffff;
+  }
+    .numberrr {
+      font-size: 12rem;
+      opacity: 0.4;
+      line-height: normal;
+      position: absolute;
+      right: 4rem;
+      top: 5rem;
+      color: #ffffff;
+    }
+  // .text {
+  //   display: flex;
+  //   justify-content: space-between;
+    .mastered-text{
+      position: absolute;
+      right: 9rem;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+  // }
+}
+}
+.studystuff{
+  display: flex;
+  margin-top: 30%;
+  width: 98px;
+  height: 433px;
+  right: 236px;
+  top: 574px;
+  margin-bottom: 30%;
+  .studywords{
+
+    .bigStudy{
+      width: 1100%;
+      // height: 75px;
+      margin-left: 80%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #F66E00;
+    
+    }
+    .other{
+      // width: 3746px;
+      // height: 49px;
+      width: 1100%;
+      margin-top: 10%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #F66E00;
+      margin-left: 95%;
+    }
+  }
+
+  .note{
+   margin-left: 60%;
+   margin-right: 85%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+    .notebook{
+      width: 250px;
+    }
+  };
+  .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 85%;
+    .gradpic{
+      width: 250px;
+    }
+  };
+  .aud{
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+    .audpic{
+      width: 250px;
+    }
+  }
+}
+}; 
+
+@media screen and (min-width: 1700px) {
+  .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    // margin-top: -4%;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+    
+    .number {
+      margin-left: -185%;
+      margin-bottom: -2%;
+      margin-top: 3%;
+    }
+    .smile-form {
+      opacity: 1;
+      margin-left: 70%;
+      // margin-top: -60%;
+      font-size: 44px;
+      margin-top: 1%;
+      width: 10%;
+      // margin-bottom: 6%;
+      color: #ffffff;
+    }
+    .mastered {
+      // display: flex;
+      // justify-content: flex-end;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2rem;
+      line-height: 19px;
+      margin-left: 15%;
+      margin-top: 3%;
+
+      color: #ffffff;
+      width: 50%;
+    }
+  
+    .first{
+  position: absolute;
+  width: 510px;
+  height: 49px;
+  left: 140px;
+  top: 280px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 49px;
+
+    color: #453C38;
+  
+  .back{
+    display: none;
+  }
+  .backk{
+    position: absolute;
+    margin-top: 16%;
+    margin-left: 4%;
+  }
+  .deckName-add{
+    position: absolute;
+    color: #453C38;
+    // margin-bottom: -40%;
+    margin-top: 15%;
+    margin-left: 9%;
+  }
+}
+.studied {
+  margin-left: 80%;
+  margin-bottom: 1%;
+  ​ .mastereddd{
+    color: #ffffff;
+  }
+    .numberrr {
+      font-size: 12rem;
+      opacity: 0.4;
+      line-height: normal;
+      position: absolute;
+      right: 4rem;
+      top: 5rem;
+      color: #ffffff;
+    }
+  // .text {
+  //   display: flex;
+  //   justify-content: space-between;
+    .mastered-text{
+      position: absolute;
+      right: 9rem;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+  // }
+}
+}
+.studystuff{
+  display: flex;
+  margin-top: 30%;
+  width: 98px;
+  height: 433px;
+  right: 236px;
+  top: 574px;
+  margin-bottom: 30%;
+  .studywords{
+
+    .bigStudy{
+      width: 1100%;
+      // height: 75px;
+      margin-left: 80%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 54px;
+      line-height: 75px;
+      color: #F66E00;
+    
+    }
+    .other{
+      // width: 3746px;
+      // height: 49px;
+      width: 1100%;
+      margin-top: 10%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 49px;
+      color: #F66E00;
+      margin-left: 95%;
+    }
+  }
+
+  .note{
+   margin-left: 60%;
+   margin-right: 85%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+    .notebook{
+      width: 250px;
+    }
+  };
+  .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 85%;
+    .gradpic{
+      width: 250px;
+    }
+  };
+  .aud{
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+    .audpic{
+      width: 250px;
+    }
+  }
+}
+}; 
+@media screen and (max-width: 900px) {
+  .studied{
+    display: none;
+  }
 }
