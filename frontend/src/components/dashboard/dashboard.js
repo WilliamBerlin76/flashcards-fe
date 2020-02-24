@@ -14,6 +14,7 @@ const Loading = styled.div`
   text-align: center;
 `;
 
+
 const Dashboard = props => {
   const [deckArr, setDeckArr] = useState([]);
   useEffect(() => {
@@ -60,6 +61,12 @@ const Dashboard = props => {
         onClick={() => props.history.push('/create-deck')}
       >
         Create Deck
+      </button>
+      <button
+        className='bottom-button'
+        onClick={() => props.history.push('/import-deck')}
+      >
+        import Deck
       </button>
       <section className='decks-section'>
         {/* <div className='decks-selectors'>
