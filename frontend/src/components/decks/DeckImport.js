@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import {withStyles} from '@material-ui/core/styles';
 import Tags from './Tags';
 import Footer from '../footer/Footer';
-
+import Instructions from './ImportInstructions'
 const OrangeInput = withStyles({
     root: {
       '& label.Mui-focused': {
@@ -33,15 +33,30 @@ const DeckImport = props => {
     import: ''
   })
 
+  const [showInstructions, setShowInstructions] = useState(false)
+
+
+
+  const showInstruct = e => {
+    e.preventDefault();
+    setShowInstructions(!showInstructions)
+  }
+
     const handleChanges = e => {
-      setNewDeck({...newDeck, [e.tagret.name]: e.target.value})
+      setNewDeck({...newDeck, [e.target.name]: e.target.value})
     }
     //make sure to create a handleSubmit
     //add and remove tag functions
+    const addTags = () => {}
+    const removeTags= () => {}
+    const handleName = () => {}
+    const handleIcon = () => {}
+    const handleSubmit = ()=>{}
 
     return (
         <>
-        <h1>Import a Deck: Click on instrunctions</h1>
+        {showInstructions ? <Instructions/> : null}
+        <h1>Import a Deck: <i className="fas fa-question fa-lg" onClick={showInstruct}></i></h1>
         <form onSubmit={handleSubmit}>
           <p className='deckInfo'>Deck Info</p>
 
@@ -49,9 +64,9 @@ const DeckImport = props => {
             <OrangeInput
               label='Deck Name'
               type='text'
-              onChange={handleName}
-              name='deckName'
-              // placeholder = "Deck Name"
+              onChange={handleChanges}
+              name='name'
+              value={newDeck.name}
             />
 
             <div className='iconHolder'>
@@ -59,8 +74,9 @@ const DeckImport = props => {
                 label='Icon'
                 className='iconField'
                 type='text'
-                onChange={handleIcon}
+                onChange={handleChanges}
                 name='icon'
+                value={newDeck.icon}
               />
             </div>
           </div>
@@ -72,8 +88,8 @@ const DeckImport = props => {
           <h3>Quizlet Import</h3>
           <textarea
             type='text'
-            onChange={event => handleChanges(index, event)}
-            name='importForm'
+            onChange={handleChanges}
+            name='import'
             value={newDeck.import}
             multiline={true}
             placeholder='Paste deck import here'
@@ -83,5 +99,7 @@ const DeckImport = props => {
         </>
     )
 }
+
+export default DeckImport
 
 
