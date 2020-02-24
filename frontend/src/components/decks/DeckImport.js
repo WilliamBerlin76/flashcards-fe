@@ -26,17 +26,23 @@ const OrangeInput = withStyles({
 
   
 const DeckImport = props => {
-    const [newName, setNewName] = useState('');
-    const [newIcon, setNewIcon] = useState('');
-    const [tags, setTags] = useState([]);
-    const [newDecks, setNewDecks] = useState([{ front: '', back: '' }]);
+  const [newDeck, setNewDeck] = useState({
+    name: '',
+    icon: '',
+    tags: [],
+    import: ''
+  })
 
-    
+    const handleChanges = e => {
+      setNewDeck({...newDeck, [e.tagret.name]: e.target.value})
+    }
+    //make sure to create a handleSubmit
+    //add and remove tag functions
 
     return (
         <>
         <h1>Import a Deck: Click on instrunctions</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <p className='deckInfo'>Deck Info</p>
 
           <div className='inputHolders'>
@@ -60,13 +66,19 @@ const DeckImport = props => {
           </div>
 {/* make sure to add tag state functions */}
           <div className='tagHolder'>
-            <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+            <Tags tags={newDeck.tags} addTags={addTags} removeTags={removeTags} />
           </div>
 
           <h3>Quizlet Import</h3>
           <textarea
-            
+            type='text'
+            onChange={event => handleChanges(index, event)}
+            name='importForm'
+            value={newDeck.import}
+            multiline={true}
+            placeholder='Paste deck import here'
           />
+          <button type="submit">Create Deck</button>
         </form>
         </>
     )
