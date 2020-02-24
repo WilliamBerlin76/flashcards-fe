@@ -62,6 +62,11 @@ const DeckImport = props => {
           <div className='tagHolder'>
             <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
           </div>
+
+          <h3>Quizlet Import</h3>
+          <textarea
+            
+          />
         </form>
         </>
     )
