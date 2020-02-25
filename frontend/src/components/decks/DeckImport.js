@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import {withStyles} from '@material-ui/core/styles';
 import Tags from './Tags';
 import Footer from '../footer/Footer';
+import './DeckImport.scss'
 
 import Instructions from './ImportInstructions'
 const OrangeInput = withStyles({
@@ -14,14 +15,20 @@ const OrangeInput = withStyles({
   
       },
       '@media (min-width: 1000px)' : {
-        width: '50%',
+        width: '100%',
         fontSize:'12rem'
       },
       '& .MuiInput-underline:after': {
         borderBottomColor: 'rgba(106, 92, 85, 0.5)',
   
       },
-      
+      '@media (max-width: 600px)' : {
+        fontSize:'12rem',
+        margin: '2% auto',
+        width: '95%',
+    
+
+      }
     }
   })(TextField);
 
@@ -57,29 +64,40 @@ const DeckImport = props => {
     return (
         <>
         {showInstructions ? <Instructions/> : null}
-        <h1>Import a Deck: <i className="fas fa-question fa-lg" onClick={showInstruct}></i></h1>
-        <form onSubmit={handleSubmit}>
+        <h1 className='deck-import-header'>Import a Deck: <i className="fas fa-question fa-lg" onClick={showInstruct}></i></h1>
+        <form onSubmit={handleSubmit} className='deck-import-container'>
           <p className='deckInfo'>Deck Info</p>
 
           <div className='inputHolders'>
+            <div className='deck-import-wrapper'>
+              <h3>Deck Name:</h3>
             <OrangeInput
-              label='Deck Name'
               type='text'
               onChange={handleChanges}
               name='name'
               value={newDeck.name}
+              variant="outlined"
+            
             />
+            </div>
 
-            <div className='iconHolder'>
+            <div className='deck-import-wrapper icon-wrapper'>
               <OrangeInput
-                label='Icon'
                 className='iconField'
                 type='text'
                 onChange={handleChanges}
                 name='icon'
                 value={newDeck.icon}
+                className='icon-input'
+                variant="outlined"
               />
+              
+              <button className='edit-icon'>Edit Icon</button>
             </div>
+          </div>
+          <div>
+            <input type='radio'/>
+            <input type='radio'/>
           </div>
 {/* make sure to add tag state functions */}
           <div className='tagHolder'>

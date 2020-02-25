@@ -1,0 +1,55 @@
+@media only screen and (max-width: 600px) {
+
+    body {
+      background-color: none;
+      box-sizing: border-box;
+      max-width: 100%;
+    //   * {
+    //       border: 1px solid red;
+    //   }
+    }
+
+    .deck-import-header {
+        text-align: center;
+    }
+
+.inputHolders {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    .deck-import-wrapper{
+        width: 100%;
+
+        
+    }
+    .icon-wrapper {
+       display: flex;
+       justify-content: flex-start;
+       padding-right: 5%;
+         
+        
+        .edit-icon{
+            width: 45%;
+            padding: 1rem 0;
+            align-self: center;
+            height: 100%;
+            color: orangered;
+            border: 2px solid orangered;
+            background: none;
+            border-radius: 100px;
+           
+        }
+            
+        
+
+        .icon-input {
+           margin-left: 0;
+            width: 45%;
+        }
+    }
+}
+ 
+  }
+
+  
