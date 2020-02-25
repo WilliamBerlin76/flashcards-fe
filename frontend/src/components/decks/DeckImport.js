@@ -32,7 +32,7 @@ const OrangeInput = withStyles({
     }
   })(TextField);
 
-  
+
 const DeckImport = props => {
   const [newDeck, setNewDeck] = useState({
     name: '',
@@ -40,6 +40,10 @@ const DeckImport = props => {
     tags: [],
     import: ''
   })
+  const [imported, setImported] = useState([{
+    front: '',
+    back:''
+  }])
 
   const [showInstructions, setShowInstructions] = useState(false)
 
@@ -53,8 +57,6 @@ const DeckImport = props => {
     const handleChanges = e => {
       setNewDeck({...newDeck, [e.target.name]: e.target.value})
     }
-    //make sure to create a handleSubmit
-    //add and remove tag functions
     const addTags = () => {}
     const removeTags= () => {}
     const handleName = () => {}
@@ -70,14 +72,13 @@ const DeckImport = props => {
 
           <div className='inputHolders'>
             <div className='deck-import-wrapper'>
-              <h3>Deck Name:</h3>
             <OrangeInput
               type='text'
               onChange={handleChanges}
               name='name'
               value={newDeck.name}
               variant="outlined"
-            
+              label='Deck Name'
             />
             </div>
 
@@ -90,14 +91,15 @@ const DeckImport = props => {
                 value={newDeck.icon}
                 className='icon-input'
                 variant="outlined"
+                label='Icon'
               />
               
               <button className='edit-icon'>Edit Icon</button>
             </div>
           </div>
-          <div>
-            <input type='radio'/>
-            <input type='radio'/>
+          <div className='radio-wrapper'>
+            <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
+            <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
           </div>
 {/* make sure to add tag state functions */}
           <div className='tagHolder'>
@@ -105,6 +107,7 @@ const DeckImport = props => {
           </div>
 
           <h3>Quizlet Import</h3>
+          <div className='import-container'>
           <textarea
             type='text'
             onChange={handleChanges}
@@ -112,8 +115,11 @@ const DeckImport = props => {
             value={newDeck.import}
             multiline={true}
             placeholder='Paste deck import here'
+            className='textbox-import'
+            rows='10'
           />
           <button type="submit">Create Deck</button>
+          </div>
         </form>
         </>
     )
