@@ -66,7 +66,6 @@ const Marketing = () => {
         </h3>
       </div>
 
-      <div className="bottom-desktop">
         <div className="picthreeholder">
           <img
             className="picthree"
@@ -75,7 +74,6 @@ const Marketing = () => {
           />
         </div>
 
-        <div>
           <h3 className="join">Join mNeme today</h3>
 
           <div className="bottomb">
@@ -83,9 +81,7 @@ const Marketing = () => {
               <button className="signuptwo">Sign Up</button>
             </Link>
           </div>
-        </div>
       </div>
-    </div>
   );
 };
 
