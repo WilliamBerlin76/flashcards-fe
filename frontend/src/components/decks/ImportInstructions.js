@@ -1,4 +1,5 @@
 import React from 'react'
+import step1 from '../../assets/step-1.png'
 
 
 const Instructions = () => {
@@ -7,6 +8,7 @@ const Instructions = () => {
             <ol>
                 <li>Go to quizlet and log in</li>
                 <li>Select sets in the navigation bar</li>
+                <img src={step1} alt = {'select sets'}/>
                 <li>Choose the set that you want to export</li>
                 <li>Click on the elipses (...) and select export</li>
                 <li>On the pop-up, for between terms and definitions select custom, and set it to colon(:)</li>
