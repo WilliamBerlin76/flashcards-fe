@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import {withStyles} from '@material-ui/core/styles';
 import Tags from './Tags';
 import Footer from '../footer/Footer';
+import Deck from './Deck';
 
 const OrangeInput = withStyles({
     root: {
@@ -35,7 +36,7 @@ const DeckImport = props => {
 
     return (
         <>
-        <h1>Import a Deck: Click on instrunctions</h1>
+        <h1>Import a Deck <i className="fas fa-question fa-lg question"></i></h1>
         <form>
           <p className='deckInfo'>Deck Info</p>
 
@@ -73,3 +74,4 @@ const DeckImport = props => {
 }
 
 
+export default DeckImport

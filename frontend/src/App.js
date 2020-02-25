@@ -24,6 +24,8 @@ import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
 import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 import EditCard from './components/cards/EditCard';
 import NewCard from './components/cards/NewCard';
+import DeckImport from './components/decks/DeckImport'
+
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -46,11 +48,11 @@ firebaseAppId = process.env.REACT_APP_APP_ID;
 // }
 
 const config = {
-  apiKey: firebaseApiKey,
-  authDomain: firebaseAuthDomain,
-  measurementId: firebaseMeasurementId,
-  projectId: firebaseProjectId,
-  appId: firebaseAppId
+  apiKey: "AIzaSyCvJ2Wye96WBuqm41GO4D8UiF5OGw1VR_Y",
+  authDomain: "flashcards-bbd42.firebaseapp.com",
+  measurementId: "G-GLNYFKS3ZJ",
+  projectId: "flashcards-bbd42",
+  appId: "1:107522890096:web:3e3188006b2c3af24d17b5"
 };
 firebase.initializeApp(config);
 firebase.analytics();
@@ -112,6 +114,14 @@ function App() {
           <Route
             path='/create-deck'
             render={props => <DeckForm {...props} />}
+          />
+          <Route
+            path='/create-deck'
+            render={props => <DeckForm {...props} />}
+          />
+            <Route
+            path='/import-deck'
+            render={props => <DeckImport{...props} />}
           />
           <Route path='/privacy' component={Privacy} />
           <Route
