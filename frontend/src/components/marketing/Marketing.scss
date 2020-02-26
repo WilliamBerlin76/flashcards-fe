@@ -997,14 +997,14 @@
   }
 };
 
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1365px) and (max-height: 768px) {
   .title {
     right: 55%;
   }
   
   .top-holder{
     .pro {
-      top: 43%;
+      top: 50%;
       left: -1.5%;
     }
   }
