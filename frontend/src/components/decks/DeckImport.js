@@ -38,12 +38,10 @@ const DeckImport = props => {
     name: '',
     icon: '',
     tags: [],
-    import: ''
+    deck: []
   })
-  const [imported, setImported] = useState([{
-    front: '',
-    back:''
-  }])
+  const [cards, setCards] = useState([])
+  const [exported, setExported] = useState("What is ostinato?:left hand pattern usually consists of four pairs of eight notes;Artie Shaw:brought a West coast style to jazz, Born in the slums in New York to Jewish parents, fell in love with Jazz, sold millions of copies of 'Begin the Beguine';What is comping?:new piano accompaniment style to emerge from the swing era;What is a riff?:outlined a blues or rhythm change;What was Symphonic jazz?:symphony style jazz group; Paul Whiteman was the leader;Cotton club:famous speak easy in New York where only black performers played and only white patrons attended;Duke Ellington:Born in Chicago middle class. moved to Harlem in 1923 and began playing at the cotton club. Composer, pianist and band leader. Most influential figures in jazz.;Sugar Foot Stomp:Fletcher Henderson;Sugar Foot Stomp key and form:12 bar blues choruses in B major`;Coleman Hawkins:Known as the father of the Jazz Tenor Saxophone. Black Tenor Saxophone Player who played in Fletcher Henderson's group.;Articulation:the way in which notes are attacked by the tongue;Dissonance:class created by notes that do not fit a given harmony;chord tones:notes are part of a chord;What is the key and form for Mississippi Mud?:A theme: E flat major; B theme: C minor and E flat major;What was boogie woogie?:a solo piano style that initially surfaced during the 1920s; 8 to the bar;")
 
   const [showInstructions, setShowInstructions] = useState(false)
 
@@ -57,16 +55,37 @@ const DeckImport = props => {
     const handleChanges = e => {
       setNewDeck({...newDeck, [e.target.name]: e.target.value})
     }
-    const addTags = () => {}
+    const handleExportText = e => {
+      setExported(e.target.value)
+    }
+    const createDeck = (exportedString) => {
+      const splitString = exported.split(';');
+      for (let i = 0; i < splitString.length; i++) {
+        let term = splitString[i].split(':');
+         setCards([...cards, {front: term[0],  back: term[1]}])
+      }
+      
+    }
+    console.log(createDeck(exported))
+    const addTags = (e) => {
+      e.preventDefault()
+      if (e.target.value !== '') {
+        setNewDeck([...newDeck, e.target.value]);
+        // selectedTags([...tags, event.target.value]);
+        e.target.value = '';
+      }
+    }
     const removeTags= () => {}
     const handleName = () => {}
     const handleIcon = () => {}
-    const handleSubmit = ()=>{}
+    const handleSubmit = (e)=>{
+      e.preventDefault();
+    }
 
     return (
         <>
         {showInstructions ? <Instructions/> : null}
-        <h1 className='deck-import-header'>Import a Deck: <i className="fas fa-question fa-lg" onClick={showInstruct}></i></h1>
+        <h1 className='deck-import-header'>Import a Deck: <i className="fas fa-question fa-lg q-icon" onClick={showInstruct}></i></h1>
         <form onSubmit={handleSubmit} className='deck-import-container'>
           <p className='deckInfo'>Deck Info</p>
 
@@ -110,15 +129,15 @@ const DeckImport = props => {
           <div className='import-container'>
           <textarea
             type='text'
-            onChange={handleChanges}
+            onChange={handleExportText}
             name='import'
-            value={newDeck.import}
+            value={exported}
             multiline={true}
             placeholder='Paste deck import here'
             className='textbox-import'
             rows='10'
           />
-          <button type="submit">Create Deck</button>
+          <button type="submit" >Create Deck</button>
           </div>
         </form>
         </>
