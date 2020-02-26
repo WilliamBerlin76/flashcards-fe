@@ -8,14 +8,14 @@ import Footer from '../footer/Footer';
 import './DeckImport.scss'
 
 import Instructions from './ImportInstructions'
-const OrangeInput = withStyles({
+const ImportInput = withStyles({
     root: {
       '& label.Mui-focused': {
         color: 'rgba(106, 92, 85, 0.5)',
   
       },
       '@media (min-width: 1000px)' : {
-        width: '100%',
+        width: '30%',
         fontSize:'12rem'
       },
       '& .MuiInput-underline:after': {
@@ -40,12 +40,9 @@ const DeckImport = props => {
     tags: [],
     deck: []
   })
-  const [cards, setCards] = useState([])
-  const [exported, setExported] = useState("What is ostinato?:left hand pattern usually consists of four pairs of eight notes;Artie Shaw:brought a West coast style to jazz, Born in the slums in New York to Jewish parents, fell in love with Jazz, sold millions of copies of 'Begin the Beguine';What is comping?:new piano accompaniment style to emerge from the swing era;What is a riff?:outlined a blues or rhythm change;What was Symphonic jazz?:symphony style jazz group; Paul Whiteman was the leader;Cotton club:famous speak easy in New York where only black performers played and only white patrons attended;Duke Ellington:Born in Chicago middle class. moved to Harlem in 1923 and began playing at the cotton club. Composer, pianist and band leader. Most influential figures in jazz.;Sugar Foot Stomp:Fletcher Henderson;Sugar Foot Stomp key and form:12 bar blues choruses in B major`;Coleman Hawkins:Known as the father of the Jazz Tenor Saxophone. Black Tenor Saxophone Player who played in Fletcher Henderson's group.;Articulation:the way in which notes are attacked by the tongue;Dissonance:class created by notes that do not fit a given harmony;chord tones:notes are part of a chord;What is the key and form for Mississippi Mud?:A theme: E flat major; B theme: C minor and E flat major;What was boogie woogie?:a solo piano style that initially surfaced during the 1920s; 8 to the bar;")
+  const [exported, setExported] = useState('')
 
   const [showInstructions, setShowInstructions] = useState(false)
-
-
 
   const showInstruct = e => {
     e.preventDefault();
@@ -58,15 +55,25 @@ const DeckImport = props => {
     const handleExportText = e => {
       setExported(e.target.value)
     }
-    const createDeck = (exportedString) => {
-      const splitString = exported.split(';');
-      for (let i = 0; i < splitString.length; i++) {
-        let term = splitString[i].split(':');
-         setCards([...cards, {front: term[0],  back: term[1]}])
+
+    const importedDeck = [];
+    class Card {
+      constructor(front, back) {
+        this.front = front;
+        this.back = back;
       }
-      
     }
-    console.log(createDeck(exported))
+    const createDeck = (deck) => {
+      const splitString = deck.split(';')
+      // console.log(splitString)
+      for (let i = 0; i < splitString.length; i++) {
+        let term = splitString[i].split(':')
+        // console.log(term)
+        importedDeck.push(new Card (term[0], term[1]))
+      }
+      console.log(importedDeck)
+    }
+
     const addTags = (e) => {
       e.preventDefault()
       if (e.target.value !== '') {
@@ -76,12 +83,16 @@ const DeckImport = props => {
       }
     }
     const removeTags= () => {}
-    const handleName = () => {}
-    const handleIcon = () => {}
     const handleSubmit = (e)=>{
       e.preventDefault();
+      createDeck(exported);
+      setNewDeck({...newDeck, deck: importedDeck})
+      props.postDecks(newDeck.deck, newDeck.name, newDeck.tags, newDeck.icon)
+      setTimeout(()=>{
+        props.history.push('/dashboard')
+      }, 400)
     }
-
+console.log('outside of handleSubmit',newDeck.deck)
     return (
         <>
         {showInstructions ? <Instructions/> : null}
@@ -89,9 +100,9 @@ const DeckImport = props => {
         <form onSubmit={handleSubmit} className='deck-import-container'>
           <p className='deckInfo'>Deck Info</p>
 
-          <div className='inputHolders'>
+          <div className='main-deck-wrapper'>
             <div className='deck-import-wrapper'>
-            <OrangeInput
+            <ImportInput
               type='text'
               onChange={handleChanges}
               name='name'
@@ -102,8 +113,7 @@ const DeckImport = props => {
             </div>
 
             <div className='deck-import-wrapper icon-wrapper'>
-              <OrangeInput
-                className='iconField'
+              <ImportInput
                 type='text'
                 onChange={handleChanges}
                 name='icon'
