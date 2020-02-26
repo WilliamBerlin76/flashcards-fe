@@ -72,7 +72,7 @@ export default function ArchiveDecks(props) {
           <span>Today</span>
           <span>This Week</span>
           <span>Lifetime</span>
-        </div> */}
+        </div> 
         <div className='studied'>
           <div className='numbers'>
             <span className='studied-number'>55</span>
@@ -82,7 +82,7 @@ export default function ArchiveDecks(props) {
             <span className='studied-text'>Studied</span>
             <span className='mastered-text'>Mastered</span>
           </div>
-        </div>
+        </div> */}
       </section>
 
       <section className='decks-section'>

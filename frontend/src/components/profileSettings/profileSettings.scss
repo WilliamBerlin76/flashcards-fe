@@ -144,3 +144,23 @@
     } 
 }
 
+@media screen and (min-width: 767px) and (max-height: 1024px) {
+    .settings-header-container .name-pic-container {
+        justify-content: flex-end;
+        padding: 1%;
+    }
+}
+
+@media screen and (min-width: 1365px) and (max-height: 768px) {
+    .settings-header-container .name-pic-container {
+        justify-content: flex-end;
+        padding: 1%;
+    }
+}
+
+@media screen and (min-width: 1919px) and (max-height: 1080px) {
+    .settings-header-container .name-pic-container {
+        justify-content: flex-end;
+        padding: 1%;
+    }
+}
