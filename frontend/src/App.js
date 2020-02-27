@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useOnClickOutside } from "./hooks/hooks";
 import firebase from "firebase";
+import 'firebase/firestore';
 //import dashNav from './components/dashNav';
 import Burger from "./components/Burger";
 import Menu from "./components/menu/menu";
@@ -53,8 +54,12 @@ const config = {
   projectId: firebaseProjectId,
   appId: firebaseAppId
 };
+
 firebase.initializeApp(config);
 firebase.analytics();
+
+export const firestore = firebase.firestore();
+
 
 function App() {
   const [open, setOpen] = useState(false);

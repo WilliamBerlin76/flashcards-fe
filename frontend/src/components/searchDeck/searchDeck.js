@@ -1,23 +1,33 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./navSearchBar.scss";
 import DeckList from "../deckList/DeckList";
+
+import 'firebase/firestore';
+import { firestore } from "../../App";
 
 const SearchDeck = () => {
   const [publicDecks, setPublickDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
 
-  // useEffect(() => {
-  //   axios
-  //     .get("endpoint")
-  //     .then(res => setPublicDecks(res.data))
-  //     .catch(err => err.response);
-  // }, []);
+  useEffect(() => {
+    firestore.collection("PublicDecks")
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          // console.log(doc.id, " => ", doc.data());
+          console.log(doc.data());
+          const decks = doc.data()
+          // setPublickDecks(decks.deckName)
+          console.log("Line 22", decks.deckName);
+          
+        });
+      });
+  }, []);
 
   const handleChange = e => {
     e.preventDefault();
     setSearchField(e.target.value);
-    console.log({ searchField });
   };
 
   const filteredDecks = publicDecks.filter(decks =>
