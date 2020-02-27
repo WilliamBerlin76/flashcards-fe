@@ -154,11 +154,11 @@ const DeckForm = props => {
         <div className='studied'>
           
 
-            <h1 className='numberrr'>87</h1>
+            {/* <h1 className='numberrr'>87</h1> */}
 {/*           
           <div className='text'> */}
             {/* <h1 className = "mastereddd">87</h1> */}
-            <span className='mastered-text'>Mastered</span>
+            {/* <span className='mastered-text'>Mastered</span> */}
           {/* </div> */}
         </div>
         {/* </div> */}
