@@ -483,54 +483,6 @@
   }
 }
 
-// @media screen and (min-width: 900px) and (max-width: 1000px){
-//   .loading-background {
-//     background: #f66e00;
-//     max-width: 100vw;
-//     // margin-top: -4%;
-//     padding-bottom: 4%;
-//     margin-bottom: 10%;
-//     padding-top: 2%;
-//     margin-top: -1%;
-//     .number {
-//       margin-left: 15%;
-//     }
-//     .smile-form {
-//       opacity: 0.25;
-//       margin-left: 70%;
-//       // margin-top: -60%;
-//       font-size: 74px;
-//       margin-top: 1%;
-//       width: 10%;
-//       margin-bottom: 6%;
-//       color: white;
-//     }
-//     .mastered {
-//       // display: flex;
-//       // justify-content: flex-end;
-//       font-family: Roboto Condensed;
-//       font-style: normal;
-//       font-weight: bold;
-//       font-size: 1.3rem;
-//       line-height: 19px;
-//       margin-left: 75%;
-//       margin-top: -6%;
-//       color: #ffffff;
-//       width: 50%;
-//     }
-//     .back {
-//       margin-bottom: -6%;
-//       margin-left: 6%;
-//       margin-right: 4%;
-//     }
-//     .deckName {
-//       font-size: 2.3rem;
-//       color: #ffffff;
-//       margin-left: 7%;
-//       margin-top: 1.5%;
-//     }
-//   }
-// }
 @media screen and (min-width: 900px) {
 
   .loading-background {
@@ -642,24 +594,24 @@
     margin-top: 5%;
   }
 }
-.page{
-  margin: 1rem 12rem;
-  .inputHolders{
-    display: flex;
-    // align-items: flex-start;
-    .iconHolder{
-      margin-left: 20%;
-      width: 50%;
-      .create-edit{
-        display: none;
-      }
-    };
-  }
-  .tagHolder{
-    margin-top:10%;
-    margin-left: 47%;
-  }
-}
+// .page{
+//   margin: 1rem 12rem;
+//   .inputHolders{
+//     display: flex;
+//     // align-items: flex-start;
+//     .iconHolder{
+//       margin-left: 20%;
+//       width: 50%;
+//       .create-edit{
+//         display: none;
+//       }
+//     };
+//   }
+//   .tagHolder{
+//     margin-top:10%;
+//     margin-left: 47%;
+//   }
+// }
   .flashcards{
   font-size: 40px;
   margin-top: 10%;
@@ -886,24 +838,26 @@ font-size: 34px;
     .deckInfo{
       font-size: 40px;
       margin-top: 5%;
+      text-align: center;
     }
   }
   .page{
-    margin: 1rem 12rem;
+    // margin: 1rem 12rem;
     .deck-input-wrapper{
       display: flex;
       justify-content: space-around;
+      padding: 0 25%;
     }
     .inputHolders{
       display: flex;
 
-    .deck-name-input{
-      width: 27.5%;
-    }
+    // .deck-name-input{
+    //   width: 27.5%;
+    // }
       // align-items: flex-start;
       .iconHolder{
         margin-left: 0%;
-        width: 55%;
+        //  width: 50%;
 
         
           // .create-edit{
@@ -915,11 +869,15 @@ font-size: 34px;
         
           
       };
+
     }
-    .tagHolder{
-      margin-top:10%;
-      margin-left: 47%;
+    .radio-wrapper{
+      padding: 0 25%;
     }
+    // .tagHolder{
+     
+    //   // margin-left: 47%;
+    // }
   }
   .flashcards{
     font-size: 40px;
