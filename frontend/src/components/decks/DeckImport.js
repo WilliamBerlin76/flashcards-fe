@@ -90,7 +90,9 @@ const DeckImport = props => {
         e.target.value = '';
       }
     }
-    const removeTags= () => {}
+    const removeTags = index => {
+      setNewDeck([...newDeck.tags.filter(tag =>newDeck.tags.indexOf(tag) !== index)]);
+    };
     const handleSubmit = (e)=>{
       e.preventDefault();
       createDeck(exported)
@@ -131,7 +133,7 @@ const DeckImport = props => {
                 label='Icon'
               />
               
-              <button className='edit-icon'>Edit Icon</button>
+              <button className='edit-icon' type='button'>Edit Icon</button>
             </div>
           </div>
           <div className='radio-wrapper'>

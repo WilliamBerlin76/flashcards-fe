@@ -170,7 +170,7 @@ const DeckForm = props => {
           <div className='form'>
             <form className='cardForm'>
               <p className='deckInfo'>Deck Info</p>
-
+              <div className='deck-input-wrapper'>
               <div className='inputHolders'>
                 <OrangeInput
                   label='Deck Name'
@@ -191,12 +191,13 @@ const DeckForm = props => {
                     name='icon'
                     variant='outlined'
                   />
-                  <button className='create-edit'>Edit Icon</button>
+                  <button className='create-edit' type='button'>Edit Icon</button>
                 </div>
               </div>
 
               <div className='tagHolder'>
                 <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+              </div>
               </div>
               <div className='radio-wrapper'>
                 <label><input type='radio' id='public' name='public-toggle' value='public'/>Public</label>

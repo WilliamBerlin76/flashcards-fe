@@ -890,15 +890,30 @@ font-size: 34px;
   }
   .page{
     margin: 1rem 12rem;
+    .deck-input-wrapper{
+      display: flex;
+      justify-content: space-around;
+    }
     .inputHolders{
       display: flex;
+
+    .deck-name-input{
+      width: 27.5%;
+    }
       // align-items: flex-start;
       .iconHolder{
-        margin-left: 20%;
-        width: 100%;
-          .create-edit{
-            display: none;
-          }
+        margin-left: 0%;
+        width: 55%;
+
+        
+          // .create-edit{
+          //   padding: 0% 10%;
+          //   border: 2px solid orangered;
+          //   background: none;
+          //   border-radius: 100px;
+          //  }
+        
+          
       };
     }
     .tagHolder{
