@@ -57,7 +57,7 @@ const DeckForm = props => {
       ...newName,
       [name]: e.target.value
     });
-    console.log(newName);
+    
   };
 
   const handleIcon = e => {
@@ -84,6 +84,7 @@ const DeckForm = props => {
     const subDeck = newDecks.filter(card => {
       return card.front && card.back;
     });
+    console.log('subDeck in deck form', subDeck)
     if (!newName.deckName) {
       // insures deckname is filled
       alert('Please add a Deck Name');

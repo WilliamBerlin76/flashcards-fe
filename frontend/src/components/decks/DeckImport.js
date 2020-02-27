@@ -40,6 +40,7 @@ const DeckImport = props => {
     tags: [],
     deck: []
   })
+  const [title, setTitle] = useState('')
   const [exported, setExported] = useState('')
 
   const [showInstructions, setShowInstructions] = useState(false)
@@ -49,6 +50,16 @@ const DeckImport = props => {
     setShowInstructions(!showInstructions)
   }
 
+
+  const handleName = e => {
+    let name = e.target.name;
+
+    setTitle({
+      ...title,
+      [name]: e.target.value
+    });
+    
+  }
     const handleChanges = e => {
       setNewDeck({...newDeck, [e.target.name]: e.target.value})
     }
@@ -56,46 +67,36 @@ const DeckImport = props => {
       setExported(e.target.value)
     }
 
-    const importedDeck = [];
-    // class Card {
-    //   constructor(front, back) {
-    //     this.front = front;
-    //     this.back = back;
-    //   }
-    // }
+    let importedDeck = [];
     const createDeck = (deck) => {
+      let array=[];
       const splitString = deck.split(';')
-      // console.log(splitString)
       for (let i = 0; i < splitString.length; i++) {
         let term = splitString[i].split(':')
-        // console.log(term)
-        importedDeck.push({front: term[0], back: term[1]})
+        array.push({front: term[0], back: term[1]})
+      }
+      return importedDeck = array
     }
-    console.log(importedDeck)
-    setNewDeck({...newDeck, deck: importedDeck})
-    console.log('newDeck inside createDeck', newDeck)
-  }
 
     const addTags = (e) => {
       e.preventDefault()
       if (e.target.value !== '') {
-        setNewDeck([...newDeck, e.target.value]);
+        setNewDeck({...newDeck, tags: e.target.value});
         // selectedTags([...tags, event.target.value]);
         e.target.value = '';
       }
     }
     const removeTags= () => {}
-
     const handleSubmit = (e)=>{
       e.preventDefault();
-      createDeck(exported);
-      console.log('importedDeck in handleSubmit',importedDeck[1])
-      //setNewDeck({...newDeck, deck: importedDeck})
-      //console.log('newDeck inside handleSubmit', newDeck.deck)
-      // props.postDecks(newDeck.deck, newDeck.name, newDeck.tags, newDeck.icon)
-      // setTimeout(()=>{
-      //   props.history.push('/dashboard')
-      // }, 400)
+      createDeck(exported)
+      const subDeck = importedDeck.filter(card => {
+        return card.front && card.back;
+      });
+      props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
+      setTimeout(()=>{
+        props.history.push('/dashboard')
+      }, 400)
     }
     return (
         <>
@@ -108,9 +109,8 @@ const DeckImport = props => {
             <div className='deck-import-wrapper'>
             <ImportInput
               type='text'
-              onChange={handleChanges}
-              name='name'
-              value={newDeck.name}
+              onChange={handleName}
+              name='deckName'
               variant="outlined"
               label='Deck Name'
             />
@@ -154,7 +154,7 @@ const DeckImport = props => {
           <button type="submit" >Create Deck</button>
           </div>
         </form>
-    { importedDeck[1] === undefined ? <p>loading..</p> : <p>{importedDeck[1]}</p>}
+    {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>
     )
     }
