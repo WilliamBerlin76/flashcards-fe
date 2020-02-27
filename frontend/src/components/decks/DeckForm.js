@@ -177,6 +177,8 @@ const DeckForm = props => {
                   type='text'
                   onChange={handleName}
                   name='deckName'
+                  variant='outlined'
+                  className='deck-name-input'
                   // placeholder = "Deck Name"
                 />
 
@@ -187,12 +189,18 @@ const DeckForm = props => {
                     type='text'
                     onChange={handleIcon}
                     name='icon'
+                    variant='outlined'
                   />
+                  <button className='create-edit'>Edit Icon</button>
                 </div>
               </div>
 
               <div className='tagHolder'>
                 <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+              </div>
+              <div className='radio-wrapper'>
+                <label><input type='radio' id='public' name='public-toggle' value='public'/>Public</label>
+                <label><input type='radio' id='private' name='public-toggle' value='private'/>Private</label>
               </div>
 
               <h3 className='flashcards'>Flashcards</h3>

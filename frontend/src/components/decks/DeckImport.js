@@ -34,6 +34,8 @@ const ImportInput = withStyles({
 
 
 const DeckImport = props => {
+
+  
   const [newDeck, setNewDeck] = useState({
     name: '',
     icon: '',
@@ -51,6 +53,7 @@ const DeckImport = props => {
   }
 
 
+
   const handleName = e => {
     let name = e.target.name;
 
@@ -60,6 +63,7 @@ const DeckImport = props => {
     });
     
   }
+
     const handleChanges = e => {
       setNewDeck({...newDeck, [e.target.name]: e.target.value})
     }
@@ -131,8 +135,8 @@ const DeckImport = props => {
             </div>
           </div>
           <div className='radio-wrapper'>
-            <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
             <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
+            <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
           </div>
 {/* make sure to add tag state functions */}
           <div className='tagHolder'>
