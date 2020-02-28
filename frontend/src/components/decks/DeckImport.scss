@@ -1,20 +1,4 @@
-// @media screen and (min-width: 1000px){
-// // body * {
-// //     border: 1px solid gray;
-// // }
-// // .deckInfo{
-// //     margin-top: 10%;
-// //     text-align: center;
-// // }
-// // // .main-deck-wrapper{
-// // //     display: flex;
-// // //     justify-content: space-between;
-// // //     flex-direction: column;
-// // //     align-items: flex-start;
-// // // }
 
-// // }
- 
 
 
 
@@ -123,3 +107,52 @@ h3{
   
 
   
+  @media screen and (min-width: 1000px){
+
+   .deck-import-container {
+       margin-left: 3%;
+   }
+   .header-container {
+      width: 60%;
+      margin-top: 1%;
+    
+      .main-deck-wrapper{
+          width: 100%;
+          margin-left: 0%;
+
+            .deck-import-wrapper{
+                width: 100%;
+            }
+      }
+        .deckName-input{
+            margin: 1% auto;
+            width: 80%;
+        }
+
+        .icon-input{
+            margin-right: 1%; 
+            min-width: 59%;
+        }
+
+       .icon-wrapper{
+           padding: 0%;
+       }
+        .main-deck-wrapper .icon-wrapper .edit-icon{
+            width: 20%;
+        }
+
+        .radio-wrapper{
+            width: 20%;
+            padding: 0%;
+            justify-content: space-between;
+        }
+
+       
+   }
+    
+   .import-container{
+    margin-left: 0%;
+}
+    
+    }
+     

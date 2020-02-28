@@ -92,7 +92,7 @@ const DeckImport = props => {
       }
     };
     const removeTags = index => {
-      setNewDeck([...newDeck.tags.filter(tag => newDeck.tags.indexOf(tag) !== index)]);
+      setTags([...tags.filter(tag => tags.indexOf(tag) !== index)]);
     };
 
     const test = e => {
@@ -113,8 +113,9 @@ const DeckImport = props => {
     return (
         <>
         {showInstructions ? <Instructions/> : null}
-        <h1 className='deck-import-header'>Import a Deck: <i className="fas fa-question fa-lg q-icon" onClick={showInstruct}></i></h1>
-        <form onSubmit={test} className='deck-import-container'>
+        <form className='deck-import-container'>
+          <div className='header-container'>
+          <h1 className='deck-import-header'>Import a Deck: <i className="fas fa-question fa-lg q-icon" onClick={showInstruct}></i></h1>
           <p className='deckInfo'>Deck Info</p>
 
           <div className='main-deck-wrapper'>
@@ -125,6 +126,7 @@ const DeckImport = props => {
               name='deckName'
               variant="outlined"
               label='Deck Name'
+              className='deckName-input'
             />
             </div>
 
@@ -139,7 +141,7 @@ const DeckImport = props => {
                 label='Icon'
               />
               
-              {/* <button className='edit-icon' type='button'>Edit Icon</button> */}
+              <button className='edit-icon' type='button'>Edit Icon</button>
             </div>
           </div>
           <div className='radio-wrapper'>
@@ -150,7 +152,7 @@ const DeckImport = props => {
           <div className='tagHolder'>
             <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
           </div>
-
+          </div>
           <h3>Quizlet Import</h3>
           <div className='import-container'>
           <textarea
@@ -163,7 +165,7 @@ const DeckImport = props => {
             className='textbox-import'
             rows='10'
           />
-          <button type="button" onClick={handleSubmit}>Create Deck</button>
+          <button type='button' onClick={handleSubmit}>Create Deck</button>
           </div>
         </form>
 
