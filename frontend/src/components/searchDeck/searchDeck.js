@@ -8,27 +8,16 @@ import { firestore } from "../../App";
 const SearchDeck = () => {
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
-
-  const deckArr = [];
+  console.log("publicDecks", publicDecks);
 
   useEffect(() => {
-    firestore
-      .collection("PublicDecks")
-      .get()
-      .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
-          // console.log(doc.id, " => ", doc.data());
-          // console.log(doc.data());
-          let deck = doc.data();
-          deckArr.push(deck);
-          setPublicDecks(deckArr);
-          // console.log("deckArr", deckArr);
-        });
-        return deckArr;
+    firestore.collection("PublicDecks").onSnapshot(snapshot => {
+      const deckArr = [];
+      snapshot.forEach(doc => {
+        deckArr.push(doc.data());
       });
-    // console.log("deckArr", deckArr);
-    console.log("publicDecks", publicDecks);
+      setPublicDecks(deckArr);
+    });
   }, []);
 
   const handleChange = e => {
@@ -36,23 +25,33 @@ const SearchDeck = () => {
     setSearchField(e.target.value);
   };
 
-  // const filteredDecks = publicDecks.filter(decks =>
-  //   decks.name.toLowerCase().includes(searchField.toLowerCase())
-  // );
+  const filteredDecks = publicDecks.filter(decks => {
+    const results = decks.deckName
+    console.log("results", results);
+    
+  });
+  console.log("filteredDecks", filteredDecks);
 
   return (
-    <div className="center">
-      <input
-        className="center"
-        type="text"
-        placeholder="Search Public Decks"
-        onChange={handleChange}
-        value={searchField}
-      />
-
-      {/* <DeckList decks={filteredDecks} /> */}
-    </div>
+    <>
+      <form>
+        <div className="center">
+          <input
+            className="center"
+            type="text"
+            placeholder="Search Public Decks"
+            onChange={handleChange}
+            value={searchField}
+          />
+          <button type="submit">Find</button>
+        </div>
+      </form>
+    </>
   );
 };
 
 export default SearchDeck;
+
+// const filteredDecks = publicDecks.filter(decks =>
+//   decks.deckName.toLowerCase().includes(searchField.toLowerCase())
+// );
