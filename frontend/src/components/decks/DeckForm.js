@@ -312,7 +312,7 @@ const DeckForm = props => {
                     >
                       Save deck
                     </button>
-                    <div className='created'>Cards in deck</div>
+                    <div className='created'>Cards in decks</div>
                   </div>
                 ) : null}
                 {/* <button

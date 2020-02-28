@@ -2,7 +2,7 @@ import React from 'react';
 
 const Tags = props => {
   //TAGS
-
+console.log(props.tags)
   return (
     <div className='tags-input'>
       <ul id='tags'>

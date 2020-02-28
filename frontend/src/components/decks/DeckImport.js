@@ -42,6 +42,7 @@ const DeckImport = props => {
     tags: [],
     deck: []
   })
+  const [tags, setTags] = useState([])
   const [title, setTitle] = useState('')
   const [exported, setExported] = useState('')
 
@@ -82,16 +83,17 @@ const DeckImport = props => {
       return importedDeck = array
     }
 
-    const addTags = (e) => {
-      e.preventDefault()
-      if (e.target.value !== '') {
-        setNewDeck({...newDeck, tags: e.target.value});
+    const addTags = event => {
+      event.preventDefault();
+      if (event.target.value !== '') {
+        setTags([...tags, event.target.value]);
         // selectedTags([...tags, event.target.value]);
-        e.target.value = '';
+        event.target.value = '';
       }
-    }
+      console.log(tags);
+    };
     const removeTags = index => {
-      setNewDeck([...newDeck.tags.filter(tag =>newDeck.tags.indexOf(tag) !== index)]);
+      setNewDeck([...newDeck.tags.filter(tag => newDeck.tags.indexOf(tag) !== index)]);
     };
     const handleSubmit = (e)=>{
       e.preventDefault();
@@ -133,16 +135,16 @@ const DeckImport = props => {
                 label='Icon'
               />
               
-              <button className='edit-icon' type='button'>Edit Icon</button>
+              <button className='edit-icon'>Edit Icon</button>
             </div>
           </div>
           <div className='radio-wrapper'>
-            <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
             <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
+            <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
           </div>
 {/* make sure to add tag state functions */}
           <div className='tagHolder'>
-            <Tags tags={newDeck.tags} addTags={addTags} removeTags={removeTags} />
+            <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
           </div>
 
           <h3>Quizlet Import</h3>
