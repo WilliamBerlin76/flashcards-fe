@@ -2,27 +2,33 @@ import React, { useState, useEffect } from "react";
 import "./navSearchBar.scss";
 import DeckList from "../deckList/DeckList";
 
-import 'firebase/firestore';
+import "firebase/firestore";
 import { firestore } from "../../App";
 
 const SearchDeck = () => {
-  const [publicDecks, setPublickDecks] = useState([]);
+  const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
 
+  const deckArr = [];
+
   useEffect(() => {
-    firestore.collection("PublicDecks")
+    firestore
+      .collection("PublicDecks")
       .get()
       .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           // doc.data() is never undefined for query doc snapshots
           // console.log(doc.id, " => ", doc.data());
-          console.log(doc.data());
-          const decks = doc.data()
-          // setPublickDecks(decks.deckName)
-          console.log("Line 22", decks.deckName);
-          
+          // console.log(doc.data());
+          let deck = doc.data();
+          deckArr.push(deck);
+          setPublicDecks(deckArr);
+          // console.log("deckArr", deckArr);
         });
+        return deckArr;
       });
+    // console.log("deckArr", deckArr);
+    console.log("publicDecks", publicDecks);
   }, []);
 
   const handleChange = e => {
@@ -30,9 +36,9 @@ const SearchDeck = () => {
     setSearchField(e.target.value);
   };
 
-  const filteredDecks = publicDecks.filter(decks =>
-    decks.name.toLowerCase().includes(searchField.toLowerCase())
-  );
+  // const filteredDecks = publicDecks.filter(decks =>
+  //   decks.name.toLowerCase().includes(searchField.toLowerCase())
+  // );
 
   return (
     <div className="center">
@@ -44,7 +50,7 @@ const SearchDeck = () => {
         value={searchField}
       />
 
-      <DeckList decks={filteredDecks} />
+      {/* <DeckList decks={filteredDecks} /> */}
     </div>
   );
 };
