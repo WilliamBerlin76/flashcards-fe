@@ -90,12 +90,16 @@ const DeckImport = props => {
         // selectedTags([...tags, event.target.value]);
         event.target.value = '';
       }
-      console.log(tags);
     };
     const removeTags = index => {
       setNewDeck([...newDeck.tags.filter(tag => newDeck.tags.indexOf(tag) !== index)]);
     };
-    const handleSubmit = (e)=>{
+
+    const test = e => {
+      e.preventDefault();
+    }
+
+    const handleSubmit = (e) =>{
       e.preventDefault();
       createDeck(exported)
       const subDeck = importedDeck.filter(card => {
@@ -110,7 +114,7 @@ const DeckImport = props => {
         <>
         {showInstructions ? <Instructions/> : null}
         <h1 className='deck-import-header'>Import a Deck: <i className="fas fa-question fa-lg q-icon" onClick={showInstruct}></i></h1>
-        <form onSubmit={handleSubmit} className='deck-import-container'>
+        <form onSubmit={test} className='deck-import-container'>
           <p className='deckInfo'>Deck Info</p>
 
           <div className='main-deck-wrapper'>
@@ -135,7 +139,7 @@ const DeckImport = props => {
                 label='Icon'
               />
               
-              <button className='edit-icon'>Edit Icon</button>
+              {/* <button className='edit-icon' type='button'>Edit Icon</button> */}
             </div>
           </div>
           <div className='radio-wrapper'>
@@ -159,9 +163,10 @@ const DeckImport = props => {
             className='textbox-import'
             rows='10'
           />
-          <button type="submit" >Create Deck</button>
+          <button type="button" onClick={handleSubmit}>Create Deck</button>
           </div>
         </form>
+
     {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>
     )
