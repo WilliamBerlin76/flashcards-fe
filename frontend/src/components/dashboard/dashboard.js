@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import firebase from 'firebase';
-import DeckCards from './deckcards/deckcards.js';
-import { getDecks, getCards } from '../../actions';
-import { connect } from 'react-redux';
-import './dashboard.scss';
-import Loader from 'react-loader-spinner';
-import styled from 'styled-components';
-import smiley from '../../assets/smiley.png';
-import Footer from '../footer/Footer';
+import React, { useState, useEffect } from "react";
+import firebase from "firebase";
+import DeckCards from "./deckcards/deckcards.js";
+import { getDecks, getCards } from "../../actions";
+import { connect } from "react-redux";
+import "./dashboard.scss";
+import Loader from "react-loader-spinner";
+import styled from "styled-components";
+import smiley from "../../assets/smiley.png";
+import Footer from "../footer/Footer";
 
 const Loading = styled.div`
   margin-top: 10%;
@@ -38,30 +38,30 @@ const Dashboard = props => {
 
   return (
     <>
-      <section className='study-data'>
+      <section className="study-data">
         {/* <div className='timeline-selectors'>
           <span>Today</span>
           <span>This Week</span>
           <span>Lifetime</span>
         </div> */}
-        <div className='studied-dash'>
-          <div className='numbers'>
-            <span className='studied-number'>55</span>
-            <span className='mastered-number'>15</span>
+        <div className="studied-dash">
+          <div className="numbers">
+            <span className="studied-number">55</span>
+            <span className="mastered-number">15</span>
           </div>
-          <div className='text'>
-            <span className='studied-text'>Studied</span>
-            <span className='mastered-text'>Mastered</span>
+          <div className="text">
+            <span className="studied-text">Studied</span>
+            <span className="mastered-text">Mastered</span>
           </div>
         </div>
       </section>
       <button
-        className='bottom-button'
-        onClick={() => props.history.push('/create-deck')}
+        className="bottom-button"
+        onClick={() => props.history.push("/create-deck")}
       >
         Create Deck
       </button>
-      <section className='decks-section'>
+      <section className="decks-section">
         {/* <div className='decks-selectors'>
           <span>Recent Decks</span>
           <span>All Decks</span>
@@ -70,18 +70,18 @@ const Dashboard = props => {
         {deckArr.length === 0 ? (
           <div>
             <Loading>
-              <Loader type='ThreeDots' color='#F66E00' height={80} width={80} />
+              <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
             </Loading>
           </div>
         ) : (
           deckArr.map(item => {
-            console.log('item', item);
+            console.log("item", item);
             return (
               <DeckCards
-                key={Math.random()}
-                demo={item.demo}
-                deckName={item.deckName}
-                openDeck={openDeck}
+                // key={Math.random()}
+                // demo={item.demo}
+                // deckName={item.deckName}
+                // openDeck={openDeck}
               />
             );
           })

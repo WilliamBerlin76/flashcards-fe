@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import "./navSearchBar.scss";
-import DeckList from "../deckList/DeckList";
-
 import "firebase/firestore";
-import { firestore } from "../../App";
+import Loader from "react-loader-spinner";
 
-const SearchDeck = () => {
+import { firestore } from "../../App";
+import DeckCards from "../dashboard/deckcards/deckcards";
+
+const Loading = styled.div`
+  margin-top: 10%;
+  text-align: center;
+`;
+
+const SearchDeck = props => {
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
-  console.log("publicDecks", publicDecks);
+  const [query, setQuery] = useState([]);
+  let resultsArr = [];
+
+  // console.log("publicDecks", publicDecks);
+  console.log("query", query);
 
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
@@ -25,16 +36,31 @@ const SearchDeck = () => {
     setSearchField(e.target.value);
   };
 
-  const filteredDecks = publicDecks.filter(decks => {
-    const results = decks.deckName
-    console.log("results", results);
-    
-  });
-  console.log("filteredDecks", filteredDecks);
+  const openDeck = (deck, user) => {
+    props.history.push(`/${user}/${deck}/cards`);
+    console.log(deck);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    publicDecks.filter(deck => {
+      if (
+        deck.deckName &&
+        deck.deckName.toLowerCase() === searchField.toLowerCase()
+      ) {
+        resultsArr.push(deck);
+      } else if (!deck.deckName) {
+        console.log("Not Found");
+      }
+      setQuery(resultsArr);
+      console.log("resultsArr", resultsArr);
+      
+    });
+  };
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="center">
           <input
             className="center"
@@ -46,12 +72,38 @@ const SearchDeck = () => {
           <button type="submit">Find</button>
         </div>
       </form>
+
+      {/* if loading === "false" 
+        display nothing */}
+
+      {/* if is loading === "null" 
+        No Deck Found */}
+
+      {/* if deck found
+        return filteredDecks */}
+      
+
+      {query.length === 0 ? (
+        <div>
+          <Loading>
+            <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
+          </Loading>
+        </div>
+      ) : (
+        query.map(item => {
+          console.log("item", item);
+          return (
+            <DeckCards
+              key={Math.random()}
+              // demo={item.demo}
+              deckName={item.deckName}
+              openDeck={openDeck}
+            />
+          );
+        })
+      )}
     </>
   );
 };
 
 export default SearchDeck;
-
-// const filteredDecks = publicDecks.filter(decks =>
-//   decks.deckName.toLowerCase().includes(searchField.toLowerCase())
-// );

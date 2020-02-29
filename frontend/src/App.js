@@ -97,7 +97,9 @@ function App() {
           </FocusLock>
           {/* //Links here */}
           <DashNav />
-          <Route path="/search" component={SearchDeck} />
+          <Route 
+              path="/search" 
+              render={props => <SearchDeck {...props}  />} />
           <Route exact path="/" component={Marketing} />
           <Route exact path="/decklist" component={DeckList} />
           <Route
