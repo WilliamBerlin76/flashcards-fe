@@ -16,10 +16,16 @@
     //   }
     }
 
-    .deck-import-header {
+    .header-container .deck-import-header  {
+        margin-top: 5%;
         text-align: center;
          .q-icon{
              color: orangered;
+             text-decoration: underline;
+
+             &:hover{
+                 cursor: pointer;
+             }
            
          }
     }
@@ -110,7 +116,11 @@ h3{
   @media screen and (min-width: 1000px){
 
    .deck-import-container {
-       margin-left: 3%;
+    *{
+        margin-left: 0;
+    }   
+    margin-left: 3%;
+
    }
    .header-container {
       width: 60%;
@@ -151,8 +161,20 @@ h3{
    }
     
    .import-container{
+       width: 60%;
     margin-left: 0%;
+     .textbox-import {
+         width: 80%;
+     }
 }
     
+
+    .btn-container {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 5%;
+    }
+
     }
      

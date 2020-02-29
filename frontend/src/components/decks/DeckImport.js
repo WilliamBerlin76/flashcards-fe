@@ -115,7 +115,7 @@ const DeckImport = props => {
         {showInstructions ? <Instructions/> : null}
         <form className='deck-import-container'>
           <div className='header-container'>
-          <h1 className='deck-import-header'>Import a Deck: <i className="fas fa-question fa-lg q-icon" onClick={showInstruct}></i></h1>
+          <h1 className='deck-import-header'>Importing a Deck? <a className="q-icon" onClick={showInstruct}>Read More</a></h1>
           <p className='deckInfo'>Deck Info</p>
 
           <div className='main-deck-wrapper'>
@@ -165,7 +165,10 @@ const DeckImport = props => {
             className='textbox-import'
             rows='10'
           />
+          <div className='btn-container'>
           <button type='button' onClick={handleSubmit}>Create Deck</button>
+          <button type='button'>View Deck</button>
+          </div>
           </div>
         </form>
 
