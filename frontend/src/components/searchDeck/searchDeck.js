@@ -5,7 +5,7 @@ import "firebase/firestore";
 import Loader from "react-loader-spinner";
 
 import { firestore } from "../../App";
-import DeckCards from "../dashboard/deckcards/deckcards";
+import "../dashboard/deckcards/deckcards.scss";
 
 const Loading = styled.div`
   margin-top: 10%;
@@ -16,9 +16,9 @@ const SearchDeck = props => {
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
   const [query, setQuery] = useState([]);
-  let resultsArr = [];
+  const resultsArr = [];
 
-  // console.log("publicDecks", publicDecks);
+  console.log("publicDecks", publicDecks);
   console.log("query", query);
 
   useEffect(() => {
@@ -31,30 +31,37 @@ const SearchDeck = props => {
     });
   }, []);
 
-  const handleChange = e => {
-    e.preventDefault();
-    setSearchField(e.target.value);
-  };
-
   const openDeck = (deck, user) => {
     props.history.push(`/${user}/${deck}/cards`);
     console.log(deck);
   };
 
+  const handleChange = e => {
+    e.preventDefault();
+    setSearchField(e.target.value);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     publicDecks.filter(deck => {
+      const findTags = deck.tags.indexOf(searchField.toLowerCase());
+
       if (
-        deck.deckName &&
-        deck.deckName.toLowerCase() === searchField.toLowerCase()
+        (deck.deckName &&
+          deck.deckName.toLowerCase() === searchField.toLowerCase()) ||
+        (deck.createdBy &&
+          deck.createdBy.toLowerCase() === searchField.toLowerCase()) ||
+        (deck.tags && deck.tags.indexOf(searchField) >= 0)
       ) {
         resultsArr.push(deck);
-      } else if (!deck.deckName) {
+        setSearchField("");
+      } else {
         console.log("Not Found");
+        setSearchField("");
       }
       setQuery(resultsArr);
-      console.log("resultsArr", resultsArr);
-      
+      console.log("testing", deck.tags);
+      console.log("findTags", findTags);
     });
   };
 
@@ -72,36 +79,25 @@ const SearchDeck = props => {
           <button type="submit">Find</button>
         </div>
       </form>
-
-      {/* if loading === "false" 
-        display nothing */}
-
-      {/* if is loading === "null" 
-        No Deck Found */}
-
-      {/* if deck found
-        return filteredDecks */}
       
-
-      {query.length === 0 ? (
-        <div>
-          <Loading>
-            <Loader type="ThreeDots" color="#F66E00" height={80} width={80} />
-          </Loading>
-        </div>
-      ) : (
-        query.map(item => {
-          console.log("item", item);
-          return (
-            <DeckCards
-              key={Math.random()}
-              // demo={item.demo}
-              deckName={item.deckName}
-              openDeck={openDeck}
-            />
-          );
-        })
-      )}
+      <div className="decks-section">
+        {query
+          ? query.map(item => {
+              return (
+                <div className="deckcard-div" onClick={openDeck}>
+                  <div className="deck">
+                    <div className="deck-card">
+                      <div className="deck-info">
+                        <h3 className="deck-name">{item.deckName}</h3>
+                      </div>
+                      <div className="example-card">{item.exampleCard}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          : null}
+      </div>
     </>
   );
 };
