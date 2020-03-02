@@ -100,15 +100,28 @@ const DeckImport = props => {
     }
 
     const handleSubmit = (e) =>{
-      e.preventDefault();
-      createDeck(exported)
-      const subDeck = importedDeck.filter(card => {
-        return card.front && card.back;
-      });
-      props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
-      setTimeout(()=>{
-        props.history.push('/dashboard')
-      }, 400)
+      if (tags.length < 1 ) {
+        alert('Please insert tag(s)')
+      } else {
+        e.preventDefault();
+        createDeck(exported)
+        const subDeck = importedDeck.filter(card => {
+          return card.front && card.back;
+        });
+        props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
+        setTimeout(()=>{
+          props.history.push('/dashboard')
+        }, 400)
+      }
+      // e.preventDefault();
+      // createDeck(exported)
+      // const subDeck = importedDeck.filter(card => {
+      //   return card.front && card.back;
+      // });
+      // props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
+      // setTimeout(()=>{
+      //   props.history.push('/dashboard')
+      // }, 400)
     }
     return (
         <>
@@ -167,7 +180,7 @@ const DeckImport = props => {
           />
           <div className='btn-container'>
           <button type='button' onClick={handleSubmit}>Create Deck</button>
-          <button type='button'>View Deck</button>
+          {/* <button type='button'>View Deck</button> */}
           </div>
           </div>
         </form>
