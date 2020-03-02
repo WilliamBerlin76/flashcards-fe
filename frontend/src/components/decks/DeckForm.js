@@ -57,7 +57,7 @@ const DeckForm = props => {
       ...newName,
       [name]: e.target.value
     });
-    console.log(newName);
+    
   };
 
   const handleIcon = e => {
@@ -84,6 +84,7 @@ const DeckForm = props => {
     const subDeck = newDecks.filter(card => {
       return card.front && card.back;
     });
+    console.log('subDeck in deck form', subDeck)
     if (!newName.deckName) {
       // insures deckname is filled
       alert('Please add a Deck Name');
@@ -169,13 +170,15 @@ const DeckForm = props => {
           <div className='form'>
             <form className='cardForm'>
               <p className='deckInfo'>Deck Info</p>
-
+              <div className='deck-input-wrapper'>
               <div className='inputHolders'>
                 <OrangeInput
                   label='Deck Name'
                   type='text'
                   onChange={handleName}
                   name='deckName'
+                  variant='outlined'
+                  className='deck-name-input'
                   // placeholder = "Deck Name"
                 />
 
@@ -186,12 +189,19 @@ const DeckForm = props => {
                     type='text'
                     onChange={handleIcon}
                     name='icon'
+                    variant='outlined'
                   />
+                  <button className='create-edit' type='button'>Edit Icon</button>
                 </div>
               </div>
 
               <div className='tagHolder'>
                 <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+              </div>
+              </div>
+              <div className='radio-wrapper'>
+                <label><input type='radio' id='public' name='public-toggle' value='public'/>Public</label>
+                <label><input type='radio' id='private' name='public-toggle' value='private'/>Private</label>
               </div>
 
               <h3 className='flashcards'>Flashcards</h3>
@@ -302,7 +312,7 @@ const DeckForm = props => {
                     >
                       Save deck
                     </button>
-                    <div className='created'>Cards in deck</div>
+                    <div className='created'>Cards in decks</div>
                   </div>
                 ) : null}
                 {/* <button

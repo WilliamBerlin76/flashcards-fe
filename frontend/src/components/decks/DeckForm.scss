@@ -39,6 +39,13 @@
 }
 .iconHolder {
   display: flex;
+  justify-content: space-between;
+   .create-edit{
+    padding: 0% 10%;
+    border: 2px solid orangered;
+    background: none;
+    border-radius: 100px;
+   }
 }
 .tags-input {
   display: flex;
@@ -116,177 +123,6 @@
     cursor: pointer;
   }
 }
-// .top {
-//   margin-top: 220%;
-// }
-// @media only screen and (min-width: 320px) {
-//   .loading-background {
-//     background: #f66e00;
-//     max-width: 100vw;
-//     // margin-top: -4%;
-//     padding-bottom: 4%;
-//     margin-bottom: 10%;
-//     padding-top: 2%;
-//     .number {
-//       margin-left: 15%;
-//     }
-//     .smile-form {
-//       opacity: 0.25;
-//       margin-left: 62%;
-//       // margin-top: -60%;
-//       font-size: 70px;
-//       margin-top: 1%;
-//       width: 10%;
-//       // margin-bottom: 6%;
-//       color: white;
-//     }
-//     .mastered {
-//       // display: flex;
-//       // justify-content: flex-end;
-//       font-family: Roboto Condensed;
-//       font-style: normal;
-//       font-weight: bold;
-//       font-size: 1.3rem;
-//       line-height: 19px;
-//       margin-left: 70%;
-//       margin-top: -6%;
-//       color: #ffffff;
-//       width: 50%;
-//     }
-//     .back {
-//       margin-bottom: -6%;
-//       margin-left: 6%;
-//       margin-right: 4%;
-//     }
-//   }
-//   .deckName {
-//     font-size: 1.9rem;
-//   }
-//   // .page {
-//   //     margin-top: 85%;
-//   // }
-//   .deckInfo {
-//     margin-left: 4%;
-//   }
-//   // .topForm {
-//   //     margin-top: -70%;
-//   // }
-//   // .cardForm {
-//   //     margin-top: -41.5%;
-//   //     padding-bottom: 10%;
-//   // }
-//   .inputHolders {
-//     margin-left: 4%;
-//   }
-//   // .topCard{
-//   //     margin-bottom: 120%;
-//   // }
-//   .buttonHolder {
-//     // margin-bottom: -170%;
-//     padding-bottom: 1%;
-//     margin-left: 13%;
-//     margin-top: 50%;
-//     //   width: 100%;
-//     .save {
-//       background-color: #f66e00;
-//       color: #fcfcfc;
-//       font-size: 15px;
-//       line-height: 21px;
-//       border-radius: 25px;
-//       padding-top: 3%;
-//       padding-bottom: 3%;
-//       width: 30%;
-//       margin-left: 12%;
-//       cursor: pointer;
-//     }
-//     .add {
-//       background-color: #fcfcfc;
-//       color: #f66e00;
-//       font-size: 15px;
-//       line-height: 21px;
-//       border-radius: 25px;
-//       border: 2px solid #f66e00;
-//       padding-top: 3%;
-//       padding-bottom: 3%;
-//       width: 30%;
-//       cursor: pointer;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//   }
-//   .topCard {
-//     margin-top: 50%;
-//     margin-bottom: 60%;
-//   }
-//   .card {
-//     margin-top: 5%;
-//     padding-left: 10%;
-//     width: 70%;
-//     margin-left: 6%;
-//     padding-top: 2%;
-//     // margin-bottom: 30%;
-//     &:first-child {
-//       margin-top: 15%;
-//       // margin-bottom: 30%;
-//     }
-//     .removeHolder {
-//       margin-bottom: -5%;
-//     }
-//     .remove {
-//       margin-left: 85%;
-//       border: 2px solid #f66e00;
-//       color: #f66e00;
-//       border-radius: 3px;
-//       cursor: pointer;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//     .frontLabel {
-//       margin-left: -10%;
-//     }
-//     .frontCard {
-//       margin-left: -7%;
-//       width: 100%;
-//       text-align: center;
-//       height: 70px;
-//       margin-bottom: 2%;
-//       font-size: 2rem;
-//       resize: none;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//     .backLabel {
-//       margin-left: -10%;
-//     }
-//     .backCard {
-//       margin-left: -7%;
-//       width: 100%;
-//       text-align: center;
-//       height: 60px;
-//       margin-bottom: 2%;
-//       font-size: 2rem;
-//       resize: none;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//   }
-//   .new {
-//     margin-bottom: -9%;
-//     margin-left: 6%;
-//   }
-//   .form {
-//     display: flex;
-//     flex-direction: column-reverse;
-//     flex-flow: column-reverse;
-//   }
-//   .tags-input {
-//     width: 80%;
-//   }
-// }
 .backk{
   cursor: pointer;
 }
@@ -376,7 +212,13 @@
   //     padding-bottom: 10%;
   // }
   .inputHolders {
-    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 4%;
+      .deck-name-input{
+        width: 100%;
+        margin-bottom: 8%;
+      }
   }
   // .topCard{
   //     margin-bottom: 120%;
@@ -641,54 +483,6 @@
   }
 }
 
-// @media screen and (min-width: 900px) and (max-width: 1000px){
-//   .loading-background {
-//     background: #f66e00;
-//     max-width: 100vw;
-//     // margin-top: -4%;
-//     padding-bottom: 4%;
-//     margin-bottom: 10%;
-//     padding-top: 2%;
-//     margin-top: -1%;
-//     .number {
-//       margin-left: 15%;
-//     }
-//     .smile-form {
-//       opacity: 0.25;
-//       margin-left: 70%;
-//       // margin-top: -60%;
-//       font-size: 74px;
-//       margin-top: 1%;
-//       width: 10%;
-//       margin-bottom: 6%;
-//       color: white;
-//     }
-//     .mastered {
-//       // display: flex;
-//       // justify-content: flex-end;
-//       font-family: Roboto Condensed;
-//       font-style: normal;
-//       font-weight: bold;
-//       font-size: 1.3rem;
-//       line-height: 19px;
-//       margin-left: 75%;
-//       margin-top: -6%;
-//       color: #ffffff;
-//       width: 50%;
-//     }
-//     .back {
-//       margin-bottom: -6%;
-//       margin-left: 6%;
-//       margin-right: 4%;
-//     }
-//     .deckName {
-//       font-size: 2.3rem;
-//       color: #ffffff;
-//       margin-left: 7%;
-//       margin-top: 1.5%;
-//     }
-//   }
-// }
 @media screen and (min-width: 900px) {
 
   .loading-background {
@@ -800,21 +594,24 @@
     margin-top: 5%;
   }
 }
-.page{
-  margin: 1rem 12rem;
-  .inputHolders{
-    display: flex;
-    // align-items: flex-start;
-    .iconHolder{
-      margin-left: 20%;
-      width: 50%;
-    };
-  }
-  .tagHolder{
-    margin-top:10%;
-    margin-left: 47%;
-  }
-}
+// .page{
+//   margin: 1rem 12rem;
+//   .inputHolders{
+//     display: flex;
+//     // align-items: flex-start;
+//     .iconHolder{
+//       margin-left: 20%;
+//       width: 50%;
+//       .create-edit{
+//         display: none;
+//       }
+//     };
+//   }
+//   .tagHolder{
+//     margin-top:10%;
+//     margin-left: 47%;
+//   }
+// }
   .flashcards{
   font-size: 40px;
   margin-top: 10%;
@@ -1041,22 +838,46 @@ font-size: 34px;
     .deckInfo{
       font-size: 40px;
       margin-top: 5%;
+      text-align: center;
     }
   }
   .page{
-    margin: 1rem 12rem;
+    // margin: 1rem 12rem;
+    .deck-input-wrapper{
+      display: flex;
+      justify-content: space-around;
+      padding: 0 20%;
+    }
     .inputHolders{
       display: flex;
+
+    // .deck-name-input{
+    //   width: 27.5%;
+    // }
       // align-items: flex-start;
       .iconHolder{
-        margin-left: 20%;
-        width: 100%;
+        margin-left: 0%;
+        //  width: 50%;
+
+        
+          // .create-edit{
+          //   padding: 0% 10%;
+          //   border: 2px solid orangered;
+          //   background: none;
+          //   border-radius: 100px;
+          //  }
+        
+          
       };
+
     }
-    .tagHolder{
-      margin-top:10%;
-      margin-left: 47%;
+    .radio-wrapper{
+      padding: 0 20%;
     }
+    // .tagHolder{
+     
+    //   // margin-left: 47%;
+    // }
   }
   .flashcards{
     font-size: 40px;
