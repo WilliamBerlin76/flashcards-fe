@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import "./navSearchBar.scss";
 import "firebase/firestore";
-import Loader from "react-loader-spinner";
 
 import { firestore } from "../../App";
 import "../dashboard/deckcards/deckcards.scss";
-
-const Loading = styled.div`
-  margin-top: 10%;
-  text-align: center;
-`;
 
 const SearchDeck = props => {
   const [publicDecks, setPublicDecks] = useState([]);
@@ -44,8 +37,6 @@ const SearchDeck = props => {
   const handleSubmit = e => {
     e.preventDefault();
     publicDecks.filter(deck => {
-      const findTags = deck.tags.indexOf(searchField.toLowerCase());
-
       if (
         (deck.deckName &&
           deck.deckName.toLowerCase() === searchField.toLowerCase()) ||
@@ -60,8 +51,6 @@ const SearchDeck = props => {
         setSearchField("");
       }
       setQuery(resultsArr);
-      console.log("testing", deck.tags);
-      console.log("findTags", findTags);
     });
   };
 
@@ -79,7 +68,7 @@ const SearchDeck = props => {
           <button type="submit">Find</button>
         </div>
       </form>
-      
+
       <div className="decks-section">
         {query
           ? query.map(item => {
@@ -91,6 +80,9 @@ const SearchDeck = props => {
                         <h3 className="deck-name">{item.deckName}</h3>
                       </div>
                       <div className="example-card">{item.exampleCard}</div>
+                    </div>
+                    <div className="mastery">
+                      <h3>Created by: {item.createdBy}</h3>
                     </div>
                   </div>
                 </div>
