@@ -189,6 +189,14 @@
       }
     }
   }
+
+  .study-data .studied-dash .numbers .mastered-number {
+    top: 5%;
+  }
+
+  .study-data .studied-dash .numbers .studied-number {
+    top: 5%;
+  }
 }
 
 @media screen and (min-width: 1535px) and (max-height: 864px) {
@@ -209,6 +217,14 @@
       }
     }
   }
+
+  .study-data .studied-dash .numbers .mastered-number {
+    top: 4.7%;
+  }
+
+  .study-data .studied-dash .numbers .studied-number {
+    top: 4.7%;
+  }
 }
 
 @media screen and (min-width: 1919px) and (max-height: 1080px) {
@@ -228,5 +244,21 @@
         height: 100%;
       }
     }
+  }
+
+  .numbers span {
+    margin-top: 3%;
+  }
+
+  .text span {
+    margin-top: 5%;
+  }
+
+  .study-data .studied-dash .numbers .mastered-number {
+    top: 5%;
+  }
+
+  .study-data .studied-dash .numbers .studied-number {
+    top: 5%;
   }
 }

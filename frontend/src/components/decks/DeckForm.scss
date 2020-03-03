@@ -39,6 +39,13 @@
 }
 .iconHolder {
   display: flex;
+  justify-content: space-between;
+   .create-edit{
+    padding: 0% 10%;
+    border: 2px solid orangered;
+    background: none;
+    border-radius: 100px;
+   }
 }
 .tags-input {
   display: flex;
@@ -308,6 +315,7 @@
 //   }
 // }
 .backk {
+.backk{
   cursor: pointer;
 }
 
@@ -394,7 +402,13 @@
   //     padding-bottom: 10%;
   // }
   .inputHolders {
-    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 4%;
+      .deck-name-input{
+        width: 100%;
+        margin-bottom: 8%;
+      }
   }
   // .topCard{
   //     margin-bottom: 120%;
@@ -687,54 +701,6 @@
   }
 }
 
-// @media screen and (min-width: 900px) and (max-width: 1000px){
-//   .loading-background {
-//     background: #f66e00;
-//     max-width: 100vw;
-//     // margin-top: -4%;
-//     padding-bottom: 4%;
-//     margin-bottom: 10%;
-//     padding-top: 2%;
-//     margin-top: -1%;
-//     .number {
-//       margin-left: 15%;
-//     }
-//     .smile-form {
-//       opacity: 0.25;
-//       margin-left: 70%;
-//       // margin-top: -60%;
-//       font-size: 74px;
-//       margin-top: 1%;
-//       width: 10%;
-//       margin-bottom: 6%;
-//       color: white;
-//     }
-//     .mastered {
-//       // display: flex;
-//       // justify-content: flex-end;
-//       font-family: Roboto Condensed;
-//       font-style: normal;
-//       font-weight: bold;
-//       font-size: 1.3rem;
-//       line-height: 19px;
-//       margin-left: 75%;
-//       margin-top: -6%;
-//       color: #ffffff;
-//       width: 50%;
-//     }
-//     .back {
-//       margin-bottom: -6%;
-//       margin-left: 6%;
-//       margin-right: 4%;
-//     }
-//     .deckName {
-//       font-size: 2.3rem;
-//       color: #ffffff;
-//       margin-left: 7%;
-//       margin-top: 1.5%;
-//     }
-//   }
-// }
 @media screen and (min-width: 900px) {
   .loading-background {
     background: #f66e00;
@@ -843,12 +809,17 @@
     .deckInfo {
       font-size: 40px;
       margin-top: 5%;
+      text-align: center;
     }
   }
   .page {
     margin: 1rem 12rem;
     .inputHolders {
       display: flex;
+
+    // .deck-name-input{
+    //   width: 27.5%;
+    // }
       // align-items: flex-start;
       .iconHolder {
         margin-left: 20%;
@@ -859,6 +830,10 @@
       margin-top: 10%;
       margin-left: 47%;
     }
+    // .tagHolder{
+     
+    //   // margin-left: 47%;
+    // }
   }
   .flashcards {
     font-size: 40px;
@@ -2405,4 +2380,5 @@
     margin: 1% 5.2%;
     margin-bottom: 5%;
   }
+}
 }

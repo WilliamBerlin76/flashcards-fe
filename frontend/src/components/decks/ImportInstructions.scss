@@ -1,0 +1,28 @@
+.instructionsWrapper{
+    max-width: 90%;
+    word-wrap: normal;
+    img{
+        max-width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 1000px){
+
+    .instructionsWrapper{
+            *{
+                text-align: left;
+                
+            }
+
+            ol {
+                padding: 1%;
+            }
+        margin-left: 3%;
+        max-width: 90%;
+        word-wrap: normal;
+        img{
+            max-width: 50%;
+        }
+    }
+}

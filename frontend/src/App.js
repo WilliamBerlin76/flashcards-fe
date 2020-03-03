@@ -24,6 +24,7 @@ import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
 import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 import EditCard from './components/cards/EditCard';
 import NewCard from './components/cards/NewCard';
+import DeckImport from './components/decks/DeckImport';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -115,6 +116,10 @@ function App() {
           <Route
             path='/create-deck'
             render={props => <DeckForm {...props} />}
+          />
+          <Route
+            path='/import-deck'
+            render={props => <DeckImport {...props} />}
           />
           <Route path='/privacy' component={Privacy} />
           <Route
