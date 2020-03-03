@@ -13,38 +13,40 @@ import {
   PCARDS_FAILURE,
   EDIT_CARDS,
   EDIT_SUCCESS,
-  EDIT_FAILURE
-} from '../actions';
+  EDIT_FAILURE,
+  FILTER_USER
+} from "../actions";
 
 const initialState = {
   decks: [],
   deckcards: [],
   isFetching: false,
-  error: '',
+  error: "",
   isPosting: false,
   cards: [
     {
-      front: '',
-      back: ''
+      front: "",
+      back: ""
     }
   ],
-  colId: '',
+  colId: "",
   deckInformation: [
     {
-      deckName: ''
+      deckName: ""
     }
   ],
   deck: {
     tags: [],
-    icon: ''
+    icon: ""
   },
   changes: [
     {
-      front: '',
-      back: '',
+      front: "",
+      back: "",
       archived: false
     }
-  ]
+  ],
+  query: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -53,13 +55,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ''
+        error: ""
       };
     case FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        error: '',
+        error: "",
         decks: action.payload
       };
     case FETCH_FAILURE:
@@ -73,13 +75,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        error: ''
+        error: ""
       };
     case CARDS_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        error: '',
+        error: "",
         decks: [],
         deckcards: action.payload
       };
@@ -97,11 +99,11 @@ const reducer = (state = initialState, action) => {
         cards: [],
         deck: {
           tags: [],
-          icon: ''
+          icon: ""
         },
         isFetching: false,
         isPosting: true,
-        error: ''
+        error: ""
       };
     case POST_SUCCESS:
       return {
@@ -123,7 +125,7 @@ const reducer = (state = initialState, action) => {
         },
         isFetching: false,
         isPosting: false,
-        error: ''
+        error: ""
       };
     case POST_FAILURE:
       return {
@@ -140,7 +142,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         changes: [],
         isEditing: true,
-        error: ''
+        error: ""
       };
     case EDIT_SUCCESS:
       return {
@@ -153,7 +155,7 @@ const reducer = (state = initialState, action) => {
           }
         ],
         isEditing: false,
-        error: ''
+        error: ""
       };
     case EDIT_FAILURE:
       return {
@@ -162,40 +164,45 @@ const reducer = (state = initialState, action) => {
         isEditing: false,
         error: action.payload
       };
-    case 'ARCHIVE_SUCCESSFUL':
+    case "ARCHIVE_SUCCESSFUL":
       return {
         ...state,
         decks: []
       };
-      case POST_CARDS: 
+    case POST_CARDS:
       return {
-          ...state,
-          cards: [],
-          isFetching: false,
-          isPosting: false,
-          error: ''
+        ...state,
+        cards: [],
+        isFetching: false,
+        isPosting: false,
+        error: ""
       };
-      case PCARDS_SUCCESS:
-          return {
-              cards: [
-                  {
-                      front: action.payload,
-                      back: action.payload,
-                  }
-              ],
-              colId: action.payload,
-              isFetching: false,
-              isPosting: true,
-              error: ''
-          };
-      case PCARDS_FAILURE:
-          return {
-              ...state,
-              cards: [],
-              isFetching: true,
-              isPosting: false,
-              error: action.payload
+    case PCARDS_SUCCESS:
+      return {
+        cards: [
+          {
+            front: action.payload,
+            back: action.payload
           }
+        ],
+        colId: action.payload,
+        isFetching: false,
+        isPosting: true,
+        error: ""
+      };
+    case PCARDS_FAILURE:
+      return {
+        ...state,
+        cards: [],
+        isFetching: true,
+        isPosting: false,
+        error: action.payload
+      };
+    case FILTER_USER:
+      return {
+        ...state.query.createdBy.filter().indexOf(action.payload.userId >= 0),
+        
+      };
     default:
       return state;
   }

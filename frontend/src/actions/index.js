@@ -24,10 +24,12 @@ export const POST_CARDS = 'POST_CARDS';
 export const PCARDS_SUCCESS = 'PCARDS_SUCCESS';
 export const PCARDS_FAILURE = 'PCARDS_FAILURE'
 
+//ACTION FOR SEARCH FILTERING
+export const FILTER_USER = 'FILTER_USER';
+
 
 
 //GETTING DECKS
-
 export const getDecks = id => dispatch => {
   dispatch({ type: FETCH_START });
   axios
@@ -146,5 +148,13 @@ export const editCard = (deck, id, deckName) => dispatch => {
 
 };
 
+//Filter Users
 
-
+export const filterUsers = userId => {
+  return {
+    type: FILTER_USER,
+    payload: {
+      userId
+    }
+  };
+};
