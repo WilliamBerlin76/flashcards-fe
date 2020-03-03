@@ -72,7 +72,7 @@ const DeckImport = props => {
       setExported(e.target.value)
     }
 
-    let importedDeck = [];
+    
     const createDeck = (deck) => {
       let array=[];
       const splitString = deck.split(';')
@@ -81,8 +81,6 @@ const DeckImport = props => {
         array.push({front: term[0], back: term[1]})
       }
       setNewDeck({...newDeck, deck: array})
-      console.log('newDeck deck', newDeck.deck)
-      return importedDeck = array
     }
 
     const addTags = event => {
@@ -103,27 +101,10 @@ const DeckImport = props => {
 
 
 
-    const handleSubmit = (e) =>{
-      if (tags.length < 1 ) {
-        alert('Please insert tag(s)')
-      } else {
-        e.preventDefault();
-        createDeck(exported)
-        const subDeck = importedDeck.filter(card => {
-          return card.front && card.back;
-        });
-        props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
-        setTimeout(()=>{
-          props.history.push('/dashboard')
-        }, 400)
-      }
-    }
 
     const previewDeck = e => {
       e.preventDefault();
       createDeck(exported);
- 
-      console.log('in the else', newDeck.deck)
       setShowPreview(true)
       
     }
@@ -183,7 +164,7 @@ const DeckImport = props => {
             rows='10'
           />
           <div className='btn-container'>
-          <button type='button' onClick={handleSubmit}>Create Deck</button>
+          {/* <button type='button' onClick={handleSubmit}>Create Deck</button> */}
           <button type='button' onClick={previewDeck}>Preview Deck</button>
           {/* <button type='button'>View Deck</button> */}
           </div>
@@ -192,7 +173,7 @@ const DeckImport = props => {
 
         {showPreview? console.log('imported deck preview',newDeck.deck): null}
         
-        {showPreview?<ImportPreview importedDeck={newDeck.deck}/> :null}
+        {showPreview?<ImportPreview importedDeck={newDeck.deck} tags={newDeck.tags} title={title} icon={newDeck.icon}/> :null}
 
     {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>
