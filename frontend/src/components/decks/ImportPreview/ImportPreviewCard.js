@@ -21,14 +21,25 @@ const ImportPreviewCard = props => {
         console.log('values', values);
     }
 
-    const updateCard = () => {
-        props.setDeck([...props.deck, props.deck[props.index] = {front: cardEditing.front, back: cardEditing.back}])
+    const updateCard = (updateIndex) => {
+        const updated = props.deck.filter((card, index) => {
+            console.log('update index',index)
+            if(index !== updateIndex) {
+                console.log('in update if',index, card)
+                return card;
+            } else {
+                console.log('in update else')
+                return cardEditing;
+            }
+        })
+        props.setDeck(updated)
+        console.log(props.index);
         console.log(props.deck);
     };
     
     
     return (
-        <form onSubmit={(e)=>{e.preventDefault(); updateCard()}}>
+        <form onSubmit={(e)=>{e.preventDefault(); updateCard(props.index)}}>
             <textarea 
                 onChange={handleChanges}
                 name={`front${props.index}`}
