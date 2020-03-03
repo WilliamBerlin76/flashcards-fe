@@ -110,7 +110,6 @@
       width: 68%;
       font-size: 1.1rem;
       margin-left: 17%;
-      
     }
   }
 
@@ -319,7 +318,7 @@
 
   .topwordsholder {
     margin-bottom: 10%;
-    
+
     .topwords {
       font-size: 1.5rem;
       font-family: Roboto;
@@ -335,7 +334,7 @@
 
   .percent {
     font-size: 10rem;
-    color: #F66E00;
+    color: #f66e00;
   }
 
   .join {
@@ -356,7 +355,6 @@
 }
 
 @media screen and (min-width: 899px) {
-
   div {
     .page {
       width: 100%;
@@ -385,556 +383,370 @@
     left: 10%;
   }
 
-  .pro{
+  .pro {
     position: relative;
     left: 4%;
   }
 
-
-.topwordsholder {
-  width: 100%;
-  margin: 0 auto;
-
-  .topwords {
+  .topwordsholder {
+    width: 100%;
     margin: 0 auto;
-    padding: 3%;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 56px;
 
-  };
-};
-
-.buttons{
-  position: absolute;
-  width: 500px;
-  top: 0px;
-  .flexup{
-    width: 50%;
-    margin-right: 10%;
-    // margin-left: -77%;
-    left: 160px;
-    top: 760px;
-    position: absolute;
- 
-    .signup {
-      width: 100%;
-      
-    }
-  }
-
-  .flexsign{
-    width: 50%;
-    margin-top: 4%;
-    position: absolute;
-    top: 740px;
-    left: 460px;
-    .signin{
-      width: 100%;
-    }
-  }
-};
-
-.piconeholder{
-  // margin-top: 19%;
-  position: absolute;
-  // width: 50%;
-  top: 250px;
-  left: 70px;
-
-  .picone{
-   position: absolute;
-   top: 750px;
-   left: 1px;
-   width: 450px;
-  }
-}
-
-.orange {
-  // width: 20%;
-  // margin-left: 50%;
-  position: absolute;
-  width: 310px;
-  // height: 350px;
-  left: 550px;
-  top: 1039px;
-  .orangewords{
-    text-align: center;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 37px;
-   
-  }
-}
-
-.stud{
-  display: none;
-}
-.study{
-  position: absolute;
-  top: 1140px;
-  right: 850px;
-
-  .studywords{
-    position: absolute;
-    top: 300px;
-    width: 400px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 37px;
-
-    .percent {
-      font-size: 10rem;
-      color: #F66E00;
-    }
-  }
-
-}
-
-.pictwoholder{
-  position: absolute;
-  top: 1450px;
-  left: 435px;
-  .pictwo{
-   height: 380px;
-   width: 400px;
-  }
-}
-
-.picthreeholder{
-  position: absolute;
-  top: 1850px;
-  left: 570px;
-  overflow: hidden;
-  .picthree{
-    height: 430px;
-    width: 300px;
-  }
-}
-
-.join {
-  position: absolute;
-  width: 405px;
-  height: 56px;
-  right: 415px;
-  top: 2005px;
-  align-items: left;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 56px;
-  
-
-}
-.bottomb{
-  width: 50%;
-  margin-right: 10%;
-  // margin-left: -77%;
-  left: 400px;
-  top: 30px;
-  position: absolute;
-}
-
-
-.signuptwo{
-  position: absolute;
-  height: 75px;
-  text-align: center;
-  top: 2130px;
-  width:420px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 27px;
-  right: 360px;
-  line-height: 20px;
-  border-radius: 230px;
-  margin-top:-2%;
-  // padding-bottom: 7%;
-  line-height: 120%;
-}
-};
-
-@media screen and (min-width: 999px) {
-
-  .page{
-    margin: 1rem 12rem;
-  }
-
- .top-holder {
-   
-  .welcome {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 56px;
-    text-align: left;
-    position: absolute;
-    width: 255px;
-    height: 56px;
-    left: 8%;
-    top: 195px;
-  }
-
-  .title {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 125.44px;
-    line-height: 147px;
-    text-align: center;
-    position: absolute;
-    left: 25%;
-    top: 250px;
-  }
-
-  .pro{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 32px;
-    line-height: 37px;
-    margin-left: 60%;
-    position: absolute;
-    top: 53%;
-    left: 15%;
-  }
-}
-
-
-.topwordsholder {
-  margin: 20% auto;
-};
-
-.buttons{
-  position: absolute;
-  width: 500px;
-  top: 0px;
-  right: 470px;
-  .flexup{
-    width: 50%;
-    margin-right: 10%;
-    // margin-left: -77%;
-    left: 160px;
-    top: 760px;
-    position: absolute;
- 
-    .signup {
-      width: 100%;
-      
-    }
-  }
-
-  .flexsign{
-    width: 50%;
-    margin-top: 4%;
-    position: absolute;
-    top: 740px;
-    left: 460px;
-    .signin{
-      width: 100%;
-    }
-  }
-};
-
-
-.piconeholder{
-  // margin-top: 19%;
-  position: absolute;
-  // width: 50%;
-  
-  .picone{
- 
-   position: absolute;
-   top: 750px;
-   left: 16px;
-   width: 450px;
-  }
-}
-
-.orange {
-  // width: 20%;
-  // margin-left: 50%;
-  position: absolute;
-  width: 310px;
-  height: 350px;
-  left: 650px;
-  top: 1039px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .orangewords{
-    text-align: center;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 37px;
-    margin: 0;
-  }
-}
-
-.study{
-  position: absolute;
-  top: 1140px;
-  right: 950px;
-
-  .studywords{
-    position: absolute;
-    top: 300px;
-    width: 400px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 37px;
-
-    .percent {
-      font-size: 156px;
-      color: #F66E00;
-    }
-  }
-
-}
-
-.pictwoholder{
-  position: absolute;
-  top: 1450px;
-  left: 495px;
-  .pictwo{
-   height: 380px;
-   width: 400px;
-  }
-}
-
-
-.picthreeholder{
-  position: absolute;
-  top: 1850px;
-  left: 570px;
-  .picthree{
-    height: 430px;
-    width: 300px;
-  }
-}
-
-.join {
-  position: absolute;
-  width: 405px;
-  height: 56px;
-  right: 515px;
-  top: 2005px;
-  align-items: left;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 56px;
-  
-
-}
-.bottomb{
-  width: 50%;
-  margin-right: 10%;
-  // margin-left: -77%;
-
-}
-
-.signuptwo{
-  height: 75px;
-  text-align: center;
-  top: 2130px;
-  width:420px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 27px;
-  line-height: 20px;
-  border-radius: 230px;
-  margin-top:-2%;
-  // padding-bottom: 7%;
-  line-height: 120%;
-  right: 82.5%;
-}
-};
-
-@media screen and (min-width: 1099px) {
-
-  .page{
-    margin: 1rem 12rem;
-  }
-  .top-holder{
-    .welcome {
-      position: absolute;
+    .topwords {
+      margin: 0 auto;
+      padding: 3%;
+      font-family: Roboto;
+      font-style: normal;
       font-weight: 500;
-      font-size: 58px;
+      font-size: 48px;
       line-height: 56px;
-      width: 600px;
-    }
-    .title{
-      position: absolute;
-      left: 25%;
-    }
-    .pro{
-      left: 10%;
-    }
-  };
-
-
-  .topwordsholder{
-    margin: 23% auto;
-  }
-  .buttons{
-    margin: 0 auto;
-  }
-  .piconeholder{
-    .picone{
-      width: 500px;
-    }
-  }
-  .orange{
-    left: 690px;
-    width: 350px;
-    top: 1030px;
-  };
-
-  .study{
-    left:90px;
-  }
-  .pictwoholder{
-    .pictwo{
-      width: 500px;
     }
   }
 
-  .picthreeholder{
-    left: 590px;
-    .picthree{
-      width: 400px;
-    }
-  }
-  .join {
-    position: absolute;
-    right: 52%;
-  };
-  
-  .bottomb{
-    width: 300px;
-    .signuptwo{
-      font-size: 20px;
-      bottom: 553px;
-      right: 57%;
-    
-    }
-  }
-};
-
-@media screen and (min-width: 1199px) {
-
-  .page{
-    margin: 1rem 12rem;
-  }
-  .top-holder{
-    .welcome {
-      position: absolute;
-      font-weight: 500;
-      font-size: 58px;
-      line-height: 56px;
-      width: 600px;
-    }
-    .title{
-      position: absolute;
-      left: 20%;
-    }
-    .pro{
-      left: 2.5%;
-    }
-  };
-
-  .buttons{
+  .buttons {
     position: absolute;
     width: 500px;
-    top: 3%;
-    right: 47%;
-    .flexup{
+    top: 0px;
+    .flexup {
       width: 50%;
       margin-right: 10%;
       // margin-left: -77%;
       left: 160px;
       top: 760px;
       position: absolute;
-   
+
       .signup {
         width: 100%;
-        
       }
     }
-  
-    .flexsign{
+
+    .flexsign {
       width: 50%;
       margin-top: 4%;
       position: absolute;
       top: 740px;
       left: 460px;
-      .signin{
+      .signin {
         width: 100%;
       }
     }
-  };
-  
-  .piconeholder{
-    .picone{
-      width: 500px;
-    }
   }
-  .orange{
-    left: 690px;
-    width: 350px;
-    top: 1030px;
-  };
 
-  .study{
-    left:90px;
-  }
-  .pictwoholder{
-    .pictwo{
-      width: 500px;
+  .piconeholder {
+    // margin-top: 19%;
+    position: absolute;
+    // width: 50%;
+    top: 250px;
+    left: 70px;
+
+    .picone {
+      position: absolute;
+      top: 750px;
+      left: 1px;
+      width: 450px;
     }
   }
 
-  .picthreeholder{
-    left: 590px;
-    .picthree{
+  .orange {
+    // width: 20%;
+    // margin-left: 50%;
+    position: absolute;
+    width: 310px;
+    // height: 350px;
+    left: 550px;
+    top: 1039px;
+    .orangewords {
+      text-align: center;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
+    }
+  }
+
+  .stud {
+    display: none;
+  }
+  .study {
+    position: absolute;
+    top: 1140px;
+    right: 850px;
+
+    .studywords {
+      position: absolute;
+      top: 300px;
+      width: 400px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
+
+      .percent {
+        font-size: 10rem;
+        color: #f66e00;
+      }
+    }
+  }
+
+  .pictwoholder {
+    position: absolute;
+    top: 1450px;
+    left: 435px;
+    .pictwo {
+      height: 380px;
       width: 400px;
     }
   }
-  .join {
-    position: absolute;
-    right: 610px;
-  };
-  
-  .bottomb{
-    width: 300px;
 
-    .signuptwo{
-      font-size: 20px;
-      bottom: 553px;
-      right: 100px;
+  .picthreeholder {
+    position: absolute;
+    top: 1850px;
+    left: 570px;
+    overflow: hidden;
+    .picthree {
+      height: 430px;
+      width: 300px;
     }
   }
-};
 
-@media screen and (min-width: 1299px) {
-  .page{
+  .join {
+    position: absolute;
+    width: 405px;
+    height: 56px;
+    right: 415px;
+    top: 2005px;
+    align-items: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .bottomb {
+    width: 50%;
+    margin-right: 10%;
+    // margin-left: -77%;
+    left: 400px;
+    top: 30px;
+    position: absolute;
+  }
+
+  .signuptwo {
+    position: absolute;
+    height: 75px;
+    text-align: center;
+    top: 2130px;
+    width: 420px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    right: 360px;
+    line-height: 20px;
+    border-radius: 230px;
+    margin-top: -2%;
+    // padding-bottom: 7%;
+    line-height: 120%;
+  }
+}
+
+@media screen and (min-width: 999px) {
+  .page {
     margin: 1rem 12rem;
   }
 
-  .top-holder{
+  .top-holder {
+    .welcome {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 56px;
+      text-align: left;
+      position: absolute;
+      width: 255px;
+      height: 56px;
+      left: 8%;
+      top: 195px;
+    }
+
+    .title {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 125.44px;
+      line-height: 147px;
+      text-align: center;
+      position: absolute;
+      left: 25%;
+      top: 250px;
+    }
+
+    .pro {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 32px;
+      line-height: 37px;
+      margin-left: 60%;
+      position: absolute;
+      top: 53%;
+      left: 15%;
+    }
+  }
+
+  .topwordsholder {
+    margin: 20% auto;
+  }
+
+  .buttons {
+    position: absolute;
+    width: 500px;
+    top: 0px;
+    right: 470px;
+    .flexup {
+      width: 50%;
+      margin-right: 10%;
+      // margin-left: -77%;
+      left: 160px;
+      top: 760px;
+      position: absolute;
+
+      .signup {
+        width: 100%;
+      }
+    }
+
+    .flexsign {
+      width: 50%;
+      margin-top: 4%;
+      position: absolute;
+      top: 740px;
+      left: 460px;
+      .signin {
+        width: 100%;
+      }
+    }
+  }
+
+  .piconeholder {
+    // margin-top: 19%;
+    position: absolute;
+    // width: 50%;
+
+    .picone {
+      position: absolute;
+      top: 750px;
+      left: 16px;
+      width: 450px;
+    }
+  }
+
+  .orange {
+    // width: 20%;
+    // margin-left: 50%;
+    position: absolute;
+    width: 310px;
+    height: 350px;
+    left: 650px;
+    top: 1039px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .orangewords {
+      text-align: center;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
+      margin: 0;
+    }
+  }
+
+  .study {
+    position: absolute;
+    top: 1140px;
+    right: 950px;
+
+    .studywords {
+      position: absolute;
+      top: 300px;
+      width: 400px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
+
+      .percent {
+        font-size: 156px;
+        color: #f66e00;
+      }
+    }
+  }
+
+  .pictwoholder {
+    position: absolute;
+    top: 1450px;
+    left: 495px;
+    .pictwo {
+      height: 380px;
+      width: 400px;
+    }
+  }
+
+  .picthreeholder {
+    position: absolute;
+    top: 1850px;
+    left: 570px;
+    .picthree {
+      height: 430px;
+      width: 300px;
+    }
+  }
+
+  .join {
+    position: absolute;
+    width: 405px;
+    height: 56px;
+    right: 515px;
+    top: 2005px;
+    align-items: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .bottomb {
+    width: 50%;
+    margin-right: 10%;
+    // margin-left: -77%;
+  }
+
+  .signuptwo {
+    height: 75px;
+    text-align: center;
+    top: 2130px;
+    width: 420px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 20px;
+    border-radius: 230px;
+    margin-top: -2%;
+    // padding-bottom: 7%;
+    line-height: 120%;
+    right: 82.5%;
+  }
+}
+
+@media screen and (min-width: 1099px) {
+  .page {
+    margin: 1rem 12rem;
+  }
+  .top-holder {
     .welcome {
       position: absolute;
       font-weight: 500;
@@ -942,60 +754,220 @@
       line-height: 56px;
       width: 600px;
     }
-    .title{
+    .title {
       position: absolute;
-      left: 20%;
+      left: 25%;
     }
-    .pro{
-      left: 0%;
+    .pro {
+      left: 10%;
     }
-  };
-
-
-  .topwordsholder{
-    margin-top: 18%;
   }
-  .piconeholder{
-    .picone{
+
+  .topwordsholder {
+    margin: 23% auto;
+  }
+  .buttons {
+    margin: 0 auto;
+  }
+  .piconeholder {
+    .picone {
       width: 500px;
     }
   }
-  .orange{
+  .orange {
     left: 690px;
     width: 350px;
     top: 1030px;
-  };
-
-  .study{
-    left:60px;
   }
-  .pictwoholder{
-    .pictwo{
+
+  .study {
+    left: 90px;
+  }
+  .pictwoholder {
+    .pictwo {
       width: 500px;
     }
   }
 
-  .picthreeholder{
+  .picthreeholder {
     left: 590px;
-    .picthree{
+    .picthree {
+      width: 400px;
+    }
+  }
+  .join {
+    position: absolute;
+    right: 52%;
+  }
+
+  .bottomb {
+    width: 300px;
+    .signuptwo {
+      font-size: 20px;
+      bottom: 553px;
+      right: 57%;
+    }
+  }
+}
+
+@media screen and (min-width: 1199px) {
+  .page {
+    margin: 1rem 12rem;
+  }
+  .top-holder {
+    .welcome {
+      position: absolute;
+      font-weight: 500;
+      font-size: 58px;
+      line-height: 56px;
+      width: 600px;
+    }
+    .title {
+      position: absolute;
+      left: 20%;
+    }
+    .pro {
+      left: 2.5%;
+    }
+  }
+
+  .buttons {
+    position: absolute;
+    width: 500px;
+    top: 3%;
+    right: 47%;
+    .flexup {
+      width: 50%;
+      margin-right: 10%;
+      // margin-left: -77%;
+      left: 160px;
+      top: 760px;
+      position: absolute;
+
+      .signup {
+        width: 100%;
+      }
+    }
+
+    .flexsign {
+      width: 50%;
+      margin-top: 4%;
+      position: absolute;
+      top: 740px;
+      left: 460px;
+      .signin {
+        width: 100%;
+      }
+    }
+  }
+
+  .piconeholder {
+    .picone {
+      width: 500px;
+    }
+  }
+  .orange {
+    left: 690px;
+    width: 350px;
+    top: 1030px;
+  }
+
+  .study {
+    left: 90px;
+  }
+  .pictwoholder {
+    .pictwo {
+      width: 500px;
+    }
+  }
+
+  .picthreeholder {
+    left: 590px;
+    .picthree {
+      width: 400px;
+    }
+  }
+  .join {
+    position: absolute;
+    right: 610px;
+  }
+
+  .bottomb {
+    width: 300px;
+
+    .signuptwo {
+      font-size: 20px;
+      bottom: 553px;
+      right: 100px;
+    }
+  }
+}
+
+@media screen and (min-width: 1299px) {
+  .page {
+    margin: 1rem 12rem;
+  }
+
+  .top-holder {
+    .welcome {
+      position: absolute;
+      font-weight: 500;
+      font-size: 58px;
+      line-height: 56px;
+      width: 600px;
+    }
+    .title {
+      position: absolute;
+      left: 20%;
+    }
+    .pro {
+      left: 0%;
+    }
+  }
+
+  .topwordsholder {
+    margin-top: 18%;
+  }
+  .piconeholder {
+    .picone {
+      width: 500px;
+    }
+  }
+  .orange {
+    left: 690px;
+    width: 350px;
+    top: 1030px;
+  }
+
+  .study {
+    left: 60px;
+  }
+  .pictwoholder {
+    .pictwo {
+      width: 500px;
+    }
+  }
+
+  .picthreeholder {
+    left: 590px;
+    .picthree {
       width: 400px;
     }
   }
   .join {
     position: absolute;
     right: 690px;
-  };
-  
-  .bottomb{
+  }
+
+  .bottomb {
     width: 300px;
-    .signuptwo{
+    .signuptwo {
       font-size: 20px;
       bottom: 553px;
       right: 100px;
-    
     }
   }
-};
+}
 
 @media screen and (min-width: 1365px) and (max-height: 768px) {
   html,
@@ -1007,7 +979,6 @@
       position: static;
       margin: 0;
       padding: 0;
-      font-size: 62.5%;
     }
 
     #root {
@@ -1031,12 +1002,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    
+
     .top-holder {
       margin: 0;
       min-height: 45vh;
       position: relative;
       display: flex;
+      margin-left: 5%;
 
       .welcome {
         position: relative;
@@ -1059,20 +1031,21 @@
         left: 47%;
       }
     }
-  
+
     .topwordsholder {
       margin: 0;
       width: 85%;
       margin: 0 auto;
-  
+
       .topwords {
         font-size: 1.8rem;
         padding: 0 1.6%;
         width: 80%;
         margin: 0;
+        margin-left: 5%;
       }
     }
-  
+
     .buttons {
       position: relative;
       width: 100%;
@@ -1098,60 +1071,79 @@
   }
 
   .section-two {
+    background-color: #f66e00;
     display: flex;
     min-height: 100vh;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    width: 75%;
-    margin: 3% auto;
+    width: 100%;
+    padding-top: 3%;
 
-     * {
-       position: static;
-     }
+    * {
+      position: static;
+    }
 
-     .one,
-     .two {
-       position: relative;
-       display: flex;
-       flex-direction: column;
-       width: 45%;
-       min-height: 80vh;
-     }
-
-     .three {
-       width: 100%;
-
-     }
-
-     .one {
+    .one,
+    .two {
+      position: relative;
+      display: flex;
       flex-direction: column;
+      width: 50%;
+      max-height: 70vh;
+      padding: 3%;
+    }
+
+    .three {
+      width: 100%;
+      background-color: white;
+    }
+
+    .one {
+      flex-direction: row-reverse;
+      width: 30%;
       .piconeholder {
-        width: 100%;
+        width: 50%;
         min-height: 40vh;
+        display: none;
 
         .picone {
           position: static;
-          max-width: 100%;
           margin: 0;
         }
       }
 
       .orange {
         min-height: 40vh;
-        width: 100%;
         border-radius: 3%;
         margin: 0;
+        background-color: white;
+
+        .orangewords {
+          font-size: 1.9rem;
+          width: 90%;
+          color: #f66e00;
+        }
       }
-     }
+    }
 
     .two {
-      flex-direction: column-reverse;
+      flex-direction: row;
+      width: 60%;
+      padding: 0;
+
       .pictwoholder {
+        width: 100%;
         min-height: 40vh;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -10%;
 
         .pictwo {
-
+          width: 90%;
+          padding-top: 10%;
         }
       }
 
@@ -1167,6 +1159,15 @@
           text-align: center;
           position: static;
           margin: 0;
+          color: white;
+
+          h3 {
+            color: white;
+            // text-decoration: underline;
+            // text-decoration-color: orange;
+            // -webkit-text-stroke: 1px white;
+            // text-stroke: 1px white;
+          }
         }
       }
     }
@@ -1175,7 +1176,7 @@
       width: 100%;
       display: flex;
       flex-direction: row;
-      margin: 3% auto;
+      padding: 3% 0;
 
       .picthreeholder {
         text-align: center;
@@ -1207,407 +1208,774 @@
   }
 }
 
-  @media screen and (min-width: 1399px) {
-    .page{
-      margin: 1rem 12rem;
-    }
-      .top-holder{
-        .welcome{
-          position: absolute;
-          left: 5%;
-        }
-          
-        .title{
-          position: absolute;
-          left: 15%;
-        }
-
-        .pro {
-          position: absolute;
-          left: -8%;
-        }
-      }
-
-      .topwordsholder {
-        margin: 3% auto;
-      }
-
-    .piconeholder{
-      position: absolute;
-      left: 15%;
-    }
-    .orange{
-      // position: absolute;
-      left: 55%;
-      // height: 100px;
-      bottom: 400px;
-    }
-    .study{
-      position: absolute;
-      left: 12%;
-    }
-    .pictwoholder{
-      position: absolute;
-      left: 45%;
-    }
-    .join{
-      position: absolute;
-      right: 52.5%;
-    }
-    
-    .picthreeholder{
-      position: absolute;
-      left: 47%;
-    }
-    .bottomb{
-      position: absolute;
-      left: 33.5%;
-    }
-    };
-    @media screen and (min-width: 1499px) {
-      .page{
-        margin: 1rem 12rem;
-      }
-        .top-holder{
-          .welcome{
-            position: absolute;
-            left: 8%;
-          }
-            
-          .title{
-            position: absolute;
-            left: 17%;
-          }
-        }
-      .topwordsholder{
-        width: 75%;
-        margin-right: 10%;
-      }
-  
-      .piconeholder{
-        position: absolute;
-        left: 16%;
-      }
-      .orange{
-        // position: absolute;
-        left: 55%;
-        // height: 100px;
-        bottom: 400px;
-      }
-      .study{
-        position: absolute;
-        left: 200px;
-      }
-      .pictwoholder{
-        position: absolute;
-        left: 700px;
-      }
-      .join{
-        position: absolute;
-        right: 52%;
-      }
-      
-      .picthreeholder{
-        position: absolute;
-        left: 800px;
-      }
-      .bottomb{
-        position: absolute;
-        left: 35%;
-      }
-      };
-
-      @media screen and (min-width: 1535px) {
-        
-        .top-holder .pro {
-          top: 37%;
-        }
-        
-        .piconeholder {
-          width: 50%;
-        }
-        .piconeholder .picone {
-          margin-left: 5%;
-        }
-
-        div.orange {
-          left: 62.5%;
-        }
-
-        .join {
-          left: 14%;
-        }
-
-        .signuptwo {
-          left: -110%;
-        }
-
-        .picthreeholder .picthree {
-          margin-left: 21%;
-        }
-      }
-
-      @media screen and (min-width: 1599px) {
-        .page{
-          margin: 1rem 12rem;
-        }
-          .top-holder{
-            .welcome{
-              position: absolute;
-              left: 10%;
-            }
-              
-            .title{
-              position: absolute;
-              left: 18%;
-            }
-          }
-
-        .topwordsholder {
-          width: 68%;
-        }
-        
-        .buttons{
-          position: absolute;
-          right: 45%;
-        }
-        .piconeholder{
-          position: absolute;
-          left: 18%;
-        }
-        .orange{
-          // position: absolute;
-          left: 900px;
-          min-height: 100px;
-          // height: 100px;
-          bottom: 400px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          .orangewords {
-            font-size: 2.6rem;
-            margin: 0;
-          }
-          
-        }
-        .study{
-          position: absolute;
-          left: 16%;
-        }
-        .pictwoholder{
-          position: absolute;
-          left: 49%;
-        }
-        .join{
-          position: absolute;
-          right: 52%;
-        }
-        
-        .picthreeholder{
-          position: absolute;
-          left: 53%;
-        }
-        .bottomb{
-          position: absolute;
-          left: 580px;
-        }
-        };
-
-        @media screen and (min-width: 1699px) {
-          .page{
-            margin: 1rem 12rem;
-          }
-            .top-holder{
-              .welcome{
-                position: absolute;
-                left: 10%;
-              }
-                
-              .title{
-                position: absolute;
-                left: 15%;
-                font-size: 10rem;
-              }
-              
-              .pro {
-                left: -10%;
-              }
-            }
-
-            .topwordsholder {
-              margin: auto;
-              margin-top: -5%;
-            }
-
-          .piconeholder{
-            position: absolute;
-            left: 18%;
-          }
-          .orange{
-            // position: absolute;
-            left: 60%;
-            // height: 100px;
-            bottom: 400px;
-            
-          }
-          .study{
-            position: absolute;
-            left: 15%;
-          }
-          .pictwoholder{
-            position: absolute;
-            left: 53.5%;
-          }
-          .join{
-            position: absolute;
-            right: 53%;
-          }
-          
-          .picthreeholder{
-            position: absolute;
-            left: 56.5%;
-          }
-          .bottomb{
-            position: absolute;
-            left: 36%;
-          }
-          };
-          @media screen and (min-width: 1900px) {
-            .page{
-              margin: 1rem 12rem;
-            }
-              .top-holder{
-                .welcome{
-                  position: absolute;
-                  left: 300px;
-                }
-                  
-                .title{
-                  position: absolute;
-                  left: 860px;
-                }
-                .pro{
-                  position: absolute;
-                  left: 100px;
-                }
-              }
-            .topwordsholder{
-              position: absolute;
-              right: 2000px;
-            }
-            .buttons{
-              position: absolute;
-              right: 1200px;
-            }
-            .piconeholder{
-              position: absolute;
-              left: 480px;
-            }
-            .orange{
-              // position: absolute;
-              left: 1000px;
-              // height: 100px;
-              bottom: 400px;
-              
-            }
-            .study{
-              position: absolute;
-              left: 170px;
-            }
-            .pictwoholder{
-              position: absolute;
-              left: 800px;
-            }
-            .join{
-              position: absolute;
-              right: 1150px;
-            }
-            
-            .picthreeholder{
-              position: absolute;
-              left: 800px;
-            }
-            .bottomb{
-              position: absolute;
-              left: 580px;
-            }
-            };
-@media screen and (min-width: 1919px) and (max-height: 1080px){
+@media screen and (min-width: 1399px) {
+  .page {
+    margin: 1rem 12rem;
+  }
   .top-holder {
     .welcome {
-      left: 10%;
+      position: absolute;
+      left: 5%;
     }
 
     .title {
+      position: absolute;
       left: 15%;
     }
 
     .pro {
-      margin-left: 41.5%;
-      top: 28.5%;
+      position: absolute;
+      left: -8%;
     }
   }
 
   .topwordsholder {
-    left: 0;
-    width: 100%;
-
-    .topwords {
-      left: 100%;
-    }
+    margin: 3% auto;
   }
 
-  .buttons {
-    
-    .flexup,
-    .flexsign {
-      
-      button {
-        font-size: 1.5rem;
+  .piconeholder {
+    position: absolute;
+    left: 15%;
+  }
+  .orange {
+    // position: absolute;
+    left: 55%;
+    // height: 100px;
+    bottom: 400px;
+  }
+  .study {
+    position: absolute;
+    left: 12%;
+  }
+  .pictwoholder {
+    position: absolute;
+    left: 45%;
+  }
+  .join {
+    position: absolute;
+    right: 52.5%;
+  }
+
+  .picthreeholder {
+    position: absolute;
+    left: 47%;
+  }
+  .bottomb {
+    position: absolute;
+    left: 33.5%;
+  }
+}
+@media screen and (min-width: 1499px) {
+  .page {
+    margin: 1rem 12rem;
+  }
+  .top-holder {
+    .welcome {
+      position: absolute;
+      left: 8%;
+    }
+
+    .title {
+      position: absolute;
+      left: 17%;
+    }
+  }
+  .topwordsholder {
+    width: 75%;
+    margin-right: 10%;
+  }
+
+  .piconeholder {
+    position: absolute;
+    left: 16%;
+  }
+  .orange {
+    // position: absolute;
+    left: 55%;
+    // height: 100px;
+    bottom: 400px;
+  }
+  .study {
+    position: absolute;
+    left: 200px;
+  }
+  .pictwoholder {
+    position: absolute;
+    left: 700px;
+  }
+  .join {
+    position: absolute;
+    right: 52%;
+  }
+
+  .picthreeholder {
+    position: absolute;
+    left: 800px;
+  }
+  .bottomb {
+    position: absolute;
+    left: 35%;
+  }
+}
+
+@media screen and (min-width: 1535px) and (max-height: 864px) {
+  html,
+  body {
+    height: 100%;
+    min-height: 100%;
+
+    * {
+      position: static;
+      margin: 0;
+      padding: 0;
+    }
+
+    #root {
+      min-height: 100%;
+    }
+
+    .dash-nav {
+      height: 10vh;
+    }
+
+    // #root div {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+  }
+
+  .top {
+    min-height: 90vh;
+    position: relative;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .top-holder {
+      margin: 0;
+      min-height: 45vh;
+      position: relative;
+      display: flex;
+      margin-left: 5%;
+
+      .welcome {
+        position: relative;
+        top: 9%;
+        left: 9%;
+        margin: 0;
+      }
+
+      .title {
+        margin: 0;
+        position: relative;
+        top: 5%;
+        left: 25%;
+      }
+
+      .pro {
+        margin: 0;
+        position: relative;
+        transform: translateX(0);
+        left: 47%;
+      }
+    }
+
+    .topwordsholder {
+      margin: 0;
+      width: 85%;
+      margin: 0 auto;
+
+      .topwords {
+        font-size: 1.8rem;
+        padding: 0 1.6%;
+        width: 80%;
+        margin: 0;
+        margin-left: 5%;
+      }
+    }
+
+    .buttons {
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 200px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      * {
+        margin: 0;
+      }
+
+      .flexup,
+      .flexsign {
+        margin: 0;
+        position: static;
+        width: 30%;
+        margin-top: -2%;
       }
     }
   }
 
+  .section-two {
+    background-color: #f66e00;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 3%;
+
+    * {
+      position: static;
+    }
+
+    .one,
+    .two {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      max-height: 70vh;
+      padding: 3%;
+    }
+
+    .three {
+      width: 100%;
+      background-color: white;
+    }
+
+    .one {
+      flex-direction: row-reverse;
+      width: 30%;
+      .piconeholder {
+        width: 50%;
+        min-height: 40vh;
+        display: none;
+
+        .picone {
+          position: static;
+          margin: 0;
+        }
+      }
+
+      .orange {
+        min-height: 40vh;
+        border-radius: 3%;
+        margin: 0;
+        background-color: white;
+
+        .orangewords {
+          font-size: 1.9rem;
+          width: 90%;
+          color: #f66e00;
+        }
+      }
+    }
+
+    .two {
+      flex-direction: row;
+      width: 60%;
+      padding: 0;
+
+      .pictwoholder {
+        width: 100%;
+        min-height: 40vh;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -10%;
+
+        .pictwo {
+          width: 90%;
+          padding-top: 10%;
+        }
+      }
+
+      .study {
+        margin: 0;
+        min-height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .studywords {
+          font-size: 1.6rem;
+          text-align: center;
+          position: static;
+          margin: 0;
+          color: white;
+
+          h3 {
+            color: white;
+            // text-decoration: underline;
+            // text-decoration-color: orange;
+            // -webkit-text-stroke: 1px white;
+            // text-stroke: 1px white;
+          }
+        }
+      }
+    }
+
+    .three {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      padding: 3% 0;
+
+      .picthreeholder {
+        text-align: center;
+        width: 50%;
+        .picthree {
+          margin: 0;
+        }
+      }
+
+      h3 {
+        font-size: 5rem;
+        width: 100%;
+      }
+
+      .bottomb {
+        margin: 0;
+        text-align: center;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        * {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1599px) {
+  .page {
+    margin: 1rem 12rem;
+  }
+  .top-holder {
+    .welcome {
+      position: absolute;
+      left: 10%;
+    }
+
+    .title {
+      position: absolute;
+      left: 18%;
+    }
+  }
+
+  .topwordsholder {
+    width: 68%;
+  }
+
+  .buttons {
+    position: absolute;
+    right: 45%;
+  }
   .piconeholder {
+    position: absolute;
+    left: 18%;
+  }
+  .orange {
+    // position: absolute;
+    left: 900px;
+    min-height: 100px;
+    // height: 100px;
+    bottom: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .picone {
-      margin-left: -14%;
+    .orangewords {
+      font-size: 2.6rem;
+      margin: 0;
     }
   }
-
   .study {
-
-    .studywords {
-      margin-top: 10%;
-      margin-left: 25%;
-    }
+    position: absolute;
+    left: 16%;
   }
-
   .pictwoholder {
-
-    .pictwo {
-      margin-left: 64%;
-      margin-top: 10%;
-    }
+    position: absolute;
+    left: 49%;
+  }
+  .join {
+    position: absolute;
+    right: 52%;
   }
 
   .picthreeholder {
-    margin-left: 16%;
-    .picthree {
-      margin-top: 10%;
+    position: absolute;
+    left: 53%;
+  }
+  .bottomb {
+    position: absolute;
+    left: 580px;
+  }
+}
+
+@media screen and (min-width: 1699px) {
+  .page {
+    margin: 1rem 12rem;
+  }
+  .top-holder {
+    .welcome {
+      position: absolute;
+      left: 10%;
+    }
+
+    .title {
+      position: absolute;
+      left: 15%;
+      font-size: 10rem;
+    }
+
+    .pro {
+      left: -10%;
     }
   }
 
-  .join {
-    left: 23%;
+  .topwordsholder {
+    margin: auto;
+    margin-top: -5%;
   }
 
-  .bottomb {
-    margin-top: 3%;
+  .piconeholder {
+    position: absolute;
+    left: 18%;
+  }
+  .orange {
+    // position: absolute;
+    left: 60%;
+    // height: 100px;
+    bottom: 400px;
+  }
+  .study {
+    position: absolute;
+    left: 15%;
+  }
+  .pictwoholder {
+    position: absolute;
+    left: 53.5%;
+  }
+  .join {
+    position: absolute;
+    right: 53%;
+  }
 
-    .signuptwo {
-      margin-left: 61%;
+  .picthreeholder {
+    position: absolute;
+    left: 56.5%;
+  }
+  .bottomb {
+    position: absolute;
+    left: 36%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .page {
+    margin: 1rem 12rem;
+  }
+  .top-holder {
+    .welcome {
+      position: absolute;
+      left: 300px;
+    }
+
+    .title {
+      position: absolute;
+      left: 860px;
+    }
+    .pro {
+      position: absolute;
+      left: 100px;
+    }
+  }
+  .topwordsholder {
+    position: absolute;
+    right: 2000px;
+  }
+  .buttons {
+    position: absolute;
+    right: 1200px;
+  }
+  .piconeholder {
+    position: absolute;
+    left: 480px;
+  }
+  .orange {
+    // position: absolute;
+    left: 1000px;
+    // height: 100px;
+    bottom: 400px;
+  }
+  .study {
+    position: absolute;
+    left: 170px;
+  }
+  .pictwoholder {
+    position: absolute;
+    left: 800px;
+  }
+  .join {
+    position: absolute;
+    right: 1150px;
+  }
+
+  .picthreeholder {
+    position: absolute;
+    left: 800px;
+  }
+  .bottomb {
+    position: absolute;
+    left: 580px;
+  }
+}
+@media screen and (min-width: 1919px) and (max-height: 1080px) {
+  html,
+  body {
+    height: 100%;
+    min-height: 100%;
+
+    * {
+      position: static;
+      margin: 0;
+      padding: 0;
+    }
+
+    #root {
+      min-height: 100%;
+    }
+
+    .dash-nav {
+      height: 10vh;
+    }
+
+    // #root div {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+  }
+
+  .top {
+    min-height: 90vh;
+    position: relative;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    .top-holder {
+      margin: 0;
+      min-height: 45vh;
+      position: relative;
+      display: flex;
+      margin-left: 5%;
+
+      .welcome {
+        position: relative;
+        top: 9%;
+        left: 9%;
+        margin: 0;
+      }
+
+      .title {
+        margin: 0;
+        position: relative;
+        top: 5%;
+        left: 25%;
+      }
+
+      .pro {
+        margin: 0;
+        position: relative;
+        transform: translateX(0);
+        left: 47%;
+      }
+    }
+  
+    .topwordsholder {
+      margin: 0;
+      width: 85%;
+      margin: 0 auto;
+      position: static;
+  
+      .topwords {
+        font-size: 2.2rem;
+        padding: 0 1.6%;
+        width: 80%;
+        margin: 0;
+        margin-left: 5%;
+      }
+    }
+  
+    .buttons {
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 200px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      * {
+        margin: 0;
+      }
+
+      .flexup,
+      .flexsign {
+        margin: 0;
+        position: static;
+        width: 26%;
+        margin-top: -2%;
+      }
+    }
+  }
+
+  .section-two {
+    background-color: #f66e00;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 3%;
+
+     * {
+       position: static;
+     }
+
+     .one,
+     .two {
+       position: relative;
+       display: flex;
+       flex-direction: column;
+       width: 50%;
+       max-height: 70vh;
+       padding: 3%;
+     }
+
+     .three {
+       width: 100%;
+      background-color: white;
+     }
+
+     .one {
+      flex-direction: row-reverse;
+      width: 30%;
+      .piconeholder {
+        width: 50%;
+        min-height: 40vh;
+        display: none;
+
+        .picone {
+          position: static;
+          margin: 0;
+        }
+      }
+
+      .orange {
+        min-height: 40vh;
+        border-radius: 3%;
+        margin: 0;
+        background-color: white;
+
+        .orangewords {
+          font-size: 1.9rem;
+          width: 90%;
+          color: #f66e00;
+        }
+      }
+     }
+
+    .two {
+      flex-direction: row;
+      width: 60%;
+      padding: 0;
+
+      .pictwoholder {
+        width: 100%;
+        min-height: 40vh;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -10%;
+
+        .pictwo {
+          width: 70%;
+          padding-top: 10%;
+        }
+      }
+
+      .study {
+        margin: 0;
+        min-height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .studywords {
+          font-size: 1.6rem;
+          text-align: center;
+          position: static;
+          margin: 0;
+          color: white;
+
+          h3 {
+            color: white;
+            // text-decoration: underline;
+            // text-decoration-color: orange;
+            // -webkit-text-stroke: 1px white; 
+            // text-stroke: 1px white;
+          }
+        }
+      }
+    }
+
+    .three {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      padding: 3% 0;
+
+      .picthreeholder {
+        text-align: center;
+        width: 50%;
+        .picthree {
+          margin: 0;
+        }
+      }
+
+      h3 {
+        font-size: 5rem;
+        width: 100%;
+      }
+
+      .bottomb {
+        margin: 0;
+        text-align: center;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        * {
+          padding: 0;
+        }
+      }
     }
   }
 }
