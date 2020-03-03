@@ -6,8 +6,9 @@ import {withStyles} from '@material-ui/core/styles';
 import Tags from './Tags';
 import Footer from '../footer/Footer';
 import './DeckImport.scss'
-
-import Instructions from './ImportInstructions'
+import Instructions from './ImportInstructions';
+import ImportPreview from './ImportPreview/ImportPreview'
+import ImportPreviewCard from './ImportPreview/ImportPreviewCard';
 const ImportInput = withStyles({
     root: {
       '& label.Mui-focused': {
@@ -99,7 +100,7 @@ const DeckImport = props => {
       e.preventDefault();
     }
 
-    
+
 
     const handleSubmit = (e) =>{
       if (tags.length < 1 ) {
@@ -115,7 +116,18 @@ const DeckImport = props => {
           props.history.push('/dashboard')
         }, 400)
       }
+    }
 
+    const previewDeck = e => {
+      createDeck(exported);
+      if (importedDeck.length < 1) {
+        console.log('in the if')
+        return null
+      } else {
+        e.preventDefault();
+        console.log('in the else')
+        return <ImportPreviewCard importedDeck={importedDeck}/>
+      }
     }
     return (
         <>
@@ -174,6 +186,7 @@ const DeckImport = props => {
           />
           <div className='btn-container'>
           <button type='button' onClick={handleSubmit}>Create Deck</button>
+          <button type='button' onClick={previewDeck}>Preview Deck</button>
           {/* <button type='button'>View Deck</button> */}
           </div>
           </div>

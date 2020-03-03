@@ -3,17 +3,16 @@ import ImportPreviewCard from './ImportPreviewCard';
 
 const ImportPreview = (props) => {
     const [deck, setDeck] = useState(props.importedDeck);
-    const [editing, setEditing] = useState(false);
-    const [cardEditing, setCardEditing] = useState(null);
-    const updateDeck = setDeck([...deck, {[deck[0]] : {front: cardEditing.front, back: cardEditing.back}}])
+
+    // props.setDeck([...props.deck, {[props.key] : {front: cardEditing.front, back: cardEditing.back}}])
     return (
         <div>
+            {deck.length < 1 ? 'Loading..': null}
             {deck.map((card, index)=>(
-                <ImportPreviewCard key={index} front={card.front} back={card.back}/>
+                <ImportPreviewCard deck={deck} setDeck={setDeck} key={index} card={card}/>
             ))}
         </div>
         
-
     )
 }
 
