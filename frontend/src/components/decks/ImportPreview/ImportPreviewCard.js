@@ -1,24 +1,39 @@
 import React, {useState} from 'react';
 
 const ImportPreviewCard = props => {
+    console.log('index', props.index)
+    const [cardEditing, setCardEditing] = useState(props.card);
+    const handleChanges = e => {
+        const values = {...cardEditing}
+        console.log('values before if', values)
+        if (e.target.name === `front${props.index}`) {
+            console.log('values in if', values)
+            values.front = e.target.value;
+          } else {
+            console.log('values in else', values)
+            values.back = e.target.value;
+          }
+      
+          setCardEditing(values);
+        
+        // setCardEditing({...cardEditing, [e.target.name]: e.target.value})
     
-    const [cardEditing, setCardEditing] = useState({front: props.card.front, back: props.card.back});
-    const handleChanges = e => setCardEditing({...cardEditing, [e.target.name]: e.taget.value})
+    }
 
-    const updateCard = () => props.setDeck(...props.deck, {[props.key]: {front: cardEditing.front, back: cardEditing.back}})
+    const updateCard = () => props.setDeck([...props.deck, props.deck[props.index] = {front: cardEditing.front, back: cardEditing.back}])
     return (
-        <form>
+        <form onSubmit={(e)=>{e.preventDefault(); updateCard()}}>
             <textarea 
                 onChange={handleChanges}
-                name={`front${props.key}`}
+                name={`front${props.index}`}
                 value={cardEditing.front}
             />
             <textarea
             onChange={handleChanges}
-            name={`back${props.key}`}
+            name={`back${props.index}`}
             value={cardEditing.back}
             />
-            <button type='button' onClick={(e)=>{e.preventDefault(); updateCard()}}>Save</button>
+            <button type='submit' >Save</button>
         </form>
     )
 }

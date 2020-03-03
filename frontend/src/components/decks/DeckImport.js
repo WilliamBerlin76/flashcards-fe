@@ -46,9 +46,8 @@ const DeckImport = props => {
   const [tags, setTags] = useState([])
   const [title, setTitle] = useState('')
   const [exported, setExported] = useState('')
-
+  const [showPreview, setShowPreview] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
-
   const showInstruct = e => {
     e.preventDefault();
     setShowInstructions(!showInstructions)
@@ -81,6 +80,8 @@ const DeckImport = props => {
         let term = splitString[i].split(':')
         array.push({front: term[0], back: term[1]})
       }
+      setNewDeck({...newDeck, deck: array})
+      console.log('newDeck deck', newDeck.deck)
       return importedDeck = array
     }
 
@@ -119,15 +120,12 @@ const DeckImport = props => {
     }
 
     const previewDeck = e => {
+      e.preventDefault();
       createDeck(exported);
-      if (importedDeck.length < 1) {
-        console.log('in the if')
-        return null
-      } else {
-        e.preventDefault();
-        console.log('in the else')
-        return <ImportPreviewCard importedDeck={importedDeck}/>
-      }
+ 
+      console.log('in the else', newDeck.deck)
+      setShowPreview(true)
+      
     }
     return (
         <>
@@ -167,7 +165,7 @@ const DeckImport = props => {
             <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
             <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
           </div>
-{/* make sure to add tag state functions */}
+
           <div className='tagHolder'>
             <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
           </div>
@@ -191,6 +189,10 @@ const DeckImport = props => {
           </div>
           </div>
         </form>
+
+        {showPreview? console.log('imported deck preview',newDeck.deck): null}
+        
+        {showPreview?<ImportPreview importedDeck={newDeck.deck}/> :null}
 
     {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>
