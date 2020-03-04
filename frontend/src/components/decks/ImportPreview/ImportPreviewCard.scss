@@ -86,7 +86,18 @@
     }
 }
 
+@media screen and (min-width: 767px) {
+    .card-btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
 
+        button {
+            width: 45%;
+        }
+    }
+}
 
 @media screen and (max-width: 500px) {
         .cards-container {

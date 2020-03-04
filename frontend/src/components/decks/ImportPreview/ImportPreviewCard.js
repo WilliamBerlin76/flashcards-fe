@@ -44,7 +44,7 @@ const ImportPreviewCard = props => {
     return (
         
         
-        <div className='container'>
+        <div className='container' id={props.id}>
           <div className='cardList'>
             <div className='cardData '>
               <Segment className='segments'>
@@ -84,10 +84,15 @@ const ImportPreviewCard = props => {
                   onChange={handleChanges}
                   value={cardEditing.back}
                 />
-
+                
+                <div className="card-btns">
+                <button className='quo-btn' type='button' onClick={() => props.deleteCard(props.id)}>
+                  Delete
+                </button>
                 <button className='quo-btn' type='submit'>
                   Update
                 </button>
+                </div>
             </form>
                 {/* </form> */}
               </Segment>
