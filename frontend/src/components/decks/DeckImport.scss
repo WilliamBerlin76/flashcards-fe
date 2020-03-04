@@ -104,7 +104,7 @@ h3{
   }
   
   
-  @media screen and (min-width: 1000px){
+  @media screen and (min-width: 767px){
 
    .deck-import-container {
     *{
@@ -114,7 +114,7 @@ h3{
 
    }
    .header-container {
-      width: 60%;
+      width: 100%;
       margin-top: 1%;
     
       .main-deck-wrapper{
@@ -167,7 +167,161 @@ h3{
 
     }
      
+@media screen and (min-width: 1365px) {
+    .deck-import-container {
+        *{
+            margin-left: 0;
+        }   
+        margin-left: 3%;
+    
+       }
+       .header-container {
+          width: 80%;
+          margin-top: 1%;
+        
+          .main-deck-wrapper{
+              width: 100%;
+              margin-left: 0%;
+    
+                .deck-import-wrapper{
+                    width: 100%;
+                }
+          }
+            .deckName-input{
+                margin: 1% auto;
+                width: 80%;
+            }
+    
+            .icon-input{
+                margin-right: 1%; 
+                min-width: 59%;
+            }
+    
+           .icon-wrapper{
+               padding: 0%;
+           }
+            .main-deck-wrapper .icon-wrapper .edit-icon{
+                width: 20%;
+            }
+    
+            .radio-wrapper{
+                width: 20%;
+                padding: 0%;
+                justify-content: space-between;
+            }
+       }
+        
+       .import-container{
+           width: 60%;
+        margin-left: 0%;
+         .textbox-import {
+             width: 80%;
+         }
+}
+}
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 1535px) {
+    .deck-import-container {
+        *{
+            margin-left: 0;
+        }   
+        margin-left: 3%;
+    
+       }
+       .header-container {
+          width: 70%;
+          margin-top: 1%;
+        
+          .main-deck-wrapper{
+              width: 100%;
+              margin-left: 0%;
+    
+                .deck-import-wrapper{
+                    width: 100%;
+                }
+          }
+            .deckName-input{
+                margin: 1% auto;
+                width: 80%;
+            }
+    
+            .icon-input{
+                margin-right: 1%; 
+                min-width: 59%;
+            }
+    
+           .icon-wrapper{
+               padding: 0%;
+           }
+            .main-deck-wrapper .icon-wrapper .edit-icon{
+                width: 20%;
+            }
+    
+            .radio-wrapper{
+                width: 20%;
+                padding: 0%;
+                justify-content: space-between;
+            }
+       }
+        
+       .import-container{
+           width: 60%;
+        margin-left: 0%;
+         .textbox-import {
+             width: 80%;
+         }
+        }
+}
 
+@media screen and (min-width: 1919px) {
+    .deck-import-container {
+        *{
+            margin-left: 0;
+        }   
+        margin-left: 3%;
+    
+       }
+       .header-container {
+          width: 60%;
+          margin-top: 1%;
+        
+          .main-deck-wrapper{
+              width: 100%;
+              margin-left: 0%;
+    
+                .deck-import-wrapper{
+                    width: 100%;
+                }
+          }
+            .deckName-input{
+                margin: 1% auto;
+                width: 80%;
+            }
+    
+            .icon-input{
+                margin-right: 1%; 
+                min-width: 59%;
+            }
+    
+           .icon-wrapper{
+               padding: 0%;
+           }
+            .main-deck-wrapper .icon-wrapper .edit-icon{
+                width: 20%;
+            }
+    
+            .radio-wrapper{
+                width: 20%;
+                padding: 0%;
+                justify-content: space-between;
+            }
+       }
+        
+       .import-container{
+           width: 60%;
+        margin-left: 0%;
+         .textbox-import {
+             width: 80%;
+         }
+        }
 }
