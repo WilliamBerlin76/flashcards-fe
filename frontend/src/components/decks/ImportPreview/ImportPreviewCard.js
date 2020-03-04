@@ -22,17 +22,12 @@ const ImportPreviewCard = props => {
     }
 
     const updateCard = (updateIndex) => {
+
         const updated = props.deck.filter((card, index) => {
-            console.log('update index',index)
-            if(index !== updateIndex) {
-                console.log('in update if',index, card)
-                return card;
-            } else {
-                console.log('in update else')
-                return cardEditing;
-            }
+            return index !== updateIndex;
         })
-        props.setDeck(updated)
+        const newCard = cardEditing;
+        props.setDeck([...updated, newCard])
         console.log(props.index);
         console.log(props.deck);
     };
