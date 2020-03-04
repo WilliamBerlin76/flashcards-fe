@@ -9,6 +9,7 @@ import './DeckImport.scss'
 import Instructions from './ImportInstructions';
 import ImportPreview from './ImportPreview/ImportPreview'
 import ImportPreviewCard from './ImportPreview/ImportPreviewCard';
+import uuid from 'uuid'
 const ImportInput = withStyles({
     root: {
       '& label.Mui-focused': {
@@ -78,7 +79,7 @@ const DeckImport = props => {
       const splitString = deck.split(';')
       for (let i = 0; i < splitString.length; i++) {
         let term = splitString[i].split(':')
-        array.push({front: term[0], back: term[1]})
+        array.push({front: term[0], back: term[1], id: uuid()})
       }
       setNewDeck({...newDeck, deck: array})
     }

@@ -39,8 +39,6 @@
 
     .deck-import-wrapper{
         width: 100%;
-
-        
     }
     .icon-wrapper {
        display: flex;
@@ -57,12 +55,8 @@
             border: 2px solid orangered;
             background: none;
             border-radius: 100px;
-               
-           
         }
             
-        
-
         .icon-input {
            margin-left: 0;
             width: 45%;
@@ -83,7 +77,6 @@ h3{
 .import-container {
     width: 100%;
     margin-left: 3%;
-    
 
   .textbox-import{
       border: 1px solid orangered;
@@ -106,13 +99,10 @@ h3{
   }
 }
 
-
-
   .deck-import-header {
       text-align: center;
   }
   
-
   
   @media screen and (min-width: 1000px){
 
@@ -157,8 +147,6 @@ h3{
             padding: 0%;
             justify-content: space-between;
         }
-
-       
    }
     
    .import-container{
@@ -179,3 +167,7 @@ h3{
 
     }
      
+
+@media screen and (min-width: 767px) {
+
+}
