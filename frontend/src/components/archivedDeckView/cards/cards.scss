@@ -29,5 +29,12 @@
   }
   .top {
     border-bottom: 1px solid rgba(106, 92, 85, 0.5);
+    min-height: 5px;
+  }
+}
+
+@media screen and (min-width: 1919px) {
+  .top {
+    min-height: 5px;
   }
 }
