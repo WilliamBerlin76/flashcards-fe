@@ -81,6 +81,7 @@ const DeckImport = props => {
         let term = splitString[i].split(':')
         array.push({front: term[0], back: term[1], id: uuid()})
       }
+      setExported('')
       setNewDeck({...newDeck, deck: array})
     }
 

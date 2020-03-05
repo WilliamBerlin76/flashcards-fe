@@ -95,6 +95,10 @@
 
         button {
             width: 45%;
+            background-color: white;
+            color: #f66e00;
+            border: 2px solid #f66e00;
+            border-radius: 23px;
         }
     }
 }
@@ -138,6 +142,21 @@
                     position: static;
                     width: 25%;
                     margin: 5px;                    
+                }
+
+                .card-btns {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    width: 100%;
+            
+                    button {
+                        width: 45%;
+                        background-color: white;
+                        color: #f66e00;
+                        border: 2px solid #f66e00;
+                        border-radius: 23px;
+                    }
                 }
             }
         }

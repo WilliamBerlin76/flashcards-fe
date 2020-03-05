@@ -18,6 +18,7 @@ const ImportPreview = (props) => {
         });
         console.log('subDeck', subDeck)
         props.postDecks(subDeck, props.title, props.tags, props.icon)
+        
         setTimeout(() => {
             history.push('/dashboard')
         }, 400)
