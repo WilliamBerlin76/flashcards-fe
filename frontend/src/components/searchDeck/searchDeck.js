@@ -77,6 +77,17 @@ const SearchDeck = props => {
     });
   };
 
+  const userClick = (user) => {
+    const newQuery = query.filter(item =>{
+      if(item.createdBy === user){
+        return item
+      } else {
+        return null
+      }
+    })
+    setQuery(newQuery)
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -95,7 +106,7 @@ const SearchDeck = props => {
         <Grid item md={3} xs={12}>
           {query.length > 0 ? <h2>Users</h2> : null}
           {query
-            ? users.map((users, id) => <UserFilter key={id} query={query} users={users} filterUsers={filterUsers} />)
+            ? users.map((users, id) => <UserFilter key={id} query={query} users={users} filterUsers={filterUsers} userClick={userClick}/>)
             : null}
         </Grid>
         <Grid item md={9} xs={12}>

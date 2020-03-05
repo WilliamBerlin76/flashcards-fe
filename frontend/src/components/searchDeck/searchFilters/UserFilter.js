@@ -7,7 +7,7 @@ const UserFilter = props => {
 
   return (
     <>
-      <h3 key={props.id} onClick={props.filterUsers}>
+      <h3 key={props.id} onClick={e=>{e.preventDefault(); props.userClick(props.users)}}>
         {props.users}
       </h3>
     </>
