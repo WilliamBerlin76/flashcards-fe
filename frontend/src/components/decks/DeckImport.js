@@ -37,12 +37,12 @@ const ImportInput = withStyles({
 
 const DeckImport = props => {
 
-  
+ 
   const [newDeck, setNewDeck] = useState({
-    name: '',
+    subject: '',
     icon: '',
-    tags: [],
-    deck: []
+    deck: [],
+    public: false
   })
   const [tags, setTags] = useState([])
   const [title, setTitle] = useState('')
@@ -64,6 +64,10 @@ const DeckImport = props => {
       [name]: e.target.value
     });
     
+    setNewDeck({
+      ...newDeck, [name]: e.target.value
+    })
+    
   }
 
     const handleChanges = e => {
@@ -73,7 +77,6 @@ const DeckImport = props => {
       setExported(e.target.value)
     }
 
-    
     const createDeck = (deck) => {
       let array=[];
       const splitString = deck.split(';')
@@ -98,18 +101,42 @@ const DeckImport = props => {
     };
 
     const test = e => {
-      e.preventDefault();
+      if(e.target.value === 'public') {
+        setNewDeck({
+          ...newDeck,
+          public: true
+        })
+      } else {
+        setNewDeck({
+          ...newDeck,
+          public: false
+        })
+      }
     }
-
-
-
 
     const previewDeck = e => {
       e.preventDefault();
-      createDeck(exported);
-      setShowPreview(true)
-      
+
+      if(exported  === '' || title === '' || newDeck.subject === '' || tags.childElementCount < 1) {
+        alert("Please fill out all required fields.")
+      } else {
+        if(!document.getElementById("public").checked && !document.getElementById("private").checked) {
+          alert("Please choose Public or Private deck option.")
+        } else {
+          createDeck(exported);
+          setShowPreview(true)
+        }
+      }
     }
+
+    const radioChange = e => {
+      if(e.target.value === 'public') {
+        setNewDeck({...newDeck, public: true})
+      } else {
+        setNewDeck({...newDeck, public: false})
+      }
+    }
+
     return (
         <>
         {showInstructions ? <Instructions/> : null}
@@ -127,6 +154,18 @@ const DeckImport = props => {
               variant="outlined"
               label='Deck Name'
               className='deckName-input'
+              id="deckName"
+            />
+             <ImportInput
+              type='text'
+              onChange={handleName}
+              name='subject'
+              variant="outlined"
+              label='Subject'
+              className='deckName-input'
+              value={newDeck.subject}
+              placeholder='e.x Math, Science, English'
+              id="subject"
             />
             </div>
 
@@ -145,12 +184,12 @@ const DeckImport = props => {
             </div>
           </div>
           <div className='radio-wrapper'>
-            <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
-            <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
+            <label><input type='radio' id='private' name='public-toggle' onChange={radioChange} value="private"/> Private</label>
+            <label><input type='radio' id='public' name='public-toggle' onChange={radioChange} value="public"/> Public</label>
           </div>
 
           <div className='tagHolder'>
-            <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+            <Tags tags={tags} addTags={addTags} removeTags={removeTags} id="tags" />
           </div>
           </div>
           <h3>Quizlet Import</h3>
@@ -164,6 +203,7 @@ const DeckImport = props => {
             placeholder='Paste deck import here'
             className='textbox-import'
             rows='10'
+            id="import"
           />
           <div className='btn-container'>
           {/* <button type='button' onClick={handleSubmit}>Create Deck</button> */}
