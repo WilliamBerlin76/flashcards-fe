@@ -2,7 +2,7 @@ import React from "react";
 
 
 const UserFilter = props => {
-  console.log(props.filterUsers);
+  console.log("props", props);
   
 
   return (

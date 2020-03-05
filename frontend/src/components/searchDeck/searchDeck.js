@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./navSearchBar.scss";
-import "firebase/firestore";
 import { firestore } from "../../App";
 import "../dashboard/deckcards/deckcards.scss";
 import { Grid } from "@material-ui/core";
 import { connect } from "react-redux";
 
 import UserFilter from "./searchFilters/UserFilter";
-import { filterUsers } from "../../actions";
 
-const mapStateToProps = state => ({
-  query: state.query
-});
+// import { publicDecks } from "../../actions";
 
-const mapDispatchToProps = {
-  filterUsers
-};
+// const mapState = state => {
+//   console.log("state", state.publicDecks);
+//   return {
+//     publicDecks: state.publicDecks
+//   };
+// };
+
+// const actions = {
+//   publicDecks
+// };
 
 const SearchDeck = props => {
+  // console.log("props", props);
+
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
   const [query, setQuery] = useState([]);
@@ -28,7 +33,6 @@ const SearchDeck = props => {
   /**
    * State Console Logs
    */
-  console.log("publicDecks", publicDecks);
   console.log("query", query);
   console.log("Users", users);
 
@@ -39,13 +43,14 @@ const SearchDeck = props => {
         deckArr.push(doc.data());
       });
       setPublicDecks(deckArr);
+      console.log("deckArr", deckArr);
     });
   }, []);
 
-  const openDeck = (deck, user) => {
-    props.history.push(`/${user}/${deck}/cards`);
-    console.log(deck);
-  };
+  // const openDeck = (deck, user) => {
+  //   props.history.push(`/${user}/${deck}/cards`);
+  //   console.log(deck);
+  // };
 
   const handleChange = e => {
     e.preventDefault();
@@ -95,7 +100,7 @@ const SearchDeck = props => {
         <Grid item md={3} xs={12}>
           {query.length > 0 ? <h2>Users</h2> : null}
           {query
-            ? users.map((users, id) => <UserFilter key={id} query={query} users={users} filterUsers={filterUsers} />)
+            ? users.map((users, id) => <UserFilter key={id} users={users} />)
             : null}
         </Grid>
         <Grid item md={9} xs={12}>
@@ -104,7 +109,11 @@ const SearchDeck = props => {
               ? query.map(item => {
                   const id = Math.random();
                   return (
-                    <div className="deckcard-div" key={id} onClick={openDeck}>
+                    <div
+                      className="deckcard-div"
+                      key={id}
+                      // onClick={openDeck}
+                    >
                       <div className="deck">
                         <div className="deck-card">
                           <div className="deck-info">
@@ -127,4 +136,4 @@ const SearchDeck = props => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchDeck);
+export default connect(null, {})(SearchDeck);

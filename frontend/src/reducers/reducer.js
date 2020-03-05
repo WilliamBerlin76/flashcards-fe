@@ -14,7 +14,7 @@ import {
   EDIT_CARDS,
   EDIT_SUCCESS,
   EDIT_FAILURE,
-  FILTER_USER
+  PUBLIC_DECKS,
 } from "../actions";
 
 const initialState = {
@@ -46,7 +46,8 @@ const initialState = {
       archived: false
     }
   ],
-  query: []
+  query: [],
+  publicDecks: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -198,11 +199,12 @@ const reducer = (state = initialState, action) => {
         isPosting: false,
         error: action.payload
       };
-    case FILTER_USER:
+    case PUBLIC_DECKS:
       return {
-        ...state.query.createdBy.filter().indexOf(action.payload.userId >= 0),
-        
+        ...state,
+        publicDecks: []
       };
+
     default:
       return state;
   }
