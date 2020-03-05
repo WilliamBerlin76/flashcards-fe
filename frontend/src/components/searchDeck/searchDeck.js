@@ -47,10 +47,11 @@ const SearchDeck = props => {
     });
   }, []);
 
-  // const openDeck = (deck, user) => {
-  //   props.history.push(`/${user}/${deck}/cards`);
-  //   console.log(deck);
-  // };
+  const openDeck = (deck, user) => {
+    console.log('openDeck deck', deck, '\nopenDeck user', user)
+    props.history.push(`/${user}/${deck}/cards`);
+    console.log(deck);
+  };
 
   const handleChange = e => {
     e.preventDefault();
