@@ -77,12 +77,14 @@ const SearchDeck = props => {
     });
   };
 
-  const userClick = (user) => {
+  const filterClick = (filter, val) => {
     const newQuery = query.filter(item =>{
-      if(item.createdBy === user){
-        return item
+      if (filter === 'tags' && item.tags.includes(val)) {
+        return item;
+      }else if(item[filter] === val){
+        return item;
       } else {
-        return null
+        return null;
       }
     })
     setQuery(newQuery)
@@ -106,7 +108,7 @@ const SearchDeck = props => {
         <Grid item md={3} xs={12}>
           {query.length > 0 ? <h2>Users</h2> : null}
           {query
-            ? users.map((users, id) => <UserFilter key={id} query={query} users={users} filterUsers={filterUsers} userClick={userClick}/>)
+            ? users.map((users, id) => <UserFilter key={id} query={query} users={users} filterUsers={filterUsers} filterClick={filterClick}/>)
             : null}
         </Grid>
         <Grid item md={9} xs={12}>
