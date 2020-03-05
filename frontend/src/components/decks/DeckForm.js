@@ -131,7 +131,7 @@ const DeckForm = props => {
         <div className = "first">
         <img
           className='backk'
-          src={polyy}
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAaCAYAAACD+r1hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACZSURBVHgBnZTtDUAwFEXLBB3BCEawERuwgRVsYAQjGMEIRrhepZKSftznJPL+nJPGI60MCQDrZkXKjYyNcW9ZngMeJtgRUJJnfMjJIyKk5B4JYnKLDCaykZMK8FlfNpBpGTkMVpA4eYCCWg6wRouEC3tC+NI7HajX+uvDBVGnCnw0qAIfTaogtW5TQpxNG7x+TPU1QwXPSW5eQ3iFPuLAcgAAAAAASUVORK5CYII="
           alt='back arrow'
           onClick={() => props.history.goBack()}
         />
@@ -142,24 +142,24 @@ const DeckForm = props => {
           onClick={() => props.history.goBack()}
         />
 
-        <h1 className='deckName-add'>Create new deck</h1>
+        <h1 className='deckName-add'>Create New Deck</h1>
         </div>
         {/* <div className = "rightside"> */}
         <div className='number'>
           <h3 className='smile-form'>{newDecks.length}</h3>
+          <h4 className='mastered'>Cards</h4>
         </div>
-        <h4 className='mastered'>Cards</h4>
         <div className='studied'>
-          
+{/*           
 
             <h1 className='numberrr'>87</h1>
-{/*           
-          <div className='text'> */}
-            {/* <h1 className = "mastereddd">87</h1> */}
+          
+          <div className='text'>
+            <h1 className = "mastereddd">87</h1>
             <span className='mastered-text'>Mastered</span>
-          {/* </div> */}
+          </div> 
+        </div> */}
         </div>
-        {/* </div> */}
       </div>
      
       <div>

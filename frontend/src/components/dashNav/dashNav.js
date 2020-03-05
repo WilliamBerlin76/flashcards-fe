@@ -14,16 +14,30 @@ const DashNav = props => {
         });  
       }, []);
 
+      const userPic = () => {
+        switch(props.location.pathname) {
+          case "/Preferences":
+            return null;
+          default:
+            if(curUser) {
+              return (
+                <img src={firebase.auth().currentUser.photoURL} alt='profile pic' className='desk-dash-pic' />
+              )
+            }
+            else {
+              return null;
+            }
+        }
+      }
+
     return(
         <div className="dashNav" onClick={e=>{e.preventDefault(); props.history.push('/dashboard')}}>
             <div className='mNeme' >
                 <span className='m'>m</span>
                 <span className='neme'>Neme</span>
             </div>
-            {curUser ? 
-                <img src={firebase.auth().currentUser.photoURL} alt='profile pic' className='desk-dash-pic' /> 
-                : null
-            }
+            
+            {userPic()}
         </div>
     )
 }

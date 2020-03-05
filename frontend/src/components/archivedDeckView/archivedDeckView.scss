@@ -10,11 +10,17 @@
   padding-bottom: 2rem;
   display: flex;
   align-items: center;
+  margin-top: -.1%;
   .deck-name {
     color: #fafafa;
-    margin-bottom: 25px;
+    margin-bottom: .2%;
     margin-left: 10px;
     cursor: pointer;
+
+    @media screen and (min-width: 767px) {
+      margin: 0;
+      margin-left: 10px;
+    }
   }
 }
 
