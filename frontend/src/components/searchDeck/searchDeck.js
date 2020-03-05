@@ -82,6 +82,19 @@ const SearchDeck = props => {
     });
   };
 
+  const filterClick = (filter, val) => {
+    const newQuery = query.filter(item =>{
+      if (filter === 'tags' && item.tags.includes(val)) {
+        return item;
+      }else if(item[filter] === val){
+        return item;
+      } else {
+        return null;
+      }
+    })
+    setQuery(newQuery)
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -100,7 +113,7 @@ const SearchDeck = props => {
         <Grid item md={3} xs={12}>
           {query.length > 0 ? <h2>Users</h2> : null}
           {query
-            ? users.map((users, id) => <UserFilter key={id} users={users} />)
+            ? users.map((users, id) => <UserFilter key={id} query={query} users={users} filterUsers={filterUsers} filterClick={filterClick}/>)
             : null}
         </Grid>
         <Grid item md={9} xs={12}>
