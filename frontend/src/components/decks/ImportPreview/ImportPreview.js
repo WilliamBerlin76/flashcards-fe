@@ -24,6 +24,9 @@ const ImportPreview = (props) => {
         }, 400)
     }
 
+
+
+
     const checking = (cardId) => {
         if(checked.includes(cardId)) {
             setChecked(checked.filter(card => {
