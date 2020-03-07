@@ -56,10 +56,14 @@ const SearchDeck = () => {
         console.log("Not Found");
         setSearchField("");
       }
+      const usersArrConcat = [].concat(...usersArr);
+      const usersSet = [...new Set(usersArrConcat)];
+
       const tagsArrConcat = [].concat(...tagsArr);
       const tagsSet = [...new Set(tagsArrConcat)];
+
       setQuery(queryArr);
-      setUsers(usersArr);
+      setUsers(usersSet);
       setTags(tagsSet);
     });
   };
@@ -83,10 +87,13 @@ const SearchDeck = () => {
         return null;
       }
     });
+    const usersArrConcat = [].concat(...filteredUsers);
+    const usersSet = [...new Set(usersArrConcat)];
+
     const tagsArrConcat = [].concat(...filteredTags);
     const tagsSet = [...new Set(tagsArrConcat)];
 
-    setUsers(filteredUsers);
+    setUsers(usersSet);
     setTags(tagsSet);
     setQuery(newQuery);
   };
