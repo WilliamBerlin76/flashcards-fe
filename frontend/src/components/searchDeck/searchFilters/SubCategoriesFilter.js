@@ -1,15 +1,16 @@
 import React from "react";
 
-const SubCategoriesFilter = props => {
-  console.log("props", props);
-
-  return (
-    <>
-      <h3 key={props.id} onClick={props.filterUsers}>
-        {props.users}
-      </h3>
-    </>
-  );
-};
+const SubCategoriesFilter = props => (
+  <>
+    <h3
+      key={props.id}
+      onClick={() => {
+        props.filterClick("tags", props.tags);
+      }}
+    >
+      {props.tags}
+    </h3>
+  </>
+);
 
 export default SubCategoriesFilter;

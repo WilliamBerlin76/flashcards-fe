@@ -3,38 +3,19 @@ import "./navSearchBar.scss";
 import { firestore } from "../../App";
 import "../dashboard/deckcards/deckcards.scss";
 import { Grid } from "@material-ui/core";
-import { connect } from "react-redux";
 
 import UserFilter from "./searchFilters/UserFilter";
+import SubCategoriesFilter from "./searchFilters/SubCategoriesFilter";
 
-// import { publicDecks } from "../../actions";
-
-// const mapState = state => {
-//   console.log("state", state.publicDecks);
-//   return {
-//     publicDecks: state.publicDecks
-//   };
-// };
-
-// const actions = {
-//   publicDecks
-// };
-
-const SearchDeck = props => {
-  // console.log("props", props);
-
+const SearchDeck = () => {
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
   const [query, setQuery] = useState([]);
   const [users, setUsers] = useState([]);
-  const resultsArr = [];
-  const usersList = [];
-
-  /**
-   * State Console Logs
-   */
-  console.log("query", query);
-  console.log("Users", users);
+  const [tags, setTags] = useState([]);
+  const queryArr = [];
+  const usersArr = [];
+  const tagsArr = [];
 
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
@@ -43,15 +24,14 @@ const SearchDeck = props => {
         deckArr.push(doc.data());
       });
       setPublicDecks(deckArr);
-      console.log("deckArr", deckArr);
     });
   }, []);
 
-  const openDeck = (deck, user) => {
-    console.log('openDeck deck', deck, '\nopenDeck user', user)
-    props.history.push(`/${user}/${deck}/cards`);
-    console.log(deck);
-  };
+  // const openDeck = (deck, user) => {
+  //   console.log("openDeck deck", deck, "\nopenDeck user", user);
+  //   props.history.push(`/${user}/${deck}/cards`);
+  //   console.log(deck);
+  // };
 
   const handleChange = e => {
     e.preventDefault();
@@ -66,35 +46,50 @@ const SearchDeck = props => {
           deck.deckName.toLowerCase() === searchField.toLowerCase()) ||
         (deck.createdBy &&
           deck.createdBy.toLowerCase() === searchField.toLowerCase()) ||
-        (deck.tags && deck.tags.indexOf(searchField) >= 0)
+        (deck.tags && deck.tags.includes(searchField))
       ) {
-        resultsArr.push(deck);
-        usersList.push(deck.createdBy);
+        queryArr.push(deck);
+        usersArr.push(deck.createdBy);
+        tagsArr.push(deck.tags);
         setSearchField("");
       } else {
         console.log("Not Found");
         setSearchField("");
       }
-      /**
-       * Setting State here
-       */
-      setQuery(resultsArr);
-      setUsers(usersList);
+      const tagsArrConcat = [].concat(...tagsArr);
+      const tagsSet = [...new Set(tagsArrConcat)];
+      setQuery(queryArr);
+      setUsers(usersArr);
+      setTags(tagsSet);
     });
   };
 
-  const filterClick = (filter, val) => {
-    const newQuery = query.filter(item =>{
-      if (filter === 'tags' && item.tags.includes(val)) {
-        return item;
-      }else if(item[filter] === val){
-        return item;
+  const filterClick = (filter, value) => {
+    const filteredTags = [];
+    const filteredUsers = [];
+
+    const newQuery = query.filter(deck => {
+      if (filter === "tags" && deck.tags.includes(value)) {
+        filteredUsers.push(deck.createdBy);
+        filteredTags.push(deck.tags);
+
+        return deck;
+      } else if (deck[filter] === value) {
+        filteredUsers.push(deck.createdBy);
+        filteredTags.push(deck.tags);
+
+        return deck;
       } else {
         return null;
       }
-    })
-    setQuery(newQuery)
-  }
+    });
+    const tagsArrConcat = [].concat(...filteredTags);
+    const tagsSet = [...new Set(tagsArrConcat)];
+
+    setUsers(filteredUsers);
+    setTags(tagsSet);
+    setQuery(newQuery);
+  };
 
   return (
     <>
@@ -113,8 +108,23 @@ const SearchDeck = props => {
       <Grid container>
         <Grid item md={3} xs={12}>
           {query.length > 0 ? <h2>Users</h2> : null}
+
           {query
-            ? users.map((users, id) => <UserFilter key={id} query={query} users={users} filterUsers={filterUsers} filterClick={filterClick}/>)
+            ? users.map((users, id) => (
+                <UserFilter key={id} users={users} filterClick={filterClick} />
+              ))
+            : null}
+
+          {query.length > 0 ? <h2>Categories</h2> : null}
+
+          {query
+            ? tags.map((tags, id) => (
+                <SubCategoriesFilter
+                  key={id}
+                  tags={tags}
+                  filterClick={filterClick}
+                />
+              ))
             : null}
         </Grid>
         <Grid item md={9} xs={12}>
@@ -150,4 +160,4 @@ const SearchDeck = props => {
   );
 };
 
-export default connect(null, {})(SearchDeck);
+export default SearchDeck;
