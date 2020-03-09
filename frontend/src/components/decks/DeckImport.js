@@ -6,10 +6,8 @@ import {withStyles} from '@material-ui/core/styles';
 import Tags from './Tags';
 import Footer from '../footer/Footer';
 import './DeckImport.scss'
-import Instructions from './ImportInstructions';
-import ImportPreview from './ImportPreview/ImportPreview'
-import ImportPreviewCard from './ImportPreview/ImportPreviewCard';
-import uuid from 'uuid'
+
+import Instructions from './ImportInstructions'
 const ImportInput = withStyles({
     root: {
       '& label.Mui-focused': {
@@ -37,18 +35,19 @@ const ImportInput = withStyles({
 
 const DeckImport = props => {
 
- 
+  
   const [newDeck, setNewDeck] = useState({
-    subject: '',
+    name: '',
     icon: '',
-    deck: [],
-    public: false
+    tags: [],
+    deck: []
   })
   const [tags, setTags] = useState([])
   const [title, setTitle] = useState('')
   const [exported, setExported] = useState('')
-  const [showPreview, setShowPreview] = useState(false)
+
   const [showInstructions, setShowInstructions] = useState(false)
+
   const showInstruct = e => {
     e.preventDefault();
     setShowInstructions(!showInstructions)
@@ -64,10 +63,6 @@ const DeckImport = props => {
       [name]: e.target.value
     });
     
-    setNewDeck({
-      ...newDeck, [name]: e.target.value
-    })
-    
   }
 
     const handleChanges = e => {
@@ -77,15 +72,15 @@ const DeckImport = props => {
       setExported(e.target.value)
     }
 
+    let importedDeck = [];
     const createDeck = (deck) => {
       let array=[];
       const splitString = deck.split(';')
       for (let i = 0; i < splitString.length; i++) {
         let term = splitString[i].split(':')
-        array.push({front: term[0], back: term[1], id: uuid()})
+        array.push({front: term[0], back: term[1]})
       }
-      setExported('')
-      setNewDeck({...newDeck, deck: array})
+      return importedDeck = array
     }
 
     const addTags = event => {
@@ -101,42 +96,33 @@ const DeckImport = props => {
     };
 
     const test = e => {
-      if(e.target.value === 'public') {
-        setNewDeck({
-          ...newDeck,
-          public: true
-        })
-      } else {
-        setNewDeck({
-          ...newDeck,
-          public: false
-        })
-      }
-    }
-
-    const previewDeck = e => {
       e.preventDefault();
-
-      if(exported  === '' || title === '' || newDeck.subject === '' || tags.childElementCount < 1) {
-        alert("Please fill out all required fields.")
-      } else {
-        if(!document.getElementById("public").checked && !document.getElementById("private").checked) {
-          alert("Please choose Public or Private deck option.")
-        } else {
-          createDeck(exported);
-          setShowPreview(true)
-        }
-      }
     }
 
-    const radioChange = e => {
-      if(e.target.value === 'public') {
-        setNewDeck({...newDeck, public: true})
+    const handleSubmit = (e) =>{
+      if (tags.length < 1 ) {
+        alert('Please insert tag(s)')
       } else {
-        setNewDeck({...newDeck, public: false})
+        e.preventDefault();
+        createDeck(exported)
+        const subDeck = importedDeck.filter(card => {
+          return card.front && card.back;
+        });
+        props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
+        setTimeout(()=>{
+          props.history.push('/dashboard')
+        }, 400)
       }
+      // e.preventDefault();
+      // createDeck(exported)
+      // const subDeck = importedDeck.filter(card => {
+      //   return card.front && card.back;
+      // });
+      // props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
+      // setTimeout(()=>{
+      //   props.history.push('/dashboard')
+      // }, 400)
     }
-
     return (
         <>
         {showInstructions ? <Instructions/> : null}
@@ -154,18 +140,6 @@ const DeckImport = props => {
               variant="outlined"
               label='Deck Name'
               className='deckName-input'
-              id="deckName"
-            />
-             <ImportInput
-              type='text'
-              onChange={handleName}
-              name='subject'
-              variant="outlined"
-              label='Subject'
-              className='deckName-input'
-              value={newDeck.subject}
-              placeholder='e.x Math, Science, English'
-              id="subject"
             />
             </div>
 
@@ -184,12 +158,12 @@ const DeckImport = props => {
             </div>
           </div>
           <div className='radio-wrapper'>
-            <label><input type='radio' id='private' name='public-toggle' onChange={radioChange} value="private"/> Private</label>
-            <label><input type='radio' id='public' name='public-toggle' onChange={radioChange} value="public"/> Public</label>
+            <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
+            <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
           </div>
-
+{/* make sure to add tag state functions */}
           <div className='tagHolder'>
-            <Tags tags={tags} addTags={addTags} removeTags={removeTags} id="tags" />
+            <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
           </div>
           </div>
           <h3>Quizlet Import</h3>
@@ -203,19 +177,13 @@ const DeckImport = props => {
             placeholder='Paste deck import here'
             className='textbox-import'
             rows='10'
-            id="import"
           />
           <div className='btn-container'>
-          {/* <button type='button' onClick={handleSubmit}>Create Deck</button> */}
-          <button type='button' onClick={previewDeck}>Preview Deck</button>
+          <button type='button' onClick={handleSubmit}>Create Deck</button>
           {/* <button type='button'>View Deck</button> */}
           </div>
           </div>
         </form>
-
-        {showPreview? console.log('imported deck preview',newDeck.deck): null}
-        
-        {showPreview?<ImportPreview importedDeck={newDeck.deck} tags={newDeck.tags} title={title} icon={newDeck.icon}/> :null}
 
     {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>
