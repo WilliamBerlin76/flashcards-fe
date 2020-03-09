@@ -13,7 +13,8 @@ const Deck = (props) => {
     const [deckLength, setDeckLength] = useState(0);
 
   useEffect(() => {
-    // props.getDecks();
+    // props.getDecks(); 
+    console.log(props.deckName);
     axios
       .get(
         `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${props.deckName}`

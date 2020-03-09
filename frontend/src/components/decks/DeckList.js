@@ -16,6 +16,7 @@ const DeckList = props => {
       if (user) {
         let currentUser = firebase.auth().currentUser.uid;
         props.getDecks(currentUser);
+        console.log(props.cards)
       } else {
         return null;
       }
