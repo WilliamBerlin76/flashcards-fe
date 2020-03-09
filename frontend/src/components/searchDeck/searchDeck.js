@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./navSearchBar.scss";
+import "./searchDeck.scss";
 import { firestore } from "../../App";
 import { Grid } from "@material-ui/core";
 import "../dashboard/deckcards/deckcards.scss";
@@ -14,9 +14,6 @@ const SearchDeck = () => {
   const [query, setQuery] = useState([]);
   const [users, setUsers] = useState([]);
   const [tags, setTags] = useState([]);
-
-  console.log("tags", tags);
-  console.log("searchField", searchField);
 
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
@@ -82,8 +79,8 @@ const SearchDeck = () => {
       const tagsSet = [...new Set(tagsArrConcat)];
 
       setQuery(queryArr);
-      setUsers(usersSet);
-      setTags(tagsSet);
+      setUsers(usersSet.sort());
+      setTags(tagsSet.sort());
     });
   };
 
