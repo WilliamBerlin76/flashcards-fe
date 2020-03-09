@@ -58,13 +58,13 @@ const SearchDeck = () => {
     e.preventDefault();
     publicDecks.filter(deck => {
       const tagsLowerCase = deck.tags.map(item => item.toLowerCase());
-      
+
       if (
         (deck.deckName &&
           deck.deckName.toLowerCase() === searchField.toLowerCase()) ||
         (deck.createdBy &&
           deck.createdBy.toLowerCase() === searchField.toLowerCase()) ||
-        (deck.tags && tagsLowerCase.includes(searchField))
+        (deck.tags && tagsLowerCase.includes(searchField.toLowerCase()))
       ) {
         queryArr.push(deck);
         usersArr.push(deck.createdBy);
@@ -80,8 +80,6 @@ const SearchDeck = () => {
 
       const tagsArrConcat = [].concat(...tagsArr);
       const tagsSet = [...new Set(tagsArrConcat)];
-
-      // const tagsLowerCase = tagsSet.map(item => item.toLowerCase());
 
       setQuery(queryArr);
       setUsers(usersSet);
