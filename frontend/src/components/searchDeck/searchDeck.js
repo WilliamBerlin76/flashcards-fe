@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./navSearchBar.scss";
 import { firestore } from "../../App";
-import "../dashboard/deckcards/deckcards.scss";
 import { Grid } from "@material-ui/core";
+import "../dashboard/deckcards/deckcards.scss";
 
 import UserFilter from "./searchFilters/UserFilter";
 import SubCategoriesFilter from "./searchFilters/SubCategoriesFilter";
@@ -14,13 +14,9 @@ const SearchDeck = () => {
   const [query, setQuery] = useState([]);
   const [users, setUsers] = useState([]);
   const [tags, setTags] = useState([]);
-  const queryArr = [];
-  const usersArr = [];
-  const tagsArr = [];
 
-  console.log("query", query);
   console.log("tags", tags);
-  
+  console.log("searchField", searchField);
 
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
@@ -55,14 +51,20 @@ const SearchDeck = () => {
   };
 
   const handleSubmit = e => {
+    const queryArr = [];
+    const usersArr = [];
+    const tagsArr = [];
+
     e.preventDefault();
     publicDecks.filter(deck => {
+      const tagsLowerCase = deck.tags.map(item => item.toLowerCase());
+      
       if (
         (deck.deckName &&
           deck.deckName.toLowerCase() === searchField.toLowerCase()) ||
         (deck.createdBy &&
           deck.createdBy.toLowerCase() === searchField.toLowerCase()) ||
-        (deck.tags && deck.tags.includes(searchField.toLowerCase()))
+        (deck.tags && tagsLowerCase.includes(searchField))
       ) {
         queryArr.push(deck);
         usersArr.push(deck.createdBy);
@@ -72,12 +74,14 @@ const SearchDeck = () => {
         setSearchField("");
         setNotFoundToggle(true);
       }
-      
+
       const usersArrConcat = [].concat(...usersArr);
       const usersSet = [...new Set(usersArrConcat)];
 
       const tagsArrConcat = [].concat(...tagsArr);
       const tagsSet = [...new Set(tagsArrConcat)];
+
+      // const tagsLowerCase = tagsSet.map(item => item.toLowerCase());
 
       setQuery(queryArr);
       setUsers(usersSet);
