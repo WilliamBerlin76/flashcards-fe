@@ -16,6 +16,9 @@ const SearchDeck = () => {
   const queryArr = [];
   const usersArr = [];
   const tagsArr = [];
+  
+  console.log("searchField", searchField);
+  
 
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
@@ -46,7 +49,7 @@ const SearchDeck = () => {
           deck.deckName.toLowerCase() === searchField.toLowerCase()) ||
         (deck.createdBy &&
           deck.createdBy.toLowerCase() === searchField.toLowerCase()) ||
-        (deck.tags && deck.tags.includes(searchField))
+        (deck.tags && deck.tags.includes(searchField.toLowerCase()))
       ) {
         queryArr.push(deck);
         usersArr.push(deck.createdBy);
