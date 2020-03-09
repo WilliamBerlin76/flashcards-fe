@@ -10,14 +10,16 @@ import SubCategoriesFilter from "./searchFilters/SubCategoriesFilter";
 const SearchDeck = () => {
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
+  const [notFoundToggle, setNotFoundToggle] = useState(false);
   const [query, setQuery] = useState([]);
   const [users, setUsers] = useState([]);
   const [tags, setTags] = useState([]);
   const queryArr = [];
   const usersArr = [];
   const tagsArr = [];
-  
-  console.log("searchField", searchField);
+
+  console.log("query", query);
+  console.log("tags", tags);
   
 
   useEffect(() => {
@@ -29,6 +31,17 @@ const SearchDeck = () => {
       setPublicDecks(deckArr);
     });
   }, []);
+
+  const notFound = () => {
+    if (!query.length > 0) {
+      return (
+        <span>
+          <p>Sorry, we couldn't find any search results.</p>
+          <p>Try searching for another term</p>
+        </span>
+      );
+    }
+  };
 
   // const openDeck = (deck, user) => {
   //   console.log("openDeck deck", deck, "\nopenDeck user", user);
@@ -56,9 +69,10 @@ const SearchDeck = () => {
         tagsArr.push(deck.tags);
         setSearchField("");
       } else {
-        console.log("Not Found");
         setSearchField("");
+        setNotFoundToggle(true);
       }
+      
       const usersArrConcat = [].concat(...usersArr);
       const usersSet = [...new Set(usersArrConcat)];
 
@@ -76,7 +90,7 @@ const SearchDeck = () => {
     const filteredUsers = [];
 
     const newQuery = query.filter(deck => {
-      if (filter === "tags" && deck.tags.includes(value)) {
+      if (filter.toLowerCase() === "tags" && deck.tags.includes(value)) {
         filteredUsers.push(deck.createdBy);
         filteredTags.push(deck.tags);
 
@@ -116,7 +130,7 @@ const SearchDeck = () => {
         </div>
       </form>
       <Grid container>
-        <Grid item md={3} xs={12}>
+        <Grid item md={1} xs={12}>
           {query.length > 0 ? <h2>Users</h2> : null}
 
           {query
@@ -137,7 +151,9 @@ const SearchDeck = () => {
               ))
             : null}
         </Grid>
-        <Grid item md={9} xs={12}>
+
+        <Grid item md={11} xs={12}>
+          {notFoundToggle ? notFound() : null}
           <div className="decks-section">
             {query
               ? query.map(item => {
