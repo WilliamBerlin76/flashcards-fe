@@ -24,9 +24,6 @@ const ImportPreview = (props) => {
         }, 400)
     }
 
-
-
-
     const checking = (cardId) => {
         if(checked.includes(cardId)) {
             setChecked(checked.filter(card => {
@@ -38,12 +35,6 @@ const ImportPreview = (props) => {
     }
 
     const deleteCard = (cardId) => {
-        // let values = deck;
-        // // const card = values.splice(updateIndex, 1);
-        // setDeck(deck.filter(item => {
-        //     console.log(item.id)
-        //     return item.id !== cardId
-        // }));
 
         const card = document.getElementById(cardId);
 
