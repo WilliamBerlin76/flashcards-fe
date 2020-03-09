@@ -29,8 +29,8 @@ const SearchDeck = () => {
     if (!query.length > 0) {
       return (
         <span>
-          <p>Sorry, we couldn't find any search results.</p>
-          <p>Try searching for another term</p>
+          <h1>Sorry, we couldn't find any search results.</h1>
+          <h1>Try searching for another term</h1>
         </span>
       );
     }
@@ -115,19 +115,7 @@ const SearchDeck = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div className="center">
-          <input
-            className="center"
-            type="text"
-            placeholder="Search Public Decks"
-            onChange={handleChange}
-            value={searchField}
-          />
-          <button type="submit">Find</button>
-        </div>
-      </form>
+    <div>
       <Grid container>
         <Grid item md={1} xs={12}>
           {query.length > 0 ? <h2>Users</h2> : null}
@@ -152,8 +140,21 @@ const SearchDeck = () => {
         </Grid>
 
         <Grid item md={11} xs={12}>
-          {notFoundToggle ? notFound() : null}
+          <form onSubmit={handleSubmit}>
+            <div className="center">
+              <input
+                className="center"
+                type="text"
+                placeholder="Search Public Decks"
+                onChange={handleChange}
+                value={searchField}
+              />
+              <button type="submit">Find</button>
+            </div>
+          </form>
+
           <div className="decks-section">
+            {notFoundToggle ? notFound() : null}
             {query
               ? query.map(item => {
                   const id = Math.random();
@@ -181,7 +182,7 @@ const SearchDeck = () => {
           </div>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
