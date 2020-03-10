@@ -47,11 +47,11 @@ firebaseAppId = process.env.REACT_APP_APP_ID;
 // }
 
 const config = {
-  apiKey: "AIzaSyCvJ2Wye96WBuqm41GO4D8UiF5OGw1VR_Y",
-  authDomain: "flashcards-bbd42.firebaseapp.com",
-  projectId: "flashcards-bbd42",
-  appId: "1:107522890096:web:3e3188006b2c3af24d17b5",
-  measurementId: "G-GLNYFKS3ZJ"
+  apiKey: firebaseApiKey,
+  authDomain: firebaseAuthDomain,
+  projectId: firebaseProjectId,
+  appId: firebaseAppId,
+  measurementId: firebaseMeasurementId
 };
 firebase.initializeApp(config);
 firebase.analytics();
