@@ -4,11 +4,18 @@ import { connect } from 'react-redux';
 import { postDecks } from '../../../actions';
 import { useHistory } from 'react-router-dom'
 
+
+
+
+
 const ImportPreview = (props) => {
     const [deck, setDeck] = useState(props.importedDeck);
-    let history = useHistory()
     const [checked, setChecked] = useState([]);
     const [updated, setUpdated] = useState([]);
+
+
+    let history = useHistory()
+
 
     const handleSubmit = () => {
         // setState({});
