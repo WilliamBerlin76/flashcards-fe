@@ -24,9 +24,6 @@ const ImportPreview = (props) => {
         }, 400)
     }
 
-
-
-
     const checking = (cardId) => {
         if(checked.includes(cardId)) {
             setChecked(checked.filter(card => {
@@ -37,26 +34,20 @@ const ImportPreview = (props) => {
         }
     }
 
-    // const deleteCard = (cardId) => {
-    //     // let values = deck;
-    //     // // const card = values.splice(updateIndex, 1);
-    //     // setDeck(deck.filter(item => {
-    //     //     console.log(item.id)
-    //     //     return item.id !== cardId
-    //     // }));
+    const deleteCard = (cardId) => {
 
-    //     const card = document.getElementById(cardId);
+        const card = document.getElementById(cardId);
 
-    //     card.remove();
-    //     const pos = deck.includes(cardId);
+        card.remove();
+        const pos = deck.includes(cardId);
 
-    //     if(pos !== -1) {
-    //         deck.splice(pos, 1);
-    //         console.log(deck);
-    //     } else {
-    //         return;
-    //     }
-    // }
+        if(pos !== -1) {
+            deck.splice(pos, 1);
+            console.log(deck);
+        } else {
+            return;
+        }
+    }
 
     // props.setDeck([...props.deck, {[props.key] : {front: cardEditing.front, back: cardEditing.back}}])
     return (
@@ -64,7 +55,7 @@ const ImportPreview = (props) => {
             {deck.length < 1 ? <p>Loading...</p> : null}
             {deck ? deck.map((card, index) => (
 
-                <ImportPreviewCard  id={card.id} deck={deck} setDeck={setDeck} key={index} index={index} card={card} />
+                <ImportPreviewCard  deleteCard={deleteCard} id={card.id} deck={deck} setDeck={setDeck} key={index} index={index} card={card} />
 
             )) : null}
             {/* <button type="button" onClick={deleteCard}>Delete Selected</button> */}

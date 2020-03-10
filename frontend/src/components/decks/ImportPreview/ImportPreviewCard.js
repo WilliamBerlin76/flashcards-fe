@@ -86,9 +86,9 @@ const ImportPreviewCard = props => {
                 />
                 
                 <div className="card-btns">
-                {/* <button className='quo-btn' type='button' onClick={() => props.deleteCard(props.id)}>
+                <button className='quo-btn' type='button' onClick={() => props.deleteCard(props.id)}>
                   Delete
-                </button> */}
+                </button>
                 <button className='quo-btn' type='submit'>
                   Update
                 </button>
