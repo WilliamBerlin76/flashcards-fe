@@ -39,10 +39,9 @@ const DeckImport = props => {
 
  
   const [newDeck, setNewDeck] = useState({
-    subject: '',
     icon: '',
     deck: [],
-    public: false
+    // public: false
   })
   const [tags, setTags] = useState([])
   const [title, setTitle] = useState('')
@@ -82,7 +81,7 @@ const DeckImport = props => {
       const splitString = deck.split(';')
       for (let i = 0; i < splitString.length; i++) {
         let term = splitString[i].split(':')
-        array.push({front: term[0], back: term[1], id: uuid()})
+        array.push({front: term[0], back: term[1]})
       }
       setExported('')
       setNewDeck({...newDeck, deck: array})
@@ -117,25 +116,19 @@ const DeckImport = props => {
     const previewDeck = e => {
       e.preventDefault();
 
-      if(exported  === '' || title === '' || newDeck.subject === '' || tags.childElementCount < 1) {
-        alert("Please fill out all required fields.")
-      } else {
-        if(!document.getElementById("public").checked && !document.getElementById("private").checked) {
-          alert("Please choose Public or Private deck option.")
-        } else {
+
           createDeck(exported);
           setShowPreview(true)
-        }
-      }
+       
     }
 
-    const radioChange = e => {
-      if(e.target.value === 'public') {
-        setNewDeck({...newDeck, public: true})
-      } else {
-        setNewDeck({...newDeck, public: false})
-      }
-    }
+    // const radioChange = e => {
+    //   if(e.target.value === 'public') {
+    //     setNewDeck({...newDeck, public: true})
+    //   } else {
+    //     setNewDeck({...newDeck, public: false})
+    //   }
+    // }
 
     return (
         <>
@@ -156,7 +149,7 @@ const DeckImport = props => {
               className='deckName-input'
               id="deckName"
             />
-             <ImportInput
+             {/* <ImportInput
               type='text'
               onChange={handleName}
               name='subject'
@@ -166,7 +159,7 @@ const DeckImport = props => {
               value={newDeck.subject}
               placeholder='e.x Math, Science, English'
               id="subject"
-            />
+            /> */}
             </div>
 
             <div className='deck-import-wrapper icon-wrapper'>
@@ -184,8 +177,8 @@ const DeckImport = props => {
             </div>
           </div>
           <div className='radio-wrapper'>
-            <label><input type='radio' id='private' name='public-toggle' onChange={radioChange} value="private"/> Private</label>
-            <label><input type='radio' id='public' name='public-toggle' onChange={radioChange} value="public"/> Public</label>
+            <label><input type='radio' id='private' name='public-toggle'  value="private"/> Private</label>
+            <label><input type='radio' id='public' name='public-toggle'  value="public"/> Public</label>
           </div>
 
           <div className='tagHolder'>
@@ -215,7 +208,7 @@ const DeckImport = props => {
 
         {showPreview? console.log('imported deck preview',newDeck.deck): null}
         
-        {showPreview?<ImportPreview importedDeck={newDeck.deck} tags={newDeck.tags} title={title} icon={newDeck.icon}/> :null}
+        {showPreview?<ImportPreview importedDeck={newDeck.deck} tags={tags} title={title} icon={newDeck.icon}/> :null}
 
     {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>
