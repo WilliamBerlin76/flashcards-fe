@@ -28,7 +28,7 @@ const SearchDeck = () => {
   const notFound = () => {
     if (!query.length > 0) {
       return (
-        <span>
+        <span className="center">
           <h1>Sorry, we couldn't find any search results.</h1>
           <h1>Try searching for another term</h1>
         </span>
@@ -71,33 +71,31 @@ const SearchDeck = () => {
         setSearchField("");
         setNotFoundToggle(true);
       }
-
       const usersArrConcat = [].concat(...usersArr);
       const usersSet = [...new Set(usersArrConcat)];
-
       const tagsArrConcat = [].concat(...tagsArr);
       const tagsSet = [...new Set(tagsArrConcat)];
+      const tagsSetLowerCase = tagsSet.map(item => item.toLowerCase());
 
       setQuery(queryArr);
       setUsers(usersSet.sort());
-      setTags(tagsSet.sort());
+      setTags(tagsSetLowerCase.sort());
     });
   };
 
   const filterClick = (filter, value) => {
     const filteredTags = [];
     const filteredUsers = [];
-
     const newQuery = query.filter(deck => {
-      if (filter.toLowerCase() === "tags" && deck.tags.includes(value)) {
+      const tagsLowerCase = deck.tags.map(item => item.toLowerCase());
+
+      if (filter === "tags" && tagsLowerCase.includes(value.toLowerCase())) {
         filteredUsers.push(deck.createdBy);
         filteredTags.push(deck.tags);
-
         return deck;
       } else if (deck[filter] === value) {
         filteredUsers.push(deck.createdBy);
         filteredTags.push(deck.tags);
-
         return deck;
       } else {
         return null;
@@ -105,12 +103,12 @@ const SearchDeck = () => {
     });
     const usersArrConcat = [].concat(...filteredUsers);
     const usersSet = [...new Set(usersArrConcat)];
-
     const tagsArrConcat = [].concat(...filteredTags);
     const tagsSet = [...new Set(tagsArrConcat)];
+    const tagsSetLowerCase = tagsSet.map(item => item.toLowerCase());
 
     setUsers(usersSet);
-    setTags(tagsSet);
+    setTags(tagsSetLowerCase);
     setQuery(newQuery);
   };
 
