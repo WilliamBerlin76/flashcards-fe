@@ -49,9 +49,9 @@ firebaseAppId = process.env.REACT_APP_APP_ID;
 const config = {
   apiKey: firebaseApiKey,
   authDomain: firebaseAuthDomain,
-  measurementId: firebaseMeasurementId,
   projectId: firebaseProjectId,
-  appId: firebaseAppId
+  appId: firebaseAppId,
+  measurementId: firebaseMeasurementId
 };
 firebase.initializeApp(config);
 firebase.analytics();

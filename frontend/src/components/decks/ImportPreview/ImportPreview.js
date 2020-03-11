@@ -4,11 +4,18 @@ import { connect } from 'react-redux';
 import { postDecks } from '../../../actions';
 import { useHistory } from 'react-router-dom'
 
+
+
+
+
 const ImportPreview = (props) => {
     const [deck, setDeck] = useState(props.importedDeck);
-    let history = useHistory()
     const [checked, setChecked] = useState([]);
     const [updated, setUpdated] = useState([]);
+
+
+    let history = useHistory()
+
 
     const handleSubmit = () => {
         // setState({});
@@ -55,7 +62,7 @@ const ImportPreview = (props) => {
             {deck.length < 1 ? <p>Loading...</p> : null}
             {deck ? deck.map((card, index) => (
 
-                <ImportPreviewCard deleteCard={deleteCard} id={card.id} deck={deck} setDeck={setDeck} key={index} index={index} card={card} />
+                <ImportPreviewCard  deleteCard={deleteCard} id={card.id} deck={deck} setDeck={setDeck} key={index} index={index} card={card} />
 
             )) : null}
             {/* <button type="button" onClick={deleteCard}>Delete Selected</button> */}

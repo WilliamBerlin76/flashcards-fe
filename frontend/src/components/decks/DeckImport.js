@@ -103,7 +103,6 @@ const DeckImport = props => {
 
 
 
-
     const previewDeck = e => {
       e.preventDefault();
       createDeck(exported);
@@ -175,7 +174,7 @@ const DeckImport = props => {
 
         {showPreview? console.log('imported deck preview',newDeck.deck): null}
         
-        {showPreview?<ImportPreview importedDeck={newDeck.deck} tags={newDeck.tags} title={title} icon={newDeck.icon}/> :null}
+        {showPreview?<ImportPreview importedDeck={newDeck.deck} tags={tags} title={title} icon={newDeck.icon}/> :null}
 
     {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>
