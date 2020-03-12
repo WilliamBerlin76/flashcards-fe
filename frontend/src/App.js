@@ -13,6 +13,7 @@ import Login from "./components/login/login.js";
 import Dashboard from "./components/dashboard/dashboard";
 import Settings from "./components/profileSettings/profileSettings";
 import DashNav from "./components/dashNav/dashNav";
+import SearchDeck from "./components/searchDeck/searchDeck";
 
 //components
 import DeckList from './components/decks/DeckList';
@@ -99,6 +100,9 @@ function App() {
           <Route path="/" render={props => {
             return <DashNav {...props}/>
           }}/>
+          <Route 
+              path="/search" 
+              render={props => <SearchDeck {...props}  />} />
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
