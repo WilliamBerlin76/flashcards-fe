@@ -13,6 +13,7 @@ import Login from "./components/login/login.js";
 import Dashboard from "./components/dashboard/dashboard";
 import Settings from "./components/profileSettings/profileSettings";
 import DashNav from "./components/dashNav/dashNav";
+import SearchDeck from "./components/searchDeck/searchDeck";
 
 //components
 import DeckList from './components/decks/DeckList';
@@ -26,7 +27,6 @@ import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 import EditCard from './components/cards/EditCard';
 import NewCard from './components/cards/NewCard';
 import DeckImport from './components/decks/DeckImport';
-import SearchDeck from "./components/searchDeck/searchDeck";
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -100,11 +100,9 @@ function App() {
           <Route path="/" render={props => {
             return <DashNav {...props}/>
           }}/>
-
           <Route 
               path="/search" 
               render={props => <SearchDeck {...props}  />} />
-          
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
