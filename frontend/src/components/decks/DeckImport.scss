@@ -1,0 +1,181 @@
+
+
+
+
+// }
+    
+
+
+
+    body {
+      background-color: none;
+      box-sizing: border-box;
+      max-width: 100%;
+    //   * {
+    //       border: 1px solid red;
+    //   }
+    }
+
+    .header-container .deck-import-header  {
+        margin-top: 5%;
+        text-align: center;
+         .q-icon{
+             font-size: 1rem;
+             color: orangered;
+             text-decoration: underline;
+
+             &:hover{
+                 cursor: pointer;
+             }
+           
+         }
+    }
+
+.main-deck-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-left: 3%;
+
+    .deck-import-wrapper{
+        width: 100%;
+
+        
+    }
+    .icon-wrapper {
+       display: flex;
+       justify-content: flex-start;
+       padding-right: 5%;
+         
+        
+        .edit-icon{
+            width: 45%;
+            padding: 1rem 0;
+            align-self: center;
+            height: 100%;
+            color: orangered;
+            border: 2px solid orangered;
+            background: none;
+            border-radius: 100px;
+               
+           
+        }
+            
+        
+
+        .icon-input {
+           margin-left: 0;
+            width: 45%;
+        }
+    }
+}
+.radio-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+}
+
+h3{
+    margin-left: 3%;
+}
+
+
+.import-container {
+    width: 100%;
+    margin-left: 3%;
+    
+
+  .textbox-import{
+      border: 1px solid orangered;
+      border-radius: 5px;
+      width: 92%;
+      margin: 2% auto;
+      
+      text-align: center;
+  }
+  
+  button{
+      width: 30%;
+      padding: .75rem 0;
+      align-self: center;
+      height: 100%;
+      color: orangered;
+      border: 2px solid orangered;
+      background: none;
+      border-radius: 100px;
+  }
+}
+
+
+
+  .deck-import-header {
+      text-align: center;
+  }
+  
+
+  
+  @media screen and (min-width: 1000px){
+
+   .deck-import-container {
+    *{
+        margin-left: 0;
+    }   
+    margin-left: 3%;
+
+   }
+   .header-container {
+      width: 60%;
+      margin-top: 1%;
+    
+      .main-deck-wrapper{
+          width: 100%;
+          margin-left: 0%;
+
+            .deck-import-wrapper{
+                width: 100%;
+            }
+      }
+        .deckName-input{
+            margin: 1% auto;
+            width: 80%;
+        }
+
+        .icon-input{
+            margin-right: 1%; 
+            min-width: 59%;
+        }
+
+       .icon-wrapper{
+           padding: 0%;
+       }
+        .main-deck-wrapper .icon-wrapper .edit-icon{
+            width: 20%;
+        }
+
+        .radio-wrapper{
+            width: 20%;
+            padding: 0%;
+            justify-content: space-between;
+        }
+
+       
+   }
+    
+   .import-container{
+       width: 60%;
+    margin-left: 0%;
+     .textbox-import {
+         width: 80%;
+     }
+}
+    
+
+    .btn-container {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 5%;
+    }
+
+    }
+     

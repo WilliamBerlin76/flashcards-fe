@@ -15,17 +15,17 @@ import Settings from "./components/profileSettings/profileSettings";
 import DashNav from "./components/dashNav/dashNav";
 
 //components
-import DeckList from "./components/decks/DeckList";
-import Cards from "./components/cards/Cards";
-import Marketing from "./components/marketing/Marketing";
-import DeckForm from "./components/decks/DeckForm";
-import Privacy from "./components/Privacy/privacy";
-import DeckConfirmation from "./components/confirmation/DeckConfirmation";
-import ArchiveDecks from "./components/archiveDecks/ArchiveDecks";
-import ArchivedDeckView from "./components/archivedDeckView/archivedDeckView";
-import EditCard from "./components/cards/EditCard";
-import NewCard from "./components/cards/NewCard";
-import SearchDeck from "./components/searchDeck/searchDeck";
+import DeckList from './components/decks/DeckList';
+import Cards from './components/cards/Cards';
+import Marketing from './components/marketing/Marketing';
+import DeckForm from './components/decks/DeckForm';
+import Privacy from './components/Privacy/privacy';
+import DeckConfirmation from './components/confirmation/DeckConfirmation';
+import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
+import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
+import EditCard from './components/cards/EditCard';
+import NewCard from './components/cards/NewCard';
+import DeckImport from './components/decks/DeckImport';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -56,7 +56,7 @@ const config = {
 };
 
 firebase.initializeApp(config);
-// firebase.analytics();
+firebase.analytics();
 
 export const firestore = firebase.firestore();
 
@@ -96,12 +96,11 @@ function App() {
             />
           </FocusLock>
           {/* //Links here */}
-          <DashNav />
-          <Route 
-              path="/search" 
-              render={props => <SearchDeck {...props}  />} />
-          <Route exact path="/" component={Marketing} />
-          <Route exact path="/decklist" component={DeckList} />
+          <Route path="/" render={props => {
+            return <DashNav {...props}/>
+          }}/>
+          <Route exact path='/' component={Marketing} />
+          <Route exact path='/decklist' component={DeckList} />
           <Route
             exact
             path="/editcard/:deckName"
@@ -122,7 +121,11 @@ function App() {
             path="/create-deck"
             render={props => <DeckForm {...props} />}
           />
-          <Route path="/privacy" component={Privacy} />
+          <Route
+            path='/import-deck'
+            render={props => <DeckImport {...props} />}
+          />
+          <Route path='/privacy' component={Privacy} />
           <Route
             path="/confirmation/:type/:colId/:action"
             render={props => <DeckConfirmation {...props} />}

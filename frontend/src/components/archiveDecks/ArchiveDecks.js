@@ -67,12 +67,12 @@ export default function ArchiveDecks(props) {
 
   return (
     <div>
-      <section className='study-data'>
-        {/* <div className='timeline-selectors'>
+      {/* <section className='study-data'>
+        <div className='timeline-selectors'>
           <span>Today</span>
           <span>This Week</span>
           <span>Lifetime</span>
-        </div> */}
+        </div> 
         <div className='studied'>
           <div className='numbers'>
             <span className='studied-number'>55</span>
@@ -83,7 +83,7 @@ export default function ArchiveDecks(props) {
             <span className='mastered-text'>Mastered</span>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className='decks-section'>
         {archived.map(item => {

@@ -82,11 +82,14 @@ export const getCards = (deck, user) => dispatch => {
 //POSTING A DECK W/ CARDS
 export const postDecks = (deck, deckName, tags, icon) => dispatch => {
   dispatch({ type: POST_DECK });
+  console.log('deck:', deck)
+  console.log('deckName:', deckName)
+  console.log('tags', tags)
+  console.log('icon', icon)
 
   const id = firebase.auth().currentUser.uid;
   const cardd = { cards: deck };
   const decks = { tags, icon };
-
   const cards = cardd.cards;
 
   console.log({ cards, deck: { tags, icon } });

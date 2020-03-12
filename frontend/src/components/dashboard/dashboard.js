@@ -13,6 +13,7 @@ const Loading = styled.div`
   text-align: center;
 `;
 
+
 const Dashboard = props => {
   console.log("Dashboard Props", props);
 
@@ -63,12 +64,12 @@ const Dashboard = props => {
         Create Deck
       </button>
       <button
-        className="bottom-button"
-        onClick={() => props.history.push("/import-deck")}
+        className='bottom-button'
+        onClick={() => props.history.push('/import-deck')}
       >
-        import Deck
+        Import From Quizlet
       </button>
-      <section className="decks-section">
+      <section className='decks-section'>
         {/* <div className='decks-selectors'>
           <span>Recent Decks</span>
           <span>All Decks</span>
