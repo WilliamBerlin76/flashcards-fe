@@ -1,0 +1,35 @@
+.pr-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1001;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .pr-content {
+        width: 95%;
+        height: 95%;
+        background-color: white;
+        position: relative;
+
+        button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            border-radius: 100%;
+            background-color: white;
+            border: 1px solid #f66e00;
+            width: 25px;
+            height: 25px;
+            color: #f66e00;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            color: #f66e00;
+        }
+    }
+}

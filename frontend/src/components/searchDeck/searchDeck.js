@@ -7,6 +7,7 @@ import "../dashboard/deckcards/deckcards.scss";
 import UserFilter from "./searchFilters/UserFilter";
 import SubCategoriesFilter from "./searchFilters/SubCategoriesFilter";
 import MobileFilter from "./mobileFilter/MobileFilter";
+import PreviewDeck from "./previewDeck/PreviewDeck";
 
 const SearchDeck = () => {
   const [publicDecks, setPublicDecks] = useState([]);
@@ -17,11 +18,14 @@ const SearchDeck = () => {
   const [tags, setTags] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [mobileState, setMobileState] = useState(false);
+  const [preview, setPreview] = useState(false);
+  const [selection, setSelection] = useState({});
 
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
       const deckArr = [];
       snapshot.forEach(doc => {
+        console.log(doc)
         deckArr.push(doc.data());
       });
       setPublicDecks(deckArr);
@@ -159,9 +163,18 @@ const SearchDeck = () => {
     }
   }
 
+  const deckPreview = e => {
+    setPreview(!preview);
+    const parent = e.target.closest(".deckcard-div").id;
+
+    setSelection(query[parent]);
+    console.log(selection)  
+  }
+
   return (
     <div>
       <Grid container>
+      {preview ? <PreviewDeck selection={selection} setPreview={setPreview} query={query} /> : null}
         {windowWidth()}
         {mobileState ? <MobileFilter query={query} users={users} filterClick={filterClick} tags={tags} mobileState={mobileState} setMobileState={setMobileState} categoryDiv={categoryDiv}/> : null}
         <Grid item md={11} xs={12} className="form">
@@ -181,12 +194,13 @@ const SearchDeck = () => {
           <div className="decks-section">
             {notFoundToggle ? notFound() : null}
             {query
-              ? query.map(item => {
+              ? query.map((item, index) => {
                   const id = Math.random();
                   return (
                     <div
                       className="deckcard-div"
-                      key={id}
+                      key={id} onClick={deckPreview}
+                      id={index}
                       // onClick={openDeck}
                     >
                       <div className="deck">
