@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledBurger = styled.button`
   position: absolute;
-  top: 0.8rem;
+  top: 1.5rem;
   right: 2rem;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,20 @@ export const StyledBurger = styled.button`
   z-index: 1000;
   outline: none;
 
+  @media (min-width: 767px) {
+    top: 2rem;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1365px) {
+    top: 1.4rem;
+  }
+
   span {
     width: 2rem;
     height: 0.25rem;
@@ -25,6 +39,12 @@ export const StyledBurger = styled.button`
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
+
+    @media (min-width: 767px) {
+      width: 3rem;
+      margin: 5px auto;
+      height: .3rem;
+    }
 
     :first-child {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
