@@ -6,7 +6,7 @@ import "../dashboard/deckcards/deckcards.scss";
 import UserFilter from "./searchFilters/UserFilter";
 import SubCategoriesFilter from "./searchFilters/SubCategoriesFilter";
 import MobileFilter from "./mobileFilter/MobileFilter";
-import PreviewDeck from "./previewDeck/PreviewDeck";
+
 const SearchDeck = () => {
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
@@ -152,7 +152,6 @@ const SearchDeck = () => {
   return (
     <div>
       <Grid container>
-      {preview ? <PreviewDeck selection={selection} setPreview={setPreview} query={query} /> : null}
         {windowWidth()}
         {mobileState ? <MobileFilter query={query} users={users} filterClick={filterClick} tags={tags} mobileState={mobileState} setMobileState={setMobileState} categoryDiv={categoryDiv}/> : null}
         <Grid item md={11} xs={12} className="form">
