@@ -1,9 +1,8 @@
 .dashNav {
   color: #fafafa;
   background: #f66e00;
-  height: 5rem;
+  padding: 15px 25px 35px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   cursor: default;
 
@@ -17,18 +16,14 @@
   }
 
   .mNeme {
-    margin-left: 3%;
 
     @media screen and (min-width: 1365px) {
+      margin-top: 20px;
       margin-left: 10px;
     }
 
     .m {
       font-size: 0.8rem;
-      
-      @media screen and (min-width: 767px) {
-        font-size: 1.2rem;
-      }
       @media only screen and (min-width: 1000px) {
         font-size: 1.85rem;
       }
@@ -36,10 +31,6 @@
     .neme {
       font-weight: bold;
       font-size: 1.2rem;
-
-      @media screen and (min-width: 767px) {
-        font-size: 1.6rem;
-      }
       @media only screen and (min-width: 1000px) {
         font-size: 2.3rem;
       }
@@ -52,15 +43,12 @@
     margin-right: 50px;
     margin-top: -25px;
 
-    @media screen and (max-width: 767px) {
+    @media only screen and (max-width: 1000px){
       display: none;
     }
 
-    @media screen and (min-width: 767px) {
-      margin: auto;
-    }
-
     @media screen and (min-width: 1365px) {
+      margin-top: .45%;
       margin-right: 5%;
     }
   }
@@ -74,28 +62,8 @@
 
 .rightNav-wrapper {
   display: flex;
-  justify-content: flex-end;
-  width: 30%;
-  margin-right: 25%;
-
-  @media screen and (min-width: 767px) {
-    margin-right: 5%;
-    height: 100%;
-    align-items: center;
-    a {
-      margin-right: 10%;
-      font-size: 1.2rem;
-    }
-  }
-
-  @media (min-width: 1365px) {
-    margin-right: 5.5%;
-    width: 15%;
-  }
-
-  @media (min-width: 1919px) {
-    width: 10%;
-  }
+  justify-content: space-between;
+  width: 25%;
 }
 
 .rightNav-wrapper {
