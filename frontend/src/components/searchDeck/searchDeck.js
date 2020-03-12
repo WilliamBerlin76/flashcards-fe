@@ -28,7 +28,7 @@ const SearchDeck = () => {
   const notFound = () => {
     if (!query.length > 0) {
       return (
-        <span className="center">
+        <span className="center" data-testid='sorry'>
           <h1>Sorry, we couldn't find any search results.</h1>
           <h1>Try searching for another term</h1>
         </span>
@@ -116,7 +116,7 @@ const SearchDeck = () => {
     <div>
       <Grid container>
         <Grid item md={1} xs={12}>
-          {query.length > 0 ? <h2>Users</h2> : null}
+          {query.length > 0 ? <h2 data-testid='users'>Users</h2> : null}
 
           {query
             ? users.map((users, id) => (
@@ -141,13 +141,14 @@ const SearchDeck = () => {
           <form onSubmit={handleSubmit}>
             <div className="center">
               <input
+                aria-label="search-subject"
                 className="center"
                 type="text"
                 placeholder="Search Public Decks"
                 onChange={handleChange}
                 value={searchField}
               />
-              <button type="submit">Find</button>
+              <button type="submit" data-testid='btn'>Find</button>
             </div>
           </form>
 
@@ -165,7 +166,7 @@ const SearchDeck = () => {
                       <div className="deck">
                         <div className="deck-card">
                           <div className="deck-info">
-                            <h3 className="deck-name">{item.deckName}</h3>
+                            <h3 className="deck-name" data-testid='deck-name' >{item.deckName}</h3>
                           </div>
                           <div className="example-card">{item.exampleCard}</div>
                         </div>
