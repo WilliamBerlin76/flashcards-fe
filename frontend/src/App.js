@@ -13,7 +13,6 @@ import Login from "./components/login/login.js";
 import Dashboard from "./components/dashboard/dashboard";
 import Settings from "./components/profileSettings/profileSettings";
 import DashNav from "./components/dashNav/dashNav";
-import SearchDeck from "./components/searchDeck/searchDeck";
 
 //components
 import DeckList from './components/decks/DeckList';
