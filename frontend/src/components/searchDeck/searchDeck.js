@@ -3,9 +3,9 @@ import "./searchDeck.scss";
 import { firestore } from "../../App";
 import { Grid } from "@material-ui/core";
 import "../dashboard/deckcards/deckcards.scss";
-
 import UserFilter from "./searchFilters/UserFilter";
 import SubCategoriesFilter from "./searchFilters/SubCategoriesFilter";
+import MobileFilter from "./mobileFilter/MobileFilter";
 
 const SearchDeck = () => {
   const [publicDecks, setPublicDecks] = useState([]);
@@ -14,17 +14,20 @@ const SearchDeck = () => {
   const [query, setQuery] = useState([]);
   const [users, setUsers] = useState([]);
   const [tags, setTags] = useState([]);
-
+  const [width, setWidth] = useState(window.innerWidth);
+  const [mobileState, setMobileState] = useState(false);
+  const [preview, setPreview] = useState(false);
+  const [selection, setSelection] = useState({});
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
       const deckArr = [];
       snapshot.forEach(doc => {
+        console.log(doc)
         deckArr.push(doc.data());
       });
       setPublicDecks(deckArr);
     });
   }, []);
-
   const notFound = () => {
     if (!query.length > 0) {
       return (
@@ -35,27 +38,22 @@ const SearchDeck = () => {
       );
     }
   };
-
   // const openDeck = (deck, user) => {
   //   console.log("openDeck deck", deck, "\nopenDeck user", user);
   //   props.history.push(`/${user}/${deck}/cards`);
   //   console.log(deck);
   // };
-
   const handleChange = e => {
     e.preventDefault();
     setSearchField(e.target.value);
   };
-
   const handleSubmit = e => {
     const queryArr = [];
     const usersArr = [];
     const tagsArr = [];
-
     e.preventDefault();
     publicDecks.filter(deck => {
       const tagsLowerCase = deck.tags.map(item => item.toLowerCase());
-
       if (
         (deck.deckName &&
           deck.deckName.toLowerCase() === searchField.toLowerCase()) ||
@@ -76,19 +74,16 @@ const SearchDeck = () => {
       const tagsArrConcat = [].concat(...tagsArr);
       const tagsSet = [...new Set(tagsArrConcat)];
       const tagsSetLowerCase = tagsSet.map(item => item.toLowerCase());
-
       setQuery(queryArr);
       setUsers(usersSet.sort());
       setTags(tagsSetLowerCase.sort());
     });
   };
-
   const filterClick = (filter, value) => {
     const filteredTags = [];
     const filteredUsers = [];
     const newQuery = query.filter(deck => {
       const tagsLowerCase = deck.tags.map(item => item.toLowerCase());
-
       if (filter === "tags" && tagsLowerCase.includes(value.toLowerCase())) {
         filteredUsers.push(deck.createdBy);
         filteredTags.push(deck.tags);
@@ -106,26 +101,67 @@ const SearchDeck = () => {
     const tagsArrConcat = [].concat(...filteredTags);
     const tagsSet = [...new Set(tagsArrConcat)];
     const tagsSetLowerCase = tagsSet.map(item => item.toLowerCase());
-
     setUsers(usersSet);
     setTags(tagsSetLowerCase);
     setQuery(newQuery);
   };
-
+  const categoryDiv = (<Grid item md={1} xs={12} className="category">
+      {query.length > 0 ? <h2>Users</h2> : null}
+      {query
+        ? users.map((users, id) => (
+            <UserFilter key={id} users={users} filterClick={filterClick} />
+          ))
+        : null}
+      {query.length > 0 ? <h2>Categories</h2> : null}
+      {query
+        ? tags.map((tags, id) => (
+            <SubCategoriesFilter
+              key={id}
+              tags={tags}
+              filterClick={filterClick}
+            />
+          ))
+        : null}
+    </Grid>);
+  const showFilter = () => {
+    setMobileState(!mobileState);
+  }
+  const windowWidth = () => {
+    if(width > 767) {
+       if(query.length === 0) {
+         return
+       }
+       else {
+         return categoryDiv;
+       }
+    }
+    else {
+      if(query.length > 0) {
+         return (
+          <button className="filter-btn" onClick={showFilter}>Filter</button>
+        )
+      }
+    }
+  }
+  const deckPreview = e => {
+    setPreview(!preview);
+    const parent = e.target.closest(".deckcard-div").id;
+    setSelection(query[parent]);
+    console.log(selection)  
+  }
   return (
     <div>
       <Grid container>
-        <Grid item md={1} xs={12}>
+        {windowWidth()}
+        {mobileState ? <MobileFilter query={query} users={users} filterClick={filterClick} tags={tags} mobileState={mobileState} setMobileState={setMobileState} categoryDiv={categoryDiv}/> : null}
+        <Grid item md={11} xs={12} className="form">
           {query.length > 0 ? <h2 data-testid='users'>Users</h2> : null}
-
           {query
             ? users.map((users, id) => (
                 <UserFilter key={id} users={users} filterClick={filterClick} />
               ))
             : null}
-
           {query.length > 0 ? <h2>Categories</h2> : null}
-
           {query
             ? tags.map((tags, id) => (
                 <SubCategoriesFilter
@@ -136,7 +172,6 @@ const SearchDeck = () => {
               ))
             : null}
         </Grid>
-
         <Grid item md={11} xs={12}>
           <form onSubmit={handleSubmit}>
             <div className="center">
@@ -151,16 +186,16 @@ const SearchDeck = () => {
               <button type="submit" data-testid='btn'>Find</button>
             </div>
           </form>
-
           <div className="decks-section">
             {notFoundToggle ? notFound() : null}
             {query
-              ? query.map(item => {
+              ? query.map((item, index) => {
                   const id = Math.random();
                   return (
                     <div
                       className="deckcard-div"
-                      key={id}
+                      key={id} onClick={deckPreview}
+                      id={index}
                       // onClick={openDeck}
                     >
                       <div className="deck">
@@ -184,5 +219,4 @@ const SearchDeck = () => {
     </div>
   );
 };
-
 export default SearchDeck;
