@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 import './dashNav.scss'
 const DashNav = props => {
@@ -33,7 +34,10 @@ const DashNav = props => {
                 <span className='m'>m</span>
                 <span className='neme'>Neme</span>
             </div>
+            {(props.location.pathname !== '/search') ?<Link to={'/search'} className='publicSearch'>Find Public Decks</Link> : null}
             {userPic()}
+            
+            
         </div>
     )
 }
