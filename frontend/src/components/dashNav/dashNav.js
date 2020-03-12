@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase from 'firebase';
 import './dashNav.scss'
-
 const DashNav = props => {
     const [curUser, setCurUser] = useState(false)
     useEffect(() => {
@@ -13,7 +12,6 @@ const DashNav = props => {
           }
         });  
       }, []);
-
       const userPic = () => {
         switch(props.location.pathname) {
           case "/Preferences":
@@ -29,14 +27,12 @@ const DashNav = props => {
             }
         }
       }
-
     return(
         <div className="dashNav">
             <div className='mNeme' >
                 <span className='m'>m</span>
                 <span className='neme'>Neme</span>
             </div>
-            
             {userPic()}
         </div>
     )

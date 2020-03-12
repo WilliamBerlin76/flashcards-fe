@@ -7,9 +7,9 @@ import Tags from './Tags';
 import poly from '../../assets/poly.png';
 import polyy from '../../assets/polyy.png';
 import { withStyles } from '@material-ui/core/styles';
-import notebook from '../../assets/notebook.png';
-import graduate from '../../assets/graduate.png';
-import audio from '../../assets/audio.png';
+// import notebook from '../../assets/notebook.png';
+// import graduate from '../../assets/graduate.png';
+// import audio from '../../assets/audio.png';
 import Footer from '../footer/Footer';
 
 

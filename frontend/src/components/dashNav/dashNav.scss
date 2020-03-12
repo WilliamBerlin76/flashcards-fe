@@ -24,19 +24,19 @@
 
     .m {
       font-size: 0.8rem;
-      @media only screen and (min-width: 1000px){
+      @media only screen and (min-width: 1000px) {
         font-size: 1.85rem;
       }
     }
     .neme {
       font-weight: bold;
       font-size: 1.2rem;
-      @media only screen and (min-width: 1000px){
+      @media only screen and (min-width: 1000px) {
         font-size: 2.3rem;
       }
     }
   }
-  .desk-dash-pic{
+  .desk-dash-pic {
     border-radius: 50%;
     width: 70px;
     height: 70px;
@@ -57,5 +57,19 @@
     @media screen and (min-width: 1365px) {
       padding: 20px;
     }
+  }
+}
+
+.rightNav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.rightNav-wrapper {
+  a,
+  a:hover,
+  a:visited {
+    color: #fafafa;
   }
 }

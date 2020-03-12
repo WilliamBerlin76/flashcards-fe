@@ -82,3 +82,23 @@
     width: 300px;
   }
 }
+
+.decks-section {
+  width: 80%;
+  margin: 30px auto;
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .decks-selectors {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 700px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
