@@ -6,8 +6,10 @@ import {withStyles} from '@material-ui/core/styles';
 import Tags from './Tags';
 import Footer from '../footer/Footer';
 import './DeckImport.scss'
-
-import Instructions from './ImportInstructions'
+import Instructions from './ImportInstructions';
+import ImportPreview from './ImportPreview/ImportPreview'
+import ImportPreviewCard from './ImportPreview/ImportPreviewCard';
+import uuid from 'uuid'
 const ImportInput = withStyles({
     root: {
       '& label.Mui-focused': {
@@ -45,9 +47,8 @@ const DeckImport = props => {
   const [tags, setTags] = useState([])
   const [title, setTitle] = useState('')
   const [exported, setExported] = useState('')
-
+  const [showPreview, setShowPreview] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
-
   const showInstruct = e => {
     e.preventDefault();
     setShowInstructions(!showInstructions)
@@ -72,15 +73,16 @@ const DeckImport = props => {
       setExported(e.target.value)
     }
 
-    let importedDeck = [];
+    
     const createDeck = (deck) => {
       let array=[];
       const splitString = deck.split(';')
       for (let i = 0; i < splitString.length; i++) {
         let term = splitString[i].split(':')
-        array.push({front: term[0], back: term[1]})
+        array.push({front: term[0], back: term[1], id: uuid()})
       }
-      return importedDeck = array
+      setExported('')
+      setNewDeck({...newDeck, deck: array})
     }
 
     const addTags = event => {
@@ -99,29 +101,13 @@ const DeckImport = props => {
       e.preventDefault();
     }
 
-    const handleSubmit = (e) =>{
-      if (tags.length < 1 ) {
-        alert('Please insert tag(s)')
-      } else {
-        e.preventDefault();
-        createDeck(exported)
-        const subDeck = importedDeck.filter(card => {
-          return card.front && card.back;
-        });
-        props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
-        setTimeout(()=>{
-          props.history.push('/dashboard')
-        }, 400)
-      }
-      // e.preventDefault();
-      // createDeck(exported)
-      // const subDeck = importedDeck.filter(card => {
-      //   return card.front && card.back;
-      // });
-      // props.postDecks(subDeck, title, newDeck.tags, newDeck.icon)
-      // setTimeout(()=>{
-      //   props.history.push('/dashboard')
-      // }, 400)
+
+
+    const previewDeck = e => {
+      e.preventDefault();
+      createDeck(exported);
+      setShowPreview(true)
+      
     }
     return (
         <>
@@ -161,7 +147,7 @@ const DeckImport = props => {
             <label><input type='radio' id='private' name='public-toggle' value='private'/> Private</label>
             <label><input type='radio' id='public' name='public-toggle' value='public'/> Public</label>
           </div>
-{/* make sure to add tag state functions */}
+
           <div className='tagHolder'>
             <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
           </div>
@@ -179,11 +165,16 @@ const DeckImport = props => {
             rows='10'
           />
           <div className='btn-container'>
-          <button type='button' onClick={handleSubmit}>Create Deck</button>
+          {/* <button type='button' onClick={handleSubmit}>Create Deck</button> */}
+          <button type='button' onClick={previewDeck}>Preview Deck</button>
           {/* <button type='button'>View Deck</button> */}
           </div>
           </div>
         </form>
+
+        {showPreview? console.log('imported deck preview',newDeck.deck): null}
+        
+        {showPreview?<ImportPreview importedDeck={newDeck.deck} tags={tags} title={title} icon={newDeck.icon}/> :null}
 
     {/* { newDeck.deck.length === 0 ? <p>loading...</p> : null} */}
         </>

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import firebase from "firebase";
-
-import "./dashNav.scss";
-
+import firebase from 'firebase';
+import './dashNav.scss'
 const DashNav = props => {
   const [curUser, setCurUser] = useState(false);
   useEffect(() => {
