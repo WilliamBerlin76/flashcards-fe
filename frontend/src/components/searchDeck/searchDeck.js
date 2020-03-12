@@ -246,6 +246,7 @@ const SearchDeck = () => {
         </Grid>
       </Grid>
     </div>
+    </div>
   );
 };
 
