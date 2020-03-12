@@ -6,7 +6,6 @@ import "../dashboard/deckcards/deckcards.scss";
 import UserFilter from "./searchFilters/UserFilter";
 import SubCategoriesFilter from "./searchFilters/SubCategoriesFilter";
 import MobileFilter from "./mobileFilter/MobileFilter";
-
 const SearchDeck = () => {
   const [publicDecks, setPublicDecks] = useState([]);
   const [searchField, setSearchField] = useState("");
@@ -16,13 +15,10 @@ const SearchDeck = () => {
   const [tags, setTags] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [mobileState, setMobileState] = useState(false);
-  const [preview, setPreview] = useState(false);
-  const [selection, setSelection] = useState({});
   useEffect(() => {
     firestore.collection("PublicDecks").onSnapshot(snapshot => {
       const deckArr = [];
       snapshot.forEach(doc => {
-        console.log(doc)
         deckArr.push(doc.data());
       });
       setPublicDecks(deckArr);
@@ -31,7 +27,7 @@ const SearchDeck = () => {
   const notFound = () => {
     if (!query.length > 0) {
       return (
-        <span className="center" data-testid='sorry'>
+        <span className="center">
           <h1>Sorry, we couldn't find any search results.</h1>
           <h1>Try searching for another term</h1>
         </span>
@@ -105,7 +101,8 @@ const SearchDeck = () => {
     setTags(tagsSetLowerCase);
     setQuery(newQuery);
   };
-  const categoryDiv = (<Grid item md={1} xs={12} className="category">
+  const categoryDiv = (
+    <Grid item md={1} xs={12} className="category">
       {query.length > 0 ? <h2>Users</h2> : null}
       {query
         ? users.map((users, id) => (
@@ -122,86 +119,73 @@ const SearchDeck = () => {
             />
           ))
         : null}
-    </Grid>);
+    </Grid>
+  );
   const showFilter = () => {
     setMobileState(!mobileState);
-  }
+  };
   const windowWidth = () => {
-    if(width > 767) {
-       if(query.length === 0) {
-         return
-       }
-       else {
-         return categoryDiv;
-       }
-    }
-    else {
-      if(query.length > 0) {
-         return (
-          <button className="filter-btn" onClick={showFilter}>Filter</button>
-        )
+    if (width > 767) {
+      if (query.length === 0) {
+        return;
+      } else {
+        return categoryDiv;
+      }
+    } else {
+      if (query.length > 0) {
+        return (
+          <button className="filter-btn" onClick={showFilter}>
+            Filter
+          </button>
+        );
       }
     }
-  }
-  const deckPreview = e => {
-    setPreview(!preview);
-    const parent = e.target.closest(".deckcard-div").id;
-    setSelection(query[parent]);
-    console.log(selection)  
-  }
+  };
   return (
     <div>
       <Grid container>
+      <Grid item>
         {windowWidth()}
-        {mobileState ? <MobileFilter query={query} users={users} filterClick={filterClick} tags={tags} mobileState={mobileState} setMobileState={setMobileState} categoryDiv={categoryDiv}/> : null}
-        <Grid item md={11} xs={12} className="form">
-          {query.length > 0 ? <h2 data-testid='users'>Users</h2> : null}
-          {query
-            ? users.map((users, id) => (
-                <UserFilter key={id} users={users} filterClick={filterClick} />
-              ))
-            : null}
-          {query.length > 0 ? <h2>Categories</h2> : null}
-          {query
-            ? tags.map((tags, id) => (
-                <SubCategoriesFilter
-                  key={id}
-                  tags={tags}
-                  filterClick={filterClick}
-                />
-              ))
-            : null}
+        {mobileState ? (
+          <MobileFilter
+            query={query}
+            users={users}
+            filterClick={filterClick}
+            tags={tags}
+            mobileState={mobileState}
+            setMobileState={setMobileState}
+            categoryDiv={categoryDiv}
+          />
+        ) : null}
         </Grid>
-        <Grid item md={11} xs={12}>
+        <Grid item md={11} xs={12} className="cody">
           <form onSubmit={handleSubmit}>
             <div className="center">
               <input
-                aria-label="search-subject"
                 className="center"
                 type="text"
                 placeholder="Search Public Decks"
                 onChange={handleChange}
                 value={searchField}
               />
-              <button type="submit" data-testid='btn'>Find</button>
+              <button type="submit">Find</button>
             </div>
           </form>
           <div className="decks-section">
             {notFoundToggle ? notFound() : null}
             {query
-              ? query.map((item, index) => {
+              ? query.map(item => {
                   const id = Math.random();
                   return (
                     <div
                       className="deckcard-div"
-                      key={id} onClick={deckPreview}
-                      id={index}
+                      key={id}
                       // onClick={openDeck}
                     >
                       <div className="deck">
                         <div className="deck-card">
                           <div className="deck-info">
-                            <h3 className="deck-name" data-testid='deck-name' >{item.deckName}</h3>
+                            <h3 className="deck-name">{item.deckName}</h3>
                           </div>
                           <div className="example-card">{item.exampleCard}</div>
                         </div>
