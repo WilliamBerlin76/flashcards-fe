@@ -178,7 +178,6 @@ const SearchDeck = () => {
         {windowWidth()}
         {mobileState ? <MobileFilter query={query} users={users} filterClick={filterClick} tags={tags} mobileState={mobileState} setMobileState={setMobileState} categoryDiv={categoryDiv}/> : null}
         <Grid item md={11} xs={12} className="form">
-        <Grid item md={1} xs={12}>
           {query.length > 0 ? <h2 data-testid='users'>Users</h2> : null}
 
           {query
@@ -245,7 +244,6 @@ const SearchDeck = () => {
           </div>
         </Grid>
       </Grid>
-    </div>
     </div>
   );
 };
