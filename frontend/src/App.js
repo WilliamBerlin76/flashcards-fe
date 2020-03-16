@@ -98,6 +98,10 @@ function App() {
           <Route path="/" render={props => {
             return <DashNav {...props}/>
           }}/>
+           <Route
+            path='/import-deck'
+            render={props => <DeckImport {...props} />}
+          />
           <Route 
               path="/search" 
               render={props => <SearchDeck {...props}  />} />
