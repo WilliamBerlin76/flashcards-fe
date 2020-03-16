@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './hooks/hooks';
 import firebase from 'firebase';
+import 'firebase/firestore' 
 //import dashNav from './components/dashNav';
 import Burger from "./components/Burger";
 import Menu from "./components/menu/menu";
