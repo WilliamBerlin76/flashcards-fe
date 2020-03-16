@@ -15,33 +15,30 @@ import Footer from '../footer/Footer';
 
 const OrangeInput = withStyles({
   root: {
-    '& label.Mui-focused': {
-      color: 'rgba(106, 92, 85, 0.5)',
-
+    "& label.Mui-focused": {
+      color: "rgba(106, 92, 85, 0.5)"
     },
-    '@media (min-width: 1000px)' : {
-      width: '50%',
-      fontSize:'12rem'
+    "@media (min-width: 1000px)": {
+      width: "50%",
+      fontSize: "12rem"
     },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: 'rgba(106, 92, 85, 0.5)',
-
-    },
-    
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "rgba(106, 92, 85, 0.5)"
+    }
   }
 })(TextField);
 
 const DeckForm = props => {
-  const [newName, setNewName] = useState('');
-  const [newIcon, setNewIcon] = useState('');
+  const [newName, setNewName] = useState("");
+  const [newIcon, setNewIcon] = useState("");
   const [tags, setTags] = useState([]);
-  const [newDecks, setNewDecks] = useState([{ front: '', back: '' }]);
+  const [newDecks, setNewDecks] = useState([{ front: "", back: "" }]);
   // const [currentCard, setCurrentCard] = useState(0)
 
   const handleChanges = (index, event) => {
     const values = [...newDecks];
 
-    if (event.target.name === 'front') {
+    if (event.target.name === "front") {
       values[index].front = event.target.value;
     } else {
       values[index].back = event.target.value;
@@ -67,7 +64,7 @@ const DeckForm = props => {
 
   const handleAdd = () => {
     const values = [...newDecks];
-    values.unshift({ front: '', back: '' });
+    values.unshift({ front: "", back: "" });
     setNewDecks(values);
   };
 
@@ -87,7 +84,7 @@ const DeckForm = props => {
     console.log('subDeck in deck form', subDeck)
     if (!newName.deckName) {
       // insures deckname is filled
-      alert('Please add a Deck Name');
+      alert("Please add a Deck Name");
     } else {
       props.postDecks(subDeck, newName, tags, newIcon);
       // gives time for firestore to update so that deck shows up in dashboard
@@ -99,10 +96,10 @@ const DeckForm = props => {
 
   const addTags = event => {
     event.preventDefault();
-    if (event.target.value !== '') {
+    if (event.target.value !== "") {
       setTags([...tags, event.target.value]);
       // selectedTags([...tags, event.target.value]);
-      event.target.value = '';
+      event.target.value = "";
     }
     console.log(tags);
   };
@@ -115,16 +112,15 @@ const DeckForm = props => {
   // const selectedTags  =  {tags}
 
   return (
-    
     <div>
-{/*       
+      {/*       
            <section className='study-data'> */}
-        {/* <div className='timeline-selectorss'>
+      {/* <div className='timeline-selectorss'>
           <span>Today</span>
           <span>This Week</span>
           <span>Lifetime</span>
         </div> */}
-        {/* <div className = "study">
+      {/* <div className = "study">
         <h3 className='decks'>{newDecks.length}</h3>
         <h4 className='cardWord'>Cards</h4>
         </div> */}
@@ -164,7 +160,7 @@ const DeckForm = props => {
         </div> */}
         </div>
       </div>
-     
+
       <div>
         <div className='page'>
           <div className='form'>
@@ -193,10 +189,30 @@ const DeckForm = props => {
                   />
                   <button className='create-edit' type='button'>Edit Icon</button>
                 </div>
-              </div>
 
-              <div className='tagHolder'>
-                <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+                <div className="tagHolder">
+                  <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+                </div>
+              </div>
+              <div className="radio-wrapper">
+                <label>
+                  <input
+                    type="radio"
+                    id="public"
+                    name="public-toggle"
+                    value="public"
+                  />
+                  Public
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    id="private"
+                    name="public-toggle"
+                    value="private"
+                  />
+                  Private
+                </label>
               </div>
               </div>
               <div className='radio-wrapper'>
@@ -204,41 +220,41 @@ const DeckForm = props => {
                 <label><input type='radio' id='private' name='public-toggle' value='private'/>Private</label>
               </div>
 
-              <h3 className='flashcards'>Flashcards</h3>
+              <h3 className="flashcards">Flashcards</h3>
 
 <div className='new'>New card</div>
               <div className='top'>
                 {newDecks.forEach((newDeck, index) => (
                   <Fragment key={`${newDeck}~${index}`}>
-                    <div className='topCard'>
-                      <label htmlFor='front' className='frontLabel'>
+                    <div className="topCard">
+                      <label htmlFor="front" className="frontLabel">
                         Front
                       </label>
                       <textarea
-                        className='frontCard'
-                        type='text'
+                        className="frontCard"
+                        type="text"
                         onChange={event => handleChanges(index, event)}
-                        name='front'
-                        placeholder='Term'
+                        name="front"
+                        placeholder="Term"
                         value={newDeck.front}
                         multiline={true}
                       />
 
-                      <div className='backHolder'>
-                        <label htmlFor='back' className='backLabel'>
+                      <div className="backHolder">
+                        <label htmlFor="back" className="backLabel">
                           Back
                         </label>
                         <textarea
-                          className='backCard'
-                          type='text'
+                          className="backCard"
+                          type="text"
                           onChange={event => handleChanges(index, event)}
-                          name='back'
+                          name="back"
                           value={newDeck.back}
-                          placeholder='Definition'
+                          placeholder="Definition"
                         />
                       </div>
 
-                      <button type='button' onClick={() => handleRemove(index)}>
+                      <button type="button" onClick={() => handleRemove(index)}>
                         X
                       </button>
                     </div>
@@ -254,58 +270,59 @@ const DeckForm = props => {
             </form>
           </div>
 
-          <form onSubmit={handleSubmit} className='cardFormBottom'>
+          <form onSubmit={handleSubmit} className="cardFormBottom">
             {newDecks.map((newDeck, index) => (
+
               <Fragment key={`${newDeck}~${index}`}>
-                <div className='card'>
-                  <div className='removeHolder'>
+                <div className="card">
+                  <div className="removeHolder">
                     <button
-                      type='button'
-                      className='remove'
+                      type="button"
+                      className="remove"
                       onClick={() => handleRemove(index)}
                     >
                       X
                     </button>
                   </div>
 
-                  <label htmlFor='front' className='frontLabel'>
+                  <label htmlFor="front" className="frontLabel">
                     Front
                   </label>
                   <textarea
-                    className='frontCard'
-                    type='text'
+                    className="frontCard"
+                    type="text"
                     onChange={event => handleChanges(index, event)}
-                    name='front'
+                    name="front"
                     // placeholder = "Term"
                     value={newDeck.front}
                   />
 
-                  <div className='backHolder'>
-                    <label htmlFor='back' className='backLabel'>
+                  <div className="backHolder">
+                    <label htmlFor="back" className="backLabel">
                       Back
                     </label>
                     <textarea
-                      className='backCard'
-                      type='text'
+                      className="backCard"
+                      type="text"
                       onChange={event => handleChanges(index, event)}
-                      name='back'
+                      name="back"
                       value={newDeck.back}
                       // placeholder = "Definition"
                     />
                   </div>
                 </div>
                 {index === 0 ? (
-                  <div className='buttonHolders'>
+                  <div className="buttonHolders">
                     <button
-                      type='button'
-                      className='add'
+                      type="button"
+                      className="add"
                       onClick={() => handleAdd()}
                     >
                       Add card
                     </button>
 
                     <button
-                      className='save'
+                      className="save"
                       // onSubmit = {handleSubmit}
                       // onClick = {() => props.history.push(`/decklist`)}
                       onClick={handleSubmit}

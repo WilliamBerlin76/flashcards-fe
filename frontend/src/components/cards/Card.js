@@ -41,21 +41,23 @@ class Card extends React.Component {
         })
     };
     handleGoNext = (e) => {
-        console.log(e)
         e.preventDefault();
-        this.props.goNext();
         this.setState(prevState => ({
             isFlipped: false
         }))
+        setTimeout(() => {
+            this.props.goNext();
+        }, 200);
     };
 
     handleGoPrev = (e) => {
-        console.log(e)
         e.preventDefault();
-        this.props.goPrev();
         this.setState(prevState => ({
             isFlipped: false
         }))
+        setTimeout(() => {
+            this.props.goPrev();
+        }, 200);
     };
     render() {
         if (!this.props.card) {

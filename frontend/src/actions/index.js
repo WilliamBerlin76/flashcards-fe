@@ -1,37 +1,40 @@
 // import { axiosWithAuth } from '../utils/axiosWithAuth';
-import axios from 'axios';
-import firebase from 'firebase';
+import axios from "axios";
+import firebase from "firebase";
+import "firebase/firestore";
+import { firestore } from "../App";
 
 //ACTION FOR DECKS
-export const FETCH_START = 'FETCH_START';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const FETCH_FAILURE = 'FETCH_FAILURE';
+export const FETCH_START = "FETCH_START";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAILURE = "FETCH_FAILURE";
 
-export const POST_DECK = 'POST_DECK';
-export const POST_SUCCESS = 'POST_SUCCESS';
-export const POST_FAILURE = 'POST_FAILURE';
+export const POST_DECK = "POST_DECK";
+export const POST_SUCCESS = "POST_SUCCESS";
+export const POST_FAILURE = "POST_FAILURE";
 
 //ACTION FOR CARDS
-export const FETCH_CARDS = 'FETCH_CARDS';
-export const CARDS_SUCCESS = 'CARDS_SUCCESS';
-export const CARDS_FAILURE = 'CARDS_FAILURE';
+export const FETCH_CARDS = "FETCH_CARDS";
+export const CARDS_SUCCESS = "CARDS_SUCCESS";
+export const CARDS_FAILURE = "CARDS_FAILURE";
 
-export const EDIT_CARDS = "EDIT_CARDS"
-export const EDIT_SUCCESS = "EDIT_SUCCESS"
-export const EDIT_FAILURE = "EDIT_FAILURE"
+export const EDIT_CARDS = "EDIT_CARDS";
+export const EDIT_SUCCESS = "EDIT_SUCCESS";
+export const EDIT_FAILURE = "EDIT_FAILURE";
 
-export const POST_CARDS = 'POST_CARDS';
-export const PCARDS_SUCCESS = 'PCARDS_SUCCESS';
-export const PCARDS_FAILURE = 'PCARDS_FAILURE'
+export const POST_CARDS = "POST_CARDS";
+export const PCARDS_SUCCESS = "PCARDS_SUCCESS";
+export const PCARDS_FAILURE = "PCARDS_FAILURE";
 
-
+//ACTION FOR SEARCH FILTERING
+export const PUBLIC_DECKS = "PUBLIC_DECKS";
+export const PUBLIC_DECKS_SUCCESS = "PUBLIC_DECKS_SUCCESS"
 
 //GETTING DECKS
-
 export const getDecks = id => dispatch => {
   dispatch({ type: FETCH_START });
   axios
-    .get('https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy')
+    .get("https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy")
     .then(response => {
       axios
         .get(`https://flashcards-be.herokuapp.com/api/deck/${id}`)
@@ -53,7 +56,7 @@ export const getDecks = id => dispatch => {
 //GETTING CARDS FOR DECKS
 export const getCards = (deck, user) => dispatch => {
   dispatch({ type: FETCH_CARDS });
-  if (user === 'demo') {
+  if (user === "demo") {
     axios
       .get(
         `https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck}`
@@ -79,11 +82,14 @@ export const getCards = (deck, user) => dispatch => {
 //POSTING A DECK W/ CARDS
 export const postDecks = (deck, deckName, tags, icon) => dispatch => {
   dispatch({ type: POST_DECK });
+  console.log('deck:', deck)
+  console.log('deckName:', deckName)
+  console.log('tags', tags)
+  console.log('icon', icon)
 
   const id = firebase.auth().currentUser.uid;
   const cardd = { cards: deck };
   const decks = { tags, icon };
-
   const cards = cardd.cards;
 
   console.log({ cards, deck: { tags, icon } });
@@ -100,32 +106,32 @@ export const postDecks = (deck, deckName, tags, icon) => dispatch => {
       });
     })
     .catch(error => {
-        console.log(error);
-        dispatch({ type: POST_FAILURE, payload: error})
-    })
-  }
-
-export const postCards = (cards, colId, props, deckInformation) => dispatch => {
-  dispatch({ type: POST_CARDS})
-
-  const id = firebase.auth().currentUser.uid
-  
-  axios
-  .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${colId}/add`, {cards: cards})
-  .then(res => {
-      console.log(res)
-      dispatch({
-          type: PCARDS_SUCCESS,
-          payload: res.data
-      })
-  })
-  .catch(error => {
       console.log(error);
-      dispatch({ type: PCARDS_FAILURE, payload: error})
-  })
+      dispatch({ type: POST_FAILURE, payload: error });
+    });
 };
 
+export const postCards = (cards, colId, props, deckInformation) => dispatch => {
+  dispatch({ type: POST_CARDS });
 
+  const id = firebase.auth().currentUser.uid;
+
+  axios
+    .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${colId}/add`, {
+      cards: cards
+    })
+    .then(res => {
+      console.log(res);
+      dispatch({
+        type: PCARDS_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      dispatch({ type: PCARDS_FAILURE, payload: error });
+    });
+};
 
 //UPDATE CARDS FOR DECKS
 export const editCard = (deck, id, deckName) => dispatch => {
@@ -133,18 +139,22 @@ export const editCard = (deck, id, deckName) => dispatch => {
   const changess = { changes: deck };
   console.log(changess);
   axios
-  .put(`https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`, changess)
-  // .put(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck.id}`, deck.data)
-  .then(response => {
-     console.log(response.data)
-  //    history.push(`/editdeck/`);
-      dispatch({ type: EDIT_SUCCESS, payload: response.data})
-  })
-  .catch(error => {
-      dispatch({ type: EDIT_FAILURE, payload: error})
-  })
-
+    .put(
+      `https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`,
+      changess
+    )
+    // .put(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck.id}`, deck.data)
+    .then(response => {
+      console.log(response.data);
+      //    history.push(`/editdeck/`);
+      dispatch({ type: EDIT_SUCCESS, payload: response.data });
+    })
+    .catch(error => {
+      dispatch({ type: EDIT_FAILURE, payload: error });
+    });
 };
 
-
-
+// Public Decks
+export const publicDecks = deckArr => {
+  return { type: PUBLIC_DECKS, deckArr };
+};
