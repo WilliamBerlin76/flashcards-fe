@@ -10,7 +10,6 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { BrowserRouter as Router } from "react-router-dom";
 import reducer from "./reducers/reducer";
-require('dotenv').config();
 
 const enhancer = compose(
   applyMiddleware(
