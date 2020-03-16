@@ -13,32 +13,38 @@
 }
 .card {
   border: 0.5px solid rgba(106, 92, 85, 0.3);
-
-  .frontLabel {
-    color: #f66e00;
-  }
-  .frontCard {
-    display: flex;
-    color: #6a5c55;
-    font-weight: bold;
-    border-bottom: 1.5px solid #6a5c55;
-    padding-bottom: 3%;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-  .backLabel {
-    color: #f66e00;
-  }
-  .backCard {
-    display: flex;
-    color: #6a5c55;
-    font-weight: bold;
-    border: none;
-  }
+}
+.card .frontLabel {
+  color: #f66e00;
+}
+.card .frontCard {
+  display: flex;
+  color: #6a5c55;
+  font-weight: bold;
+  border-bottom: 1.5px solid #6a5c55;
+  padding-bottom: 3%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.card .backLabel {
+  color: #f66e00;
+}
+.card .backCard {
+  display: flex;
+  color: #6a5c55;
+  font-weight: bold;
+  border: none;
 }
 .iconHolder {
   display: flex;
+  justify-content: space-between;
+}
+.iconHolder .create-edit {
+  padding: 0% 10%;
+  border: 2px solid orangered;
+  background: none;
+  border-radius: 100px;
 }
 .tags-input {
   display: flex;
@@ -50,20 +56,19 @@
   margin-left: 3%;
   border-bottom: 1px solid #6a5c55;
   margin-bottom: 10%;
-  // border-radius: 6px;
-  &:focus-within {
-    border-bottom: 1px solid #6a5c55;
-  }
-  input {
-    flex: 1;
-    border: none;
-    height: 46px;
-    font-size: 14px;
-    padding: 4px 0 0 0;
-    &:focus {
-      outline: transparent;
-    }
-  }
+}
+.tags-input:focus-within {
+  border-bottom: 1px solid #6a5c55;
+}
+.tags-input input {
+  flex: 1;
+  border: none;
+  height: 46px;
+  font-size: 14px;
+  padding: 4px 0 0 0;
+}
+.tags-input input:focus {
+  outline: transparent;
 }
 .save {
   background-color: #f66e00;
@@ -99,255 +104,211 @@
   border-radius: 6px;
   margin: 0 8px 8px 0;
   background: #f66e00;
-  .tag-title {
-    margin-top: 3px;
-  }
-  .tag-close-icon {
-    display: block;
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    text-align: center;
-    font-size: 14px;
-    margin-left: 8px;
-    color: #fff;
-    border-radius: 50%;
-    background: #f66e00;
-    cursor: pointer;
-  }
 }
-// .top {
-//   margin-top: 220%;
-// }
-// @media only screen and (min-width: 320px) {
-//   .loading-background {
-//     background: #f66e00;
-//     max-width: 100vw;
-//     // margin-top: -4%;
-//     padding-bottom: 4%;
-//     margin-bottom: 10%;
-//     padding-top: 2%;
-//     .number {
-//       margin-left: 15%;
-//     }
-//     .smile-form {
-//       opacity: 0.25;
-//       margin-left: 62%;
-//       // margin-top: -60%;
-//       font-size: 70px;
-//       margin-top: 1%;
-//       width: 10%;
-//       // margin-bottom: 6%;
-//       color: white;
-//     }
-//     .mastered {
-//       // display: flex;
-//       // justify-content: flex-end;
-//       font-family: Roboto Condensed;
-//       font-style: normal;
-//       font-weight: bold;
-//       font-size: 1.3rem;
-//       line-height: 19px;
-//       margin-left: 70%;
-//       margin-top: -6%;
-//       color: #ffffff;
-//       width: 50%;
-//     }
-//     .back {
-//       margin-bottom: -6%;
-//       margin-left: 6%;
-//       margin-right: 4%;
-//     }
-//   }
-//   .deckName {
-//     font-size: 1.9rem;
-//   }
-//   // .page {
-//   //     margin-top: 85%;
-//   // }
-//   .deckInfo {
-//     margin-left: 4%;
-//   }
-//   // .topForm {
-//   //     margin-top: -70%;
-//   // }
-//   // .cardForm {
-//   //     margin-top: -41.5%;
-//   //     padding-bottom: 10%;
-//   // }
-//   .inputHolders {
-//     margin-left: 4%;
-//   }
-//   // .topCard{
-//   //     margin-bottom: 120%;
-//   // }
-//   .buttonHolder {
-//     // margin-bottom: -170%;
-//     padding-bottom: 1%;
-//     margin-left: 13%;
-//     margin-top: 50%;
-//     //   width: 100%;
-//     .save {
-//       background-color: #f66e00;
-//       color: #fcfcfc;
-//       font-size: 15px;
-//       line-height: 21px;
-//       border-radius: 25px;
-//       padding-top: 3%;
-//       padding-bottom: 3%;
-//       width: 30%;
-//       margin-left: 12%;
-//       cursor: pointer;
-//     }
-//     .add {
-//       background-color: #fcfcfc;
-//       color: #f66e00;
-//       font-size: 15px;
-//       line-height: 21px;
-//       border-radius: 25px;
-//       border: 2px solid #f66e00;
-//       padding-top: 3%;
-//       padding-bottom: 3%;
-//       width: 30%;
-//       cursor: pointer;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//   }
-//   .topCard {
-//     margin-top: 50%;
-//     margin-bottom: 60%;
-//   }
-//   .card {
-//     margin-top: 5%;
-//     padding-left: 10%;
-//     width: 70%;
-//     margin-left: 6%;
-//     padding-top: 2%;
-//     // margin-bottom: 30%;
-//     &:first-child {
-//       margin-top: 15%;
-//       // margin-bottom: 30%;
-//     }
-//     .removeHolder {
-//       margin-bottom: -5%;
-//     }
-//     .remove {
-//       margin-left: 85%;
-//       border: 2px solid #f66e00;
-//       color: #f66e00;
-//       border-radius: 3px;
-//       cursor: pointer;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//     .frontLabel {
-//       margin-left: -10%;
-//     }
-//     .frontCard {
-//       margin-left: -7%;
-//       width: 100%;
-//       text-align: center;
-//       height: 70px;
-//       margin-bottom: 2%;
-//       font-size: 2rem;
-//       resize: none;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//     .backLabel {
-//       margin-left: -10%;
-//     }
-//     .backCard {
-//       margin-left: -7%;
-//       width: 100%;
-//       text-align: center;
-//       height: 60px;
-//       margin-bottom: 2%;
-//       font-size: 2rem;
-//       resize: none;
-//       &:focus {
-//         outline: transparent;
-//       }
-//     }
-//   }
-//   .new {
-//     margin-bottom: -9%;
-//     margin-left: 6%;
-//   }
-//   .form {
-//     display: flex;
-//     flex-direction: column-reverse;
-//     flex-flow: column-reverse;
-//   }
-//   .tags-input {
-//     width: 80%;
-//   }
-// }
-.backk{
+.tag .tag-title {
+  margin-top: 3px;
+}
+.tag .tag-close-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 8px;
+  color: #fff;
+  border-radius: 50%;
+  background: #f66e00;
   cursor: pointer;
 }
+.loading-background {
+  background-color: #f66e00;
+}
+.loading-background .first {
+  display: flex;
+  align-items: center;
+}
+.loading-background .first .backk {
+  display: none;
+}
+.loading-background .first h1 {
+  margin: 0;
+  margin-left: 3%;
+  color: white;
+  font-size: 1.5rem;
+}
+.loading-background .number {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  padding: 3%;
+  color: white;
+}
+.loading-background .number .smile-form {
+  margin: 0;
+  font-size: 3.5rem;
+}
+.loading-background .number .mastered {
+  margin: 0;
+}
+.page {
+  width: 100%;
+}
+.page .form {
+  width: 100%;
+}
+.page .form .deckInfo {
+  width: 92%;
+  margin: 2% auto;
+}
+.page .form .deck-input-wrapper {
+  width: 100%;
+}
+.page .form .deck-input-wrapper .inputHolders {
+  width: 95%;
+  margin: auto;
+  padding: 5px;
+}
+.page .form .deck-input-wrapper .inputHolders .deck-name-input {
+  width: 100%;
+  margin-bottom: 3%;
+}
+.page .form .deck-input-wrapper .inputHolders .deck-icon-input {
+  width: 60%;
+}
+.page .form .deck-input-wrapper .inputHolders button {
+  width: 38%;
+  color: #f66e00;
+}
+.page .form .radio-wrapper {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.page .form .radio-wrapper label {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page .form .radio-wrapper label input {
+  width: 100%;
+  margin: 0;
+}
+.page .form .new {
+  width: 90%;
+  margin: auto;
+}
+.page .cardFormBottom .card {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  padding: 5px;
+  position: relative;
+  margin: 3% auto;
+}
+.page .cardFormBottom .card .removeHolder {
+  margin-left: auto;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 
+.page .cardFormBottom .card:first-child .removeHolder {
+  display: none;
+}
 
-@media only screen and (min-width: 100px)  {
-
-  .loading-background {
+.page .cardFormBottom .card .removeHolder button {
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 1px solid #f66e00;
+  text-align: center;
+  padding: 0;
+  font-size: 1.3rem;
+  color: #f66e00;
+  padding-left: 1px;
+  padding-top: 1px;
+}
+.page .cardFormBottom .card textarea {
+  height: 5rem;
+  width: 98%;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+.page .cardFormBottom .buttonHolders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 3%;
+  margin-bottom: 10%;
+}
+.page .cardFormBottom .buttonHolders button {
+  width: 45%;
+  background-color: white;
+  border: 1px solid #f66e00;
+  color: #f66e00;
+}
+.backk .backk {
+  cursor: pointer;
+}
+@media only screen and (min-width: 100px) {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    .number {
-      margin-left: 15%;
-    }
-    .smile-form {
-      opacity: 0.25;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 74px;
-      margin-top: 1%;
-      width: 10%;
-      // margin-bottom: 6%;
-      color: white;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 1.3rem;
-      line-height: 19px;
-      margin-left: 75%;
-      margin-top: -6%;
-      color: #ffffff;
-      width: 50%;
-    }
-    .back {
-      margin-bottom: -6%;
-      margin-left: 6%;
-      margin-right: 4%;
-    }
-    .backk {
-      margin-bottom: -6.5%;
-      margin-left: -7%;
-      
-      // margin-right: 4%;
-    }
-    .deckName-add {
-      font-size: 2.3rem;
-      color: #ffffff;
-      margin-left: 7%;
-      margin-top: -1%;
-      cursor: pointer;
-    }
   }
-  .deckNames {
+  .backk .loading-background .number {
+    margin-left: 15%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 0.25;
+    margin-left: 70%;
+    font-size: 74px;
+    margin-top: 1%;
+    width: 10%;
+    color: white;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 19px;
+    margin-left: 75%;
+    margin-top: -6%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .back {
+    margin-bottom: -6%;
+    margin-left: 6%;
+    margin-right: 4%;
+  }
+  .backk .loading-background .backk {
+    margin-bottom: -6.5%;
+    margin-left: -7%;
+  }
+  .backk .loading-background .deckName-add {
+    font-size: 2.3rem;
+    color: #ffffff;
+    margin-left: 7%;
+    margin-top: -1%;
+    cursor: pointer;
+  }
+  .backk .deckNames {
     font-size: 2.3rem;
     color: #ffffff;
     margin-left: 10%;
@@ -359,622 +320,343 @@
     font-weight: bold;
     cursor: pointer;
   }
-  // .page {
-  //     margin-top: 70%;
-  // }
-  .deckInfo {
+  .backk .deckInfo {
     margin-left: 4%;
     color: #6a5c55;
     font-size: 24px;
     line-height: 28px;
   }
-  // .topForm {
-  //     margin-top: -70%;
-  // }
-  // .cardForm {
-  //     margin-top: -41.5%;
-  //     padding-bottom: 10%;
-  // }
-  .inputHolders {
-    margin-left: 4%;
+  .backk .inputHolders {
+    display: flex;
+    flex-direction: column;
+    margin: 0 4%;
   }
-  // .topCard{
-  //     margin-bottom: 120%;
-  // }
-  .buttonHolders {
-    // margin-bottom: -130%;
+  .backk .inputHolders .deck-name-input {
+    width: 100%;
+    margin-bottom: 8%;
+  }
+  .backk .buttonHolders {
     padding-bottom: 1%;
     margin-left: 7%;
-    // margin-top: 40%;
     margin-bottom: 3%;
-    // margin-bottom: -20%;
-    //   width: 100%;
-    .save {
-      background-color: #f66e00;
-      color: #fcfcfc;
-      font-size: 15px;
-      line-height: 21px;
-      border-radius: 25px;
-      padding-top: 3%;
-      padding-bottom: 3%;
-      width: 40%;
-      margin-left: 12%;
-      cursor: pointer;
-    }
-    .add {
-      background-color: #fcfcfc;
-      color: #f66e00;
-      font-size: 15px;
-      line-height: 21px;
-      border-radius: 25px;
-      border: 2px solid #f66e00;
-      padding-top: 3%;
-      padding-bottom: 3%;
-      width: 40%;
-      cursor: pointer;
-      &:focus {
-        outline: transparent;
-      }
-    }
   }
-  // .topCard {
-  //   margin-top: 40%;
-  //   margin-bottom: 150%;
-  // }
-  .card {
+  .backk .buttonHolders .save {
+    background-color: #f66e00;
+    color: #fcfcfc;
+    font-size: 15px;
+    line-height: 21px;
+    border-radius: 25px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 40%;
+    margin-left: 12%;
+    cursor: pointer;
+  }
+  .backk .buttonHolders .add {
+    background-color: #fcfcfc;
+    color: #f66e00;
+    font-size: 15px;
+    line-height: 21px;
+    border-radius: 25px;
+    border: 2px solid #f66e00;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 40%;
+    cursor: pointer;
+  }
+  .backk .buttonHolders .add:focus {
+    outline: transparent;
+  }
+  .backk .card {
     margin-top: 14%;
     padding-left: 10%;
     width: 90%;
     margin-left: 6%;
     padding-top: 2%;
-    // margin-bottom: 130%;
-    &:first-child {
-      margin-bottom: 8%;
-      margin-top: 10%;
-    }
-    // &:last-child{
-    //     margin-bottom: 112%;
-    // }
-    .removeHolder {
-      margin-bottom: -5%;
-    }
-    .remove {
-      margin-left: 90%;
-      border: 2px solid #f66e00;
-      color: #f66e00;
-      border-radius: 3px;
-      cursor: pointer;
-      &:focus {
-        outline: transparent;
-      }
-    }
-    .frontLabel {
-      margin-left: -10%;
-    }
-    .frontCard {
-      margin-left: -7%;
-      width: 100%;
-      text-align: center;
-      height: 70px;
-      margin-bottom: 2%;
-      font-size: 2rem;
-      resize: none;
-      &:focus {
-        outline: transparent;
-      }
-    }
-    .backLabel {
-      margin-left: -10%;
-    }
-    .backCard {
-      margin-left: -7%;
-      width: 100%;
-      text-align: center;
-      height: 60px;
-      margin-bottom: 2%;
-      font-size: 2rem;
-      resize: none;
-      &:focus {
-        outline: transparent;
-      }
-    }
   }
-  .new {
+  .backk .card:first-child {
+    margin-bottom: 8%;
+    margin-top: 10%;
+  }
+  .backk .card .removeHolder {
+    margin-bottom: -5%;
+  }
+  .backk .card .remove {
+    margin-left: 90%;
+    border: 2px solid #f66e00;
+    color: #f66e00;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .backk .card .remove:focus {
+    outline: transparent;
+  }
+  .backk .card .frontLabel {
+    margin-left: -10%;
+  }
+  .backk .card .frontCard {
+    margin-left: -7%;
+    width: 100%;
+    text-align: center;
+    height: 70px;
+    margin-bottom: 2%;
+    font-size: 2rem;
+    resize: none;
+  }
+  .backk .card .frontCard:focus {
+    outline: transparent;
+  }
+  .backk .card .backLabel {
+    margin-left: -10%;
+  }
+  .backk .card .backCard {
+    margin-left: -7%;
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    margin-bottom: 2%;
+    font-size: 2rem;
+    resize: none;
+  }
+  .backk .card .backCard:focus {
+    outline: transparent;
+  }
+  .backk .new {
     margin-bottom: -5%;
     margin-left: 6%;
     color: #6a5c55;
     font-size: 18px;
   }
-  .form {
+  .backk .form {
     display: flex;
     flex-direction: column-reverse;
     flex-flow: column-reverse;
   }
-  .studystuff{
+  .backk .studystuff {
     display: none;
   }
 }
-
-@media screen and (min-width: 600px) and (max-width: 700px){
-  .loading-background {
+@media screen and (min-width: 600px) and (max-width: 700px) {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    .number {
-      margin-left: 15%;
-    }
-    .smile-form {
-      opacity: 0.25;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 74px;
-      margin-top: 1%;
-      width: 10%;
-      margin-bottom: 6%;
-      color: white;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 1.3rem;
-      line-height: 19px;
-      margin-left: 75%;
-      margin-top: -6%;
-      color: #ffffff;
-      width: 50%;
-    }
-    .back {
-      margin-bottom: -6%;
-      margin-left: 6%;
-      margin-right: 4%;
-    }
-    .deckName-add {
-      font-size: 2.3rem;
-      color: #ffffff;
-      margin-left: 7%;
-      margin-top: -1%;
-    }
+  }
+  .backk .loading-background .number {
+    margin-left: 15%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 0.25;
+    margin-left: 70%;
+    font-size: 74px;
+    margin-top: 1%;
+    width: 10%;
+    margin-bottom: 6%;
+    color: white;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 19px;
+    margin-left: 75%;
+    margin-top: -6%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .back {
+    margin-bottom: -6%;
+    margin-left: 6%;
+    margin-right: 4%;
+  }
+  .backk .loading-background .deckName-add {
+    font-size: 2.3rem;
+    color: #ffffff;
+    margin-left: 7%;
+    margin-top: -1%;
   }
 }
-@media screen and (min-width: 700px) and (max-width: 800px){
-  .loading-background {
+@media screen and (min-width: 700px) {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    .number {
-      margin-left: 15%;
-    }
-    .smile-form {
-      opacity: 0.25;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 74px;
-      margin-top: 1%;
-      width: 10%;
-      margin-bottom: 6%;
-      color: white;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 1.3rem;
-      line-height: 19px;
-      margin-left: 75%;
-      margin-top: -6%;
-      color: #ffffff;
-      width: 50%;
-    }
-    .back {
-      margin-bottom: -6%;
-      margin-left: 6%;
-      margin-right: 4%;
-    }
-    .deckName-add {
-      font-size: 2.3rem;
-      color: #ffffff;
-      margin-left: 7%;
-      margin-top: .5%;
-    }
+  }
+  .backk .loading-background .number {
+    margin-left: 15%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 0.25;
+    margin-left: 70%;
+    font-size: 74px;
+    margin-top: 1%;
+    width: 10%;
+    margin-bottom: 6%;
+    color: white;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 19px;
+    margin-left: 75%;
+    margin-top: -6%;
+    color: #ffffff;
+    width: auto;
+  }
+  .backk .loading-background .back {
+    margin-bottom: -6%;
+    margin-left: 6%;
+    margin-right: 4%;
+  }
+  .backk .loading-background .deckName-add {
+    font-size: 2.3rem;
+    color: #ffffff;
+    margin-left: 7%;
+    margin-top: 0.5%;
   }
 }
-
-@media screen and (min-width: 800px) and (max-width: 900px){
-  .loading-background {
-    background: #f66e00;
-    max-width: 100vw;
-    // margin-top: -4%;
-    padding-bottom: 4%;
-    margin-bottom: 10%;
-    padding-top: 2%;
-    margin-top: -1%;
-    .number {
-      margin-left: 15%;
-    }
-    .smile-form {
-      opacity: 0.25;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 74px;
-      margin-top: 1%;
-      width: 10%;
-      margin-bottom: 6%;
-      color: white;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 1.3rem;
-      line-height: 19px;
-      margin-left: 75%;
-      margin-top: -6%;
-      color: #ffffff;
-      width: 50%;
-    }
-    .back {
-      margin-bottom: -6%;
-      margin-left: 6%;
-      margin-right: 4%;
-    }
-    .deckName-add {
-      font-size: 2.3rem;
-      color: #ffffff;
-      margin-left: 7%;
-      margin-top: 1%;
-    }
+@media screen and (min-width: 767px) {
+  .flashcards {
+    margin: 3% auto;
+    margin-top: 10%;
+    text-align: center;
+    margin-bottom: 1%;
+    border-top: 1px solid #f66e00;
+    padding-top: 3%;
+    width: 95%;
+    margin-left: 3%;
   }
-}
 
-// @media screen and (min-width: 900px) and (max-width: 1000px){
-//   .loading-background {
-//     background: #f66e00;
-//     max-width: 100vw;
-//     // margin-top: -4%;
-//     padding-bottom: 4%;
-//     margin-bottom: 10%;
-//     padding-top: 2%;
-//     margin-top: -1%;
-//     .number {
-//       margin-left: 15%;
-//     }
-//     .smile-form {
-//       opacity: 0.25;
-//       margin-left: 70%;
-//       // margin-top: -60%;
-//       font-size: 74px;
-//       margin-top: 1%;
-//       width: 10%;
-//       margin-bottom: 6%;
-//       color: white;
-//     }
-//     .mastered {
-//       // display: flex;
-//       // justify-content: flex-end;
-//       font-family: Roboto Condensed;
-//       font-style: normal;
-//       font-weight: bold;
-//       font-size: 1.3rem;
-//       line-height: 19px;
-//       margin-left: 75%;
-//       margin-top: -6%;
-//       color: #ffffff;
-//       width: 50%;
-//     }
-//     .back {
-//       margin-bottom: -6%;
-//       margin-left: 6%;
-//       margin-right: 4%;
-//     }
-//     .deckName {
-//       font-size: 2.3rem;
-//       color: #ffffff;
-//       margin-left: 7%;
-//       margin-top: 1.5%;
-//     }
-//   }
-// }
-@media screen and (min-width: 900px) {
+  .page .form .new {
+    text-align: center;
+    margin-bottom: 1%;
+  }
 
-  .loading-background {
-    background: #f66e00;
-    max-width: 100vw;
-    // margin-top: -4%;
-    padding-bottom: 4%;
-    margin-bottom: 10%;
-    padding-top: 2%;
-    margin-top: -1%;
+  .page .form .radio-wrapper {
+    max-width: 30%;
     
-    .number {
-      margin-left: -185%;
-      margin-bottom: -2%;
-      margin-top: 5%;
+    label {
+      width: 30%;
     }
-    .smile-form {
-      opacity: 1;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 44px;
-      margin-top: 1%;
-      width: 10%;
-      // margin-bottom: 6%;
-      color: #ffffff;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 2.2rem;
-      line-height: 19px;
-      margin-left: 15%;
-      margin-top: 3%;
-
-      color: #ffffff;
-      width: 50%;
-    }
-  
-    .first{
-  position: absolute;
-  width: 510px;
-  height: 49px;
-  left: 140px;
-  top: 280px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 49px;
-
-    color: #453C38;
-  
-  .back{
-    display: none;
   }
-  .backk{
-    position: absolute;
-    margin-top: 5%;
-    margin-left: 4%;
+
+  .page .cardFormBottom {
+    display: flex;
+    flex-wrap: wrap;
+
+    .buttonHolders {
+      width: 100%;
+      justify-content: center;
+
+      .created {
+        width: 100%;
+        text-align: center;
+      }
+    }
   }
-  .deckName-add{
-    position: absolute;
-    color: #453C38;
-    // margin-bottom: -40%;
-    margin-top: 4%;
-    margin-left: 9%;
+
+  .page .cardFormBottom .buttonHolders button {
+    width: 20%;
+    margin: 0 3%;
+  }
+
+  .page .cardFormBottom .card:first-child {
+    margin: auto;
+    width: 60%;
+  }
+
+  .page .cardFormBottom .card {
+    width: 45%;
+    margin: 2.5% 2.5%;
   }
 }
-.studied {
-  margin-left: 80%;
-  margin-bottom: 1%;
-  ​ .mastereddd{
+@media screen and (min-width: 800px) and (max-width: 900px) {
+  .backk .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+  }
+  .backk .loading-background .number {
+    margin-left: 15%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 0.25;
+    margin-left: 70%;
+    font-size: 74px;
+    margin-top: 1%;
+    width: 10%;
+    margin-bottom: 6%;
+    color: white;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 19px;
+    margin-left: 75%;
+    margin-top: -6%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .back {
+    margin-bottom: -6%;
+    margin-left: 6%;
+    margin-right: 4%;
+  }
+  .backk .loading-background .deckName-add {
+    font-size: 2.3rem;
+    color: #ffffff;
+    margin-left: 7%;
+    margin-top: 1%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .backk .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+  }
+  .backk .loading-background .number {
+    margin-left: -185%;
+    margin-bottom: -2%;
+    margin-top: 5%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 1;
+    margin-left: 70%;
+    font-size: 44px;
+    margin-top: 1%;
+    width: 10%;
     color: #ffffff;
   }
-    .numberrr {
-      font-size: 12rem;
-      opacity: 0.4;
-      line-height: normal;
-      position: absolute;
-      right: 4rem;
-      top: 3rem;
-      color: #ffffff;
-    }
-  // .text {
-  //   display: flex;
-  //   justify-content: space-between;
-    .mastered-text{
-      position: absolute;
-      right: 9rem;
-      font-size: 2rem;
-      color: #ffffff;
-      top: 14rem;
-    }
-  // }
-}
-}
-// .number{
-//   display: none;
-// }
-// .mastered{
-//   display: none;
-// }
-.cardForm{
-  .deckInfo{
-    font-size: 40px;
-    margin-top: 5%;
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 19px;
+    margin-left: 15%;
+    margin-top: 3%;
+    color: #ffffff;
+    width: 50%;
   }
-}
-.page{
-  margin: 1rem 12rem;
-  .inputHolders{
-    display: flex;
-    // align-items: flex-start;
-    .iconHolder{
-      margin-left: 20%;
-      width: 50%;
-    };
-  }
-  .tagHolder{
-    margin-top:10%;
-    margin-left: 47%;
-  }
-}
-  .flashcards{
-  font-size: 40px;
-  margin-top: 10%;
-}
-.new{
-font-size: 34px;
-}
-.cardFormBottom{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  .card{
-    width:44%;
-    height: 220px;
-    padding-right: 4%;
-    // margin-right: 15%;
-    .removeHolder{
-      margin-left: -22%;
-    }
-    .frontLabel{
-      margin-left: -17%;
-    }
-    .backLabel{
-      margin-left: -17%;
-    }
-  }
-  .buttonHolders{
-    display: flex;
-    flex-direction: column;
-    margin-top: -24%;
-    margin-left: 51%;
-    width: 40%;
-    // height: 100px;
-    .add{
-      width: 100%;
-      margin-bottom: 4%;
-      margin-left: 11%;
-    }
-    .save{
-      width: 100%;
-    }
-  }
-  .created{
-    font-size: 34px;
-    margin-top: 66%;
-    margin-left:-110%;
-  }
-}
-.studystuff{
-  display: flex;
-  margin-top: 30%;
-  width: 98px;
-  height: 433px;
-  right: 236px;
-  top: 574px;
-  margin-bottom: 30%;
-  .studywords{
-
-    .bigStudy{
-      width: 1100%;
-      // height: 75px;
-      margin-left: 50%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 54px;
-      line-height: 75px;
-      color: #F66E00;
-    
-    }
-    .other{
-      // width: 3746px;
-      // height: 49px;
-      width: 1100%;
-      margin-top: 10%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 32px;
-      line-height: 49px;
-      color: #F66E00;
-      margin-left: 65%;
-    }
-  }
-
-  .note{
-   margin-left: -20%;
-   margin-right: 55%;
-    width: 290.4px;
-    height: 248px;
-    margin-top: 180%;
-    .notebook{
-      width: 200px;
-    }
-  };
-  .grad {
-    margin-top: 180%;
-    width: 290.4px;
-    height: 248px;
-    left: 494.8px;
-    top: 1859px;
-    margin-right: 55%;
-    .gradpic{
-      width: 200px;
-    }
-  };
-  .aud{
-    margin-top: 180%;
-    width: 290.4px;
-    height: 248px;
-    left: 833.6px;
-    top: 1859px;
-    .audpic{
-      width: 200px;
-    }
-  }
-}
-}
-@media screen and (min-width: 1000px) {
-
-    .loading-background {
-      background: #f66e00;
-      max-width: 100vw;
-      // margin-top: -4%;
-      padding-bottom: 4%;
-      margin-bottom: 10%;
-      padding-top: 2%;
-      margin-top: -1%;
-      
-      .number {
-        margin-left: -185%;
-        margin-bottom: -2%;
-        margin-top: 3%;
-      }
-      .smile-form {
-        opacity: 1;
-        margin-left: 70%;
-        // margin-top: -60%;
-        font-size: 44px;
-        margin-top: 1%;
-        width: 10%;
-        // margin-bottom: 6%;
-        color: #ffffff;
-      }
-      .mastered {
-        // display: flex;
-        // justify-content: flex-end;
-        font-family: Roboto Condensed;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 2.2rem;
-        line-height: 19px;
-        margin-left: 15%;
-        margin-top: 3%;
-
-        color: #ffffff;
-        width: 50%;
-      }
-    
-      .first{
+  .backk .loading-background .first {
     position: absolute;
     width: 510px;
     height: 49px;
@@ -985,128 +667,111 @@ font-size: 34px;
     font-weight: normal;
     font-size: 22px;
     line-height: 49px;
-  
-      color: #453C38;
-    
-    .back{
-      display: none;
-    }
-    .backk{
-      position: absolute;
-      margin-top: 11%;
-      margin-left: 4%;
-    }
-    .deckName-add{
-      position: absolute;
-      color: #453C38;
-      // margin-bottom: -40%;
-      margin-top: 9%;
-      margin-left: 9%;
-    }
+    color: #453c38;
   }
-  .studied {
+  .backk .loading-background .first .back {
+    display: none;
+  }
+  .backk .loading-background .first .backk {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 4%;
+  }
+  .backk .loading-background .first .deckName-add {
+    position: absolute;
+    color: #453c38;
+    margin-top: 4%;
+    margin-left: 9%;
+  }
+  .backk .loading-background .studied {
     margin-left: 80%;
     margin-bottom: 1%;
-    ​ .mastereddd{
-      color: #ffffff;
-    }
-      .numberrr {
-        font-size: 12rem;
-        opacity: 0.4;
-        line-height: normal;
-        position: absolute;
-        right: 4rem;
-        top: 5rem;
-        color: #ffffff;
-      }
-    // .text {
-    //   display: flex;
-    //   justify-content: space-between;
-      .mastered-text{
-        position: absolute;
-        right: 9rem;
-        font-size: 2rem;
-        color: #ffffff;
-      }
-    // }
   }
+  .backk .loading-background .studied .mastereddd {
+    color: #ffffff;
   }
-  // .number{
-  //   display: none;
-  // }
-  // .mastered{
-  //   display: none;
-  // }
-  .cardForm{
-    .deckInfo{
-      font-size: 40px;
-      margin-top: 5%;
-    }
+  .backk .loading-background .studied .numberrr {
+    font-size: 12rem;
+    opacity: 0.4;
+    line-height: normal;
+    position: absolute;
+    right: 4rem;
+    top: 3rem;
+    color: #ffffff;
   }
-  .page{
+  .backk .loading-background .studied .mastered-text {
+    position: absolute;
+    right: 9rem;
+    font-size: 2rem;
+    color: #ffffff;
+    top: 14rem;
+  }
+  .backk .cardForm .deckInfo {
+    font-size: 40px;
+    margin-top: 5%;
+    text-align: center;
+  }
+  .backk .page {
     margin: 1rem 12rem;
-    .inputHolders{
-      display: flex;
-      // align-items: flex-start;
-      .iconHolder{
-        margin-left: 20%;
-        width: 100%;
-      };
-    }
-    .tagHolder{
-      margin-top:10%;
-      margin-left: 47%;
-    }
   }
-  .flashcards{
+  .backk .page .inputHolders {
+    display: flex;
+  }
+  .backk .page .inputHolders .iconHolder {
+    margin-left: 20%;
+    width: 50%;
+  }
+  .backk .page .tagHolder {
+    margin-top: 10%;
+    margin-left: 47%;
+  }
+  .backk .flashcards {
     font-size: 40px;
     margin-top: 10%;
   }
-.new{
-  font-size: 34px;
-}
-  .cardFormBottom{
+  .backk .new {
+    font-size: 34px;
+  }
+  .backk .cardFormBottom {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    .card{
-      width: 39%;
-      height: 220px;
-      padding-right: 2%;
-      // margin-right: 15%;
-      .removeHolder{
-        margin-left: -22%;
-      }
-      .frontLabel{
-        margin-left: -17%;
-      }
-      .backLabel{
-        margin-left: -17%;
-      }
-    }
-    .buttonHolders{
-      display: flex;
-      flex-direction: column;
-      margin-top: -24%;
-      margin-left: 50%;
-      width: 40%;
-      // height: 100px;
-      .add{
-        width: 100%;
-        margin-bottom: 4%;
-        margin-left: 11%;
-      }
-      .save{
-        width: 100%;
-      }
-    }
-    .created{
-      font-size: 34px;
-      margin-top: 66%;
-      margin-left:-110%;
-    }
   }
-  .studystuff{
+  .backk .cardFormBottom .card {
+    width: 44%;
+    height: 220px;
+    padding-right: 4%;
+  }
+  .backk .cardFormBottom .card .removeHolder {
+    margin-left: -22%;
+  }
+  .backk .cardFormBottom .card .frontLabel {
+    margin-left: -17%;
+  }
+  .backk .cardFormBottom .card .backLabel {
+    margin-left: -17%;
+  }
+  .backk .cardFormBottom .buttonHolders {
+    display: flex;
+    flex-direction: column;
+    margin-top: -24%;
+    margin-left: 51%;
+    width: 40%;
+  }
+  .backk .cardFormBottom .buttonHolders .add {
+    width: 100%;
+    margin-bottom: 4%;
+    margin-left: 11%;
+  }
+  .backk .cardFormBottom .buttonHolders .save {
+    width: 100%;
+  }
+  .backk .cardFormBottom .created {
+    font-size: 34px;
+    margin-top: 66%;
+    margin-left: -110%;
+  }
+  .backk .studystuff {
     display: flex;
     margin-top: 30%;
     width: 98px;
@@ -1114,282 +779,446 @@ font-size: 34px;
     right: 236px;
     top: 574px;
     margin-bottom: 30%;
-    .studywords{
-  
-      .bigStudy{
-        width: 1100%;
-        // height: 75px;
-        margin-left: 50%;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 54px;
-        line-height: 75px;
-        color: #F66E00;
-      
-      }
-      .other{
-        // width: 3746px;
-        // height: 49px;
-        width: 1100%;
-        margin-top: 10%;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 32px;
-        line-height: 49px;
-        color: #F66E00;
-        margin-left: 65%;
-      }
-    }
-  
-    .note{
-     margin-left: -20%;
-     margin-right: 85%;
-      width: 290.4px;
-      height: 248px;
-      margin-top: 180%;
-      .notebook{
-        width: 200px;
-      }
-    };
-    .grad {
-      margin-top: 180%;
-      width: 290.4px;
-      height: 248px;
-      left: 494.8px;
-      top: 1859px;
-      margin-right: 85%;
-      .gradpic{
-        width: 200px;
-      }
-    };
-    .aud{
-      margin-top: 180%;
-      width: 290.4px;
-      height: 248px;
-      left: 833.6px;
-      top: 1859px;
-      .audpic{
-        width: 200px;
-      }
-    }
+  }
+  .backk .studystuff .studywords .bigStudy {
+    width: 1100%;
+    margin-left: 50%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: #f66e00;
+  }
+  .backk .studystuff .studywords .other {
+    width: 1100%;
+    margin-top: 10%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 49px;
+    color: #f66e00;
+    margin-left: 65%;
+  }
+  .backk .studystuff .note {
+    margin-left: -20%;
+    margin-right: 55%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+  }
+  .backk .studystuff .note .notebook {
+    width: 200px;
+  }
+  .backk .studystuff .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 55%;
+  }
+  .backk .studystuff .grad .gradpic {
+    width: 200px;
+  }
+  .backk .studystuff .aud {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+  }
+  .backk .studystuff .aud .audpic {
+    width: 200px;
   }
 }
-@media screen and (min-width: 1100px){
-
-  .loading-background {
+@media screen and (min-width: 1000px) {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    
-    .number {
-      margin-left: -185%;
-      margin-bottom: -2%;
-      margin-top: 5%;
-    }
-    .smile-form {
-      opacity: 1;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 44px;
-      margin-top: 1%;
-      width: 10%;
-      // margin-bottom: 6%;
-      color: #ffffff;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 2.2rem;
-      line-height: 19px;
-      margin-left: 15%;
-      margin-top: 3%;
-
-      color: #ffffff;
-      width: 50%;
-    }
-  
-    .first{
-  position: absolute;
-  margin-top: 30px;
-  width: 510px;
-  height: 49px;
-  left: 140px;
-  top: 280px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 49px;
-
-    color: #453C38;
-  
-  .back{
+  }
+  .backk .loading-background .number {
+    margin-left: -185%;
+    margin-bottom: -2%;
+    margin-top: 3%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 1;
+    margin-left: 70%;
+    font-size: 44px;
+    margin-top: 1%;
+    width: 10%;
+    color: #ffffff;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 19px;
+    margin-left: 15%;
+    margin-top: 3%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .first {
+    position: absolute;
+    width: 510px;
+    height: 49px;
+    left: 140px;
+    top: 280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 49px;
+    color: #453c38;
+  }
+  .backk .loading-background .first .back {
     display: none;
   }
-  .backk{
+  .backk .loading-background .first .backk {
     position: absolute;
     margin-top: 11%;
     margin-left: 4%;
   }
-  .deckName-add{
-    // top: 100px;
-    // position: absolute;
-    color: #453C38;
-    // margin-bottom: -40%;
-    // margin-top: 100px;
+  .backk .loading-background .first .deckName-add {
+    position: absolute;
+    color: #453c38;
+    margin-top: 9%;
     margin-left: 9%;
   }
-}
-.studied {
-  margin-left: 80%;
-  margin-bottom: 1%;
-  ​ .mastereddd{
+  .backk .loading-background .studied {
+    margin-left: 80%;
+    margin-bottom: 1%;
+  }
+  .backk .loading-background .studied .mastereddd {
     color: #ffffff;
   }
-    .numberrr {
-      font-size: 12rem;
-      opacity: 0.4;
-      line-height: normal;
-      position: absolute;
-      right: 4rem;
-      top: 5rem;
-      color: #ffffff;
-    }
-  // .text {
-  //   display: flex;
-  //   justify-content: space-between;
-    .mastered-text{
-      position: absolute;
-      right: 9rem;
-      font-size: 2rem;
-      color: #ffffff;
-      top: 16rem;
-    }
-  // }
-}
-.studystuff{
-  display: flex;
-  margin-top: 30%;
-  width: 98px;
-  height: 433px;
-  right: 136px;
-  top: 574px;
-  margin-bottom: 30%;
-  .studywords{
-
-    .bigStudy{
-      width: 1100%;
-      // height: 75px;
-      margin-left: 50%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 54px;
-      line-height: 75px;
-      color: #F66E00;
-    
-    }
-    .other{
-      // width: 3746px;
-      // height: 49px;
-      width: 1100%;
-      margin-top: 10%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 32px;
-      line-height: 49px;
-      color: #F66E00;
-      margin-left: 65%;
-    }
+  .backk .loading-background .studied .numberrr {
+    font-size: 12rem;
+    opacity: 0.4;
+    line-height: normal;
+    position: absolute;
+    right: 4rem;
+    top: 5rem;
+    color: #ffffff;
   }
-
-  .note{
-   margin-left: -20%;
-   margin-right: 85%;
+  .backk .loading-background .studied .mastered-text {
+    position: absolute;
+    right: 9rem;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  .backk .cardForm .deckInfo {
+    font-size: 40px;
+    margin-top: 5%;
+  }
+  .backk .page {
+    margin: 1rem 12rem;
+  }
+  .backk .page .inputHolders {
+    display: flex;
+  }
+  .backk .page .inputHolders .iconHolder {
+    margin-left: 20%;
+    width: 100%;
+  }
+  .backk .page .tagHolder {
+    margin-top: 10%;
+    margin-left: 47%;
+  }
+  .backk .flashcards {
+    font-size: 40px;
+    margin-top: 10%;
+  }
+  .backk .new {
+    font-size: 34px;
+  }
+  .backk .cardFormBottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .backk .cardFormBottom .card {
+    width: 39%;
+    height: 220px;
+    padding-right: 2%;
+  }
+  .backk .cardFormBottom .card .removeHolder {
+    margin-left: -22%;
+  }
+  .backk .cardFormBottom .card .frontLabel {
+    margin-left: -17%;
+  }
+  .backk .cardFormBottom .card .backLabel {
+    margin-left: -17%;
+  }
+  .backk .cardFormBottom .buttonHolders {
+    display: flex;
+    flex-direction: column;
+    margin-top: -24%;
+    margin-left: 50%;
+    width: 40%;
+  }
+  .backk .cardFormBottom .buttonHolders .add {
+    width: 100%;
+    margin-bottom: 4%;
+    margin-left: 11%;
+  }
+  .backk .cardFormBottom .buttonHolders .save {
+    width: 100%;
+  }
+  .backk .cardFormBottom .created {
+    font-size: 34px;
+    margin-top: 66%;
+    margin-left: -110%;
+  }
+  .backk .studystuff {
+    display: flex;
+    margin-top: 30%;
+    width: 98px;
+    height: 433px;
+    right: 236px;
+    top: 574px;
+    margin-bottom: 30%;
+  }
+  .backk .studystuff .studywords .bigStudy {
+    width: 1100%;
+    margin-left: 50%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: #f66e00;
+  }
+  .backk .studystuff .studywords .other {
+    width: 1100%;
+    margin-top: 10%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 49px;
+    color: #f66e00;
+    margin-left: 65%;
+  }
+  .backk .studystuff .note {
+    margin-left: -20%;
+    margin-right: 85%;
     width: 290.4px;
     height: 248px;
     margin-top: 180%;
-    .notebook{
-      width: 200px;
-    }
-  };
-  .grad {
+  }
+  .backk .studystuff .note .notebook {
+    width: 200px;
+  }
+  .backk .studystuff .grad {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 494.8px;
     top: 1859px;
     margin-right: 85%;
-    .gradpic{
-      width: 200px;
-    }
-  };
-  .aud{
+  }
+  .backk .studystuff .grad .gradpic {
+    width: 200px;
+  }
+  .backk .studystuff .aud {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 833.6px;
     top: 1859px;
-    .audpic{
-      width: 200px;
-    }
+  }
+  .backk .studystuff .aud .audpic {
+    width: 200px;
   }
 }
-}
-
-}
-@media screen and (min-width: 1200px){
-
-  .loading-background {
+@media screen and (min-width: 1100px) {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    
-    .number {
-      margin-left: -185%;
-      margin-bottom: -2%;
-      margin-top: 5%;
-    }
-    .smile-form {
-      opacity: 1;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 44px;
-      margin-top: 1%;
-      width: 10%;
-      // margin-bottom: 6%;
-      color: #ffffff;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 2.2rem;
-      line-height: 19px;
-      margin-left: 15%;
-      margin-top: 3%;
-
-      color: #ffffff;
-      width: 50%;
-    }
-  
-    .first{
+  }
+  .backk .loading-background .number {
+    margin-left: -185%;
+    margin-bottom: -2%;
+    margin-top: 5%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 1;
+    margin-left: 70%;
+    font-size: 44px;
+    margin-top: 1%;
+    width: 10%;
+    color: #ffffff;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 19px;
+    margin-left: 15%;
+    margin-top: 3%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .first {
+    position: absolute;
+    margin-top: 30px;
+    width: 510px;
+    height: 49px;
+    left: 140px;
+    top: 280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 49px;
+    color: #453c38;
+  }
+  .backk .loading-background .first .back {
+    display: none;
+  }
+  .backk .loading-background .first .backk {
+    position: absolute;
+    margin-top: 11%;
+    margin-left: 4%;
+  }
+  .backk .loading-background .first .deckName-add {
+    color: #453c38;
+    margin-left: 9%;
+  }
+  .backk .loading-background .studied {
+    margin-left: 80%;
+    margin-bottom: 1%;
+  }
+  .backk .loading-background .studied .mastereddd {
+    color: #ffffff;
+  }
+  .backk .loading-background .studied .numberrr {
+    font-size: 12rem;
+    opacity: 0.4;
+    line-height: normal;
+    position: absolute;
+    right: 4rem;
+    top: 5rem;
+    color: #ffffff;
+  }
+  .backk .loading-background .studied .mastered-text {
+    position: absolute;
+    right: 9rem;
+    font-size: 2rem;
+    color: #ffffff;
+    top: 16rem;
+  }
+  .backk .loading-background .studystuff {
+    display: flex;
+    margin-top: 30%;
+    width: 98px;
+    height: 433px;
+    right: 136px;
+    top: 574px;
+    margin-bottom: 30%;
+  }
+  .backk .loading-background .studystuff .studywords .bigStudy {
+    width: 1100%;
+    margin-left: 50%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: #f66e00;
+  }
+  .backk .loading-background .studystuff .studywords .other {
+    width: 1100%;
+    margin-top: 10%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 49px;
+    color: #f66e00;
+    margin-left: 65%;
+  }
+  .backk .loading-background .studystuff .note {
+    margin-left: -20%;
+    margin-right: 85%;
+    width: 290.4px;
+    height: 248px;
+    margin-top: 180%;
+  }
+  .backk .loading-background .studystuff .note .notebook {
+    width: 200px;
+  }
+  .backk .loading-background .studystuff .grad {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 494.8px;
+    top: 1859px;
+    margin-right: 85%;
+  }
+  .backk .loading-background .studystuff .grad .gradpic {
+    width: 200px;
+  }
+  .backk .loading-background .studystuff .aud {
+    margin-top: 180%;
+    width: 290.4px;
+    height: 248px;
+    left: 833.6px;
+    top: 1859px;
+  }
+  .backk .loading-background .studystuff .aud .audpic {
+    width: 200px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .backk .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
+    padding-bottom: 4%;
+    margin-bottom: 10%;
+    padding-top: 2%;
+    margin-top: -1%;
+  }
+  .backk .loading-background .number {
+    margin-left: -185%;
+    margin-bottom: -2%;
+    margin-top: 5%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 1;
+    margin-left: 70%;
+    font-size: 44px;
+    margin-top: 1%;
+    width: 10%;
+    color: #ffffff;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 19px;
+    margin-left: 15%;
+    margin-top: 3%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .first {
     margin-top: 30px;
     position: absolute;
     width: 510px;
@@ -1401,628 +1230,772 @@ font-size: 34px;
     font-weight: normal;
     font-size: 22px;
     line-height: 49px;
-    color: #453C38;
-  
-  .back{
+    color: #453c38;
+  }
+  .backk .loading-background .first .back {
     display: none;
   }
-  .backk{
+  .backk .loading-background .first .backk {
     position: absolute;
     margin-top: 11%;
     margin-left: 4%;
   }
-  .deckName-add{
+  .backk .loading-background .first .deckName-add {
     position: absolute;
-    color: #453C38;
-    // margin-bottom: -40%;
+    color: #453c38;
     margin-top: 9%;
     margin-left: 9%;
   }
-}
-.studied {
-  margin-left: 80%;
-  margin-bottom: 1%;
-  ​ .mastereddd{
+  .backk .loading-background .studied {
+    margin-left: 80%;
+    margin-bottom: 1%;
+  }
+  .backk .loading-background .studied .mastereddd {
     color: #ffffff;
   }
-    .numberrr {
-      font-size: 12rem;
-      opacity: 0.4;
-      line-height: normal;
-      position: absolute;
-      right: 4rem;
-      top: 5rem;
-      color: #ffffff;
-    }
-  // .text {
-  //   display: flex;
-  //   justify-content: space-between;
-    .mastered-text{
-      position: absolute;
-      right: 9rem;
-      font-size: 2rem;
-      color: #ffffff;
-      top: 16rem;
-    }
-  // }
-}
-}
-.studystuff{
-  display: flex;
-  margin-top: 30%;
-  width: 98px;
-  height: 433px;
-  right: 136px;
-  top: 574px;
-  margin-bottom: 30%;
-  .studywords{
-
-    .bigStudy{
-      width: 1100%;
-      // height: 75px;
-      margin-left: 70%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 54px;
-      line-height: 75px;
-      color: #F66E00;
-    
-    }
-    .other{
-      // width: 3746px;
-      // height: 49px;
-      width: 1100%;
-      margin-top: 10%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 32px;
-      line-height: 49px;
-      color: #F66E00;
-      margin-left: 85%;
-    }
+  .backk .loading-background .studied .numberrr {
+    font-size: 12rem;
+    opacity: 0.4;
+    line-height: normal;
+    position: absolute;
+    right: 4rem;
+    top: 5rem;
+    color: #ffffff;
   }
-
-  .note{
-   margin-left: 40%;
-   margin-right: 85%;
+  .backk .loading-background .studied .mastered-text {
+    position: absolute;
+    right: 9rem;
+    font-size: 2rem;
+    color: #ffffff;
+    top: 16rem;
+  }
+  .backk .studystuff {
+    display: flex;
+    margin-top: 30%;
+    width: 98px;
+    height: 433px;
+    right: 136px;
+    top: 574px;
+    margin-bottom: 30%;
+  }
+  .backk .studystuff .studywords .bigStudy {
+    width: 1100%;
+    margin-left: 70%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: #f66e00;
+  }
+  .backk .studystuff .studywords .other {
+    width: 1100%;
+    margin-top: 10%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 49px;
+    color: #f66e00;
+    margin-left: 85%;
+  }
+  .backk .studystuff .note {
+    margin-left: 40%;
+    margin-right: 85%;
     width: 290.4px;
     height: 248px;
     margin-top: 180%;
-    .notebook{
-      width: 200px;
-    }
-  };
-  .grad {
+  }
+  .backk .studystuff .note .notebook {
+    width: 200px;
+  }
+  .backk .studystuff .grad {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 494.8px;
     top: 1859px;
     margin-right: 85%;
-    .gradpic{
-      width: 200px;
-    }
-  };
-  .aud{
+  }
+  .backk .studystuff .grad .gradpic {
+    width: 200px;
+  }
+  .backk .studystuff .aud {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 833.6px;
     top: 1859px;
-    .audpic{
-      width: 200px;
-    }
+  }
+  .backk .studystuff .aud .audpic {
+    width: 200px;
   }
 }
-}
-
 @media screen and (min-width: 1300px) {
-  .loading-background {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    
-    .number {
-      margin-left: -185%;
-      margin-bottom: -2%;
-      margin-top: 3%;
-    }
-    .smile-form {
-      opacity: 1;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 44px;
-      margin-top: 1%;
-      width: 10%;
-      // margin-bottom: 6%;
-      color: #ffffff;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 2.2rem;
-      line-height: 19px;
-      margin-left: 15%;
-      margin-top: 3%;
-
-      color: #ffffff;
-      width: 50%;
-    }
-  
-    .first{
-  position: absolute;
-  width: 510px;
-  height: 49px;
-  left: 140px;
-  top: 280px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 49px;
-
-    color: #453C38;
-  
-  .back{
+  }
+  .backk .loading-background .number {
+    margin-left: -185%;
+    margin-bottom: -2%;
+    margin-top: 3%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 1;
+    margin-left: 70%;
+    font-size: 44px;
+    margin-top: 1%;
+    width: 10%;
+    color: #ffffff;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 19px;
+    margin-left: 15%;
+    margin-top: 3%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .first {
+    position: absolute;
+    width: 510px;
+    height: 49px;
+    left: 140px;
+    top: 280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 49px;
+    color: #453c38;
+  }
+  .backk .loading-background .first .back {
     display: none;
   }
-  .backk{
+  .backk .loading-background .first .backk {
     position: absolute;
     margin-top: 11%;
     margin-left: 4%;
   }
-  .deckName-add{
+  .backk .loading-background .first .deckName-add {
     position: absolute;
-    color: #453C38;
-    // margin-bottom: -40%;
+    color: #453c38;
     margin-top: 9%;
     margin-left: 9%;
   }
-}
-.studied {
-  margin-left: 80%;
-  margin-bottom: 1%;
-  ​ .mastereddd{
+  .backk .loading-background .studied {
+    margin-left: 80%;
+    margin-bottom: 1%;
+  }
+  .backk .loading-background .studied .mastereddd {
     color: #ffffff;
   }
-    .numberrr {
-      font-size: 12rem;
-      opacity: 0.4;
-      line-height: normal;
-      position: absolute;
-      right: 4rem;
-      top: 5rem;
-      color: #ffffff;
-    }
-  // .text {
-  //   display: flex;
-  //   justify-content: space-between;
-    .mastered-text{
-      position: absolute;
-      right: 9rem;
-      font-size: 2rem;
-      color: #ffffff;
-    }
-  // }
-}
-}
-.studystuff{
-  display: flex;
-  margin-top: 30%;
-  width: 98px;
-  height: 433px;
-  right: 236px;
-  top: 574px;
-  margin-bottom: 30%;
-  .studywords{
-
-    .bigStudy{
-      width: 1100%;
-      // height: 75px;
-      margin-left: 80%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 54px;
-      line-height: 75px;
-      color: #F66E00;
-    
-    }
-    .other{
-      // width: 3746px;
-      // height: 49px;
-      width: 1100%;
-      margin-top: 10%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 32px;
-      line-height: 49px;
-      color: #F66E00;
-      margin-left: 95%;
-    }
+  .backk .loading-background .studied .numberrr {
+    font-size: 12rem;
+    opacity: 0.4;
+    line-height: normal;
+    position: absolute;
+    right: 4rem;
+    top: 5rem;
+    color: #ffffff;
   }
-
-  .note{
-   margin-left: 60%;
-   margin-right: 85%;
+  .backk .loading-background .studied .mastered-text {
+    position: absolute;
+    right: 9rem;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  .backk .studystuff {
+    display: flex;
+    margin-top: 30%;
+    width: 98px;
+    height: 433px;
+    right: 236px;
+    top: 574px;
+    margin-bottom: 30%;
+  }
+  .backk .studystuff .studywords .bigStudy {
+    width: 1100%;
+    margin-left: 80%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: #f66e00;
+  }
+  .backk .studystuff .studywords .other {
+    width: 1100%;
+    margin-top: 10%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 49px;
+    color: #f66e00;
+    margin-left: 95%;
+  }
+  .backk .studystuff .note {
+    margin-left: 60%;
+    margin-right: 85%;
     width: 290.4px;
     height: 248px;
     margin-top: 180%;
-    .notebook{
-      width: 250px;
-    }
-  };
-  .grad {
+  }
+  .backk .studystuff .note .notebook {
+    width: 250px;
+  }
+  .backk .studystuff .grad {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 494.8px;
     top: 1859px;
     margin-right: 85%;
-    .gradpic{
-      width: 250px;
-    }
-  };
-  .aud{
+  }
+  .backk .studystuff .grad .gradpic {
+    width: 250px;
+  }
+  .backk .studystuff .aud {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 833.6px;
     top: 1859px;
-    .audpic{
-      width: 250px;
-    }
+  }
+  .backk .studystuff .aud .audpic {
+    width: 250px;
   }
 }
-};
+@media screen and (min-width: 1365px) {
+  .flashcards {
+    margin-top: 2% !important;
+    margin-left: 5%;
+  }
+  .page {
+    margin: 0 auto;
+  }
+  .loading-background {
+    margin-top: -.1%;
 
+    .first {
+
+      h1 {
+        margin-left: 1%;
+      }
+    }
+
+    .number {
+      padding-left: 1%;
+      width: 10%;
+    }
+  }
+
+  .page {
+
+    .form {
+
+      .deckInfo {
+        margin-left: 2%;
+      }
+
+      .cardForm {
+
+        .deck-input-wrapper {
+          width: 60%;
+
+          .iconHolder {
+
+            .MuiFormControl-root {
+              width: 71%;
+            }
+
+            .deck-icon-input {
+              width: 75%;
+            }
+
+            .create-edit {
+              width: 24%;
+              padding: 0;
+            }
+          }
+        }
+
+        .radio-wrapper {
+          width: 25%;
+          justify-content: flex-start;
+
+          label {
+            margin-left: 5%;
+            width: 20%;
+          }
+        }
+
+        .radio-wrapper:nth-child(2) {
+          margin-left: 10%;
+        }
+      }
+    }
+  
+    .cardFormBottom {
+
+      .card {
+
+        textarea {
+          font-size: 2rem;
+          height: 8rem;
+        }
+
+        label {
+          font-size: 1.5rem;
+          margin: 5px;
+        }
+      }
+      
+      .card:first-child {
+        width: 40%;
+      }
+
+      .buttonHolders {
+
+        button {
+          padding: 10px;
+        }
+
+        .created {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  .flashcards {
+    margin: 10% auto;
+    margin-bottom: 0;
+    font-size: 2rem;
+  }
+
+  .new {
+    font-size: 1.2rem;
+  }
+
+  .top {
+    min-height: 0;
+  }
+}
 @media screen and (min-width: 1400px) {
-  .loading-background {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    
-    .number {
-      margin-left: -185%;
-      margin-bottom: -2%;
-      margin-top: 3%;
-    }
-    .smile-form {
-      opacity: 1;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 44px;
-      margin-top: 1%;
-      width: 10%;
-      // margin-bottom: 6%;
-      color: #ffffff;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 2.2rem;
-      line-height: 19px;
-      margin-left: 15%;
-      margin-top: 3%;
-
-      color: #ffffff;
-      width: 50%;
-    }
-  
-    .first{
-  position: absolute;
-  width: 510px;
-  height: 49px;
-  left: 140px;
-  top: 280px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 49px;
-
-    color: #453C38;
-  
-  .back{
+  }
+  .backk .loading-background .number {
+    margin-left: -185%;
+    margin-bottom: -2%;
+    margin-top: 3%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 1;
+    margin-left: 70%;
+    font-size: 44px;
+    margin-top: 1%;
+    width: 10%;
+    color: #ffffff;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 19px;
+    margin-left: 15%;
+    margin-top: 3%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .first {
+    position: absolute;
+    width: 510px;
+    height: 49px;
+    left: 140px;
+    top: 280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 49px;
+    color: #453c38;
+  }
+  .backk .loading-background .first .back {
     display: none;
   }
-  .backk{
+  .backk .loading-background .first .backk {
     position: absolute;
     margin-top: 11%;
     margin-left: 4%;
   }
-  .deckName-add{
+  .backk .loading-background .first .deckName-add {
     position: absolute;
-    color: #453C38;
-    // margin-bottom: -40%;
+    color: #453c38;
     margin-top: 9%;
     margin-left: 9%;
   }
-}
-.studied {
-  margin-left: 80%;
-  margin-bottom: 1%;
-  ​ .mastereddd{
+  .backk .loading-background .studied {
+    margin-left: 80%;
+    margin-bottom: 1%;
+  }
+  .backk .loading-background .studied .mastereddd {
     color: #ffffff;
   }
-    .numberrr {
-      font-size: 12rem;
-      opacity: 0.4;
-      line-height: normal;
-      position: absolute;
-      right: 4rem;
-      top: 5rem;
-      color: #ffffff;
-    }
-  // .text {
-  //   display: flex;
-  //   justify-content: space-between;
-    .mastered-text{
-      position: absolute;
-      right: 9rem;
-      font-size: 2rem;
-      color: #ffffff;
-    }
-  // }
-}
-}
-.studystuff{
-  display: flex;
-  margin-top: 30%;
-  width: 98px;
-  height: 433px;
-  right: 236px;
-  top: 574px;
-  margin-bottom: 30%;
-  .studywords{
-
-    .bigStudy{
-      width: 1100%;
-      // height: 75px;
-      margin-left: 80%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 54px;
-      line-height: 75px;
-      color: #F66E00;
-    
-    }
-    .other{
-      // width: 3746px;
-      // height: 49px;
-      width: 1100%;
-      margin-top: 10%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 32px;
-      line-height: 49px;
-      color: #F66E00;
-      margin-left: 95%;
-    }
+  .backk .loading-background .studied .numberrr {
+    font-size: 12rem;
+    opacity: 0.4;
+    line-height: normal;
+    position: absolute;
+    right: 4rem;
+    top: 5rem;
+    color: #ffffff;
   }
-
-  .note{
-   margin-left: 60%;
-   margin-right: 85%;
+  .backk .loading-background .studied .mastered-text {
+    position: absolute;
+    right: 9rem;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  .backk .studystuff {
+    display: flex;
+    margin-top: 30%;
+    width: 98px;
+    height: 433px;
+    right: 236px;
+    top: 574px;
+    margin-bottom: 30%;
+  }
+  .backk .studystuff .studywords .bigStudy {
+    width: 1100%;
+    margin-left: 80%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: #f66e00;
+  }
+  .backk .studystuff .studywords .other {
+    width: 1100%;
+    margin-top: 10%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 49px;
+    color: #f66e00;
+    margin-left: 95%;
+  }
+  .backk .studystuff .note {
+    margin-left: 60%;
+    margin-right: 85%;
     width: 290.4px;
     height: 248px;
     margin-top: 180%;
-    .notebook{
-      width: 250px;
-    }
-  };
-  .grad {
+  }
+  .backk .studystuff .note .notebook {
+    width: 250px;
+  }
+  .backk .studystuff .grad {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 494.8px;
     top: 1859px;
     margin-right: 85%;
-    .gradpic{
-      width: 250px;
-    }
-  };
-  .aud{
+  }
+  .backk .studystuff .grad .gradpic {
+    width: 250px;
+  }
+  .backk .studystuff .aud {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 833.6px;
     top: 1859px;
-    .audpic{
-      width: 250px;
-    }
+  }
+  .backk .studystuff .aud .audpic {
+    width: 250px;
   }
 }
-}; 
-
-@media screen and (min-width: 1700px) {
-  .loading-background {
+@media screen and (min-width: 1535px) and (max-height: 864px) {
+  .backk .loading-background {
     background: #f66e00;
     max-width: 100vw;
-    // margin-top: -4%;
+    margin-top: -1%;
+    padding-bottom: 0;
+  }
+  .backk .loading-background .number {
+    margin: 0;
+    position: relative;
+    padding: 0 1%;
+    padding-top: 0;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  .backk .loading-background .number .smile-form {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.5;
+    font-size: 72px;
+    margin: 0;
+    color: #fff;
+  }
+  .backk .loading-background .number .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    color: #fff;
+    margin: 0;
+  }
+  .backk .loading-background .first {
+    position: static;
+    width: 370px;
+    height: 49px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    color: #453c38;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3%;
+  }
+  .backk .loading-background .first .back {
+    display: none;
+  }
+  .backk .loading-background .first .backk {
+    position: static;
+    margin: 0;
+  }
+  .backk .loading-background .first .deckName-add {
+    position: static;
+    color: white;
+    margin: 0;
+  }
+  .backk .cardFormBottom .card:first-child {
+    margin-top: 0;
+  }
+  .backk .cardFormBottom .buttonHolders .add, .backk .cardFormBottom .buttonHolders .save {
+    margin: 0;
+    margin-top: 3%;
+  }
+  .backk .page .inputHolders {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+  .backk .page .inputHolders .iconHolder {
+    margin-left: 0;
+  }
+  .backk .page .tagHolder {
+    margin: 0;
+    margin-left: 1%;
+  }
+  .backk .top {
+    min-height: auto;
+  }
+  .backk .new {
+    margin: 1% 5.2%;
+    margin-bottom: 5%;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .backk .loading-background {
+    background: #f66e00;
+    max-width: 100vw;
     padding-bottom: 4%;
     margin-bottom: 10%;
     padding-top: 2%;
     margin-top: -1%;
-    
-    .number {
-      margin-left: -185%;
-      margin-bottom: -2%;
-      margin-top: 3%;
-    }
-    .smile-form {
-      opacity: 1;
-      margin-left: 70%;
-      // margin-top: -60%;
-      font-size: 44px;
-      margin-top: 1%;
-      width: 10%;
-      // margin-bottom: 6%;
-      color: #ffffff;
-    }
-    .mastered {
-      // display: flex;
-      // justify-content: flex-end;
-      font-family: Roboto Condensed;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 2.2rem;
-      line-height: 19px;
-      margin-left: 15%;
-      margin-top: 3%;
-
-      color: #ffffff;
-      width: 50%;
-    }
-  
-    .first{
-  position: absolute;
-  width: 510px;
-  height: 49px;
-  left: 140px;
-  top: 280px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 49px;
-
-    color: #453C38;
-  
-  .back{
+  }
+  .backk .loading-background .number {
+    margin-left: -185%;
+    margin-bottom: -2%;
+    margin-top: 3%;
+  }
+  .backk .loading-background .smile-form {
+    opacity: 1;
+    margin-left: 70%;
+    font-size: 44px;
+    margin-top: 1%;
+    width: 10%;
+    color: #ffffff;
+  }
+  .backk .loading-background .mastered {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 19px;
+    margin-left: 15%;
+    margin-top: 3%;
+    color: #ffffff;
+    width: 50%;
+  }
+  .backk .loading-background .first {
+    position: absolute;
+    width: 510px;
+    height: 49px;
+    left: 140px;
+    top: 280px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 49px;
+    color: #453c38;
+  }
+  .backk .loading-background .first .back {
     display: none;
   }
-  .backk{
+  .backk .loading-background .first .backk {
     position: absolute;
     margin-top: 16%;
     margin-left: 4%;
   }
-  .deckName-add{
+  .backk .loading-background .first .deckName-add {
     position: absolute;
-    color: #453C38;
-    // margin-bottom: -40%;
+    color: #453c38;
     margin-top: 15%;
     margin-left: 9%;
   }
-}
-.studied {
-  margin-left: 80%;
-  margin-bottom: 1%;
-  ​ .mastereddd{
+  .backk .loading-background .studied {
+    margin-left: 80%;
+    margin-bottom: 1%;
+  }
+  .backk .loading-background .studied .mastereddd {
     color: #ffffff;
   }
-    .numberrr {
-      font-size: 12rem;
-      opacity: 0.4;
-      line-height: normal;
-      position: absolute;
-      right: 4rem;
-      top: 5rem;
-      color: #ffffff;
-    }
-  // .text {
-  //   display: flex;
-  //   justify-content: space-between;
-    .mastered-text{
-      position: absolute;
-      right: 9rem;
-      font-size: 2rem;
-      color: #ffffff;
-    }
-  // }
-}
-}
-.studystuff{
-  display: flex;
-  margin-top: 30%;
-  width: 98px;
-  height: 433px;
-  right: 236px;
-  top: 574px;
-  margin-bottom: 30%;
-  .studywords{
-
-    .bigStudy{
-      width: 1100%;
-      // height: 75px;
-      margin-left: 80%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 54px;
-      line-height: 75px;
-      color: #F66E00;
-    
-    }
-    .other{
-      // width: 3746px;
-      // height: 49px;
-      width: 1100%;
-      margin-top: 10%;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 32px;
-      line-height: 49px;
-      color: #F66E00;
-      margin-left: 95%;
-    }
+  .backk .loading-background .studied .numberrr {
+    font-size: 12rem;
+    opacity: 0.4;
+    line-height: normal;
+    position: absolute;
+    right: 4rem;
+    top: 5rem;
+    color: #ffffff;
   }
-
-  .note{
-   margin-left: 60%;
-   margin-right: 85%;
+  .backk .loading-background .studied .mastered-text {
+    position: absolute;
+    right: 9rem;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  .backk .studystuff {
+    display: flex;
+    margin-top: 30%;
+    width: 98px;
+    height: 433px;
+    right: 236px;
+    top: 574px;
+    margin-bottom: 30%;
+  }
+  .backk .studystuff .studywords .bigStudy {
+    width: 1100%;
+    margin-left: 80%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: #f66e00;
+  }
+  .backk .studystuff .studywords .other {
+    width: 1100%;
+    margin-top: 10%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 49px;
+    color: #f66e00;
+    margin-left: 95%;
+  }
+  .backk .studystuff .note {
+    margin-left: 60%;
+    margin-right: 85%;
     width: 290.4px;
     height: 248px;
     margin-top: 180%;
-    .notebook{
-      width: 250px;
-    }
-  };
-  .grad {
+  }
+  .backk .studystuff .note .notebook {
+    width: 250px;
+  }
+  .backk .studystuff .grad {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 494.8px;
     top: 1859px;
     margin-right: 85%;
-    .gradpic{
-      width: 250px;
-    }
-  };
-  .aud{
+  }
+  .backk .studystuff .grad .gradpic {
+    width: 250px;
+  }
+  .backk .studystuff .aud {
     margin-top: 180%;
     width: 290.4px;
     height: 248px;
     left: 833.6px;
     top: 1859px;
-    .audpic{
-      width: 250px;
-    }
+  }
+  .backk .studystuff .aud .audpic {
+    width: 250px;
   }
 }
-}; 
 @media screen and (max-width: 900px) {
-  .studied{
+  .backk .studied {
     display: none;
+  }
+}
+@media screen and (min-width: 1919px) {
+  .page {
+
+    .cardFormBottom {
+
+      .card:first-child {
+        width: 40%;
+        
+        textarea {
+          height: 13rem;
+        }
+      }
+
+      .card {
+        width: 30%;
+        margin: 1.65%;
+        textarea {
+          height: 10rem;
+        }
+      }
+    }
   }
 }
