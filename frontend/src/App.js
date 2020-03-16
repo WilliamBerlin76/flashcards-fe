@@ -2,16 +2,17 @@ import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './hooks/hooks';
 import firebase from 'firebase';
 //import dashNav from './components/dashNav';
-import Burger from './components/Burger';
-import Menu from './components/menu/menu';
-import { theme } from './components/theme';
-import { Route } from 'react-router-dom';
-import FocusLock from 'react-focus-lock';
-import { ThemeProvider } from 'styled-components';
-import Login from './components/login/login.js';
-import Dashboard from './components/dashboard/dashboard';
-import Settings from './components/profileSettings/profileSettings';
-import DashNav from './components/dashNav/dashNav';
+import Burger from "./components/Burger";
+import Menu from "./components/menu/menu";
+import { theme } from "./components/theme";
+import { Route } from "react-router-dom";
+import FocusLock from "react-focus-lock";
+import { ThemeProvider } from "styled-components";
+import Login from "./components/login/login.js";
+import Dashboard from "./components/dashboard/dashboard";
+import Settings from "./components/profileSettings/profileSettings";
+import DashNav from "./components/dashNav/dashNav";
+import SearchDeck from "./components/searchDeck/searchDeck";
 
 //components
 import DeckList from './components/decks/DeckList';
@@ -24,6 +25,7 @@ import ArchiveDecks from './components/archiveDecks/ArchiveDecks';
 import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 import EditCard from './components/cards/EditCard';
 import NewCard from './components/cards/NewCard';
+import DeckImport from './components/decks/DeckImport';
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -48,9 +50,11 @@ firebaseAppId = process.env.REACT_APP_APP_ID;
 const config = {
   apiKey: firebaseApiKey,
   authDomain: firebaseAuthDomain,
-  measurementId: firebaseMeasurementId,
+  databaseURL: firebaseMeasurementId,
   projectId: firebaseProjectId,
-  appId: firebaseAppId
+  appId: firebaseAppId,
+  measurementId: firebaseMeasurementId
+
 };
 firebase.initializeApp(config);
 firebase.analytics();
@@ -90,7 +94,12 @@ function App() {
             />
           </FocusLock>
           {/* //Links here */}
-          <DashNav />
+          <Route path="/" render={props => {
+            return <DashNav {...props}/>
+          }}/>
+          <Route 
+              path="/search" 
+              render={props => <SearchDeck {...props}  />} />
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route

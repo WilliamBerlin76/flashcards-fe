@@ -23,7 +23,6 @@
     }
     animation-name: fadeIn;
     animation-duration: .3s;
-
     .mf-content {
         width: 95%;
         min-height: 95%;
@@ -32,7 +31,6 @@
         position: absolute;
         top: 2.5%;
         padding: 5px;
-
         .mf-close {
             position: absolute;
             top: 5px;
@@ -48,7 +46,6 @@
             background-color: #fff;
             font-weight: bold;
         }
-
         h2 {
             color: #f66e00;
         }

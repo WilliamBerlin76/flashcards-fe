@@ -1,16 +1,22 @@
+// * {
+//   border: 1px solid green;
+// }
+.MuiGrid-container{
+   .MuiGrid-item{
+     margin: 3% auto;
+     margin-bottom: 0;
+   }
+}
 .center { 
   text-align: center; 
 }
-
 input {
   margin: 5%;
   width: 300px;
 }
-
 .category {
   padding: 1rem;
 }
-
 .filter-btn {
   padding: .5rem 2.5rem;
   background-color: #fff;
@@ -20,9 +26,7 @@ input {
   text-decoration: underline;
   margin: 5px auto;
 }
-
 div.center {
-
   input {
     padding: 1.2rem;
     border-radius: 5px;
@@ -30,12 +34,11 @@ div.center {
     text-align: left;
     margin: auto;
     margin-bottom: .5rem;
-
     @media (max-width: 767px) {
       margin: 1rem auto;
     }
+    
   }
-
   button {
     padding: 1rem 2.5rem;
     background-color: #fff;
@@ -45,80 +48,75 @@ div.center {
     width: 70%;
   }
 }
-
 @media screen and (min-width: 767px) {
   .MuiGrid-container {
     .category {
       margin-top: 2%;
-      max-width: 20%;
       border-right: 1px solid #f66e00;
       margin-left: 1%;
     }
-
     h2 {
       color: #f66e00;
     }
-
-    .form {
+    .cody {
       max-width: 79%;
       margin: auto;
       margin-top: 5%;
-
       input {
         width: 60%;
         margin-bottom: 10px;
         margin-right: 1%;
       }
-
       button {
         width: 30%;
       }
-
       .decks-section {
         width: 90%;
       }
     }
   }
+  .MuiGrid-grid-md-1 {
+    min-width: 100%;
+  }
 }
-
 @media screen and (min-width: 1365px) {
   .MuiGrid-container {
     .category {
       border-right: 1px solid #f66e00;
-      max-width: 20%;
-      min-width: 20%;
+      min-width: 100%;
       margin-bottom: 2%;
-
       h2:nth-of-type(2) {
         margin-top: 8%;
       }
+      .MuiGrid-grid-md-1 {
+        min-width: 100%;
+      }
     }
-
-    .form {
+    .cody {
       margin: 3% auto;
       max-width: 79%;
       input {
         width: 40%;
         margin-right: 10px;
       }
-
       button {
         width: 20%;
       }
     }
   }
+  
 }
-
 @media screen and (min-width: 1919px) {
   .MuiGrid-container {
-    .category {
-      min-width: 15%;
-    }
-    .form {
+    .cody {
       min-width: 84%;
       input {
         width: 50%;
       }
     }
   }
+  .MuiGrid-grid-md-1 {
+    min-width: 100%;
+  }
 }
+
