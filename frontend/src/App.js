@@ -51,7 +51,6 @@ firebaseAppId = process.env.REACT_APP_APP_ID;
 const config = {
   apiKey: firebaseApiKey,
   authDomain: firebaseAuthDomain,
-  databaseURL: firebaseMeasurementId,
   projectId: firebaseProjectId,
   appId: firebaseAppId,
   measurementId: firebaseMeasurementId
@@ -59,6 +58,7 @@ const config = {
 };
 firebase.initializeApp(config);
 firebase.analytics();
+export const firestore = firebase.firestore(); 
 
 function App() {
   const [open, setOpen] = useState(false);
