@@ -215,10 +215,6 @@ const DeckForm = props => {
                 </label>
               </div>
               </div>
-              <div className='radio-wrapper'>
-                <label><input type='radio' id='public' name='public-toggle' value='public'/>Public</label>
-                <label><input type='radio' id='private' name='public-toggle' value='private'/>Private</label>
-              </div>
 
               <h3 className="flashcards">Flashcards</h3>
 
