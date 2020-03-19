@@ -12,6 +12,11 @@ import './Cards.scss';
 const Cards = props => {
   const [currentCard, setCurrentCard] = useState(0);
   const [deck, setDeck] = useState([]);
+  const [sessionData, setSessionData] = useState({
+    cardsCorrect: 0,
+    cardsIncorrect: 0,
+    cardsStudied: 0
+  })
 
   useEffect(() => {
     props.getCards(props.match.params.deckName, props.match.params.user);
@@ -26,6 +31,11 @@ const Cards = props => {
   }, [props.deckcards]);
 
   let history = useHistory();
+
+  const incrementCorrectCounters = (counter) => {
+    setSessionData({...sessionData, counter:(counter+1)})
+    console.log('sessionData',sessionData)
+  }
 
   const goNext = () => {
     let index = currentCard;
@@ -94,6 +104,7 @@ const Cards = props => {
             card={deck[currentCard]}
             goNext={goNext}
             goPrev={goPrev}
+            incrementsCounter={incrementCorrectCounters}
           />
         </div>
       </div>
