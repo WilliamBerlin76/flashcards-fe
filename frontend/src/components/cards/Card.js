@@ -120,7 +120,10 @@ class Card extends React.Component {
                     </div>
                 <img className = "point" src = {point} alt = {'finger pointing'} />
             </div>
-            {this.state.flippedOnce ? <><span onClick={this.props.incrementsCounter('cardsCorrect')} >👍</span> <span>👎</span></>: null}
+            {this.state.flippedOnce ? <><span onClick={(e)=>{
+                e.preventDefault();
+                this.props.incrementsCounter('cardsCorrect')
+                }} >👍</span> <span>👎</span></>: null}
             <div className = "button-holder">
                 
                 <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
