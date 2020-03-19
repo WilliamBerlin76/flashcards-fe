@@ -120,9 +120,9 @@ class Card extends React.Component {
                     </div>
                 <img className = "point" src = {point} alt = {'finger pointing'} />
             </div>
-           
+            {this.state.flippedOnce ? <><span>👍</span> <span>👎</span></>: null}
             <div className = "button-holder">
-                {this.state.flippedOnce ? <><button>Thumbs up</button> <button>Thumbs Down</button></>: null}
+                
                 <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
                 <button className = "previous" onClick = {this.handleGoNext}>Next</button>
             </div>
