@@ -27,6 +27,7 @@ import ArchivedDeckView from './components/archivedDeckView/archivedDeckView';
 import EditCard from './components/cards/EditCard';
 import NewCard from './components/cards/NewCard';
 import DeckImport from './components/decks/DeckImport';
+import UserMetrics from "./components/userMetrics/UserMetrics";
 
 let firebaseApiKey;
 let firebaseAuthDomain;
@@ -155,6 +156,9 @@ function App() {
             path="/editcard/:deckName/newcards"
             render={props => <NewCard {...props} />}
           />
+          <Route path="/stats" render={() => {
+            return <UserMetrics />
+          }} />
           {/* //Switch Here */}
         </div>
       </>

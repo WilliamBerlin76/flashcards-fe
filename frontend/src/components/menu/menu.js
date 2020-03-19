@@ -32,6 +32,11 @@ const Menu = ({ open, ...props }) => {
             Archived Decks
           </Link>
 
+          <Link
+            to='/stats' onClick={props.closeMenu} tabIndex={tabIndex}
+          
+          >Stats</Link>
+
           <Link to='/Preferences' onClick={props.closeMenu} tabIndex={tabIndex}>
             Preferences
           </Link>
