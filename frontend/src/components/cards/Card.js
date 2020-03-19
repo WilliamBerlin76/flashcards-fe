@@ -20,7 +20,8 @@ class Card extends React.Component {
             isFlipped: false,
             flipSpeedBackToFront: 0.001,
             flipSpeedFrontToBack: 0.001,
-            desktopInstructor: true
+            desktopInstructor: true,
+            flippedOnce: false 
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleGoNext = this.handleGoNext.bind(this);
@@ -30,7 +31,8 @@ class Card extends React.Component {
     handleClick(e) {
         e.preventDefault();
         this.setState(prevState => ({
-            isFlipped: !prevState.isFlipped
+            isFlipped: !prevState.isFlipped,
+            flippedOnce: true
         }))
     };
 
@@ -43,7 +45,8 @@ class Card extends React.Component {
     handleGoNext = (e) => {
         e.preventDefault();
         this.setState(prevState => ({
-            isFlipped: false
+            isFlipped: false,
+            flippedOnce: false
         }))
         setTimeout(() => {
             this.props.goNext();
@@ -53,7 +56,8 @@ class Card extends React.Component {
     handleGoPrev = (e) => {
         e.preventDefault();
         this.setState(prevState => ({
-            isFlipped: false
+            isFlipped: false,
+            flippedOnce: false
         }))
         setTimeout(() => {
             this.props.goPrev();
@@ -90,6 +94,7 @@ class Card extends React.Component {
                                 className = "cardstyle-back" 
                                 onClick = {this.handleClick}
                             >{this.props.card.data.back}</button>
+                            
                         </div>
                         
 
@@ -117,6 +122,7 @@ class Card extends React.Component {
             </div>
            
             <div className = "button-holder">
+                {this.state.flippedOnce ? <><button>Thumbs up</button> <button>Thumbs Down</button></>: null}
                 <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
                 <button className = "previous" onClick = {this.handleGoNext}>Next</button>
             </div>
