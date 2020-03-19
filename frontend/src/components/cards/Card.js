@@ -21,7 +21,8 @@ class Card extends React.Component {
             flipSpeedBackToFront: 0.001,
             flipSpeedFrontToBack: 0.001,
             desktopInstructor: true,
-            flippedOnce: false 
+            flippedOnce: false,
+            correct: null 
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleGoNext = this.handleGoNext.bind(this);
@@ -63,6 +64,14 @@ class Card extends React.Component {
             this.props.goPrev();
         }, 200);
     };
+
+    changeCorrect = (val) => {
+        this.setState(prevState => ({
+            correct: val
+            
+        }))
+        console.log(this.state.correct)
+    }; 
     render() {
         if (!this.props.card) {
             return    (       
@@ -120,10 +129,10 @@ class Card extends React.Component {
                     </div>
                 <img className = "point" src = {point} alt = {'finger pointing'} />
             </div>
-            {this.state.flippedOnce ? <><span onClick={(e)=>{
+            {this.state.flippedOnce ? <><button onClick={(e)=>{
                 e.preventDefault();
-                this.props.incrementsCounter('cardsCorrect')
-                }} >👍</span> <span>👎</span></>: null}
+                this.changeCorrect(true)
+                }} >👍</button> <button onClick={(e)=> {e.preventDefault(); this.changeCorrect(false)} }>👎</button></>: null}
             <div className = "button-holder">
                 
                 <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>

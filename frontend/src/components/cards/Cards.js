@@ -32,9 +32,20 @@ const Cards = props => {
 
   let history = useHistory();
 
+  
+
+ const incorrectCounterIncrement = () => {
+   setSessionData({...sessionData, cardsIncorrect: sessionData.cardsIncorrect++})
+ }
+
+
   const incrementcardsCorrect = () => {
     setSessionData({...sessionData, cardsCorrect: sessionData.cardsCorrect++})
     console.log('sessionData',sessionData)
+  }
+
+  const incrementCardsStudies = () => {
+
   }
 
   const goNext = () => {
@@ -105,6 +116,7 @@ const Cards = props => {
             goNext={goNext}
             goPrev={goPrev}
             incrementsCounter={incrementcardsCorrect}
+            incorrectCounter={incorrectCounterIncrement}
           />
         </div>
       </div>
