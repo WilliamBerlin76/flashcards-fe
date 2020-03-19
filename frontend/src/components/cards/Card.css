@@ -19,3 +19,7 @@
 .card.is-flipped {
     transform: rotateY( 180deg );
 } */
+
+button:disabled {
+    opacity: 0.3;
+}

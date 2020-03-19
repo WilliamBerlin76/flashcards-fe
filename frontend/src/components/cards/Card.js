@@ -27,6 +27,8 @@ class Card extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleGoNext = this.handleGoNext.bind(this);
         this.handleGoPrev = this.handleGoPrev.bind(this);
+        this.changeCorrect = this.changeCorrect.bind(this);
+        this.submitCardToSession = this.submitCardToSession.bind(this);
     }
 
     handleClick(e) {
@@ -65,13 +67,32 @@ class Card extends React.Component {
         }, 200);
     };
 
-    changeCorrect = (val) => {
-        this.setState(prevState => ({
-            correct: val
-            
-        }))
-        console.log(this.state.correct)
+    changeCorrect = (e) => {
+        if(e.target.id === "correct") {
+            // this.props.counter("cardsCorrect");
+            this.props.setCardStatus(true);
+            document.getElementById("incorrect").style.border = "none";
+            e.target.style.border = "1px solid orange";
+
+
+        } else {
+            // this.props.counter("cardsIncorrect");
+            this.props.setCardStatus(false);
+            document.getElementById("correct").style.border = "none";
+            e.target.style.border = "1px solid orange";
+        }
     }; 
+
+    submitCardToSession = (e) => {  
+        e.preventDefault();
+        if (this.state.correct) {
+            this.props.incrementsCorrect();
+        } else if (!this.state.correct) {
+            this.props.incrementsIncorrect();
+        } else {return null}
+        this.props.incrementsStudied();        
+    }
+
     render() {
         if (!this.props.card) {
             return    (       
@@ -129,14 +150,11 @@ class Card extends React.Component {
                     </div>
                 <img className = "point" src = {point} alt = {'finger pointing'} />
             </div>
-            {this.state.flippedOnce ? <><button onClick={(e)=>{
-                e.preventDefault();
-                this.changeCorrect(true)
-                }} >👍</button> <button onClick={(e)=> {e.preventDefault(); this.changeCorrect(false)} }>👎</button></>: null}
+            {this.state.flippedOnce ? <><button onClick={this.changeCorrect} id="correct" value="some yay">👍</button> <button onClick={this.changeCorrect} id="incorrect" value="some nay">👎</button></>: null}
             <div className = "button-holder">
                 
-                <button className = "previous" onClick = {this.handleGoPrev}>Previous</button>
-                <button className = "previous" onClick = {this.handleGoNext}>Next</button>
+                {/* <button className = "previous" onClick = {this.handleGoPrev, this.submitCardToSession}>Previous</button> */}
+                {this.props.cardStatus.length === 0 ? <button className = "previous" disabled>Next</button> : <button className = "previous" onClick = {this.handleGoNext}>Next</button>}
             </div>
             
           </div>

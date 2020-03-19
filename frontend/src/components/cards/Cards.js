@@ -17,6 +17,7 @@ const Cards = props => {
     cardsIncorrect: 0,
     cardsStudied: 0
   })
+  const [cardStatus, setCardStatus] = useState("");
 
   useEffect(() => {
     props.getCards(props.match.params.deckName, props.match.params.user);
@@ -39,13 +40,23 @@ const Cards = props => {
  }
 
 
-  const incrementcardsCorrect = () => {
+  const incrementCardsCorrect = () => {
     setSessionData({...sessionData, cardsCorrect: sessionData.cardsCorrect++})
-    console.log('sessionData',sessionData)
+    
+  }
+
+  const counter = (val) => {
+    setSessionData({
+      ...sessionData,
+        [val]: sessionData[val] + 1
+    })
+
+    console.log(sessionData);
   }
 
   const incrementCardsStudies = () => {
-
+    setSessionData({...sessionData, cardsStudied: sessionData.cardsStudied++});
+    console.log('sessionData',sessionData)
   }
 
   const goNext = () => {
@@ -55,6 +66,21 @@ const Cards = props => {
     } else {
       setCurrentCard(index + 1);
     }
+
+    if(cardStatus) {
+      setSessionData({
+        ...sessionData,
+        cardsCorrect: sessionData.cardsCorrect + 1
+      })
+      setCardStatus("");
+    } else {
+      setSessionData({
+        ...sessionData,
+        cardsIncorrect: sessionData.cardsIncorrect + 1
+      })
+      setCardStatus("");
+    }
+    console.log('session',sessionData)
   };
 
   const goPrev = () => {
@@ -115,8 +141,12 @@ const Cards = props => {
             card={deck[currentCard]}
             goNext={goNext}
             goPrev={goPrev}
-            incrementsCounter={incrementcardsCorrect}
-            incorrectCounter={incorrectCounterIncrement}
+            incrementsCorrect={incrementCardsCorrect}
+            incrementsIncorrect={incorrectCounterIncrement}
+            incrementsStudied={incrementCardsStudies}
+            counter={counter}
+            setCardStatus={setCardStatus}
+            cardStatus={cardStatus}
           />
         </div>
       </div>
