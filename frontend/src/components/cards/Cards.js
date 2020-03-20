@@ -118,6 +118,13 @@ const Cards = props => {
           {/* </div> */}
         </div>
 
+        <div className='sessionStats'>
+          <span>Total: {deck.length}</span>
+          <span>Cards Studied: {sessionData.cardsStudied}</span>
+          <span>Correct: {sessionData.cardsCorrect}</span>
+          <span>Incorrect: {sessionData.cardsIncorrect}</span>
+        </div>
+
         <div>
           {props.error && <p>{props.error}</p>}
 
