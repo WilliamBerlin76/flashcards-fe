@@ -13,6 +13,7 @@ const Cards = props => {
   const [currentCard, setCurrentCard] = useState(0);
   const [deck, setDeck] = useState([]);
   const [sessionData, setSessionData] = useState({
+    studyDate: new Date().toDateString(),
     cardsCorrect: 0,
     cardsIncorrect: 0,
     cardsStudied: 0
@@ -33,31 +34,15 @@ const Cards = props => {
 
   let history = useHistory();
 
-  
-
- const incorrectCounterIncrement = () => {
-   setSessionData({...sessionData, cardsIncorrect: sessionData.cardsIncorrect++})
- }
-
-
-  const incrementCardsCorrect = () => {
-    setSessionData({...sessionData, cardsCorrect: sessionData.cardsCorrect++})
-    
-  }
 
   const counter = (val) => {
+    console.log(val)
     setSessionData({
       ...sessionData,
         [val]: sessionData[val] + 1
     })
-
-    console.log(sessionData);
   }
 
-  const incrementCardsStudies = () => {
-    setSessionData({...sessionData, cardsStudied: sessionData.cardsStudied++});
-    console.log('sessionData',sessionData)
-  }
 
   const goNext = () => {
     let index = currentCard;
@@ -66,23 +51,23 @@ const Cards = props => {
     } else {
       setCurrentCard(index + 1);
     }
-
-    if(cardStatus) {
-      setSessionData({
-        ...sessionData,
-        cardsCorrect: sessionData.cardsCorrect + 1
-      })
-      setCardStatus("");
-    } else {
-      setSessionData({
-        ...sessionData,
-        cardsIncorrect: sessionData.cardsIncorrect + 1
-      })
-      setCardStatus("");
-    }
-    console.log('session',sessionData)
-  };
-
+ console.log('session', sessionData)
+  //   if(cardStatus) {
+  //     setSessionData({
+  //       ...sessionData,
+  //       cardsCorrect: sessionData.cardsCorrect + 1
+  //     })
+  //     setCardStatus("");
+  //   } else {
+  //     console.log('else')
+  //     setSessionData({
+  //       ...sessionData,
+  //       cardsIncorrect: sessionData.cardsIncorrect + 1
+  //     })
+  //     setCardStatus("");
+  //     console.log('session', sessionData);
+  //  };
+  }
   const goPrev = () => {
     let index = currentCard;
     if (currentCard <= 0) {
@@ -141,9 +126,6 @@ const Cards = props => {
             card={deck[currentCard]}
             goNext={goNext}
             goPrev={goPrev}
-            incrementsCorrect={incrementCardsCorrect}
-            incrementsIncorrect={incorrectCounterIncrement}
-            incrementsStudied={incrementCardsStudies}
             counter={counter}
             setCardStatus={setCardStatus}
             cardStatus={cardStatus}

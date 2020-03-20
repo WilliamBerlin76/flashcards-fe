@@ -37,6 +37,7 @@ class Card extends React.Component {
             isFlipped: !prevState.isFlipped,
             flippedOnce: true
         }))
+        
     };
 
     handleDeskInstructor = e => {
@@ -45,8 +46,7 @@ class Card extends React.Component {
             desktopInstructor: false
         })
     };
-    handleGoNext = (e) => {
-        e.preventDefault();
+    handleGoNext = () => {
         this.setState(prevState => ({
             isFlipped: false,
             flippedOnce: false
@@ -69,28 +69,35 @@ class Card extends React.Component {
 
     changeCorrect = (e) => {
         if(e.target.id === "correct") {
-            // this.props.counter("cardsCorrect");
-            this.props.setCardStatus(true);
+             this.props.counter("cardsCorrect");
+            // this.props.setCardStatus(true);
+            this.setState(prevState => ({
+                correct: true
+            }))
             document.getElementById("incorrect").style.border = "none";
             e.target.style.border = "1px solid orange";
 
 
         } else {
-            // this.props.counter("cardsIncorrect");
-            this.props.setCardStatus(false);
+            this.props.counter("cardsIncorrect");
+            this.setState(prevState => ({
+                correct: false
+            }))
             document.getElementById("correct").style.border = "none";
             e.target.style.border = "1px solid orange";
         }
     }; 
 
-    submitCardToSession = (e) => {  
-        e.preventDefault();
-        if (this.state.correct) {
-            this.props.incrementsCorrect();
-        } else if (!this.state.correct) {
-            this.props.incrementsIncorrect();
+    submitCardToSession = () => {  
+        
+        if (this.state.correct === true) {
+            console.log(this.state.correct)
+            this.props.counter('cardsCorrect');
+        } else if (this.state.correct === false) {
+            this.props.counter('cardsIncorrect');
         } else {return null}
-        this.props.incrementsStudied();        
+        this.props.counter('cardsStudied');
+        this.setState(prevState=>({correct: null}))        
     }
 
     render() {
@@ -154,13 +161,19 @@ class Card extends React.Component {
             <div className = "button-holder">
                 
                 {/* <button className = "previous" onClick = {this.handleGoPrev, this.submitCardToSession}>Previous</button> */}
-                {this.props.cardStatus.length === 0 ? <button className = "previous" disabled>Next</button> : <button className = "previous" onClick = {this.handleGoNext}>Next</button>}
+                <button className="previous">Finish</button>
+                {this.state.correct === null ? <button className = "previous" disabled>Next</button> : <button className = "previous" onClick={(e)=>{
+                    e.preventDefault();
+                    this.submitCardToSession()
+                    this.handleGoNext() 
+                }}>Next</button>}
             </div>
             
           </div>
         )
     }
 }
+
 };
 
 export default Card;
