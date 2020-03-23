@@ -105,6 +105,7 @@ const Cards = props => {
           <div className='studied-cards-container'>
             <div className='studied-numbers'>
               <h4 className='listCards'>{deck.length}</h4>
+              
               <img className='smile' src={smiley} alt={'a smiling emoji'} />
             </div>
       

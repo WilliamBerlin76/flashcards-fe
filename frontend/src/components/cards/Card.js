@@ -9,7 +9,8 @@ import shinetwo from '../../assets/shinetwo.png';
 import shinethree from '../../assets/shinethree.png';
 import shinefour from '../../assets/shinefour.png';
 import shinefive from '../../assets/shinefive.png';
-
+import like from '../../assets/like.png'
+import dislike from '../../assets/dislike.png'
 import './Cards.scss';
 
 class Card extends React.Component {
@@ -74,8 +75,8 @@ class Card extends React.Component {
             this.setState(prevState => ({
                 correct: true
             }))
-            document.getElementById("incorrect").style.border = "none";
-            e.target.style.border = "1px solid orange";
+            // document.getElementById("incorrect").style.border = "none";
+            // e.target.style.border = "1px solid orange";
 
 
         } else {
@@ -83,8 +84,8 @@ class Card extends React.Component {
             this.setState(prevState => ({
                 correct: false
             }))
-            document.getElementById("correct").style.border = "none";
-            e.target.style.border = "1px solid orange";
+            // document.getElementById("correct").style.border = "none";
+            // e.target.style.border = "1px solid orange";
         }
     }; 
 
@@ -157,10 +158,22 @@ class Card extends React.Component {
                     </div>
                 <img className = "point" src = {point} alt = {'finger pointing'} />
             </div>
-            {this.state.flippedOnce ? <><button onClick={this.changeCorrect} id="correct" value="some yay">👍</button> <button onClick={this.changeCorrect} id="incorrect" value="some nay">👎</button></>: null}
-            <div className = "button-holder">
+
+
+
+
+            <div className="thumbs-container">
+                {this.state.flippedOnce ? <><img  src={like} onClick={this.changeCorrect} id="correct" value="some yay" className="thumbs"/>
                 
+                <img src={dislike} className="thumbs" onClick={this.changeCorrect} id="incorrect" value="some nay"/></>: null  }
+                </div>
+
+
+            <div className = "button-holder">
+              
                 {/* <button className = "previous" onClick = {this.handleGoPrev, this.submitCardToSession}>Previous</button> */}
+
+
                 <button className="previous">Finish</button>
                 {this.state.correct === null ? <button className = "previous" disabled>Next</button> : <button className = "previous" onClick={(e)=>{
                     e.preventDefault();

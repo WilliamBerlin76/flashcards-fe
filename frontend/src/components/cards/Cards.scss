@@ -248,6 +248,33 @@
     }
   }
 
+
+
+.thumbs-container {
+   display: flex; 
+   justify-content: space-evenly; 
+   width: 50%; 
+   align-items: center; 
+ 
+  margin: 0 auto;
+  margin-bottom: 5%;
+
+ img {
+   &:hover {
+     filter: contrast(160%)
+   }
+   
+ }
+
+  .thumbs {
+  // align-self: start; 
+  width: 50px;
+
+  
+  }
+
+}
+
   .button-holder {
     // margin-left: 11%;
     width: 70%;
