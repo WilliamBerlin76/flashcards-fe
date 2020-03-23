@@ -1,4 +1,6 @@
 import React, { useState, Fragment } from 'react';
+import { firestore } from '../../App';
+import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { postDecks } from '../../actions';
 import './DeckForm.scss';
@@ -12,59 +14,54 @@ import { withStyles } from '@material-ui/core/styles';
 // import audio from '../../assets/audio.png';
 import Footer from '../footer/Footer';
 
-
 const OrangeInput = withStyles({
   root: {
-    "& label.Mui-focused": {
-      color: "rgba(106, 92, 85, 0.5)"
+    '& label.Mui-focused': {
+      color: 'rgba(106, 92, 85, 0.5)'
     },
-    "@media (min-width: 1000px)": {
-      width: "50%",
-      fontSize: "12rem"
+    '@media (min-width: 1000px)': {
+      width: '50%',
+      fontSize: '12rem'
     },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "rgba(106, 92, 85, 0.5)"
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'rgba(106, 92, 85, 0.5)'
     }
   }
 })(TextField);
 
 const DeckForm = props => {
-  const [newName, setNewName] = useState("");
-  const [newIcon, setNewIcon] = useState("");
+  const [newName, setNewName] = useState('');
+  const [newIcon, setNewIcon] = useState('');
   const [tags, setTags] = useState([]);
-  const [newDecks, setNewDecks] = useState([{ front: "", back: "" }]);
+  const [newDecks, setNewDecks] = useState([{ front: '', back: '' }]);
+  const [isPublic, setIsPublic] = useState(false);
   // const [currentCard, setCurrentCard] = useState(0)
 
   const handleChanges = (index, event) => {
     const values = [...newDecks];
-
-    if (event.target.name === "front") {
+    if (event.target.name === 'front') {
       values[index].front = event.target.value;
     } else {
       values[index].back = event.target.value;
     }
-
     setNewDecks(values);
   };
 
   const handleName = e => {
     let name = e.target.name;
-
     setNewName({
       ...newName,
       [name]: e.target.value
     });
-    
   };
 
   const handleIcon = e => {
-    let name = e.target.name;
     setNewIcon(e.target.value);
   };
 
   const handleAdd = () => {
     const values = [...newDecks];
-    values.unshift({ front: "", back: "" });
+    values.unshift({ front: '', back: '' });
     setNewDecks(values);
   };
 
@@ -74,6 +71,20 @@ const DeckForm = props => {
     setNewDecks(values);
   };
 
+  const setPublic = e => {
+    let status = e.target.value;
+    if (status === 'public') {
+      setIsPublic(true);
+    }
+  };
+
+  const setPrivate = e => {
+    let status = e.target.value;
+    if (status === 'private') {
+      setIsPublic(false);
+    }
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -81,25 +92,49 @@ const DeckForm = props => {
     const subDeck = newDecks.filter(card => {
       return card.front && card.back;
     });
-    console.log('subDeck in deck form', subDeck)
+    console.log('subDeck in deck form', subDeck);
     if (!newName.deckName) {
       // insures deckname is filled
-      alert("Please add a Deck Name");
+      alert('Please add a Deck Name');
     } else {
-      props.postDecks(subDeck, newName, tags, newIcon);
-      // gives time for firestore to update so that deck shows up in dashboard
-      setTimeout(() => {
-        props.history.push(`/dashboard`);
-      }, 400);
+      if (isPublic === true) {
+        props.postDecks(subDeck, newName, tags, newIcon);
+
+        const postingPublicDeck = () => {
+          const id = firebase.auth().currentUser.uid;
+
+          const decksPublic = firebase.database().ref('PublicDecks');
+          const decks = firebase
+            .database()
+            .ref(`Users/${id}/UserInformation/Decks/${newDecks.deckName}`);
+
+          decks.once('value', snap => {
+            decksPublic.add(snap);
+          });
+        };
+
+        setTimeout(() => {
+          postingPublicDeck();
+          console.log("Hopefully I posted");
+          
+        }, 4000);
+
+        // gives time for firestore to update so that deck shows up in dashboard
+        setTimeout(() => {
+          props.history.push(`/dashboard`);
+        }, 400);
+      } else {
+        props.postDecks(subDeck, newName, tags, newIcon, isPublic);
+      }
     }
   };
 
   const addTags = event => {
     event.preventDefault();
-    if (event.target.value !== "") {
+    if (event.target.value !== '') {
       setTags([...tags, event.target.value]);
       // selectedTags([...tags, event.target.value]);
-      event.target.value = "";
+      event.target.value = '';
     }
     console.log(tags);
   };
@@ -108,8 +143,6 @@ const DeckForm = props => {
     setTags([...tags.filter(tag => tags.indexOf(tag) !== index)]);
     console.log(tags);
   };
-
-  // const selectedTags  =  {tags}
 
   return (
     <div>
@@ -126,30 +159,30 @@ const DeckForm = props => {
         </div> */}
 
       {/* </section> */}
-      <div className='loading-background'>
-        <div className = "first">
-        <img
-          className='backk'
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAaCAYAAACD+r1hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACZSURBVHgBnZTtDUAwFEXLBB3BCEawERuwgRVsYAQjGMEIRrhepZKSftznJPL+nJPGI60MCQDrZkXKjYyNcW9ZngMeJtgRUJJnfMjJIyKk5B4JYnKLDCaykZMK8FlfNpBpGTkMVpA4eYCCWg6wRouEC3tC+NI7HajX+uvDBVGnCnw0qAIfTaogtW5TQpxNG7x+TPU1QwXPSW5eQ3iFPuLAcgAAAAAASUVORK5CYII="
-          alt='back arrow'
-          onClick={() => props.history.goBack()}
-        />
-        <img
-          className='back'
-          src={poly}
-          alt='back arrow'
-          onClick={() => props.history.goBack()}
-        />
+      <div className="loading-background">
+        <div className="first">
+          <img
+            className="backk"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAaCAYAAACD+r1hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACZSURBVHgBnZTtDUAwFEXLBB3BCEawERuwgRVsYAQjGMEIRrhepZKSftznJPL+nJPGI60MCQDrZkXKjYyNcW9ZngMeJtgRUJJnfMjJIyKk5B4JYnKLDCaykZMK8FlfNpBpGTkMVpA4eYCCWg6wRouEC3tC+NI7HajX+uvDBVGnCnw0qAIfTaogtW5TQpxNG7x+TPU1QwXPSW5eQ3iFPuLAcgAAAAAASUVORK5CYII="
+            alt="back arrow"
+            onClick={() => props.history.goBack()}
+          />
+          <img
+            className="back"
+            src={poly}
+            alt="back arrow"
+            onClick={() => props.history.goBack()}
+          />
 
-        <h1 className='deckName-add'>Create New Deck</h1>
+          <h1 className="deckName-add">Create New Deck</h1>
         </div>
         {/* <div className = "rightside"> */}
-        <div className='number'>
-          <h3 className='smile-form'>{newDecks.length}</h3>
-          <h4 className='mastered'>Cards</h4>
+        <div className="number">
+          <h3 className="smile-form">{newDecks.length}</h3>
+          <h4 className="mastered">Cards</h4>
         </div>
-        <div className='studied'>
-{/*           
+        <div className="studied">
+          {/*           
 
             <h1 className='numberrr'>87</h1>
           
@@ -162,64 +195,72 @@ const DeckForm = props => {
       </div>
 
       <div>
-        <div className='page'>
-          <div className='form'>
-            <form className='cardForm'>
-              <p className='deckInfo'>Deck Info</p>
-              <div className='deck-input-wrapper'>
-              <div className='inputHolders'>
-                <OrangeInput
-                  label='Deck Name'
-                  type='text'
-                  onChange={handleName}
-                  name='deckName'
-                  variant='outlined'
-                  className='deck-name-input'
-                  // placeholder = "Deck Name"
-                />
-
-                <div className='iconHolder'>
+        <div className="page">
+          <div className="form">
+            <form className="cardForm">
+              <p className="deckInfo">Deck Info</p>
+              <div className="deck-input-wrapper">
+                <div className="inputHolders">
                   <OrangeInput
-                    label='Icon'
-                    className='iconField'
-                    type='text'
-                    onChange={handleIcon}
-                    name='icon'
-                    variant='outlined'
+                    label="Deck Name"
+                    type="text"
+                    onChange={handleName}
+                    name="deckName"
+                    variant="outlined"
+                    className="deck-name-input"
+                    // placeholder = "Deck Name"
                   />
-                  <button className='create-edit' type='button'>Edit Icon</button>
-                </div>
 
-                <div className="tagHolder">
-                  <Tags tags={tags} addTags={addTags} removeTags={removeTags} />
+                  <div className="iconHolder">
+                    <OrangeInput
+                      label="Icon"
+                      className="iconField"
+                      type="text"
+                      onChange={handleIcon}
+                      name="icon"
+                      variant="outlined"
+                    />
+                    <button className="create-edit" type="button">
+                      Edit Icon
+                    </button>
+                  </div>
+
+                  <div className="tagHolder">
+                    <Tags
+                      tags={tags}
+                      addTags={addTags}
+                      removeTags={removeTags}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="radio-wrapper">
-                <label>
-                  <input
-                    type="radio"
-                    id="public"
-                    name="public-toggle"
-                    value="public"
-                  />
-                  Public
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    id="private"
-                    name="public-toggle"
-                    value="private"
-                  />
-                  Private
-                </label>
-              </div>
+                <div className="radio-wrapper">
+                  <label>
+                    <input
+                      type="radio"
+                      id="public"
+                      name="public-toggle"
+                      value="public"
+                      onChange={setPublic}
+                    />
+                    Public
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      id="private"
+                      name="public-toggle"
+                      value="private"
+                      onChange={setPrivate}
+                    />
+                    Private
+                  </label>
+                </div>
               </div>
 
               <h3 className="flashcards">Flashcards</h3>
 
-<div className='new'>New card</div>
-              <div className='top'>
+              <div className="new">New card</div>
+              <div className="top">
                 {newDecks.forEach((newDeck, index) => (
                   <Fragment key={`${newDeck}~${index}`}>
                     <div className="topCard">
@@ -268,7 +309,6 @@ const DeckForm = props => {
 
           <form onSubmit={handleSubmit} className="cardFormBottom">
             {newDecks.map((newDeck, index) => (
-
               <Fragment key={`${newDeck}~${index}`}>
                 <div className="card">
                   <div className="removeHolder">
@@ -325,7 +365,7 @@ const DeckForm = props => {
                     >
                       Save deck
                     </button>
-                    <div className='created'>Cards in decks</div>
+                    <div className="created">Cards in decks</div>
                   </div>
                 ) : null}
                 {/* <button
