@@ -106,12 +106,18 @@ const Cards = props => {
             <div className='studied-numbers'>
               <h4 className='listCards'>{deck.length}</h4>
               
+              <h4 className='listCards'>0</h4>
+              
+              <h4 className='listCards'>p</h4>
               <img className='smile' src={smiley} alt={'a smiling emoji'} />
-            </div>
-      
+            
+           
+           </div>
             <div className='studied-text'>
               <h5 className='cardsHeader'>Cards</h5>
-              <h4 className='mastered'>Mastered</h4>
+              <h5 className="cardsHeader">Correct</h5>
+              <h5 className="cardsHeader">Incorrect</h5>
+              {/* <h4 className='mastered'>Mastered</h4> */}
             </div>
             {/* <div className = "rightside"> */}
           </div>
