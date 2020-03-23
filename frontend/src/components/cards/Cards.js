@@ -52,21 +52,21 @@ const Cards = props => {
       setCurrentCard(index + 1);
     }
  console.log('session', sessionData)
-  //   if(cardStatus) {
-  //     setSessionData({
-  //       ...sessionData,
-  //       cardsCorrect: sessionData.cardsCorrect + 1
-  //     })
-  //     setCardStatus("");
-  //   } else {
-  //     console.log('else')
-  //     setSessionData({
-  //       ...sessionData,
-  //       cardsIncorrect: sessionData.cardsIncorrect + 1
-  //     })
-  //     setCardStatus("");
-  //     console.log('session', sessionData);
-  //  };
+    if(cardStatus) {
+      setSessionData({
+        ...sessionData,
+        cardsCorrect: sessionData.cardsCorrect + 1
+      })
+      setCardStatus("");
+    } else {
+      console.log('else')
+      setSessionData({
+        ...sessionData,
+        cardsIncorrect: sessionData.cardsIncorrect + 1
+      })
+      setCardStatus("");
+      console.log('session', sessionData);
+   };
   }
   const goPrev = () => {
     let index = currentCard;

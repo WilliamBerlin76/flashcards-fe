@@ -23,7 +23,8 @@ class Card extends React.Component {
             flipSpeedFrontToBack: 0.001,
             desktopInstructor: true,
             flippedOnce: false,
-            correct: null 
+            correct: null
+           
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleGoNext = this.handleGoNext.bind(this);
@@ -48,9 +49,12 @@ class Card extends React.Component {
         })
     };
     handleGoNext = () => {
+        
+
         this.setState(prevState => ({
             isFlipped: false,
-            flippedOnce: false
+            flippedOnce: false,
+
         }))
         setTimeout(() => {
             this.props.goNext();
@@ -69,23 +73,29 @@ class Card extends React.Component {
     };
 
     changeCorrect = (e) => {
+
+       
+
         if(e.target.id === "correct") {
-             this.props.counter("cardsCorrect");
-            // this.props.setCardStatus(true);
+            //  this.props.counter("cardsCorrect");
+            this.props.setCardStatus(true);
             this.setState(prevState => ({
                 correct: true
             }))
-            // document.getElementById("incorrect").style.border = "none";
-            // e.target.style.border = "1px solid orange";
+            document.getElementById("incorrect").style.filter = "none";
+            e.target.style.filter = "invert(30%)";
+            document.getElementById("correct").style.filter = "invert(30%)"
 
 
         } else {
-            this.props.counter("cardsIncorrect");
+            //this.props.counter("cardsIncorrect");
             this.setState(prevState => ({
                 correct: false
             }))
-            // document.getElementById("correct").style.border = "none";
-            // e.target.style.border = "1px solid orange";
+            document.getElementById("correct").style.filter = "none";
+            e.target.style.filter = "invert(30%)";
+             document.getElementById("incorrect").style.filter = "invert(30%)";
+
         }
     }; 
 
