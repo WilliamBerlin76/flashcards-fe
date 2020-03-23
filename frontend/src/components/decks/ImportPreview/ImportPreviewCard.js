@@ -47,7 +47,7 @@ const ImportPreviewCard = props => {
         <div className='container' id={props.id}>
           <div className='cardList'>
             <div className='cardData '>
-              <Segment className='segments'>
+              <Segment>
                 <div className='cardTop'>
                   <Header as='h5' className='headers'>
                    Front
