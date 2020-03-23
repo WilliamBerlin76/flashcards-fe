@@ -169,7 +169,7 @@ class EditTemplate extends React.Component {
         <div className='container'>
           <div className='cardList'>
             <div className='cardData '>
-              <Segment className='segments'>
+              <Segment>
                 <div className='cardTop'>
                   <Header as='h5' className='headers'>
                     Front
