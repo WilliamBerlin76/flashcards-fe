@@ -44,7 +44,7 @@ const Cards = props => {
   };
 
  const finish = () => {
-   if(sessionData.cardsCorrect == 0){
+   if(sessionData.cardsCorrect == 0 && sessionData.cardsIncorrect == 0){
      return null
    } else {
     setShowModule(true)
