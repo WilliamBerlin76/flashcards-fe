@@ -5,10 +5,12 @@ import Loader from 'react-loader-spinner';
 import { getCards } from '../../actions';
 import poly from '../../assets/poly.png';
 // import smiley from '../../assets/smiley.png';
+import ModuleMetric from './MetricModule'
 import { useHistory } from 'react-router-dom';
 import './Cards.scss';
 
 const Cards = props => {
+  const [showModule, setShowModule] = useState(false)
   const [currentCard, setCurrentCard] = useState(0);
   const [deck, setDeck] = useState([]);
   const [sessionData, setSessionData] = useState({
@@ -41,14 +43,22 @@ const Cards = props => {
     });
   };
 
+ const finish = () => {
+   if(sessionData.cardsCorrect == 0){
+     return null
+   } else {
+    setShowModule(true)
+   }
+   
+ }
+
   const goNext = () => {
     let index = currentCard;
     if (currentCard >= deck.length - 1) {
       console.log('test')
       setCurrentCard(0);
      } if(currentCard == deck.length - 1){
-       console.log('in the if 2')
-        history.push('/dashboard')
+        setShowModule(!showModule)
     } else {
       console.log('in the else')
       setCurrentCard(index + 1);
@@ -144,8 +154,10 @@ const Cards = props => {
             counter={counter}
             setCardStatus={setCardStatus}
             cardStatus={cardStatus}
+            finish={finish}
           />
         </div>
+        {showModule ? <ModuleMetric deck={deck} sessionData={sessionData}/>: null}
       </div>
     );
   }

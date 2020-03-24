@@ -183,7 +183,7 @@ class Card extends React.Component {
           <div className="button-holder">
             {/* <button className = "previous" onClick = {this.handleGoPrev, this.submitCardTosession}>Previous</button> */}
 
-            <button className="previous">Finish</button>
+            <button className="previous" onClick={this.props.finish}>Finish</button>
             {this.state.correct === null ? (
               <button className="previous" disabled>
                 Next
