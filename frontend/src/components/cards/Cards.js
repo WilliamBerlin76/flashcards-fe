@@ -44,8 +44,13 @@ const Cards = props => {
   const goNext = () => {
     let index = currentCard;
     if (currentCard >= deck.length - 1) {
+      console.log('test')
       setCurrentCard(0);
+     } if(currentCard == deck.length - 1){
+       console.log('in the if 2')
+        history.push('/dashboard')
     } else {
+      console.log('in the else')
       setCurrentCard(index + 1);
     }
  console.log('session', sessionData)
