@@ -4,9 +4,11 @@ import axios from "axios";
 import firebase from 'firebase'
 
 const UserMetrics = () => {
-
     const [potato, setPotato] = useState("bar");
-    // Rename state!!!
+    const [userData, setUserData] = useState([])
+
+    console.log(userData);
+
 
 
     useEffect(() => {
@@ -16,15 +18,14 @@ const UserMetrics = () => {
             if (user) {
                 // let id = firebase.auth().currentUser.uid;
                 let id = "4fIUocfjIbUFYs46CD0q9QtOdrO2"
-                const d = new Date();
+                const d = new Date().getDay();
 
                 axios
                     .get(
-                        `https://flashcards-be.herokuapp.com/api/metrics/${id}/${7}`
+                        `https://flashcards-be.herokuapp.com/api/metrics/${id}/${d}`
                     )
                     .then(res => {
-                        console.log(res);
-
+                        setUserData(res.data)
                     })
                     .catch(err => {
                         console.log(err);
