@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { bar, Line, Pie, Chart, doughnut, defaults } from 'chart.js';
 import axios from "axios";
+import firebase from 'firebase'
 
 const UserMetrics = () => {
 
@@ -9,7 +10,29 @@ const UserMetrics = () => {
 
 
     useEffect(() => {
-        console.log("testing");
+
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // let id = firebase.auth().currentUser.uid;
+                let id = "4fIUocfjIbUFYs46CD0q9QtOdrO2"
+                const d = new Date();
+
+                axios
+                    .get(
+                        `https://flashcards-be.herokuapp.com/api/metrics/${id}/${7}`
+                    )
+                    .then(res => {
+                        console.log(res);
+
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            } else {
+                return null;
+            }
+        });
 
         let statsChart = document.getElementById("metricChart").getContext("2d");
         let chart = new Chart(statsChart, {
