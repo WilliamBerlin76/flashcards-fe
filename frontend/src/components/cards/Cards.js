@@ -82,6 +82,7 @@ const submitSession = () => {
       console.log('test')
       setCurrentCard(0);
      } if(currentCard == deck.length - 1){
+        submitSession()
         setShowModule(!showModule)
     } else {
       console.log('in the else')
