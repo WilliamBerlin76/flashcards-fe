@@ -7,6 +7,7 @@ const UserMetrics = () => {
     const [potato, setPotato] = useState();
     // Rename state!!!
     
+    
     useEffect(() => {
         let statsChart = document.getElementById("metricChart").getContext("2d");
         let chart = new Chart(statsChart, {
