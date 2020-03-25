@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import Card from './Card';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
@@ -14,7 +15,7 @@ const Cards = props => {
   const [currentCard, setCurrentCard] = useState(0);
   const [deck, setDeck] = useState([]);
   const [sessionData, setSessionData] = useState({
-    studyDate: new Date().toDateString(),
+    // studyDate: new Date().toDateString(),
     cardsCorrect: 0,
     cardsIncorrect: 0,
     cardsStudied: 0
@@ -33,6 +34,8 @@ const Cards = props => {
     }
   }, [props.deckcards]);
 
+  
+
   let history = useHistory();
 
   const counter = val => {
@@ -43,10 +46,31 @@ const Cards = props => {
     });
   };
 
+const submitSession = () => {
+  let id = props.match.params.user
+  console.log("ID", id)
+  axios.get(`https://flashcards-be.herokuapp.com/api/metrics/${id}/1`)
+  .then(res => {
+    console.log("RESPONSE",res)
+    if(res.data.length === 0) {
+      axios.post(`https://flashcards-be.herokuapp.com/api/metrics/${id}`, sessionData)
+      .then(res => console.log("POST RESPONSE", res))
+      .catch(err => console.log(err))
+    } else {
+      axios.put(`https://flashcards-be.herokuapp.com/api/metrics/${id}`, sessionData)
+      .then(res => console.log("PUT RESPONSE", res))
+      .catch(err => console.log(err))
+    }
+  })
+  .catch(err => console.log(err))
+}
+
+
  const finish = () => {
    if(sessionData.cardsCorrect == 0 && sessionData.cardsIncorrect == 0){
      return null
    } else {
+    submitSession()
     setShowModule(true)
    }
    
@@ -58,6 +82,7 @@ const Cards = props => {
       console.log('test')
       setCurrentCard(0);
      } if(currentCard == deck.length - 1){
+        submitSession()
         setShowModule(!showModule)
     } else {
       console.log('in the else')
