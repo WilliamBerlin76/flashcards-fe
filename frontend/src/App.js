@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './hooks/hooks';
 import firebase from 'firebase';
-import 'firebase/firestore' 
+import 'firebase/firestore'
 //import dashNav from './components/dashNav';
 import Burger from "./components/Burger";
 import Menu from "./components/menu/menu";
@@ -59,7 +59,7 @@ const config = {
 };
 firebase.initializeApp(config);
 firebase.analytics();
-export const firestore = firebase.firestore(); 
+export const firestore = firebase.firestore();
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -97,15 +97,15 @@ function App() {
           </FocusLock>
           {/* //Links here */}
           <Route path="/" render={props => {
-            return <DashNav {...props}/>
-          }}/>
-           <Route
+            return <DashNav {...props} />
+          }} />
+          <Route
             path='/import-deck'
             render={props => <DeckImport {...props} />}
           />
-          <Route 
-              path="/search" 
-              render={props => <SearchDeck {...props}  />} />
+          <Route
+            path="/search"
+            render={props => <SearchDeck {...props} />} />
           <Route exact path='/' component={Marketing} />
           <Route exact path='/decklist' component={DeckList} />
           <Route
@@ -139,7 +139,6 @@ function App() {
             render={props => <ArchiveDecks {...props} />}
           />
           <Route
-<<<<<<< HEAD
             path="/archived-decks/:colId"
             render={props => <ArchivedDeckView {...props} />}
           />
@@ -154,12 +153,6 @@ function App() {
           <Route path="/stats" render={() => {
             return <UserMetrics />
           }} />
-=======
-            path='/archived-decks/:colId'
-            render={props => <ArchivedDeckView {...props}/>}  />
-          <Route path = '/editcard/:deckName/cards' render ={props => <EditCard {...props}/>} />
-          <Route path = '/editcard/:deckName/newcards' render = {props => <NewCard {...props}/>} />
->>>>>>> ed36324772ec74cbbb475b45397b2d35ea558c2d
           {/* //Switch Here */}
         </div>
       </>
