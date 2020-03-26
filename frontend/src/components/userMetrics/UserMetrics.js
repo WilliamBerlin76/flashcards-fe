@@ -6,8 +6,9 @@ import firebase from 'firebase'
 
 const UserMetrics = () => {
     const [myChart, setMyChart] = useState("bar");
-    const [newData, setNewData] = useState({ })
+    const [newData, setNewData] = useState({})
     const [userData, setUserData] = useState([]);
+    const [abr, setAbr] = useState([]);
     const [days, setDays] = useState({
         Sun: {
             cardsCorrect: 0
@@ -33,7 +34,7 @@ const UserMetrics = () => {
     })
 
 
-  
+  let arr = [];
 
 
     useEffect(() => {
@@ -52,28 +53,37 @@ const UserMetrics = () => {
                     )
                     .then(res => {
                         setUserData(res.data)
-                        // console.log(res.data[0].date);
-                        //  let date = res.data[0].date;
-                        //  let newDate = ( date / (60*60*24*1000));
-                        // console.log("newDate", date);
-
-                        // 1585137600000
-                        // console.log(newDate.toDateString());
-                      console.log(res.data)
-                       let itemDates = []
-                        res.data.map(day => {
+                       
+                       console.log(res.data);
+                        // res.data.map(day => {
                         
-                            let newDate = new Date(day.date).toDateString();
-                              itemDates.push(newDate)
-                              console.log(itemDates)
+                        //     let newDate = new Date(day.date).toDateString();
+                        //     console.log(newDate)
+                        //     let other = newDate.split(" ");
+                        //     console.log(other[0])
+                        //     setDays({
+                        //         ...days,
+                        //         [other[0]]: day.metrics
+                        //     })
+                        //     console.log(days)
+                        
+
+                             
+                        //     //   setDays({
+                        //     //       ...days,
+                        //     //       [other[0]]: day.metrics
+                        //     //   })
+                        //     // daySet(other[0], day.metrics);
+                        // })
+
+                        for(let i = res.data.length; i > 0; i--) {
+                            let newDate = new Date(res.data[i].date).toDateString();
                             let other = newDate.split(" ");
-                           
                             setDays({
                                 ...days,
-                                [other[0]]: day.metrics
+                                [other[0]]: res.data[i].metrics
                             })
-                        })
-
+                        }
                     })
                     .catch(err => {
                         console.log(err);
@@ -83,6 +93,16 @@ const UserMetrics = () => {
             }
         });
     }, [])
+
+    const daySet = () => {
+        setDays({
+            ...days,
+            [other[0]]: day.metrics
+        })
+    }  
+    useEffect(() => {
+    daySet()
+    },[days])
 
 
  useEffect(() =>{
@@ -110,13 +130,16 @@ const UserMetrics = () => {
 
   
 
-
+    const test = e => {
+        // console.log(abr);
+        console.log(days);
+    }
    
 
     return (
         <div>
             <div className="chart-container">
-                
+                <button onClick={test}>Test</button>
                 <select id="chartType">
                     <option value="bar">Bar</option>
                     <option value="line">Line</option>
