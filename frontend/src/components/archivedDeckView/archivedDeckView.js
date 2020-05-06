@@ -18,7 +18,7 @@ export default function ArchivedDeckView(props) {
         let currentUser = firebase.auth().currentUser.uid;
         axios
           .get(
-            `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${collection}/archive`
+            `https://mneme-cards.herokuapp.com/api/deck/${currentUser}/${collection}/archive`
           )
           .then(res => {
             setDeckArr(res.data.cards);

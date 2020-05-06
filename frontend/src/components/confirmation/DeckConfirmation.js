@@ -27,7 +27,7 @@ function DeckConfirmation(props) {
   const archiveDeck = async () => {
     axios
       .post(
-        `https://flashcards-be.herokuapp.com/api/deck/archive/${currentUser}/${colId}/`
+        `https://mneme-cards.herokuapp.com/api/deck/archive/${currentUser}/${colId}/`
       )
       .then(res => {
         setTimeout(function() {
@@ -43,7 +43,7 @@ function DeckConfirmation(props) {
   const unArchiveDeck = async () => {
     axios
       .post(
-        `https://flashcards-be.herokuapp.com/api/deck/remove-archive/${currentUser}/${colId}/`
+        `https://mneme-cards.herokuapp.com/api/deck/remove-archive/${currentUser}/${colId}/`
       )
       .then(res => {
         setTimeout(function() {
@@ -59,7 +59,7 @@ function DeckConfirmation(props) {
   const deleteDeck = () => {
     axios
       .delete(
-        `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${colId}/delete-deck`
+        `https://mneme-cards.herokuapp.com/api/deck/${currentUser}/${colId}/delete-deck`
       )
       .then(res => {
         setTimeout(function() {
@@ -75,7 +75,7 @@ function DeckConfirmation(props) {
   const deleteArchivedDeck = () => {
     axios
       .delete(
-        `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${colId}/delete-archived-deck`
+        `https://mneme-cards.herokuapp.com/api/deck/${currentUser}/${colId}/delete-archived-deck`
       )
       .then(res => {
         setTimeout(function() {

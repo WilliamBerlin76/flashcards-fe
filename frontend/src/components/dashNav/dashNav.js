@@ -18,7 +18,7 @@ const DashNav = props => {
           case "/Preferences":
             return null;
           default:
-            if(curUser) {
+            if(firebase.auth().currentUser) {
               return (
                 <img src={firebase.auth().currentUser.photoURL} alt='profile pic' className='desk-dash-pic' />
               )

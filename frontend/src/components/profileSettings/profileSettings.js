@@ -44,7 +44,7 @@ const Settings = props => {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         let user = firebase.auth().currentUser.uid;
-        axios.get(`https://flashcards-be.herokuapp.com/api/users/${user}`)
+        axios.get(`https://mneme-cards.herokuapp.com/api/users/${user}`)
           .then(res => {
             setPreferences(res.data.data)
           })
@@ -73,7 +73,7 @@ const Settings = props => {
 
   const submitForm = e => {
     e.preventDefault();
-    axios.put(`https://flashcards-be.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`, {changes: preferences})
+    axios.put(`https://mneme-cards.herokuapp.com/api/users/${firebase.auth().currentUser.uid}`, {changes: preferences})
       .then(res => {
         props.history.push('/dashboard')
       })

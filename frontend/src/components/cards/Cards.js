@@ -49,15 +49,15 @@ const Cards = props => {
 const submitSession = () => {
   let id = props.match.params.user
   console.log("ID", id)
-  axios.get(`https://flashcards-be.herokuapp.com/api/metrics/${id}/1`)
+  axios.get(`https://mneme-cards.herokuapp.com/api/metrics/${id}/1`)
   .then(res => {
     console.log("RESPONSE",res)
     if(res.data.length === 0) {
-      axios.post(`https://flashcards-be.herokuapp.com/api/metrics/${id}`, sessionData)
+      axios.post(`https://mneme-cards.herokuapp.com/api/metrics/${id}`, sessionData)
       .then(res => console.log("POST RESPONSE", res))
       .catch(err => console.log(err))
     } else {
-      axios.put(`https://flashcards-be.herokuapp.com/api/metrics/${id}`, sessionData)
+      axios.put(`https://mneme-cards.herokuapp.com/api/metrics/${id}`, sessionData)
       .then(res => console.log("PUT RESPONSE", res))
       .catch(err => console.log(err))
     }

@@ -30,7 +30,7 @@ const DeckCards = props => {
     } else {
       axios
         .get(
-          `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.deckName}`
+          `https://mneme-cards.herokuapp.com/api/deck/${currentUser}/${props.deckName}`
         )
         .then(res => {
           setExampleCard(res.data.deckInformation.exampleCard);

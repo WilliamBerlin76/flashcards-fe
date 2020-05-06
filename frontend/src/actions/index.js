@@ -37,7 +37,7 @@ export const getDecks = id => dispatch => {
     .get("https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy")
     .then(response => {
       axios
-        .get(`https://flashcards-be.herokuapp.com/api/deck/${id}`)
+        .get(`https://mneme-cards.herokuapp.com/api/deck/${id}`)
         .then(res => {
           let deckArray;
           if (res.data) {
@@ -69,7 +69,7 @@ export const getCards = (deck, user) => dispatch => {
       });
   } else {
     axios
-      .get(`https://flashcards-be.herokuapp.com/api/deck/${user}/${deck}`)
+      .get(`https://mneme-cards.herokuapp.com/api/deck/${user}/${deck}`)
       .then(response => {
         dispatch({ type: CARDS_SUCCESS, payload: response.data.data });
       })
@@ -95,7 +95,7 @@ export const postDecks = (deck, deckName, tags, icon) => dispatch => {
   console.log({ cards, deck: { tags, icon } });
   axios
     .post(
-      `https://flashcards-be.herokuapp.com/api/deck/${id}/${deckName.deckName}`,
+      `https://mneme-cards.herokuapp.com/api/deck/${id}/${deckName.deckName}`,
       { cards, deck: { tags, icon } }
     )
     .then(res => {
@@ -117,7 +117,7 @@ export const postCards = (cards, colId, props, deckInformation) => dispatch => {
   const id = firebase.auth().currentUser.uid;
 
   axios
-    .post(`https://flashcards-be.herokuapp.com/api/deck/${id}/${colId}/add`, {
+    .post(`https://mneme-cards.herokuapp.com/api/deck/${id}/${colId}/add`, {
       cards: cards
     })
     .then(res => {
@@ -140,7 +140,7 @@ export const editCard = (deck, id, deckName) => dispatch => {
   console.log(changess);
   axios
     .put(
-      `https://flashcards-be.herokuapp.com/api/deck/update/${id}/${deckName}`,
+      `https://mneme-cards.herokuapp.com/api/deck/update/${id}/${deckName}`,
       changess
     )
     // .put(`https://flashcards-be.herokuapp.com/api/demo/I2r2gejFYwCQfqafWlVy/${deck.id}`, deck.data)

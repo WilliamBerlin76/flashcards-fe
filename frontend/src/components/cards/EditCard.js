@@ -92,7 +92,7 @@ const Cards = props => {
 		let currentUser = firebase.auth().currentUser.uid;
 		axios
 			.delete(
-				`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.match.params.deckName}/delete-cards`,
+				`https://mneme-cards.herokuapp.com/api/deck/${currentUser}/${props.match.params.deckName}/delete-cards`,
 				{ data: cards }
 			)
 			.then(res => {
@@ -146,7 +146,7 @@ const Cards = props => {
 		console.log(card);
 		axios
 			.post(
-				`https://flashcards-be.herokuapp.com/api/deck/${currentUser}/${props.match.params.deckName}/add`,
+				`https://mneme-cards.herokuapp.com/api/deck/${currentUser}/${props.match.params.deckName}/add`,
 				{ cards: [card] }
 			)
 			.then(res => {

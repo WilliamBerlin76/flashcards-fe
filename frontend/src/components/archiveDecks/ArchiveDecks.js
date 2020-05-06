@@ -24,7 +24,7 @@ export default function ArchiveDecks(props) {
         let currentUser = firebase.auth().currentUser.uid;
         axios
           .get(
-            `https://flashcards-be.herokuapp.com/api/deck/${currentUser}/archive`
+            `https://mneme-cards.herokuapp.com/api/deck/${currentUser}/archive`
           )
           .then(res => {
             console.log(res);
