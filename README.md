@@ -1,6 +1,6 @@
 # mNeme Front End
 
-- The deployed frontend url is https://mneme-staging.netlify.com
+- The deployed frontend url is https://mneme-flashcards.netlify.app/
 
 This app is designed to help people learn with flashcards. In this release canvas, users have the ability to create a profile, edit their profile preferences, view the public demo decks, and study the public demo decks.
 
@@ -24,9 +24,9 @@ This app was built using:
 - Sass
 - Firebase Auth
 
-This app is connected to a node backend API, which uses cloud firstore as a database: https://flashcards-be.herokuapp.com
+This app is connected to a node backend API, which uses cloud firstore as a database: https://mneme-cards.herokuapp.com
 
-- Documentation for the API can be found [here](https://flashcards-be.herokuapp.com/api-docs/).
+- Documentation for the API can be found [here](https://mneme-cards.herokuapp.com/api-docs/).
  
 ### Dependencies
 
